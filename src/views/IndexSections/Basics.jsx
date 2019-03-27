@@ -57,7 +57,7 @@ class Basics extends React.Component {
 			<li className="text-warning">Plant and Care</li>
 		</ul>
 		<img
-                  alt="Afghanistan"
+                  alt="divider"
                   src={require("assets/img/divider.png")}
                   style={{ width: "full" }}
                 />
@@ -432,22 +432,6 @@ class Basics extends React.Component {
 			<br/>
 			<br/>
 			<ColoredLine color="green" />
-			<br/>
-			<br/>
-			<center><h1 className="title">Step 3,<br/>Work in the Garden</h1></center>
-		    <br/><br/>
-          <h2><u>Welcome to your Garden</u></h2>
-		  <br/>
-
-		  <h3>All Actions are Free and earn curation rewards</h3>
-          <p className="category">Earn XP through your in-game actions<br/><br/>Each Action is timed! and 
-		  The closer to the correct time you water and feed etc... the more XP you will receive</p>
-		  <br/>
-		        <center><img
-                  alt="..."
-                  className="img-raised"
-                  src={require("assets/img/landing-page.png")}
-                /></center>
         </Container>
       </div>
     );

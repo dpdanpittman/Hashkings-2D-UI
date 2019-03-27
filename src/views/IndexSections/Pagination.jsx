@@ -35,6 +35,24 @@ class PaginationSection extends React.Component {
           src={require("assets/img/path5.png")}
         />
         <Container>
+		<br/>
+		<br/>
+		<center><h1 className="title">Step 3,<br/>Work in the Garden</h1></center>
+		<br/>
+		<br/>
+        <h2><u>Welcome to your Garden</u></h2>
+		<br/>
+		<h3>All Actions are Free and earn curation rewards</h3>
+		<p className="category">Earn XP through your in-game actions<br/><br/>Each Action is timed! and 
+		the closer to the correct time you water and feed etc... the more XP you will receive</p>
+		<br/>
+			<center><img
+				alt="..."
+                className="img-raised"
+                src={require("assets/img/landing-page.png")}
+                /></center>
+				<br />
+				<br />
 		<center>
           <Row>
 		  <Col md="4">
@@ -130,7 +148,7 @@ class PaginationSection extends React.Component {
             </Col>
 			<Col md="6">
               <h3 className="mb-4">*</h3>
-              <div className="progress-container">
+              <div className="progress-container copywrite">
                 <span className="progress-badge">Time until next feeding</span>
                 <Progress max="100" value="55">
                   <span className="progress-value">55%</span>
