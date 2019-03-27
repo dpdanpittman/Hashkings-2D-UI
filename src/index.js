@@ -11,10 +11,13 @@ import LandingPage from "views/examples/LandingPage.jsx";
 import RegisterPage from "views/examples/RegisterPage.jsx";
 import ProfilePage from "views/examples/ProfilePage.jsx";
 
+import Login from "./Login.jsx";
+
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/components" render={props => <Index {...props} />} />
+      <Route path="/home" render={props => <Index {...props} />} />
+	  <Route path="/login" exact component={Login} />
       <Route
         path="/landing-page"
         render={props => <LandingPage {...props} />}
@@ -27,7 +30,7 @@ ReactDOM.render(
         path="/profile-page"
         render={props => <ProfilePage {...props} />}
       />
-      <Redirect from="/" to="/components" />
+      <Redirect from="/" to="/home" />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")
