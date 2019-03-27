@@ -13,6 +13,12 @@ import ProfilePage from "views/examples/ProfilePage.jsx";
 
 import Login from "./Login.jsx";
 
+if(window.steem_keychain) {
+    // Steem Keychain extension installed...
+} else {
+    // Steem Keychain extension not installed...
+}
+
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
