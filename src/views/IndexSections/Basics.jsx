@@ -50,15 +50,32 @@ class Basics extends React.Component {
       <div className="section section-basic" id="basic-elements">
         <img alt="..." className="path" src={require("assets/img/path1.png")} />
         <Container>
-          <center><h2 className="title">Step 1,<br/>lease a plot of land<br/><ColoredLine color="green" /></h2></center>
+		  <h4>Follow these 3 Steps and be on your way to success</h4>
+		<ul>
+			<li className="text-warning">Lease Land</li>
+			<li className="text-warning">Purchase a Seed</li>
+			<li className="text-warning">Plant and Care</li>
+		</ul>
+		<img
+                  alt="Afghanistan"
+                  src={require("assets/img/divider.png")}
+                  style={{ width: "full" }}
+                />
+		  <br/>
+		  <br/>
+		  <br/>
+		  <br/>
+		  <br/>
+		  <br/>
+		  <center><h1 className="title">Step 1,<br/>Lease a plot of land</h1></center>
 		  <br/><br/>
-          <h2>Welcome to Our Leasing Office</h2>
+          <h2><u>Welcome to Our Leasing Office</u></h2>
 		  <br/>
-		  <h3>One Plot Lease: 20 Steem</h3>
           <p className="category">Below you can find our available leases. <br/>Each Region only has a limited amount
-		  of plots available.<br/>If there are no more properties available please visit our Marketplace</p>
+		  of plots available.<br/>If there are no more properties available please visit our Marketplace</p><br />
+		  <h3>One Plot Lease: 20 Steem</h3>
 		  <br/>
-		  <Col md="10">
+		  <center>
             <Row>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
                 <img
@@ -130,18 +147,19 @@ class Basics extends React.Component {
               </Button>
               </Col>
             </Row>
-			</Col>
+			</center>
 			<br/>
 			<br/>
 			<ColoredLine color="green" />
 			<br/>
 			<br/>
-          <center><h2 className="title">Step 2,<br/>Purchase a seed<br/><ColoredLine color="green" /></h2></center>
+          <center><h1 className="title">Step 2,<br/>Purchase a seed</h1></center>
 		  <br/><br/>
-          <h2>Welcome to our Seed Bank</h2>
+          <h2><u>Welcome to our Seed Bank</u></h2>
+		  <p className="category">Below you can find our available Seeds. <br/><u className="text-danger">One Seed per Plot!</u><br/>This means each seed must have a plot to be planted</p>
 		  <br/>
-		  <h3>Hand-Picked Seed Cost: 3 Steem <br/> Comes with 2250 XP</h3>
-		  			<Row>
+		  <h3>Hand-Picked Seed Cost: 3 Steem <br/>Valued 2250 XP</h3>
+		  <Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button className="btn-round" color="warning" type="button">
                 Hindu Kush
@@ -231,8 +249,7 @@ class Basics extends React.Component {
 			</Row>
 			<br/>
 			<br/>
-		  <h3>Premium Seed Cost: 1.5 Steem <br/> Comes with 750 XP</h3>
-          <p className="category">Below you can find our available basic Seeds. <br/>One Seed for One Plot.<br/>Each seed must have a plot attached to it</p>
+		  <h3>Premium Seed Cost: 1.5 Steem <br/>Valued 750 XP</h3>          
 			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button className="btn-round" color="info" type="button">
@@ -323,7 +340,7 @@ class Basics extends React.Component {
 			</Row>
 			<br/>
 			<br/>
-		  <h3>Basic Seed Cost: 0.75 Steem <br/> Comes with 1 XP</h3>
+		  <h3>Basic Seed Cost: 0.75 Steem <br/> Valued 1 XP</h3>
 		  			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button className="btn-round" color="default" type="button">
@@ -417,79 +434,20 @@ class Basics extends React.Component {
 			<ColoredLine color="green" />
 			<br/>
 			<br/>
-			<center><h2 className="title">Step 3,<br/>Work in the Garden<br/><ColoredLine color="green" /></h2></center>
+			<center><h1 className="title">Step 3,<br/>Work in the Garden</h1></center>
 		    <br/><br/>
-          <h2>Welcome to your Garden</h2>
+          <h2><u>Welcome to your Garden</u></h2>
 		  <br/>
-		  <h3>Actions are Free</h3>
-          <p className="category">Earn XP through your in-game actions<br/><br/>Each Action is timed!<br/>
-		  The closer to the correct time you water and feed etc... the more XP you will receive<br/></p>
-		  <h4>Taking care of your plant is the most important part of growing.  Listen to your plant, it will tell you what it needs</h4>
-		  <ColoredLine color="green" />
-		  <div className="section section-navbars">
-        <img alt="..." className="path" src={require("assets/img/path3.png")} />
-        <Container id="menu-dropdown">
-          <Row>
-            <Col md="6">
-              <h3>Gardening</h3>
-              <Navbar className="bg-warning" expand="lg">
-                <Container>                  
-                  <button className="navbar-toggler" aria-expanded={false}>
-                    <span className="navbar-toggler-bar bar1" />
-                    <span className="navbar-toggler-bar bar2" />
-                    <span className="navbar-toggler-bar bar3" />
-                  </button>
-                  <Collapse navbar isOpen={false}>
-                    <Nav navbar>
-                      <NavItem className="active">
-                        <NavLink
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <h4>Plant</h4>
-                        </NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <h4>Water</h4>
-                        </NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <h4>Prune</h4>
-                        </NavLink>
-                      </NavItem>	
-                      <NavItem>
-                        <NavLink
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <h4>Feed</h4>
-                        </NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <h4>Fight Bugs</h4>
-                        </NavLink>
-                      </NavItem>					  
-                    </Nav>
-                  </Collapse>
-                </Container>
-              </Navbar>
-            </Col>
-            
-          </Row>
-		  </Container>
-      </div>
+
+		  <h3>All Actions are Free and earn curation rewards</h3>
+          <p className="category">Earn XP through your in-game actions<br/><br/>Each Action is timed! and 
+		  The closer to the correct time you water and feed etc... the more XP you will receive</p>
+		  <br/>
+		        <center><img
+                  alt="..."
+                  className="img-raised"
+                  src={require("assets/img/landing-page.png")}
+                /></center>
         </Container>
       </div>
     );

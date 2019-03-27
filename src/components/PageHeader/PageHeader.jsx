@@ -16,11 +16,13 @@ class PageHeader extends React.Component {
         <div className="squares square7" />
         <Container>
           <div className="content-center brand">
-            <h1 className="h1-seo">HashKings</h1>
+		  		<center><img
+                  alt="..."
+                  src={require("assets/img/hashkingsbanner.png")}
+                /></center>
             <h3 className="d-none d-sm-block">
               The Steem Blockchain Cannabis Farming Game
             </h3>
-			<h4>Please Scroll down to play the game</h4>
           </div>
         </Container>
       </div>
