@@ -1,28 +1,10 @@
 import React from "react";
-import classnames from "classnames";
 // plugin that creates slider
 // react plugin used to create switch buttons
-import Switch from "react-bootstrap-switch";
 
 // reactstrap components
 import {
-  Collapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  NavbarBrand,
-  Navbar,
-  NavItem,
-  NavLink,
-  Nav,
   Button,
-  Label,
-  FormGroup,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
   Row,
   Col

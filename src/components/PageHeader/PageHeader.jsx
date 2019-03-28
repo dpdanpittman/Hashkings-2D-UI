@@ -16,8 +16,13 @@ class PageHeader extends React.Component {
             <h3 className="d-none d-sm-block">
               The Steem Blockchain Cannabis Farming Game
             </h3>
-          </div>
-        </Container>
+			<br/>
+			<img
+			alt="..."
+            src={require("assets/img/weed_leaf_hashkings_qwoyn.png")}
+            />
+		  </div>
+		</Container>
       </div>
     );
   }
