@@ -46,7 +46,6 @@ function LoginForm({ refetchMe }) {
   if (!steemKeychain) {
     if (steemKeychainLoaded) {
       // prettier-ignore
-      return <p>Please install <Link href="https://github.com/MattyIce/steem-keychain"><a>Steem Keychain</a></Link> to login</p>;
     } else {
       return checkForKeychain();
     }
@@ -205,8 +204,8 @@ export default class Login extends Component {
   render() {
     return (
       <div className="Login">
-        <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="username" bsSize="large">
+        <form onSubmit={this.Login}>
+          <FormGroup controlId="username" bssize="large">
             <FormLabel>username</FormLabel>
             <FormControl
               autoFocus
@@ -217,7 +216,7 @@ export default class Login extends Component {
           </FormGroup>
           <Button
             block
-            bsSize="large"
+            bssize="large"
             disabled={!this.validateForm()}
             type="submit"
           >
