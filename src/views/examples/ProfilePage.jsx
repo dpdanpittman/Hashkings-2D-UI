@@ -1,4 +1,5 @@
 import React from "react";
+import Cookie from 'js-cookie';
 import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
@@ -101,7 +102,7 @@ class ProfilePage extends React.Component {
             <Container className="align-items-center">
               <Row>
                 <Col lg="6" md="6">
-                  <h1 className="profile-title text-left">Mike Scheinder</h1>
+                  <h1 className="profile-title text-left">Hello {Cookie.get("username") || ""}</h1>
                   <h5 className="text-on-back">01</h5>
                   <p className="profile-description">
                     Offices parties lasting outward nothing age few resolve.

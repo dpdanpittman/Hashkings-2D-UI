@@ -1,7 +1,7 @@
 {
   "name": "Hashkings-UI",
   "version": "0.1.0",
-  "description": "HashKings 2D",
+  "description": "HashKings 2D interface for HashKings, Steem Farming Simulator",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
   "homepage": "https://github.com/dpdanpittman/my-app#readme",
   "dependencies": {
     "apollo-client": "^2.5.1",
+    "babel-cli": "^6.26.0",
     "chart.js": "2.7.3",
     "classnames": "2.2.6",
     "formik": "^1.5.1",
@@ -54,6 +55,7 @@
     "react-chartjs-2": "2.7.4",
     "react-datetime": "2.16.3",
     "react-dom": "16.8.3",
+    "react-native": "^0.59.2",
     "react-native-steem-signin": "^0.1.2",
     "react-router-dom": "4.3.1",
     "react-scripts": "^2.1.8",

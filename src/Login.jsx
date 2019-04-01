@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import "./Login.css";
 
+import {  withRouter } from 'react-router-dom'
+
 import gql from "graphql-tag";
 import { Link } from "react-router-dom";
 // reactstrap components
@@ -29,7 +31,6 @@ export const VERIFY_LOGIN_MUTATION = gql`
   }
 `;
 // --------------------------
-
 
 const useMe = require("./useMe.js");
 const useSteemKeychain = require("./useSteemKeychain.js");
@@ -178,7 +179,7 @@ function Header() {
 
 //-----------------------------------------------------------------------
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
 
@@ -199,12 +200,35 @@ export default class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    Cookie.set("username", this.state.username)
+    // this.props.history.push('/profile-page')
+    if(window && window.steem_keychain) {
+    window.steem_keychain.requestPost(
+        Cookie.get("username"), 
+        "Test title", 
+        "Test body", 
+        "test-category",
+        "",
+        JSON.stringify({ permlink: "test-permlink", author: Cookie.get("username")}),
+        "test-permlink",
+        "", 
+        response => {
+                if(response.success) {
+                    alert("Posted to blockchain")
+                } else {
+		    console.log(response)
+                    alert("Sorry, an error ocurred")
+                }
+        }
+    )
+}
+
   }
 
   render() {
     return (
       <div className="Login">
-        <form onSubmit={this.Login}>
+        <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="username" bssize="large">
             <FormLabel>username</FormLabel>
             <FormControl
@@ -227,3 +251,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default withRouter(Login);
