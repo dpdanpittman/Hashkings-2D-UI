@@ -202,25 +202,8 @@ class Login extends Component {
     event.preventDefault();
     Cookie.set("username", this.state.username)
     // this.props.history.push('/profile-page')
-    if(window && window.steem_keychain) {
-    window.steem_keychain.requestPost(
-        Cookie.get("username"), 
-        "Test title", 
-        "Test body", 
-        "test-category",
-        "",
-        JSON.stringify({ permlink: "test-permlink", author: Cookie.get("username")}),
-        "test-permlink",
-        "", 
-        response => {
-                if(response.success) {
-                    alert("Posted to blockchain")
-                } else {
-		    console.log(response)
-                    alert("Sorry, an error ocurred")
-                }
-        }
-    )
+    if(window && !window.steem_keychain) {
+    alert('You must install Steem Keychain to play')
 }
 
   }
