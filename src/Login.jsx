@@ -3,6 +3,7 @@ import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import "./Login.css";
 import {  withRouter } from 'react-router-dom'
 import Cookie from "js-cookie";
+import Swal from "sweetalert2";
 // import { useState } from "react";
 
 class Login extends Component {
@@ -28,8 +29,22 @@ class Login extends Component {
     event.preventDefault();
     Cookie.set("username", this.state.username)
     this.props.history.push('/')
+Swal.fire({
+  title: 'Welcome',
+  text: 'You are now logged in to your Garden',
+  imageUrl: 'https://i.imgur.com/aDDEpiF.png',
+  imageWidth: 400,
+  imageHeight: 200,
+  imageAlt: 'welcome to hashkings',
+  animation: true
+})
     if(window && !window.steem_keychain) {
-    alert('You must install Steem Keychain to play')
+Swal.fire({
+  type: 'error',
+  title: 'Oops...',
+  text: 'Something went wrong!',
+  footer: '<a href="https://chrome.google.com/webstore/detail/steem-keychain/lkcjlnjfpbikmcmbachjpdbijejflpcm?hl=en">Please install Steem Keychain and try again</a>'
+})
 	}
   }
 
