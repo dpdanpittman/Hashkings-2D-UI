@@ -48,14 +48,9 @@ class Basics extends React.Component {
     const toAccount = "hashkings"
     const amount = "20.000";
     if(steem_keychain && username) {
-		//------------
-		steem_keychain.requestBroadcast(username, ['custom_json', {required_auths=[],required_posting_auths=[username],id="qwoyn_water",json={[]}}, 'posting', function(response) {
-        console.log(response);
-});
-		//------------
-       /* steem_keychain.requestTransfer(username, toAccount, amount, landType, "STEEM", function(response) {
+        steem_keychain.requestTransfer(username, toAccount, amount, landType, "STEEM", function(response) {
             console.log(response);
-        },true);*/
+        },true);
     }
   }
 
