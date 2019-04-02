@@ -1,10 +1,10 @@
 <h1 align="center">HashKings</h1>
 
 <div align="center">
-  <strong>Steem Blockchain Gaming</strong>
+  <strong>Gamified Staking</strong>
 </div>
 <div align="center">
-  Steem Blockchain Gamified Staking, grow crypto cannabis and get paid to play! 
+  Steem Blockchain Gaming | Grow Crypto Cannabis and get paid to play! 
 </div>
 
 <br />
