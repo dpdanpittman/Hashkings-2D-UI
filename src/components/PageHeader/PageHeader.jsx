@@ -7,6 +7,7 @@ class PageHeader extends React.Component {
     return (
       <div className="page-header header-filter">
         <div className="squares square1" />
+		<div className="squares square4" />
         <Container>
           <div className="content-center brand">
             <h1>
