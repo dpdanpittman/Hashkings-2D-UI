@@ -6,8 +6,8 @@ import PageHeader from "components/PageHeader/PageHeader.jsx";
 
 
 // sections for this page/view
-import Basics from "views/IndexSections/Basics.jsx";
-import Pagination from "views/IndexSections/Pagination.jsx";
+import Basics from "views/IndexSections/hkPlanet.jsx";
+import Pagination from "views/IndexSections/GardenActions.jsx";
 
 class Index extends React.Component {
   componentDidMount() {

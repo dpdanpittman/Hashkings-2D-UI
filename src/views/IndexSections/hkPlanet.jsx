@@ -1,7 +1,4 @@
 import React from "react";
-// plugin that creates slider
-// react plugin used to create switch buttons
-
 // reactstrap components
 import {
   Button,
@@ -9,8 +6,10 @@ import {
   Row,
   Col
 } from "reactstrap";
+// cookie components for login
 import Cookie from 'js-cookie';
 
+// fancy coloredline, default green
 const ColoredLine = ({ color }) => (
     <hr
         style={{
@@ -28,7 +27,9 @@ class Basics extends React.Component {
       inputFocus: false
     };
   }
-
+  
+  // this gathers username and asks steem keychain to send 20.000 Steem to @hashkings in order to purchase land.  
+  // the (landType) is entered in the on.click function in render
   handleLand = (landType) => {
     const steem_keychain = window.steem_keychain;
     const username = Cookie.get("username");
@@ -38,6 +39,23 @@ class Basics extends React.Component {
         steem_keychain.requestTransfer(username, toAccount, amount, landType, "STEEM", function(response) {
             console.log(response);
         },true);
+    }
+  }
+  
+    handleWater = (landType) => {
+    const steem_keychain = window.steem_keychain;
+    const username = Cookie.get("username");
+    const toAccount = "hashkings"
+    const amount = "20.000";
+    if(steem_keychain && username) {
+		//------------
+		steem_keychain.requestBroadcast(username, ['custom_json', {required_auths=[],required_posting_auths=[username],id="qwoyn_water",json={[]}}, 'posting', function(response) {
+        console.log(response);
+});
+		//------------
+       /* steem_keychain.requestTransfer(username, toAccount, amount, landType, "STEEM", function(response) {
+            console.log(response);
+        },true);*/
     }
   }
 
