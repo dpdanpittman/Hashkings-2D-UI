@@ -52,36 +52,13 @@
 - __minimal requirements:__ easy to use with [Steem Keychain](https://chrome.google.com/webstore/detail/steem-keychain/lkcjlnjfpbikmcmbachjpdbijejflpcm?hl=en)
 - __isomorphic:__ renders seamlessly in both Node and browsers
 
-## Philosophy
-We believe programming should be fun and light, not stern and stressful. It's
-cool to be cute; using serious words without explaining them doesn't make for
-better results - if anything it scares people off. We don't want to be scary,
-we want to be nice and fun, and then _casually_ be the best choice around.
-_Real casually._
+## Screenshot
 
-We believe frameworks should be disposable, and components recyclable. We don't
-want a web where walled gardens jealously compete with one another. By making
-the DOM the lowest common denominator, switching from one framework to another
-becomes frictionless. choo is modest in its design; we don't believe it will
-be top of the class forever, so we've made it as easy to toss out as it is to
-pick up.
-
-We don't believe that bigger is better. Big APIs, large complexities, long
-files - we see them as omens of impending userland complexity. We want everyone
-on a team, no matter the size, to fully understand how an application is laid
-out. And once an application is built, we want it to be small, performant and
-easy to reason about. All of which makes for easy to debug code, better results
-and super smiley faces.
+<center>![hashkings_screenshot_qwoyn_steem_blockchain_gaming](https://i.imgur.com/0rHqYS8.png)</center>
 
 ## FAQ
-### Why is it called choo?
-Because I thought it sounded cute. All these programs talk about being
-_"performant"_, _"rigid"_, _"robust"_ - I like programming to be light, fun and
-non-scary. choo embraces that.
-
-Also imagine telling some business people you chose to rewrite something
-critical for serious bizcorp using a train themed framework.
-:steam_locomotive::train::train::train:
+### Are there game instructions or a guide?
+Yes our game instructions and user guide can be found on our [website](https://qwoyn) and in on the [@qwoyn Steemit blog](https://steemit.com/@qwoyn)
 
 ### Is it called choo, choo.js or...?
 It's called "choo", though we're fine if you call it "choo-choo" or
@@ -103,8 +80,8 @@ significant overhead. To optimize we recommend running `browserify` with
 $ browserify -g nanohtml
 ```
 
-### Is choo production ready?
-Sure.
+### Is there a 3D version of Hashkings?
+Yes, you heard correctly.  You can play hashkings in virtual reality on the dlux.io platform using Firefox browser. 
 
 ## API
 This section provides documentation on how each function in choo works. It's
@@ -181,31 +158,26 @@ $ npm install choo
 ```
 
 ## See Also
-- [bankai](https://github.com/hashkingsjs/bankai) - streaming asset compiler
-- [stack.gl](http://stack.gl/) - open software ecosystem for WebGL
-- [yo-yo](https://github.com/maxogden/yo-yo) - tiny library for modular UI
-- [tachyons](https://github.com/tachyons-css/tachyons) - functional CSS for
-  humans
-- [sheetify](https://github.com/stackcss/sheetify) - modular CSS bundler for
-  `browserify`
+- [Hashkings Smart Contract](https://github.com/disregardfiat/hashkings) - smart contract developer github
+- [Steem.js](https://github.com/steemit/steem-js) - Open software library for the steem blockchain
+- [Steem Keychain](https://github.com/MattyIce/steem-keychain) - Steem Wallet browser extension
+- [React.js](https://reactjs.org/) -  JavaScript library created by Facebook. React is a User Interface (UI) library.
 
 ## Support
-Creating a quality framework takes a lot of time. Unlike others frameworks,
-choo is completely independently funded. We fight for our users. This does mean
+Creating a blockchain game takes a lot of time. Unlike others frameworks,
+Hashkings is completely independently funded. This does mean
 however that we also have to spend time working contracts to pay the bills.
 This is where you can help: by chipping in you can ensure more time is spent
-improving choo rather than dealing with distractions.
+improving Hashkings rather than dealing with distractions.
 
-### Sponsors
-Become a sponsor and help ensure the development of independent quality
+### Delegate
+Become a deledator and help ensure the development of independent quality
 software. You can help us keep the lights on, bellies full and work days sharp
-and focused on improving the state of the web. [Become a
-sponsor](https://opencollective.com/choo#sponsor)
+and focused on improving the state of the web.
 
 
 ### Backers
 Become a backer, and buy us a coffee (or perhaps lunch?) every month or so.
-[Become a backer](https://opencollective.com/choo#backer)
 
 
 ## License
