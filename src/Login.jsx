@@ -27,16 +27,22 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
     Cookie.set("username", this.state.username)
-    // this.props.history.push('/profile-page')
+    this.props.history.push('/')
     if(window && !window.steem_keychain) {
     alert('You must install Steem Keychain to play')
-}
-
+	}
   }
 
   render() {
     return (
       <div className="Login">
+		<center>
+		<img
+        alt="..."
+        src={require("assets/img/hashkingsbanner.png")}
+        />
+		</center>
+	  <center><h2>Please login below</h2></center>
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="username" bssize="large">
             <FormLabel>username</FormLabel>
@@ -53,7 +59,7 @@ class Login extends Component {
             disabled={!this.validateForm()}
             type="submit"
           >
-            Steem Keychain Login
+            Submit
           </Button>
         </form>
       </div>
