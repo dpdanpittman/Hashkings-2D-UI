@@ -60,7 +60,7 @@
 
 ## FAQ
 ### Are there game instructions or a guide?
-Yes our game instructions and user guide can be found on our [website](https://qwoyn) and in on the [@qwoyn Steemit blog](https://steemit.com/@qwoyn)
+Yes our game instructions and user guide can be found on our [website](https://qwoyn) and on the [@qwoyn Steemit blog](https://steemit.com/@qwoyn)
 
 ## See Also
 - [Hashkings Smart Contract](https://github.com/disregardfiat/hashkings) - smart contract developer github

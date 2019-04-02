@@ -9,6 +9,7 @@ import {
   Row,
   Col
 } from "reactstrap";
+import Cookie from 'js-cookie';
 
 const ColoredLine = ({ color }) => (
     <hr
@@ -27,6 +28,19 @@ class Basics extends React.Component {
       inputFocus: false
     };
   }
+
+  handleLand = (landType) => {
+    const steem_keychain = window.steem_keychain;
+    const username = Cookie.get("username");
+    const toAccount = "hashkings"
+    const amount = "20.000";
+    if(steem_keychain && username) {
+        steem_keychain.requestTransfer(username, toAccount, amount, landType, "STEEM", function(response) {
+            console.log(response);
+        },true);
+    }
+  }
+
   render() {
     return (
       <div className="section section-basic" id="basic-elements">
@@ -66,7 +80,7 @@ class Basics extends React.Component {
                   src={require("assets/img/Afghanistan.png")}
                   style={{ width: "150px" }}
                 />
-				<Button className="btn-round" color="success" type="button">
+				<Button onClick={() => this.handleLand("a")} className="btn-round" color="success" type="button">
                 Afghanistan
               </Button>
               </Col>
@@ -77,7 +91,7 @@ class Basics extends React.Component {
                   src={require("assets/img/Africa.png")}
                   style={{ width: "150px" }}
                 />
-				<Button className="btn-round" color="success" type="button">
+				<Button onClick={() => this.handleLand("b")} className="btn-round" color="success" type="button">
                 Africa
               </Button>
               </Col>
@@ -88,7 +102,7 @@ class Basics extends React.Component {
                   src={require("assets/img/Asia.png")}
                   style={{ width: "150px" }}
                 />
-				<Button className="btn-round" color="success" type="button">
+				<Button onClick={() => this.handleLand("c")} className="btn-round" color="success" type="button">
                 Asia
               </Button>
               </Col>
@@ -102,7 +116,7 @@ class Basics extends React.Component {
                   src={require("assets/img/C_America.png")}
                   style={{ width: "150px" }}
                 />
-				<Button className="btn-round" color="success" type="button">
+				<Button onClick={() => this.handleLand("d")} className="btn-round" color="success" type="button">
                 C America
               </Button>
               </Col>
@@ -113,7 +127,7 @@ class Basics extends React.Component {
                   src={require("assets/img/Jamaica.png")}
                   style={{ width: "150px" }}
                 />
-				<Button className="btn-round" color="success" type="button">
+				<Button onClick={() => this.handleLand("e")} className="btn-round" color="success" type="button">
                 Jamaica
               </Button>
               </Col>
@@ -124,7 +138,7 @@ class Basics extends React.Component {
                   src={require("assets/img/Mexico.png")}
                   style={{ width: "150px" }}
                 />
-				<Button className="btn-round" color="success" type="button">
+				<Button onClick={() => this.handleLand("f")} className="btn-round" color="success" type="button">
                 Mexico
               </Button>
               </Col>
