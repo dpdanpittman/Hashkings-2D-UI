@@ -11,40 +11,28 @@
 
 <div align="center">
   <h3>
-    <a href="https://choo.io">
+    <a href="https://qwoyn.io">
       Website
     </a>
     <span> | </span>
-    <a href="https://github.com/hashkingsjs/choo-handbook">
-      Handbook
+    <a href="https://discord.gg/DcsPHUG">
+      Community
     </a>
     <span> | </span>
-    <a href="https://github.com/YerkoPalma/awesome-choo">
-      Ecosystem
+    <a href="https://steemit.com/@hashkings">
+      Steemit
     </a>
     <span> | </span>
-    <!-- <a href="https://github.com/trainyard/choo-cli"> -->
-    <!--   CLI -->
-    <!-- </a> -->
-    <!-- <span> | </span> -->
-    <a href="https://github.com/hashkingsjs/choo/blob/master/.github/CONTRIBUTING.md">
-      Contributing
-    </a>
-    <span> | </span>
-    <a href="https://www.reddit.com/r/hashkingsjs/">
-      Reddit
-    </a>
-    <span> | </span>
-    <a href="https://webchat.freenode.net/?channels=choo">
+    <a href="https://discord.gg/DcsPHUG">
       Chat
     </a>
   </h3>
 </div>
 
 <div align="center">
-  <sub>The little framework that could. Built with ❤︎ by
-  <a href="https://twitter.com/yoshuawuyts">Yoshua Wuyts</a> and
-  <a href="https://github.com/hashkingsjs/choo/graphs/contributors">
+  <sub>Gamified Staking. Built with ❤︎ by
+  <a href="https://twitter.com/canna_curate">Yoshua Wuyts</a> and
+  <a href="https://github.com/dpdanpittman/Hashkings-2D-UI/graphs/contributors">
     contributors
   </a>
 </div>
