@@ -6,7 +6,6 @@ class PageHeader extends React.Component {
   render() {
     return (
       <div className="page-header header-filter">
-        <div className="squares square1" />
         <Container>
 		<br/>
 		<br/>
