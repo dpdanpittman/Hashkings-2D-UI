@@ -135,12 +135,12 @@ class Basics extends React.Component {
 		  <ColoredLine color="green" />
 		  <img alt="weed gif" src="https://i.imgur.com/jkLSE.gif" />
 		  <br/>
-		  <h3>Next, get yourself a seed to plant on your plot</h3>
+		  <h3>Next, get yourself a bag of seeds to plant on your plot</h3>
 		  <h4><u>3 Seed types to choose from</u></h4>
 		  <ul>
-		  <li>1) Choose a Hand-Picked Seed.  These are the best seeds in our seed bank and come with 2250 xp.  For 3 Steem you will be able to purchase one of these top shelf seeds </li>
-		  <li>2) Choose a Premium Seed.  Looking to grow get your feet wet and find new traits with these 750 XP seeds for 1.5 Steem</li>
-		  <li>3) Choose a Basic Seed.  These seeds come with 1 XP and cost .75 Steem. These seeds are for the casual gardner looking to earn only passive income from their crops</li>
+		  <li>1) Choose Hand-Picked Seeds.  These are the best seeds in our seed bank and come with 2250 xp.  For 3 Steem you will be able to purchase one of these top shelf seeds </li>
+		  <li>2) Choose Premium Seeds.  Looking to grow get your feet wet and find new traits with these 750 XP seeds for 1.5 Steem</li>
+		  <li>3) Choose Basic Seeds.  These seeds come with 1 XP and cost .75 Steem. These seeds are for the casual gardner looking to earn only passive income from their crops</li>
 		  </ul>
 		  <br/>
 		  <ColoredLine color="green" />
