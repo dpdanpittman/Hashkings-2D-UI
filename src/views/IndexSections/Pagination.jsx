@@ -1,7 +1,5 @@
 import React from "react";
 import classnames from "classnames";
-// cookie components for login
-import Cookie from 'js-cookie';
 // reactstrap components
 import {
   NavItem,
@@ -20,26 +18,8 @@ class PaginationSection extends React.Component {
       pills: 1
     };
   }
-//-----------------------------------------------------------------------------------------------------------  
-    handleWater = () => {
-    const steem_keychain = window.steem_keychain;
-    const username = Cookie.get("username");
-	const custom_json_id = "qwoyn_water";
-	const key_type = "posting";
-	var custom_JSON = {
-		"addr1"  :  "plants",
-		"addr-n"   :  "c35"
-	};
-
-    if(steem_keychain && username) {
-		steem_keychain.requestCustomJson(username, custom_json_id, key_type, custom_JSON, "Water your Plant", function(response) {
-			console.log(response);
-		});
-    }
-  }
-//----------------------------------------------------------------------------------------------------------- 
   toggleTabs = (e, stateName, index) => {
-	e.preventDefault();
+    e.preventDefault();
     this.setState({
       [stateName]: index
     });
@@ -85,7 +65,7 @@ class PaginationSection extends React.Component {
                     className={classnames({
                       "active show": this.state.pills === 1
                     })}
-                    onClick={() => this.handleWater()}
+                    onClick={e => this.toggleTabs(e, "pills", 1)}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-atom" />
@@ -97,7 +77,7 @@ class PaginationSection extends React.Component {
                     className={classnames({
                       "active show": this.state.pills === 2
                     })}
-                    onClick={e => this.handleWater()}
+                    onClick={e => this.toggleTabs(e, "pills", 2)}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-tap-02" />

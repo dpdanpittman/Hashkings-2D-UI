@@ -1,4 +1,7 @@
 import React from "react";
+// plugin that creates slider
+// react plugin used to create switch buttons
+
 // reactstrap components
 import {
   Button,
@@ -6,10 +9,8 @@ import {
   Row,
   Col
 } from "reactstrap";
-// cookie components for login
 import Cookie from 'js-cookie';
 
-// fancy coloredline, default green
 const ColoredLine = ({ color }) => (
     <hr
         style={{
@@ -27,9 +28,7 @@ class Basics extends React.Component {
       inputFocus: false
     };
   }
-  
-  // this gathers username and asks steem keychain to send 20.000 Steem to @hashkings in order to purchase land.  
-  // the (landType) is entered in the on.click function in render
+
   handleLand = (landType) => {
     const steem_keychain = window.steem_keychain;
     const username = Cookie.get("username");
@@ -41,8 +40,7 @@ class Basics extends React.Component {
         },true);
     }
   }
-  
-    }
+
   render() {
     return (
       <div className="section section-basic" id="basic-elements">
