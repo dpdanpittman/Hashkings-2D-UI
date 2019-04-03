@@ -103,6 +103,18 @@ class Basics extends React.Component {
 		});
     }
     }
+	
+	delegatedPlot = (landType) => {
+    const steem_keychain = window.steem_keychain;
+    const username = Cookie.get("username");
+    const toAccount = "hashkings"
+    const amount = "0.500";
+    if(steem_keychain && username) {
+        steem_keychain.requestTransfer(username, toAccount, amount, landType, "STEEM", function(response) {
+            console.log(response);
+        },true);
+    }
+  }
   
   render() {
     return (
@@ -151,15 +163,34 @@ class Basics extends React.Component {
           <h2><u>Welcome to Our Leasing Office</u></h2>
 		  <br/>
           <p className="category">Below you can find our available leases. <br/>Each Region only has a limited amount
-		  of plots available.<br/>If there are no more properties available please visit our Marketplace</p><br/>
+		  of plots available.<br/>You can choose to delegate for a lease or purchase a lease</p><br/>
 		  <br/>
-		  <h3>Looking for a delegation lease? Click below.</h3>
+		  <h3>Looking for a delegation lease? Click below then choose a plot.</h3>
 		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
           Delegation Lease
 		  </Button>
+				<Button onClick={() => this.delegatedPlot("a manage")} className="btn-round" color="warning" type="button">
+                Afghanistan
+              </Button>
+<Button onClick={() => this.delegatedPlot("b manage")} className="btn-round" color="warning" type="button">
+                Africa
+              </Button>
+<Button onClick={() => this.delegatedPlot("c manage")} className="btn-round" color="warning" type="button">
+                Asia
+              </Button>
+<Button onClick={() => this.delegatedPlot("d manage")} className="btn-round" color="warning" type="button">
+                Central America
+              </Button>
+<Button onClick={() => this.delegatedPlot("e manage")} className="btn-round" color="warning" type="button">
+                Jamaica
+              </Button>
+<Button onClick={() => this.delegatedPlot("f manage")} className="btn-round" color="warning" type="button">
+                Mexico
+              </Button>			  
 		  <br/>
+		  <ColoredLine color="red" /><ColoredLine color="green" /><ColoredLine color="red" />
 		  <br/>
-		  <h3>One Plot Lease: 20 Steem</h3>
+		  <h3>Purchase One Plot Lease: 20 Steem</h3>
 		  <br/>
 		  <center>
             <Row>
@@ -258,16 +289,25 @@ class Basics extends React.Component {
 				<Button onClick={() => this.buyHPSeed("tseed afg")} className="btn-round" color="warning" type="button">
                 Afghani
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed afg")} className="btn-round" color="default" type="button">
+                Voucher(HK)
+              </Button>			  
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button onClick={() => this.buyHPSeed("tseed lkg")} className="btn-round" color="warning" type="button">
                 Lashkar Gah
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed lkg")} className="btn-round" color="default" type="button">
+                Voucher(lkg)
+              </Button>			  
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button onClick={() => this.buyHPSeed("tseed mis")} className="btn-round" color="warning" type="button">
                 Mazar i Sharif
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed mis")} className="btn-round" color="default" type="button">
+                Voucher(mis)
+              </Button>			  
               </Col>
 			</Row>
 			<Row>
@@ -275,21 +315,33 @@ class Basics extends React.Component {
 				<Button onClick={() => this.buyHPSeed("tseed lb")} className="btn-round" color="warning" type="button">
                 Lambs Bread
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed lb")} className="btn-round" color="default" type="button">
+                Voucher(lb)
+              </Button>			  
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button onClick={() => this.buyHPSeed("tseed kbr")} className="btn-round" color="warning" type="button">
                 Kings Bread
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed kbr")} className="btn-round" color="default" type="button">
+                Voucher(kbr)
+              </Button>			  
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button onClick={() => this.buyHPSeed("tseed aca")} className="btn-round" color="warning" type="button">
                 Acapulco Gold
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed aca")} className="btn-round" color="default" type="button">
+                Voucher(aca)
+              </Button>			  
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button onClick={() => this.buyHPSeed("tseed swz")} className="btn-round" color="warning" type="button">
                 Swazi Gold
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed swz")} className="btn-round" color="default" type="button">
+                Voucher(swz)
+              </Button>			  
               </Col>
 			</Row>
 			<Row>
@@ -297,21 +349,33 @@ class Basics extends React.Component {
 				<Button onClick={() => this.buyHPSeed("tseed kmj")} className="btn-round" color="warning" type="button">
                 Kilimanjaro
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed kmj")} className="btn-round" color="default" type="button">
+                Voucher(kmj)
+              </Button>			  
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button onClick={() => this.buyHPSeed("tseed dp")} className="btn-round" color="warning" type="button">
                 Durban Poison
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed dp")} className="btn-round" color="default" type="button">
+                Voucher(dp)
+              </Button>			  
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button onClick={() => this.buyHPSeed("tseed mal")} className="btn-round" color="warning" type="button">
                 Malawi
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed mal")} className="btn-round" color="default" type="button">
+                Voucher(mal)
+              </Button>			  
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button onClick={() => this.buyHPSeed("tseed pam")} className="btn-round" color="warning" type="button">
                 Panama Red
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed pam")} className="btn-round" color="default" type="button">
+                Voucher(pam)
+              </Button>			  
               </Col>
 			</Row>
 			<Row>
@@ -319,21 +383,33 @@ class Basics extends React.Component {
 				<Button onClick={() => this.buyHPSeed("tseed cg")} className="btn-round" color="warning" type="button">
                 Columbian Gold
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed cg")} className="btn-round" color="default" type="button">
+                Voucher(cg)
+              </Button>			  
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button onClick={() => this.buyHPSeed("tseed ach")} className="btn-round" color="warning" type="button">
                 Aceh
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed ach")} className="btn-round" color="default" type="button">
+                Voucher(ach)
+              </Button>			  
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button onClick={() => this.buyHPSeed("tseed tha")} className="btn-round" color="warning" type="button">
                 Thai
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed tha")} className="btn-round" color="default" type="button">
+                Voucher(tha)
+              </Button>			  
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button onClick={() => this.buyHPSeed("tseed cht")} className="btn-round" color="warning" type="button">
                 Chocolate Thai
               </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed cht")} className="btn-round" color="default" type="button">
+                Voucher(cht)
+              </Button>			  
               </Col>
 			</Row>
 			<br/>
