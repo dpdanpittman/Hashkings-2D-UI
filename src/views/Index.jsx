@@ -3,11 +3,9 @@ import React from "react";
 // core components
 import IndexNavbar from "components/Navbars/IndexNavbar.jsx";
 import PageHeader from "components/PageHeader/PageHeader.jsx";
-
-
 // sections for this page/view
-import Basics from "views/IndexSections/Basics.jsx";
-import Pagination from "views/IndexSections/Pagination.jsx";
+import HkPlanet from "views/IndexSections/HkPlanet.jsx";
+import GardenActions from "views/IndexSections/GardenActions.jsx";
 
 class Index extends React.Component {
   componentDidMount() {
@@ -23,8 +21,8 @@ class Index extends React.Component {
         <div className="wrapper">
           <PageHeader />
           <div className="main">
-            <Basics />
-            <Pagination />
+            <HkPlanet />
+            <GardenActions />
           </div>
         </div>
       </>

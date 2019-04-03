@@ -7,17 +7,19 @@ class PageHeader extends React.Component {
     return (
       <div className="page-header header-filter">
         <div className="squares square1" />
-		<div className="squares square4" />
         <Container>
-          <div className="content-center brand">
-            <h1>
-			Hashkings
-			</h1>
+		<br/>
+		<br/>
+		<center>
+		<img
+        alt="Hashkings Banner"
+        src={require("assets/img/hashkingsbanner.png")}
+        />
 			<h4 className="d-none d-sm-block">
               The Steem Blockchain, Cannabis Farming Game
             </h4>
 			<br/>
-		  </div>
+		</center>			
 		</Container>
       </div>
     );

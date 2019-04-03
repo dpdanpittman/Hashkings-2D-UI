@@ -26,17 +26,13 @@ class PaginationSection extends React.Component {
     const username = Cookie.get("username");
 	const custom_json_id = "qwoyn_water";
 	const key_type = "posting";
-	var custom_JSON = {
-		"addr1"  :  "plants",
-		"addr-n"   :  "c35"
-	};
-
+	var custom_JSON = '{"plants":["a10"]}';
     if(steem_keychain && username) {
 		steem_keychain.requestCustomJson(username, custom_json_id, key_type, custom_JSON, "Water your Plant", function(response) {
 			console.log(response);
 		});
     }
-  }
+    }
 //----------------------------------------------------------------------------------------------------------- 
   toggleTabs = (e, stateName, index) => {
 	e.preventDefault();

@@ -4,7 +4,6 @@ import "./Login.css";
 import {  withRouter } from 'react-router-dom'
 import Cookie from "js-cookie";
 import Swal from "sweetalert2";
-// import { useState } from "react";
 
 class Login extends Component {
   constructor(props) {
@@ -53,7 +52,7 @@ Swal.fire({
       <div className="Login">
 		<center>
 		<img
-        alt="..."
+        alt="Hashkings Banner"
         src={require("assets/img/hashkingsbanner.png")}
         />
 		</center>

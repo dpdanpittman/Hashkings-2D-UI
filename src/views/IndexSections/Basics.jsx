@@ -46,6 +46,12 @@ class Basics extends React.Component {
       <div className="section section-basic" id="basic-elements">
         <img alt="..." className="path" src={require("assets/img/path1.png")} />
         <Container>
+		  <h2>Welcome to Hashkings!</h2>
+		  <p>Below we have outlined 3 simple steps for you to get started playing hashkings.  Leasing land is the first step in getting started with 
+		  growing your favorite strain in HashKings.  We have 2 options for you to leasing land.</p>
+		  <br/>
+		  <p>1- Delegate 20 Steem to @hashkings and only pay 0.5 Steem for the leasing fee</p>
+		  <p>2- Send @hashkings 20 Steem and we will deduct the 0.5 Steem for the leasing fee and power up 19.5 Steem</p>
 		  <h4>Follow these 3 Steps and be on your way to success</h4>
 		<ul>
 			<li className="text-warning">Lease Land</li>

@@ -42,24 +42,43 @@ class Basics extends React.Component {
     }
   }
   
-    }
   render() {
     return (
       <div className="section section-basic" id="basic-elements">
-        <img alt="..." className="path" src={require("assets/img/path1.png")} />
-        <Container>
-		  <h4>Follow these 3 Steps and be on your way to success</h4>
-		<ul>
-			<li className="text-warning">Lease Land</li>
-			<li className="text-warning">Purchase a Seed</li>
-			<li className="text-warning">Plant and Care</li>
-		</ul>
-		<img
-                  alt="divider"
-                  src={require("assets/img/divider.png")}
-                  style={{ width: "full" }}
-                />
+        <img alt="HashKings Plant" className="path" src={require("assets/img/weedPlant.png")} style={{opacity: "0.2"}} />
+		<Container>
+		<img alt="weed divider" src={require("assets/img/weed_divider.png")} style={{ width: "60%" }} />
+		  <h1>Welcome to Hashkings!</h1>
+		  <p>Below we have outlined 3 simple steps for you to get started playing hashkings starting with leasing a plot.</p>
 		  <br/>
+		  <br/>
+		  <h3>Your 2 leasing options.</h3>
+		  <ul>
+		  <li>1- Delegate 20 Steem to @hashkings and only pay 0.5 Steem for the leasing fee</li>
+		  <li>2- Send @hashkings 20 Steem and we will deduct the 0.5 Steem for the leasing fee and power up 19.5 Steem</li>
+		  </ul>
+		  <br/>
+		  <ColoredLine color="green" />
+		  <img alt="weed gif" src="https://i.imgur.com/jkLSE.gif" />
+		  <br/>
+		  <h3>Next, get yourself a seed to plant on your plot</h3>
+		  <h4><u>3 Seed types to choose from</u></h4>
+		  <ul>
+		  <li>1) Choose a Hand-Picked Seed.  These are the best seeds in our seed bank and come with 2250 xp.  For 3 Steem you will be able to purchase one of these top shelf seeds </li>
+		  <li>2) Choose a Premium Seed.  Looking to grow get your feet wet and find new traits with these 750 XP seeds for 1.5 Steem</li>
+		  <li>3) Choose a Basic Seed.  These seeds come with 1 XP and cost .75 Steem. These seeds are for the casual gardner looking to earn only passive income from their crops</li>
+		  </ul>
+		  <br/>
+		  <ColoredLine color="green" />
+		  <br/>
+		  <h3>Now get to work in your garden</h3>
+		  <h4><u>Please choose from these 2 tasks</u></h4>
+		  <ul>
+		  <li>1) Plant your seed.</li>
+		  <li>2) Water your seed.  You will want to water EVERY 24 HOURS throughout the life of your plant</li>
+		  </ul>
+		  <br/>
+		  <img alt="weed divider" src={require("assets/img/weed_divider.png")} style={{ width: "60%" }} />
 		  <br/>
 		  <br/>
 		  <br/>
