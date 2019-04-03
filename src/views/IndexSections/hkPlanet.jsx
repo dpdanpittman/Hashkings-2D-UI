@@ -42,6 +42,42 @@ class Basics extends React.Component {
     }
   }
   
+  buyBasicSeed = (seedType) => {
+    const steem_keychain = window.steem_keychain;
+    const username = Cookie.get("username");
+    const toAccount = "hashkings"
+    const amount = "0.750";
+    if(steem_keychain && username) {
+        steem_keychain.requestTransfer(username, toAccount, amount, seedType, "STEEM", function(response) {
+            console.log(response);
+        },true);
+    }
+  }
+  
+    buyPremiumSeed = (seedType) => {
+    const steem_keychain = window.steem_keychain;
+    const username = Cookie.get("username");
+    const toAccount = "hashkings"
+    const amount = "1.500";
+    if(steem_keychain && username) {
+        steem_keychain.requestTransfer(username, toAccount, amount, seedType, "STEEM", function(response) {
+            console.log(response);
+        },true);
+    }
+  }
+  
+    buyHPSeed = (seedType) => {
+    const steem_keychain = window.steem_keychain;
+    const username = Cookie.get("username");
+    const toAccount = "hashkings"
+    const amount = "3.000";
+    if(steem_keychain && username) {
+        steem_keychain.requestTransfer(username, toAccount, amount, seedType, "STEEM", function(response) {
+            console.log(response);
+        },true);
+    }
+  }
+  
   render() {
     return (
       <div className="section section-basic" id="basic-elements">
@@ -178,88 +214,88 @@ class Basics extends React.Component {
 		  <h3>Hand-Picked Seed Cost: 3 Steem <br/>Valued 2250 XP</h3>
 		  <Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed hk")} className="btn-round" color="warning" type="button">
                 Hindu Kush
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed afg")} className="btn-round" color="warning" type="button">
                 Afghani
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed lkg")} className="btn-round" color="warning" type="button">
                 Lashkar Gah
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed mis")} className="btn-round" color="warning" type="button">
                 Mazar i Sharif
               </Button>
               </Col>
 			</Row>
 			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed lb")} className="btn-round" color="warning" type="button">
                 Lambs Bread
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed kbr")} className="btn-round" color="warning" type="button">
                 Kings Bread
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed aca")} className="btn-round" color="warning" type="button">
                 Acapulco Gold
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed swz")} className="btn-round" color="warning" type="button">
                 Swazi Gold
               </Button>
               </Col>
 			</Row>
 			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed kmj")} className="btn-round" color="warning" type="button">
                 Kilimanjaro
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed dp")} className="btn-round" color="warning" type="button">
                 Durban Poison
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed mal")} className="btn-round" color="warning" type="button">
                 Malawi
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed pam")} className="btn-round" color="warning" type="button">
                 Panama Red
               </Button>
               </Col>
 			</Row>
 			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed cg")} className="btn-round" color="warning" type="button">
                 Columbian Gold
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed ach")} className="btn-round" color="warning" type="button">
                 Aceh
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed tha")} className="btn-round" color="warning" type="button">
                 Thai
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="warning" type="button">
+				<Button onClick={() => this.buyHPSeed("tseed cht")} className="btn-round" color="warning" type="button">
                 Chocolate Thai
               </Button>
               </Col>
@@ -269,88 +305,88 @@ class Basics extends React.Component {
 		  <h3>Premium Seed Cost: 1.5 Steem <br/>Valued 750 XP</h3>          
 			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed hk")} className="btn-round" color="info" type="button">
                 Hindu Kush
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed afg")} className="btn-round" color="info" type="button">
                 Afghani
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed lg")} className="btn-round" color="info" type="button">
                 Lashkar Gah
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed mis")} className="btn-round" color="info" type="button">
                 Mazar i Sharif
               </Button>
               </Col>
 			</Row>
 			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed lb")} className="btn-round" color="info" type="button">
                 Lambs Bread
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed kbr")} className="btn-round" color="info" type="button">
                 Kings Bread
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed aca")} className="btn-round" color="info" type="button">
                 Acapulco Gold
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed swz")} className="btn-round" color="info" type="button">
                 Swazi Gold
               </Button>
               </Col>
 			</Row>
 			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed kmj")} className="btn-round" color="info" type="button">
                 Kilimanjaro
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed dp")} className="btn-round" color="info" type="button">
                 Durban Poison
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed mal")} className="btn-round" color="info" type="button">
                 Malawi
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed pam")} className="btn-round" color="info" type="button">
                 Panama Red
               </Button>
               </Col>
 			</Row>
 			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed cg")} className="btn-round" color="info" type="button">
                 Columbian Gold
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed ach")} className="btn-round" color="info" type="button">
                 Aceh
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed tha")} className="btn-round" color="info" type="button">
                 Thai
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="info" type="button">
+				<Button onClick={() => this.buyPremiumSeed("mseed cht")} className="btn-round" color="info" type="button">
                 Chocolate Thai
               </Button>
               </Col>
@@ -360,88 +396,88 @@ class Basics extends React.Component {
 		  <h3>Basic Seed Cost: 0.75 Steem <br/> Valued 1 XP</h3>
 		  			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed hk")} className="btn-round" color="default" type="button">
                 Hindu Kush
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed afg")} className="btn-round" color="default" type="button">
                 Afghani
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed lg")} className="btn-round" color="default" type="button">
                 Lashkar Gah
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed mis")} className="btn-round" color="default" type="button">
                 Mazar i Sharif
               </Button>
               </Col>
 			</Row>
 			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed lb")} className="btn-round" color="default" type="button">
                 Lambs Bread
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed kbr")} className="btn-round" color="default" type="button">
                 Kings Bread
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed aca")} className="btn-round" color="default" type="button">
                 Acapulco Gold
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed swz")} className="btn-round" color="default" type="button">
                 Swazi Gold
               </Button>
               </Col>
 			</Row>
 			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed kmj")} className="btn-round" color="default" type="button">
                 Kilimanjaro
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed dp")} className="btn-round" color="default" type="button">
                 Durban Poison
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed mal")} className="btn-round" color="default" type="button">
                 Malawi
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed pam")} className="btn-round" color="default" type="button">
                 Panama Red
               </Button>
               </Col>
 			</Row>
 			<Row>
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed cg")} className="btn-round" color="default" type="button">
                 Columbian Gold
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed ach")} className="btn-round" color="default" type="button">
                 Aceh
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed tha")} className="btn-round" color="default" type="button">
                 Thai
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
-				<Button className="btn-round" color="default" type="button">
+				<Button onClick={() => this.buyBasicSeed("rseed cht")} className="btn-round" color="default" type="button">
                 Chocolate Thai
               </Button>
               </Col>
