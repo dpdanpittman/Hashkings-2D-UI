@@ -105,7 +105,7 @@ class PaginationSection extends React.Component {
                     className={classnames({
                       "active show": this.state.pills === 3
                     })}
-                    onClick={e => this.toggleTabs(e, "pills", 3)}
+                    onClick={e => this.toggleTabs(e, "pills", 1)}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-scissors" />
@@ -115,9 +115,9 @@ class PaginationSection extends React.Component {
 				<NavItem>
                   <NavLink
                     className={classnames({
-                      "active show": this.state.pills === 3
+                      "active show": this.state.pills === 4
                     })}
-                    onClick={e => this.toggleTabs(e, "pills", 3)}
+                    onClick={e => this.toggleTabs(e, "pills", 1)}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-settings-gear-63" />
@@ -127,9 +127,9 @@ class PaginationSection extends React.Component {
 				<NavItem>
                   <NavLink
                     className={classnames({
-                      "active show": this.state.pills === 3
+                      "active show": this.state.pills === 5
                     })}
-                    onClick={e => this.toggleTabs(e, "pills", 3)}
+                    onClick={e => this.toggleTabs(e, "pills", 1)}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-cart" />

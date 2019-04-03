@@ -77,6 +77,32 @@ class Basics extends React.Component {
         },true);
     }
   }
+
+    redeemVoucher = (seedType) => {
+    const steem_keychain = window.steem_keychain;
+    const username = Cookie.get("username");
+ 	const custom_json_id = "qwoyn_redeem";
+	const key_type = "active";
+	var custom_JSON = JSON.stringify({type:seedType});
+    if(steem_keychain && username) {
+		steem_keychain.requestCustomJson(username, custom_json_id, key_type, custom_JSON, "Redeem a seed Voucher", function(response) {
+			console.log(response);
+		});
+    }
+  }
+  
+    delegatorLease = () => {
+    const steem_keychain = window.steem_keychain;
+    const username = Cookie.get("username");
+    const delegatee = "hashkings"
+    const amount = "20.000";
+	const unit = "SP";
+    if(steem_keychain && username) {
+		steem_keychain.requestDelegation(username, delegatee, amount, unit, function(response) {
+			console.log(response);
+		});
+    }
+    }
   
   render() {
     return (
@@ -125,7 +151,14 @@ class Basics extends React.Component {
           <h2><u>Welcome to Our Leasing Office</u></h2>
 		  <br/>
           <p className="category">Below you can find our available leases. <br/>Each Region only has a limited amount
-		  of plots available.<br/>If there are no more properties available please visit our Marketplace</p><br />
+		  of plots available.<br/>If there are no more properties available please visit our Marketplace</p><br/>
+		  <br/>
+		  <h3>Looking for a delegation lease? Click below.</h3>
+		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
+          Delegation Lease
+		  </Button>
+		  <br/>
+		  <br/>
 		  <h3>One Plot Lease: 20 Steem</h3>
 		  <br/>
 		  <center>
@@ -216,6 +249,9 @@ class Basics extends React.Component {
 			<Col className="mt-5 mt-sm-0" sm="3" xs="6">
 				<Button onClick={() => this.buyHPSeed("tseed hk")} className="btn-round" color="warning" type="button">
                 Hindu Kush
+              </Button>
+			  <Button onClick={() => this.redeemVoucher("tseed hk")} className="btn-round" color="default" type="button">
+                Voucher(HK)
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
