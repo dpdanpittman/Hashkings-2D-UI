@@ -1,12 +1,9 @@
 import React from "react";
-// reactstrap components
-import { Container } from "reactstrap";
 
 class PageHeader extends React.Component {
   render() {
     return (
-      <div className="page-header header-filter">
-        <Container>
+      <div>
 		<br/>
 		<br/>
 		<center>
@@ -17,9 +14,10 @@ class PageHeader extends React.Component {
 			<h4 className="d-none d-sm-block">
               The Steem Blockchain, Cannabis Farming Game
             </h4>
-			<br/>
-		</center>			
-		</Container>
+		</center>	
+		<br/>
+		<br/>
+		<br/>
       </div>
     );
   }
