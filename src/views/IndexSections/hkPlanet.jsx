@@ -121,12 +121,13 @@ class Basics extends React.Component {
       <div className="section section-basic" id="basic-elements">
         <img alt="HashKings Plant" className="path" src={require("assets/img/weedPlant.png")} style={{opacity: "0.2"}} />
 		<Container>
-		<img alt="weed divider" src={require("assets/img/weed_divider.png")} style={{ width: "60%" }} />
-		  <h1>Welcome to Hashkings!</h1>
-		  <p>Below we have outlined 3 simple steps for you to get started playing hashkings starting with leasing a plot.</p>
+		<img alt="weed divider" src={require("assets/img/weed_divider.png")} style={{ width: "70%" }} />
+		  <h1>Welcome to Hashkings Mon!</h1>
+		  <p>Learn how to grow the ganja in 3 simple steps and smoke it up with the Hashking in your own garden.</p>
+		   <h3>First install Steem Keychain then go shopping</h3>
 		  <br/>
 		  <br/>
-		  <h3>Your 2 leasing options.</h3>
+		  <h3>You have 2 options to get a garden.</h3>
 		  <ul>
 		  <li>1- Delegate 20 Steem to @hashkings and only pay 0.5 Steem for the leasing fee</li>
 		  <li>2- Send @hashkings 20 Steem and we will deduct the 0.5 Steem for the leasing fee and power up 19.5 Steem</li>
@@ -135,12 +136,12 @@ class Basics extends React.Component {
 		  <ColoredLine color="green" />
 		  <img alt="weed gif" src="https://i.imgur.com/jkLSE.gif" />
 		  <br/>
-		  <h3>Next, get yourself a bag of seeds to plant on your plot</h3>
-		  <h4><u>3 Seed types to choose from</u></h4>
+		  <h3>Next, get yourself a bag of seeds to plant in your garden</h3>
+		  <h4><u>You have 3 Seed types to choose from</u></h4>
 		  <ul>
-		  <li>1) Choose Hand-Picked Seeds.  These are the best seeds in our seed bank and come with 2250 xp.  For 3 Steem you will be able to purchase one of these top shelf seeds </li>
-		  <li>2) Choose Premium Seeds.  Looking to grow get your feet wet and find new traits with these 750 XP seeds for 1.5 Steem</li>
-		  <li>3) Choose Basic Seeds.  These seeds come with 1 XP and cost .75 Steem. These seeds are for the casual gardner looking to earn only passive income from their crops</li>
+		  <li>1) Choose Hand-Picked Seeds.  These are the best seeds in our seed bank and come with <u><b>2250 XP</b></u>.  For 3 Steem you will be able to purchase one of these top shelf seeds </li>
+		  <li>2) Choose Premium Seeds.  Looking to grow get your feet wet and find new traits with these <u><b>750 XP</b></u> seeds for 1.5 Steem</li>
+		  <li>3) Choose Basic Seeds.  These seeds come with <u><b>1 XP</b></u> and cost 0.75 Steem. These seeds are for the casual gardner looking to earn only passive income from their crops</li>
 		  </ul>
 		  <br/>
 		  <ColoredLine color="green" />
@@ -171,22 +172,22 @@ class Basics extends React.Component {
 		  </Button>
 				<Button onClick={() => this.delegatedPlot("a manage")} className="btn-round" color="warning" type="button">
                 Afghanistan
-              </Button>
-<Button onClick={() => this.delegatedPlot("b manage")} className="btn-round" color="warning" type="button">
+				</Button>
+				<Button onClick={() => this.delegatedPlot("b manage")} className="btn-round" color="warning" type="button">
                 Africa
-              </Button>
-<Button onClick={() => this.delegatedPlot("c manage")} className="btn-round" color="warning" type="button">
+				</Button>
+				<Button onClick={() => this.delegatedPlot("c manage")} className="btn-round" color="warning" type="button">
                 Asia
-              </Button>
-<Button onClick={() => this.delegatedPlot("d manage")} className="btn-round" color="warning" type="button">
+				</Button>
+				<Button onClick={() => this.delegatedPlot("d manage")} className="btn-round" color="warning" type="button">
                 Central America
-              </Button>
-<Button onClick={() => this.delegatedPlot("e manage")} className="btn-round" color="warning" type="button">
+				</Button>
+				<Button onClick={() => this.delegatedPlot("e manage")} className="btn-round" color="warning" type="button">
                 Jamaica
-              </Button>
-<Button onClick={() => this.delegatedPlot("f manage")} className="btn-round" color="warning" type="button">
+				</Button>
+				<Button onClick={() => this.delegatedPlot("f manage")} className="btn-round" color="warning" type="button">
                 Mexico
-              </Button>			  
+				</Button>			  
 		  <br/>
 		  <ColoredLine color="red" /><ColoredLine color="green" /><ColoredLine color="red" />
 		  <br/>
