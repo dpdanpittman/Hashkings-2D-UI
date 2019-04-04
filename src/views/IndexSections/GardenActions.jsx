@@ -21,14 +21,29 @@ class PaginationSection extends React.Component {
     };
   }
 //-----------------------------------------------------------------------------------------------------------  
-    handleWater = () => {
+    handleWater = (myPlant) => {
     const steem_keychain = window.steem_keychain;
     const username = Cookie.get("username");
 	const custom_json_id = "qwoyn_water";
 	const key_type = "posting";
-	var custom_JSON = '{"plants":["a10"]}';
+	var custom_JSON = JSON.stringify({plants:[myPlant]});
+	//var custom_JSON = '{"plants":["a10"]}';
     if(steem_keychain && username) {
 		steem_keychain.requestCustomJson(username, custom_json_id, key_type, custom_JSON, "Water your Plant", function(response) {
+			console.log(response);
+		});
+    }
+    }
+//-----------------------------------------------------------------------------------------------------------  
+    plantSeed = (mySeed, myPlot) => {
+    const steem_keychain = window.steem_keychain;
+    const username = Cookie.get("username");
+	const custom_json_id = "qwoyn_plant";
+	const key_type = "posting";
+	var custom_JSON = JSON.stringify({addr:myPlot,seed:mySeed});
+	//var custom_JSON = '{"addr":"c35","seed":0}';
+    if(steem_keychain && username) {
+		steem_keychain.requestCustomJson(username, custom_json_id, key_type, custom_JSON, "Plant your Seed", function(response) {
 			console.log(response);
 		});
     }
@@ -121,7 +136,7 @@ class PaginationSection extends React.Component {
                     href="#pablo"
                   >
                     <i className="tim-icons icon-settings-gear-63" />
-                    Combat Pests- Organic
+                    Combat Pests- Organic(Coming Soon)
                   </NavLink>
                 </NavItem>
 				<NavItem>
@@ -133,7 +148,7 @@ class PaginationSection extends React.Component {
                     href="#pablo"
                   >
                     <i className="tim-icons icon-cart" />
-                    Harvest
+                    Harvest(Coming Soon)
                   </NavLink>
                 </NavItem>
               </Nav>

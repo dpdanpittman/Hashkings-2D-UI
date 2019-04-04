@@ -282,7 +282,7 @@ class Basics extends React.Component {
                 Hindu Kush
               </Button>
 			  <Button onClick={() => this.redeemVoucher("tseed hk")} className="btn-round" color="default" type="button">
-                Voucher(HK)
+                Voucher(hk)
               </Button>
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
@@ -290,7 +290,7 @@ class Basics extends React.Component {
                 Afghani
               </Button>
 			  <Button onClick={() => this.redeemVoucher("tseed afg")} className="btn-round" color="default" type="button">
-                Voucher(HK)
+                Voucher(afg)
               </Button>			  
               </Col>
 			  <Col className="mt-5 mt-sm-0" sm="3" xs="6">
