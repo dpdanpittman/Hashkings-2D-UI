@@ -12010,7 +12010,8 @@ textarea.form-control {
 .landing-page,
 .profile-page,
 .register-page {
-  background-image: url("../../assets/img/dots.png");
+  background-image: url("../../assets/img/dots.jpg");
+  opacity: 50;
   background-size: contain; }
 
 @media (max-width: 991.98px) {
@@ -12528,7 +12529,7 @@ hr {
   min-height: 100vh;
   max-height: 999px;
   padding: 0;
-  color: #ffffff;
+  color: #0C260E;
   position: relative;
   overflow: hidden; }
   .page-header .page-header-image {

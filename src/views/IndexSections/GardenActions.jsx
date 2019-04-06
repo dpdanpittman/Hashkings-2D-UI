@@ -115,12 +115,6 @@ class PaginationSection extends React.Component {
 		<h3>All Actions are Free and earn curation rewards</h3>
 		<p className="category">Earn XP through your in-game actions<br/><br/>Each Action is timed! and 
 		the closer to the correct time you water and feed etc... the more XP you will receive</p>
-		<br/>
-			<center><img
-				alt="..."
-                className="img-raised"
-                src={require("assets/img/landing-page.png")}
-                /></center>
 				<br />
 				<br />
 		<center>

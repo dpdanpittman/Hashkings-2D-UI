@@ -147,7 +147,7 @@ class Basics extends React.Component {
       },
     ]
     return (
-      <div className="section section-basic" id="basic-elements">
+      <div className="section section-basic" id="basic-elements" overflow="visible">
         <img alt="HashKings Plant" className="path" src={require("assets/img/weedPlant.png")} style={{opacity: "0.2"}} />
 		<Container>
 		<center><img alt="weed divider" src={require("assets/img/weed_divider.png")} style={{ width: "60%" }} /></center>
@@ -182,13 +182,13 @@ class Basics extends React.Component {
 		  <h1><center>Next, get yourself a bag of seeds.</center></h1>
 		  <h4><center><u>3 Seed types to choose from</u></center></h4>
 		  <h5><u>Hand-Picked Seeds.</u></h5>  
-		  <p>These are the best seeds in our seed bank and come with 2250 xp.  For 3 Steem you will be able to purchase one of these top shelf seeds</p>
+		  <p>These are the best seeds in our seed bank and come with <b>2250 XP</b>.  For 3 Steem you will be able to purchase one of these top shelf seeds</p>
 		  <br/>
 		  <h5><u>Premium Seeds.</u></h5> 
-		  <p>Looking to grow get your feet wet and find new traits with these 750 XP seeds for 1.5 Steem</p>
+		  <p>Looking to grow get your feet wet and find new traits with these <b>750 XP</b> seeds for 1.5 Steem</p>
 		  <br/>
 		  <h5><u>Basic Seeds.</u></h5>
-		  <p>These seeds come with 1 XP and cost .75 Steem. These seeds are for the casual gardner looking to earn only passive income from their crops</p>
+		  <p>These seeds come with <b>1 XP</b> and cost .75 Steem. These seeds are for the casual gardner looking to earn only passive income from their crops</p>
 		  <br/>
 		  <h4><u>Choose Below</u></h4>
 		  <ColoredLine color="green" />
@@ -273,30 +273,39 @@ class Basics extends React.Component {
 			<br/>
 			<h2><center>Do you have Pre-Sale Seeds? Claim them Here</center></h2>
 			<br/>
+			<center>
 			<Dropdown>
 		    <Dropdown.Toggle variant="warning" id="dropdown-basic">
 		    Pre-Sale Seeds
 		    </Dropdown.Toggle>
 			<Dropdown.Menu>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("hk")} className="btn-round" color="warning" type="button">Hindu Kush</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("afg")} className="btn-round" color="warning" type="button">Afghani</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("lkg")} className="btn-round" color="warning" type="button">Lashkar Gah</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mis")} className="btn-round" color="warning" type="button">Mazar i Sharif</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("lb")} className="btn-round" color="warning" type="button">Lambs Bread</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("kbr")} className="btn-round" color="warning" type="button">Kings Bread</Dropdown.Item>
-			<Dropdown.Item onClick={() => this.buyHPSeed("aca")} className="btn-round" color="warning" type="button">Acapulco Gold</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("swz")} className="btn-round" color="warning" type="button">Swazi Gold</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("kmj")} className="btn-round" color="warning" type="button">Asia</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("dp")} className="btn-round" color="warning" type="button">Durban Poison</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mal")} className="btn-round" color="warning" type="button">Malawi</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("pam")} className="btn-round" color="warning" type="button">Panama Red</Dropdown.Item>
-			<Dropdown.Item onClick={() => this.buyHPSeed("cg")} className="btn-round" color="warning" type="button">Columbian Gold</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("ach")} className="btn-round" color="warning" type="button">Aceh</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("tha")} className="btn-round" color="warning" type="button">Thai</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("cht")} className="btn-round" color="warning" type="button">Chocolate Thai</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("hk")} className="btn-round" color="warning" type="button">Hindu Kush</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("afg")} className="btn-round" color="warning" type="button">Afghani</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("lkg")} className="btn-round" color="warning" type="button">Lashkar Gah</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("mis")} className="btn-round" color="warning" type="button">Mazar i Sharif</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("lb")} className="btn-round" color="warning" type="button">Lambs Bread</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("kbr")} className="btn-round" color="warning" type="button">Kings Bread</Dropdown.Item>
+			<Dropdown.Item onClick={() => this.redeemVoucher("aca")} className="btn-round" color="warning" type="button">Acapulco Gold</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("swz")} className="btn-round" color="warning" type="button">Swazi Gold</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("kmj")} className="btn-round" color="warning" type="button">Asia</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("dp")} className="btn-round" color="warning" type="button">Durban Poison</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("mal")} className="btn-round" color="warning" type="button">Malawi</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("pam")} className="btn-round" color="warning" type="button">Panama Red</Dropdown.Item>
+			<Dropdown.Item onClick={() => this.redeemVoucher("cg")} className="btn-round" color="warning" type="button">Columbian Gold</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("ach")} className="btn-round" color="warning" type="button">Aceh</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("tha")} className="btn-round" color="warning" type="button">Thai</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.redeemVoucher("cht")} className="btn-round" color="warning" type="button">Chocolate Thai</Dropdown.Item>
 		    </Dropdown.Menu>
 		  </Dropdown>
+		  </center>
 			<center><img alt="weed divider" src={require("assets/img/weed_divider.png")} style={{ width: "60%" }} /></center>
+				<br/>
+				<br/>
+				<center><img
+				alt="..."
+                className="img-raised"
+                src={require("assets/img/landing-page.png")}
+                /></center>
         </Container>
       </div>
     );
