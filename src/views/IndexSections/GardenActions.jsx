@@ -2,6 +2,8 @@ import React from "react";
 import classnames from "classnames";
 // cookie components for login
 import Cookie from 'js-cookie';
+import 'fetch';
+//import axios from 'axios';
 // reactstrap components
 import {
   NavItem,
@@ -17,9 +19,47 @@ class PaginationSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pills: 1
+      pills: 1,
+	  myGarden: []
     };
   }
+  
+    getApiUrl() {
+	const username = Cookie.get("username");
+    const host = 'https://hashkings.herokuapp.com/u/';
+    return host + username;
+    }
+	
+    fetchGarden() {	
+	let url = 
+    fetch('url + `username`')
+      .then(resp => resp.json())
+      .then(resp => {
+        const myGarden = resp.addrs;
+        this.setState({myGarden})
+      })
+	}	
+ /*
+
+  componentDidMount() {
+	  const username = Cookie.get("username");
+	  let url = 'https://hashkings.herokuapp.com/u/'
+	  fetch('url + `username`')
+	  .then(results => {
+		  return results.json();
+	  }).then(data => {
+		  let garden = data.results.map((garden) => {
+			  return(
+			  <div key={garden.results}>
+			  <img src={garden.addrs} />
+			  </div>
+			  )
+		  })
+		  this.setState(garden);
+		  console.log("state", this.state.garden);
+	  })
+  }
+		*/
 //-----------------------------------------------------------------------------------------------------------  
     handleWater = (myPlant) => {
     const steem_keychain = window.steem_keychain;
@@ -154,7 +194,10 @@ class PaginationSection extends React.Component {
               </Nav>
 			</Col>
 			<Col md="4">
-			<h2>Inventory Goes Here</h2>
+			<h2>Inventory</h2>
+			<div>
+			{ this.state.myGarden }
+			</div>
 			</Col>
 			</Row>
 			</center>

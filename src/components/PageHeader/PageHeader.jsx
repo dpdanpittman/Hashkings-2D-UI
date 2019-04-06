@@ -12,7 +12,7 @@ class PageHeader extends React.Component {
         src={require("assets/img/hashkingsbanner.png")}
         />
 			<h4 className="d-none d-sm-block">
-              The Steem Blockchain, Cannabis Farming Game
+              The Steem Blockchain, Cannabis Farming Simulator
             </h4>
 		</center>	
 		<br/>
