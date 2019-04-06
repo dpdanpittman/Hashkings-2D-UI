@@ -39,7 +39,24 @@ class PaginationSection extends React.Component {
         this.setState({myGarden})
       })
 	}	
- /*
+
+
+componentDidMount() {
+    const username = Cookie.get("username");
+    if(username) {
+        let url = `https://hashkings.herokuapp.com/u/${username}`
+        fetch(url)
+        .then(results => {
+                return results.json();
+        }).then(data => {
+            const myGarden = data.addrs;
+            this.setState({myGarden})
+        }).catch(() => {
+            Cookie.remove("username")
+        })
+    }
+}
+/*
 
   componentDidMount() {
 	  const username = Cookie.get("username");
@@ -60,7 +77,7 @@ class PaginationSection extends React.Component {
 	  })
   }
 		*/
-//-----------------------------------------------------------------------------------------------------------  
+/*/-----------------------------------------------------------------------------------------------------------  
     handleWater = (myPlant) => {
     const steem_keychain = window.steem_keychain;
     const username = Cookie.get("username");
@@ -88,7 +105,7 @@ class PaginationSection extends React.Component {
 		});
     }
     }
-//----------------------------------------------------------------------------------------------------------- 
+//----------------------------------------------------------------------------------------------------------- */
   toggleTabs = (e, stateName, index) => {
 	e.preventDefault();
     this.setState({
@@ -130,7 +147,7 @@ class PaginationSection extends React.Component {
                     className={classnames({
                       "active show": this.state.pills === 1
                     })}
-                    onClick={() => this.handleWater()}
+                    //onClick={() => this.handleWater()}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-atom" />
@@ -142,7 +159,7 @@ class PaginationSection extends React.Component {
                     className={classnames({
                       "active show": this.state.pills === 2
                     })}
-                    onClick={e => this.handleWater()}
+                    //onClick={e => this.handleWater()}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-tap-02" />
