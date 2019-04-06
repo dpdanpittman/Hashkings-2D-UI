@@ -270,6 +270,32 @@ class Basics extends React.Component {
 		  <h3>Basic Seeds Cost: <font color="green"><b>0.75 Steem</b></font></h3>  
 			<ColoredLine color="green" />
 			<br/>
+			<br/>
+			<h2><center>Do you have Pre-Sale Seeds? Claim them Here</center></h2>
+			<br/>
+			<Dropdown>
+		    <Dropdown.Toggle variant="warning" id="dropdown-basic">
+		    Pre-Sale Seeds
+		    </Dropdown.Toggle>
+			<Dropdown.Menu>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("hk")} className="btn-round" color="warning" type="button">Hindu Kush</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("afg")} className="btn-round" color="warning" type="button">Afghani</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("lkg")} className="btn-round" color="warning" type="button">Lashkar Gah</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("mis")} className="btn-round" color="warning" type="button">Mazar i Sharif</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("lb")} className="btn-round" color="warning" type="button">Lambs Bread</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("kbr")} className="btn-round" color="warning" type="button">Kings Bread</Dropdown.Item>
+			<Dropdown.Item onClick={() => this.buyHPSeed("aca")} className="btn-round" color="warning" type="button">Acapulco Gold</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("swz")} className="btn-round" color="warning" type="button">Swazi Gold</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("kmj")} className="btn-round" color="warning" type="button">Asia</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("dp")} className="btn-round" color="warning" type="button">Durban Poison</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("mal")} className="btn-round" color="warning" type="button">Malawi</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("pam")} className="btn-round" color="warning" type="button">Panama Red</Dropdown.Item>
+			<Dropdown.Item onClick={() => this.buyHPSeed("cg")} className="btn-round" color="warning" type="button">Columbian Gold</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("ach")} className="btn-round" color="warning" type="button">Aceh</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("tha")} className="btn-round" color="warning" type="button">Thai</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("cht")} className="btn-round" color="warning" type="button">Chocolate Thai</Dropdown.Item>
+		    </Dropdown.Menu>
+		  </Dropdown>
 			<center><img alt="weed divider" src={require("assets/img/weed_divider.png")} style={{ width: "60%" }} /></center>
         </Container>
       </div>
