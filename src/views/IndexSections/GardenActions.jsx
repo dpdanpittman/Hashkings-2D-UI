@@ -24,22 +24,6 @@ class PaginationSection extends React.Component {
     };
   }
   
-    getApiUrl() {
-	const username = Cookie.get("username");
-    const host = 'https://hashkings.herokuapp.com/u/';
-    return host + username;
-    }
-	
-    fetchGarden() {	
-	let url = 
-    fetch('url + `username`')
-      .then(resp => resp.json())
-      .then(resp => {
-        const myGarden = resp.addrs;
-        this.setState({myGarden})
-      })
-	}	
-
 
 componentDidMount() {
     const username = Cookie.get("username");
@@ -56,34 +40,14 @@ componentDidMount() {
         })
     }
 }
-/*
 
-  componentDidMount() {
-	  const username = Cookie.get("username");
-	  let url = 'https://hashkings.herokuapp.com/u/'
-	  fetch('url + `username`')
-	  .then(results => {
-		  return results.json();
-	  }).then(data => {
-		  let garden = data.results.map((garden) => {
-			  return(
-			  <div key={garden.results}>
-			  <img src={garden.addrs} />
-			  </div>
-			  )
-		  })
-		  this.setState(garden);
-		  console.log("state", this.state.garden);
-	  })
-  }
-		*/
-/*/-----------------------------------------------------------------------------------------------------------  
-    handleWater = (myPlant) => {
+//-----------------------------------------------------------------------------------------------------------  
+    handleWater = (myGarden) => {
     const steem_keychain = window.steem_keychain;
     const username = Cookie.get("username");
 	const custom_json_id = "qwoyn_water";
 	const key_type = "posting";
-	var custom_JSON = JSON.stringify({plants:[myPlant]});
+	var custom_JSON = JSON.stringify({plants:[this.state.myGarden]});
 	//var custom_JSON = '{"plants":["a10"]}';
     if(steem_keychain && username) {
 		steem_keychain.requestCustomJson(username, custom_json_id, key_type, custom_JSON, "Water your Plant", function(response) {
@@ -105,7 +69,7 @@ componentDidMount() {
 		});
     }
     }
-//----------------------------------------------------------------------------------------------------------- */
+//----------------------------------------------------------------------------------------------------------- 
   toggleTabs = (e, stateName, index) => {
 	e.preventDefault();
     this.setState({
@@ -147,7 +111,7 @@ componentDidMount() {
                     className={classnames({
                       "active show": this.state.pills === 1
                     })}
-                    //onClick={() => this.handleWater()}
+                    onClick={() => this.handleWater()}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-atom" />
@@ -159,7 +123,7 @@ componentDidMount() {
                     className={classnames({
                       "active show": this.state.pills === 2
                     })}
-                    //onClick={e => this.handleWater()}
+                    onClick={e => this.handleWater()}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-tap-02" />
