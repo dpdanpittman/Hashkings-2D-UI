@@ -50,7 +50,7 @@ componentDidMount() {
 	var custom_JSON = JSON.stringify({plants:[this.state.myGarden]});
 	//var custom_JSON = '{"plants":["a10"]}';
     if(steem_keychain && username) {
-		steem_keychain.requestCustomJson(username, custom_json_id, key_type, custom_JSON, "Water your Plant", function(response) {
+		steem_keychain.requestCustomJson([username], custom_json_id, key_type, custom_JSON, "Water your Plant", function(response) {
 			console.log(response);
 		});
     }
@@ -64,7 +64,7 @@ componentDidMount() {
 	var custom_JSON = JSON.stringify({addr:[this.state.myGarden],seed:0});
 	//var custom_JSON = '{"addr":"c35","seed":0}';
     if(steem_keychain && username) {
-		steem_keychain.requestCustomJson(username, custom_json_id, key_type, custom_JSON, "Plant your Seed", function(response) {
+		steem_keychain.requestCustomJson([username], custom_json_id, key_type, custom_JSON, "Plant your Seed", function(response) {
 			console.log(response);
 		});
     }
@@ -111,7 +111,7 @@ componentDidMount() {
                     className={classnames({
                       "active show": this.state.pills === 1
                     })}
-                    onClick={() => this.plantSeed()}
+                    //onClick={() => this.plantSeed()}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-atom" />
@@ -123,7 +123,7 @@ componentDidMount() {
                     className={classnames({
                       "active show": this.state.pills === 2
                     })}
-                    onClick={e => this.handleWater()}
+                    //onClick={e => this.handleWater()}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-tap-02" />
