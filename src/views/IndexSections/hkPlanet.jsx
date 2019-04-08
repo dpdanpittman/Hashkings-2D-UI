@@ -84,9 +84,9 @@ class Basics extends React.Component {
     redeemVoucher = (seedType) => {
     const steem_keychain = window.steem_keychain;
     const username = Cookie.get("username");
- 	const custom_json_id = "qwoyn_redeem";
-	const key_type = "active";
-	var custom_JSON = JSON.stringify({type:seedType});
+    const custom_json_id = "qwoyn_redeem";
+    const key_type = "posting";
+    var custom_JSON = JSON.stringify({type:seedType});
     if(steem_keychain && username) {
 		steem_keychain.requestCustomJson(username, custom_json_id, key_type, custom_JSON, "Redeem a seed Voucher", function(response) {
 			console.log(response);
@@ -148,23 +148,23 @@ class Basics extends React.Component {
     ]
     return (
       <div className="section section-basic" id="basic-elements" overflow="visible">
-        <img alt="HashKings Plant" className="path" src={require("assets/img/weedPlant.png")} style={{opacity: "0.2"}} />
 		<Container>
 		<center><img alt="weed divider" src={require("assets/img/weed_divider.png")} style={{ width: "60%" }} /></center>
 		  <br/>
 		  <center><ImageGallery items={images} /></center>
 		  <br/>
 		  <h2><center>Delegate Steem Power to @hashkings and choose a Garden</center></h2>
-		  <h1><center><b><font color="green"><u>20 Steem</u></font></b></center></h1>
+		  <h1><center><b><font color="green" ><u>20 Steem</u></font></b></center></h1>
 		  <br/>
 		  <center>
 		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
-          Delegate Here
+          Delegate 20 Steem
 		  </Button>
 		  </center>
 		  <center>
+		  <div>
 		  <Dropdown>
-		    <Dropdown.Toggle variant="success" id="dropdown-basic">
+		    <Dropdown.Toggle variant="success" id="dropdown-menu-align-center">
 		    Choose your Garden
 		    </Dropdown.Toggle>
 			<Dropdown.Menu>
@@ -174,8 +174,9 @@ class Basics extends React.Component {
 		    <Dropdown.Item onClick={() => this.delegatedPlot("d manage")} className="btn-round" color="warning" type="button">Central America</Dropdown.Item>
 		    <Dropdown.Item onClick={() => this.delegatedPlot("e manage")} className="btn-round" color="warning" type="button">Jamaica</Dropdown.Item>
 		    <Dropdown.Item onClick={() => this.delegatedPlot("f manage")} className="btn-round" color="warning" type="button">Mexico</Dropdown.Item>
-		    </Dropdown.Menu>
+			</Dropdown.Menu>
 		  </Dropdown>
+		  </div>
 		  </center>	
 		  <center><img alt="weed gif" src="https://i.imgur.com/jkLSE.gif" /></center>
 		  <center><img alt="weed divider" src={require("assets/img/weed_divider.png")} style={{ width: "60%" }} /></center>
@@ -205,7 +206,7 @@ class Basics extends React.Component {
 		    <Dropdown.Item onClick={() => this.buyHPSeed("tseed kbr")} className="btn-round" color="warning" type="button">Kings Bread</Dropdown.Item>
 			<Dropdown.Item onClick={() => this.buyHPSeed("tseed aca")} className="btn-round" color="warning" type="button">Acapulco Gold</Dropdown.Item>
 		    <Dropdown.Item onClick={() => this.buyHPSeed("tseed swz")} className="btn-round" color="warning" type="button">Swazi Gold</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("tseed kmj")} className="btn-round" color="warning" type="button">Asia</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyHPSeed("tseed kmj")} className="btn-round" color="warning" type="button">Kilimanjaro</Dropdown.Item>
 		    <Dropdown.Item onClick={() => this.buyHPSeed("tseed dp")} className="btn-round" color="warning" type="button">Durban Poison</Dropdown.Item>
 		    <Dropdown.Item onClick={() => this.buyHPSeed("tseed mal")} className="btn-round" color="warning" type="button">Malawi</Dropdown.Item>
 		    <Dropdown.Item onClick={() => this.buyHPSeed("tseed pam")} className="btn-round" color="warning" type="button">Panama Red</Dropdown.Item>
