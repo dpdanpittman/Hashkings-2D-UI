@@ -7,6 +7,7 @@ import PageHeader from "components/PageHeader/PageHeader.jsx";
 import HkPlanet from "views/IndexSections/HkPlanet.jsx";
 import GardenActions from "views/IndexSections/GardenActions.jsx";
 
+
 class Index extends React.Component {
   componentDidMount() {
     document.body.classList.toggle("index-page");

@@ -2,10 +2,11 @@ import React from "react";
 import classnames from "classnames";
 // cookie components for login
 import Cookie from 'js-cookie';
+import "Login.css";
 import 'fetch';
 //import axios from 'axios';
 // reactstrap components
-import {
+import {	
   NavItem,
   NavLink,
   Nav,
@@ -14,6 +15,31 @@ import {
   Row,
   Col
 } from "reactstrap";
+
+// fancy coloredline, default green
+const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+			align: "right",
+			width: 375,
+            color: color,
+            backgroundColor: color,
+            height: 1
+        }}
+    />
+);
+
+const PayoutColoredLine = ({ color }) => (
+    <hr
+        style={{
+			align: "right",
+			width: 350,
+            color: color,
+            backgroundColor: color,
+            height: 1
+        }}
+    />
+);
 
 class PaginationSection extends React.Component {
   constructor(props) {
@@ -101,7 +127,24 @@ componentDidMount() {
 		<center>
           <Row>
 		  <Col md="4">
-		  <h2>Past and current payouts</h2>
+		  <h2><font color="red">Payouts (Coming Soon)</font></h2>
+		  <div>
+			<h4>Daily</h4>
+			<h5>0.0437 STEEM</h5>
+			<div>
+			<PayoutColoredLine color="green" />
+			</div>
+			</div>
+			<div>
+			<h4>Weekly</h4>
+			<h5>0.306 STEEM</h5>
+			<PayoutColoredLine color="brown" />
+			</div>
+			<div>
+			<h4>Monthly</h4>
+			<h5>1.311 STEEM</h5>
+			<PayoutColoredLine color="white" />
+			</div>
 		  </Col>
 		  <Col md="4">
 		  <h1>Choose one of the actions below</h1>
@@ -115,19 +158,19 @@ componentDidMount() {
                     href="#pablo"
                   >
                     <i className="tim-icons icon-atom" />
-                    Plant
+                    Plant(coming soon)
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink
-                    className={classnames({
+                  <NavLink 
+				  className={classnames({
                       "active show": this.state.pills === 2
                     })}
                     //onClick={e => this.handleWater()}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-tap-02" />
-                    Water
+                    Water(coming soon)
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -139,19 +182,7 @@ componentDidMount() {
                     href="#pablo"
                   >
                     <i className="tim-icons icon-scissors" />
-                    Prune
-                  </NavLink>
-                </NavItem>
-				<NavItem>
-                  <NavLink
-                    className={classnames({
-                      "active show": this.state.pills === 4
-                    })}
-                    onClick={e => this.toggleTabs(e, "pills", 1)}
-                    href="#pablo"
-                  >
-                    <i className="tim-icons icon-settings-gear-63" />
-                    Combat Pests- Organic(Coming Soon)
+                    Prune(coming soon)
                   </NavLink>
                 </NavItem>
 				<NavItem>
@@ -166,12 +197,24 @@ componentDidMount() {
                     Harvest(Coming Soon)
                   </NavLink>
                 </NavItem>
-              </Nav>
+              </Nav>			  
 			</Col>
 			<Col md="4">
 			<h2>Inventory</h2>
 			<div>
-			{ this.state.myGarden }
+			<h4>My Gardens</h4>
+			<h5>{ this.state.myGarden }</h5>
+			<div>
+			<ColoredLine color="green" />
+			</div>
+			</div>
+			<div>
+			<h4>My Seeds</h4>
+			<ColoredLine color="brown" />
+			</div>
+			<div>
+			<h4>My Empty Gardens</h4>
+			<ColoredLine color="white" />
 			</div>
 			</Col>
 			</Row>

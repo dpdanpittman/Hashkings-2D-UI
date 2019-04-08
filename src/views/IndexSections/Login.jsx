@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import "./Login.css";
-import {  withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import Cookie from "js-cookie";
 import Swal from "sweetalert2";
 // import { useState } from "react";
@@ -28,7 +28,7 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
     Cookie.set("username", this.state.username)
-    this.props.history.push('/')
+    this.props.history.push('/home')
 Swal.fire({
   title: 'Welcome',
   text: 'You are now logged in to your Garden',
@@ -53,7 +53,7 @@ Swal.fire({
       <div className="Login">
 		<center>
 		<img
-        alt="..."
+        alt="Hashkings Logo"
         src={require("assets/img/hashkingsbanner.png")}
         />
 		</center>
@@ -74,7 +74,7 @@ Swal.fire({
             disabled={!this.validateForm()}
             type="submit"
           >
-            Submit
+            Login
           </Button>
         </form>
       </div>
