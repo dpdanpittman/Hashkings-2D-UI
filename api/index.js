@@ -375,7 +375,6 @@ function startApp() {
         for (var o in state.stats.offsets) {
             if (sun - state.stats.offsets[o] < 1200 && sun - state.stats.offsets[o] > 0) {
                 td.push(`${o}${((sun-state.stats.offsets[o])*4)}`, `${o}${((sun-state.stats.offsets[o])*4)-1}`, `${o}${((sun-state.stats.offsets[o])*4)-2}`, `${o}${((sun-state.stats.offsets[o])*4)-3}`);
-                console.log(td)
             }
         }
         for (var i = 0; i < td.length; i++) {
@@ -443,18 +442,18 @@ function startApp() {
         console.log(`${from} returned ${landnames}`)
     });
 
-    processor.on('redeem', function(json, from) {
-        if (state.users[from].v > 0) {
-            state.users[from].v--
-            let type = json.type || ''
+    processor.on('redeem', function(j, f) {
+        console.log(`${f} ${j}`)
+        if (state.users[f]){if (state.users[f].v && state.users[f].v > 0) {
+            state.users[f].v--
+            let type = j.type || ''
             if (state.stats.supply.strains.indexOf(type) < 0) type = state.stats.supply.strains[state.users.length % state.stats.supply.strains.length]
-            var xp = 2250
             var seed = {
                 strain: type,
-                xp: xp
+                xp: 2250
             }
-            state.users[from].seeds.push(seed)
-        }
+            state.users[f].seeds.push(seed)
+        }}
     });
 
     processor.on('adjust', function(json, from) {
@@ -466,6 +465,9 @@ function startApp() {
         for (var i = 0; i < state.refund.length; i++) {
             if (state.refund[i][2].block == json.block) state.refund.splice(i, 1)
         }
+    });
+    processor.on('grant', function(json, from) {
+        if(from=='hashkings'){state.users[json.to].v = 1}
     });
 
     processor.on('plant', function(json, from) {
@@ -538,7 +540,7 @@ function startApp() {
             a: 0,
             u: 0
         }
-        var availible = parseInt(vests / (state.stats.sv * state.stats.prices.listed.a / 1000)),
+        var availible = parseInt(vests / (state.stats.prices.listed.a * (state.stats.vs - 5) * 1000)),
             used = 0;
         if (json.delegatee == 'hashkings' && vests) {
             for (var i = 0; i < state.delegations.length; i++) {
@@ -567,13 +569,15 @@ function startApp() {
                     }
                 }
             }
+            state.users[json.delegator].a = availible
+            state.users[json.delegator].u = used
             state.delegations.push({
                 delegator: json.delegator,
                 vests,
                 availible,
                 used
             })
-            console.log(current + `:${json.delegator} has delegated and earned ${availible} lands for @hashkings`)
+            console.log(processor.getCurrentBlockNumber() + `:${json.delegator} has delegated and earned ${availible} lands for @hashkings`)
         } else if (json.delegatee == username && !vests) {
             for (var i = 0; i < state.delegations.length; i++) {
                 if (state.delegations[i].delegator == json.delegator) {
@@ -581,7 +585,7 @@ function startApp() {
                     break;
                 }
             }
-            console.log(current + `:${json.delegator} has removed delegation to @hashkings`)
+            console.log(processor.getCurrentBlockNumber() + `:${json.delegator} has removed delegation to @hashkings`)
         }
     });
     processor.onOperation('transfer', function(json) {
@@ -602,11 +606,12 @@ function startApp() {
                 if (state.stats.supply.land[want]) {
                     var allowed = false
                     if (amount == 500 && type == 'manage') {
-                        state.bal.c += amount;
-                        for (var i = 0; i < state.delegators.length; i++) {
-                            if (json.delegator == state.delegators[i].delegator && state.delegators[i].availible) {
-                                state.delegators[i].availible--;
-                                state.delegators[i].used++;
+                        console.log(`${json.from} is managing`)
+                        for (var i = 0; i < state.delegations.length; i++) {
+                            if (json.from == state.delegations[i].delegator && state.delegations[i].availible) {
+                                state.delegations[i].availible--;
+                                state.delegations[i].used++;
+                                state.bal.c += amount;
                                 allowed = true
                                 break;
                             }
@@ -852,6 +857,7 @@ function whotopay() {
 }
 
 function kudo(user) {
+    console.log('Kudos: ' + user)
     if (!state.kudos[user]) {
         state.kudos[user] = 1
     } else {
@@ -860,14 +866,19 @@ function kudo(user) {
 }
 
 function daily(addr) {
-    console.log(addr)
+    var grown = false
     if (state.land[addr]) {
         for (var i = 0; i < state.land[addr].care.length; i++) {
             if (state.land[addr].care[i][0] > processor.getCurrentBlockNumber() - 28800 && state.land[addr].care[i][1] == 'watered') {
-                state.land[addr].care[i].push('c')
-                if (state.land[addr].substage < 14 && state.land[addr].stage > 0) {
-                    state.land[addr].substage++;
-                    kudo(state.land[addr].owner)
+                if(!grown)state.land[addr].care[i].push('c')
+                if (state.land[addr].substage < 14 && state.land[addr].stage > 0 && !grown) {
+                    if(!grown){
+                        state.land[addr].substage++;
+                        grown = true;
+                        kudo(state.land[addr].owner)
+                    } else {
+                        state.land[addr].aff.push([processor.getCurrentBlockNumber(), 'too wet']);   
+                    }
                 }
                 if (state.land[addr].substage == 14) {
                     state.land[addr].substage = 0;
