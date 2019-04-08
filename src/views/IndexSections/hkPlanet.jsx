@@ -1,13 +1,14 @@
 import React from "react";
 import ImageGallery from 'react-image-gallery';
+//import Swal from "sweetalert2";
 // reactstrap components
 import { Dropdown } from 'react-bootstrap';
 import "react-image-gallery/styles/css/image-gallery.css";
 import {
   Button,
-  Container,
-  Row,
-  Col
+  Container
+//  Row,
+//  Col
 } from "reactstrap";
 // cookie components for login
 import Cookie from 'js-cookie';
@@ -42,7 +43,13 @@ class Basics extends React.Component {
         steem_keychain.requestTransfer(username, toAccount, amount, landType, "STEEM", function(response) {
             console.log(response);
         },true);
-    }
+    }/*else {
+	  Swal.fire(
+	  'Good job!',
+	  'You clicked the button!',
+	  'success'
+	  );
+  }*/
   }
   
   buyBasicSeed = (seedType) => {
@@ -88,7 +95,7 @@ class Basics extends React.Component {
     const key_type = "posting";
     var custom_JSON = JSON.stringify({type:seedType});
     if(steem_keychain && username) {
-		steem_keychain.requestCustomJson(username, custom_json_id, key_type, custom_JSON, "Redeem a seed Voucher", function(response) {
+		steem_keychain.requestCustomJson(username, custom_json_id, [key_type], custom_JSON, "Redeem a seed Voucher", function(response) {
 			console.log(response);
 		});
     }
