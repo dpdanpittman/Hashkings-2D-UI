@@ -7481,7 +7481,7 @@ a.text-darker:hover, a.text-darker:focus {
   .navbar .navbar-nav > a.btn:active:hover,
   .navbar .navbar-nav > a.btn.active:focus,
   .navbar .navbar-nav > a.btn.active:hover {
-    background-color: #263148 !important;
+    background-color: #2dce89 !important;
     background-image: linear-gradient(to bottom left, #344675, #263148, #344675) !important;
     background-image: -webkit-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
     background-image: -o-linear-gradient(to bottom left, #344675, #263148, #344675) !important;

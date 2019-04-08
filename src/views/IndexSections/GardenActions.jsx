@@ -85,12 +85,13 @@ componentDidMount() {
     plantSeed = (myGarden) => {
     const steem_keychain = window.steem_keychain;
     const username = Cookie.get("username");
+	const account = [username];
 	const custom_json_id = "qwoyn_plant";
 	const key_type = "posting";
 	var custom_JSON = JSON.stringify({addr:[this.state.myGarden],seed:0});
 	//var custom_JSON = '{"addr":"c35","seed":0}';
     if(steem_keychain && username) {
-		steem_keychain.requestCustomJson([username], custom_json_id, key_type, custom_JSON, "Plant your Seed", function(response) {
+		steem_keychain.requestCustomJson(account, custom_json_id, key_type, custom_JSON, "Plant your Seed", function(response) {
 			console.log(response);
 		});
     }

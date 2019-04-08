@@ -92,10 +92,11 @@ class Basics extends React.Component {
     const steem_keychain = window.steem_keychain;
     const username = Cookie.get("username");
     const custom_json_id = "qwoyn_redeem";
+	const account = [username];
     const key_type = "posting";
     var custom_JSON = JSON.stringify({type:seedType});
     if(steem_keychain && username) {
-		steem_keychain.requestCustomJson(username, custom_json_id, [key_type], custom_JSON, "Redeem a seed Voucher", function(response) {
+		steem_keychain.requestCustomJson(account, custom_json_id, key_type, custom_JSON, "Redeem a seed Voucher", function(response) {
 			console.log(response);
 		});
     }
