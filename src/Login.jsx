@@ -80,10 +80,15 @@ class Login extends Component {
         src={require("assets/img/hashkingsbanner.png")}
         />
 		</center>
-	  <center><h2>Please login below</h2></center>
+		<center>
+		<img
+        alt="Steem Keychain"
+        src={require("assets/img/keychain.png")}
+        /></center>
+		<br />
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="username" bssize="large">
-            <FormLabel>username</FormLabel>
+            <FormLabel>Steem Username</FormLabel>
             <FormControl
               autoFocus
               type="username"
@@ -97,7 +102,7 @@ class Login extends Component {
             disabled={!this.validateForm()}
             type="submit"
           >
-            Steem Keychain Login
+            Login
           </Button>
         </form>
       </div>
