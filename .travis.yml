@@ -1,5 +1,5 @@
 before_install:
-  - apt-get install npm
+  - sudo apt-get install npm
   - command -v npm
   - /usr/bin/npm
   - npm i -g npm@6.4.1
