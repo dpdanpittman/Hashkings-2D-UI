@@ -4,7 +4,7 @@ import classnames from "classnames";
 import Cookie from 'js-cookie';
 import "Login.css";
 import 'fetch';
-//import axios from 'axios';
+
 // reactstrap components
 import {	
   NavItem,
@@ -62,7 +62,7 @@ componentDidMount() {
             const myGarden = data.addrs;
             this.setState({myGarden})
         }).catch(() => {
-            Cookie.remove("username")
+            //Cookie.remove("username")
         })
     }
 }
@@ -103,6 +103,7 @@ componentDidMount() {
       [stateName]: index
     });
   };
+
   render() {
     return (
       <div className="section section-pagination">
@@ -155,7 +156,7 @@ componentDidMount() {
                     className={classnames({
                       "active show": this.state.pills === 1
                     })}
-                    //onClick={() => this.plantSeed()}
+                    onClick={() => this.plantSeed()}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-atom" />
@@ -167,7 +168,7 @@ componentDidMount() {
 				  className={classnames({
                       "active show": this.state.pills === 2
                     })}
-                    //onClick={e => this.handleWater()}
+                    onClick={e => this.handleWater()}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-tap-02" />
@@ -179,7 +180,7 @@ componentDidMount() {
                     className={classnames({
                       "active show": this.state.pills === 3
                     })}
-                    onClick={e => this.toggleTabs(e, "pills", 1)}
+                    onClick={e => this.toggleTabs(e, "pills", 1	)}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-scissors" />

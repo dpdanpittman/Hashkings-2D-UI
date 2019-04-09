@@ -43,13 +43,7 @@ class Basics extends React.Component {
         steem_keychain.requestTransfer(username, toAccount, amount, landType, "STEEM", function(response) {
             console.log(response);
         },true);
-    }/*else {
-	  Swal.fire(
-	  'Good job!',
-	  'You clicked the button!',
-	  'success'
-	  );
-  }*/
+    }
   }
   
   buyBasicSeed = (seedType) => {
@@ -93,7 +87,7 @@ class Basics extends React.Component {
     const username = Cookie.get("username");
     const custom_json_id = "qwoyn_redeem";
 	const account = [username];
-    const key_type = "posting";
+    const key_type = "Posting";
     var custom_JSON = JSON.stringify({type:seedType});
     if(steem_keychain && username) {
 		steem_keychain.requestCustomJson(account, custom_json_id, key_type, custom_JSON, "Redeem a seed Voucher", function(response) {

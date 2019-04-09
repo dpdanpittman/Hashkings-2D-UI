@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import "./Login.css";
-import {  withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import Cookie from "js-cookie";
 import Swal from "sweetalert2";
+import CookieConsent from "react-cookie-consent";
 
 class Login extends Component {
   constructor(props) {
@@ -23,26 +24,36 @@ class Login extends Component {
       [event.target.id]: event.target.value
     });
   }
-
+    
   handleSubmit = event => {
     event.preventDefault();
-    Cookie.set("username", this.state.username)
+	const steem_keychain = window.steem_keychain;
+    const account_name = Cookie.set("username")
+	const key_type = "Posting"
+	const message = "{login:" + '"' + account_name + '"}';
+	if(window.steem_keychain && account_name) {
+		steem_keychain.requestSignBuffer(account_name, message, key_type, function(response) {
+        console.log(response);
+	},true);
+	this.props.history.push('/')
+	}else {
     this.props.history.push('/')
-Swal.fire({
+	}
+/*Swal.fire({
   title: 'Welcome',
-  text: 'You are now logged in to your Garden',
+  text: 'Sign the message to login',
   imageUrl: 'https://i.imgur.com/aDDEpiF.png',
   imageWidth: 400,
   imageHeight: 200,
   imageAlt: 'welcome to hashkings',
   animation: true
-})
+})*/
     if(window && !window.steem_keychain) {
-Swal.fire({
-  type: 'error',
-  title: 'Oops...',
-  text: 'Something went wrong!',
-  footer: '<a href="https://chrome.google.com/webstore/detail/steem-keychain/lkcjlnjfpbikmcmbachjpdbijejflpcm?hl=en">Please install Steem Keychain and try again</a>'
+		Swal.fire({
+			type: 'error',
+			title: 'Oops...',
+			text: 'Something went wrong!',
+			footer: '<a href="https://chrome.google.com/webstore/detail/steem-keychain/lkcjlnjfpbikmcmbachjpdbijejflpcm?hl=en">Please install Steem Keychain and try again</a>'
 })
 	}
   }
@@ -50,6 +61,19 @@ Swal.fire({
   render() {
     return (
       <div className="Login">
+	  		<CookieConsent
+			location="bottom"
+			buttonText="Sure man!!"
+			cookieName="username"
+			style={{ background: "#2B373B" }}
+			buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+			expires={150}
+			>
+			This website uses cookies to enhance the user experience.{" "}
+			<span style={{ fontSize: "10px" }}>
+			Brought to you by Qwoyn for your safety
+			</span>
+			</CookieConsent>
 		<center>
 		<img
         alt="Hashkings Banner"
@@ -73,7 +97,7 @@ Swal.fire({
             disabled={!this.validateForm()}
             type="submit"
           >
-            Submit
+            Steem Keychain Login
           </Button>
         </form>
       </div>
