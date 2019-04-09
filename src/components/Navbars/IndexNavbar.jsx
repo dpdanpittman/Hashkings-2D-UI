@@ -67,7 +67,8 @@ class ComponentsNavbar extends React.Component {
       .scrollIntoView({ behavior: "smooth" });
   };
   render() {
-	  const username = Cookie.get("username");
+	const username = Cookie.get("username");
+	console.log(username);
 	if(!username) {
     return (
       <Navbar
@@ -239,10 +240,10 @@ class ComponentsNavbar extends React.Component {
               <NavItem className="p-0">
                 <NavLink
                   data-placement="bottom"
-                  href="https://www.facebook.com/canna-curate"
+                  href="https://www.steempeak.com/@canna-curate"
                   rel="noopener noreferrer"
                   target="_blank"
-                  title="Like us on Facebook"
+                  title="Follow us on Steem"
                 >
                   <i className="fab fa-facebook-square" />
                   <p className="d-lg-none d-xl-none">Facebook</p>
