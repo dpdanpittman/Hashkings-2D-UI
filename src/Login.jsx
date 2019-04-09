@@ -85,10 +85,10 @@ class Login extends Component {
         alt="Steem Keychain"
         src={require("assets/img/keychain.png")}
         /></center>
-		<br />
+		<br/>
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="username" bssize="large">
-            <FormLabel>Steem Username</FormLabel>
+            <FormLabel>Please Enter Your Steem Username</FormLabel>
             <FormControl
               autoFocus
               type="username"
