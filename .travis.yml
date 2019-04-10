@@ -7,4 +7,4 @@ before_script:
   - ulimit -c unlimited -S
 language: node_js
 node_js:
-  - "6"
+  - "10"
