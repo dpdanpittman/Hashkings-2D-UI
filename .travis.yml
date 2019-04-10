@@ -3,4 +3,4 @@ language: node_js
 node_js:
   - "6"
 after_failure:  
-  - ulimit -n 64000
+  - sudo ulimit -n 64000
