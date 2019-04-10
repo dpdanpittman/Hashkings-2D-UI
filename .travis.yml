@@ -1,6 +1,7 @@
 dist: Bionic Beaver
 sudo: required
 before_install:
+  - npm cache clean --force
   - ulimit -c unlimited
 before_script:
   - ulimit -c unlimited -S
