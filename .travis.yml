@@ -1,7 +1,7 @@
 dist: Bionic Beaver
 sudo: required
 before_install:  
-  - ulimit -hn 65535
+  - ulimit -n 65535
 language: node_js
 node_js:
   - "6"
