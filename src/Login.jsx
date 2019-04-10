@@ -47,7 +47,6 @@ class Login extends Component {
   imageUrl: 'https://i.imgur.com/aDDEpiF.png',
   imageWidth: 400,
   imageHeight: 200,
-  /////////////////
   imageAlt: 'welcome to hashkings',
   animation: true
 })*/
