@@ -28,8 +28,17 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
     Cookie.set("username", this.state.username)
-    this.props.history.push('/home')
-Swal.fire({
+	const username = Cookie.get("username")
+	const message = "{login: `" + username + "`}"
+    const key_type = "Posting"
+	const steem_keychain = window.steem_keychain;	
+
+	if(window.steem_keychain && username) {
+		steem_keychain.requestSignBuffer(username, message, key_type, function(response) {
+        console.log(response);
+});     this.props.history.push('/home')
+	}else {this.props.history.push('/login')}
+/*Swal.fire({
   title: 'Welcome',
   text: 'You are now logged in to your Garden',
   imageUrl: 'https://i.imgur.com/aDDEpiF.png',
@@ -37,7 +46,7 @@ Swal.fire({
   imageHeight: 200,
   imageAlt: 'welcome to hashkings',
   animation: true
-})
+})*/
     if(window && !window.steem_keychain) {
 Swal.fire({
   type: 'error',
