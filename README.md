@@ -5,7 +5,7 @@
   <strong>Gamified Staking</strong>
 </div>
 <div align="center">
-  Steem Blockchain Gaming | Grow Crypto Cannabis and get paid to play! 
+  Steem Blockchain Gaming | Grow Crypto Cannabis! 
 </div>
 
 <br />
