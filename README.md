@@ -1,4 +1,4 @@
-<h1 align="center">HashKings</h1>
+<h1 align="center">HashKings [![Build Status](https://travis-ci.org/dpdanpittman/Hashkings-2D-UI.svg?branch=master)](https://travis-ci.org/dpdanpittman/Hashkings-2D-UI)</h1>
 
 <div align="center">
   <strong>Gamified Staking</strong>
@@ -6,6 +6,7 @@
 <div align="center">
   Steem Blockchain Gaming | Grow Crypto Cannabis and get paid to play! 
 </div>
+
 
 <br />
 
