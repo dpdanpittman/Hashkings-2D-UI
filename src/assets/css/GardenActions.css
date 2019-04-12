@@ -1,0 +1,24 @@
+.garden-actions > a {
+  cursor: pointer;
+  width: 100%;
+}
+
+.garden-actions {
+  width: 100%;
+}
+
+.plant-select,
+.plant-select:focus {
+  color: black;
+  margin-bottom: 20px;
+}
+
+.root-modal-open {
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+
+.root-modal-closed {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
