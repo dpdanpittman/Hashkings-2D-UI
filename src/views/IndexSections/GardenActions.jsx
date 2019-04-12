@@ -4,6 +4,7 @@ import classnames from "classnames";
 import Cookie from 'js-cookie';
 import "Login.css";
 import 'fetch';
+import Swal from "sweetalert2";
 
 // reactstrap components
 import {	
@@ -62,7 +63,7 @@ componentDidMount() {
             const myGarden = data.addrs;
             this.setState({myGarden})
         }).catch(() => {
-            //Cookie.remove("username")
+            Cookie.remove("username")
         })
     }
 }
@@ -80,7 +81,17 @@ componentDidMount() {
 			console.log(response);
 		});
     }
+  Swal.fire({
+  title: 'Watered!',
+  text: 'Please sign keychain to confirm',
+  imageUrl: 'https://i.imgur.com/Y5sBOvX.png',
+  imageWidth: 400,
+  imageHeight: 200,
+  imageAlt: 'watered your plant',
+  animation: true 
+})	 
     }
+	
 //-----------------------------------------------------------------------------------------------------------  
     plantSeed = (myGarden) => {
     const steem_keychain = window.steem_keychain;
@@ -156,7 +167,7 @@ componentDidMount() {
                     className={classnames({
                       "active show": this.state.pills === 1
                     })}
-                    onClick={() => this.plantSeed()}
+                    //onClick={() => this.plantSeed()}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-atom" />
@@ -168,7 +179,7 @@ componentDidMount() {
 				  className={classnames({
                       "active show": this.state.pills === 2
                     })}
-                    onClick={e => this.handleWater()}
+                    //onClick={e => this.handleWater()}
                     href="#pablo"
                   >
                     <i className="tim-icons icon-tap-02" />

@@ -226,22 +226,22 @@ class MainPage extends React.Component {
 		    Premium Seeds
 		    </Dropdown.Toggle>
 			<Dropdown.Menu>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed hk")} className="btn-round" color="warning" type="button">Hindu Kush</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed afg")} className="btn-round" color="warning" type="button">Afghani</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed lkg")} className="btn-round" color="warning" type="button">Lashkar Gah</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed mis")} className="btn-round" color="warning" type="button">Mazar i Sharif</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed lb")} className="btn-round" color="warning" type="button">Lambs Bread</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed kbr")} className="btn-round" color="warning" type="button">Kings Bread</Dropdown.Item>
-			<Dropdown.Item onClick={() => this.buyHPSeed("mseed aca")} className="btn-round" color="warning" type="button">Acapulco Gold</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed swz")} className="btn-round" color="warning" type="button">Swazi Gold</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed kmj")} className="btn-round" color="warning" type="button">Asia</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed dp")} className="btn-round" color="warning" type="button">Durban Poison</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed mal")} className="btn-round" color="warning" type="button">Malawi</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed pam")} className="btn-round" color="warning" type="button">Panama Red</Dropdown.Item>
-			<Dropdown.Item onClick={() => this.buyHPSeed("mseed cg")} className="btn-round" color="warning" type="button">Columbian Gold</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed ach")} className="btn-round" color="warning" type="button">Aceh</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed tha")} className="btn-round" color="warning" type="button">Thai</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("mseed cht")} className="btn-round" color="warning" type="button">Chocolate Thai</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed hk")} className="btn-round" color="warning" type="button">Hindu Kush</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed afg")} className="btn-round" color="warning" type="button">Afghani</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed lkg")} className="btn-round" color="warning" type="button">Lashkar Gah</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed mis")} className="btn-round" color="warning" type="button">Mazar i Sharif</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed lb")} className="btn-round" color="warning" type="button">Lambs Bread</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed kbr")} className="btn-round" color="warning" type="button">Kings Bread</Dropdown.Item>
+			<Dropdown.Item onClick={() => this.buyPremiumSeed("mseed aca")} className="btn-round" color="warning" type="button">Acapulco Gold</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed swz")} className="btn-round" color="warning" type="button">Swazi Gold</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed kmj")} className="btn-round" color="warning" type="button">Asia</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed dp")} className="btn-round" color="warning" type="button">Durban Poison</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed mal")} className="btn-round" color="warning" type="button">Malawi</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed pam")} className="btn-round" color="warning" type="button">Panama Red</Dropdown.Item>
+			<Dropdown.Item onClick={() => this.buyPremiumSeed("mseed cg")} className="btn-round" color="warning" type="button">Columbian Gold</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed ach")} className="btn-round" color="warning" type="button">Aceh</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed tha")} className="btn-round" color="warning" type="button">Thai</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyPremiumSeed("mseed cht")} className="btn-round" color="warning" type="button">Chocolate Thai</Dropdown.Item>
 		    </Dropdown.Menu>
 		  </Dropdown>
 		  <h3>Premium Seed Cost: <font color="green"><b>1.5 Steem</b></font></h3>  
@@ -252,22 +252,22 @@ class MainPage extends React.Component {
 		    Basic Seeds
 		    </Dropdown.Toggle>
 			<Dropdown.Menu>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed hk")} className="btn-round" color="warning" type="button">Hindu Kush</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed afg")} className="btn-round" color="warning" type="button">Afghani</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed lkg")} className="btn-round" color="warning" type="button">Lashkar Gah</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed mis")} className="btn-round" color="warning" type="button">Mazar i Sharif</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed lb")} className="btn-round" color="warning" type="button">Lambs Bread</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed kbr")} className="btn-round" color="warning" type="button">Kings Bread</Dropdown.Item>
-			<Dropdown.Item onClick={() => this.buyHPSeed("rseed aca")} className="btn-round" color="warning" type="button">Acapulco Gold</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed swz")} className="btn-round" color="warning" type="button">Swazi Gold</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed kmj")} className="btn-round" color="warning" type="button">Asia</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed dp")} className="btn-round" color="warning" type="button">Durban Poison</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed mal")} className="btn-round" color="warning" type="button">Malawi</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed pam")} className="btn-round" color="warning" type="button">Panama Red</Dropdown.Item>
-			<Dropdown.Item onClick={() => this.buyHPSeed("rseed cg")} className="btn-round" color="warning" type="button">Columbian Gold</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed ach")} className="btn-round" color="warning" type="button">Aceh</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed tha")} className="btn-round" color="warning" type="button">Thai</Dropdown.Item>
-		    <Dropdown.Item onClick={() => this.buyHPSeed("rseed cht")} className="btn-round" color="warning" type="button">Chocolate Thai</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed hk")} className="btn-round" color="warning" type="button">Hindu Kush</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed afg")} className="btn-round" color="warning" type="button">Afghani</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed lkg")} className="btn-round" color="warning" type="button">Lashkar Gah</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed mis")} className="btn-round" color="warning" type="button">Mazar i Sharif</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed lb")} className="btn-round" color="warning" type="button">Lambs Bread</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed kbr")} className="btn-round" color="warning" type="button">Kings Bread</Dropdown.Item>
+			<Dropdown.Item onClick={() => this.buyBasicSeed("rseed aca")} className="btn-round" color="warning" type="button">Acapulco Gold</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed swz")} className="btn-round" color="warning" type="button">Swazi Gold</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed kmj")} className="btn-round" color="warning" type="button">Asia</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed dp")} className="btn-round" color="warning" type="button">Durban Poison</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed mal")} className="btn-round" color="warning" type="button">Malawi</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed pam")} className="btn-round" color="warning" type="button">Panama Red</Dropdown.Item>
+			<Dropdown.Item onClick={() => this.buyBasicSeed("rseed cg")} className="btn-round" color="warning" type="button">Columbian Gold</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed ach")} className="btn-round" color="warning" type="button">Aceh</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed tha")} className="btn-round" color="warning" type="button">Thai</Dropdown.Item>
+		    <Dropdown.Item onClick={() => this.buyBasicSeed("rseed cht")} className="btn-round" color="warning" type="button">Chocolate Thai</Dropdown.Item>
 		    </Dropdown.Menu>
 		  </Dropdown>
 		  <h3>Basic Seeds Cost: <font color="green"><b>0.75 Steem</b></font></h3>  
