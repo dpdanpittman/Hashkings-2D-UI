@@ -4,7 +4,7 @@ import React from "react";
 import IndexNavbar from "components/Navbars/IndexNavbar.jsx";
 import PageHeader from "components/PageHeader/PageHeader.jsx";
 // sections for this page/view
-import LandingPage from "views/IndexSections/LandingPage.jsx";
+import MainPage from "views/IndexSections/LandingPage.jsx";
 import GardenActions from "views/IndexSections/GardenActions.jsx";
 
 
@@ -22,7 +22,7 @@ class Index extends React.Component {
         <div className="wrapper">
           <div className="main">
 		  <PageHeader />
-            <LandingPage />
+            <MainPage />
             <GardenActions />
           </div>
         </div>

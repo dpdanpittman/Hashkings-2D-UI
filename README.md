@@ -39,11 +39,11 @@
 
 ## Table of Contents
 - [Features](#features)
-- [Optimizations](#optimizations)
-- [FAQ](#faq)
-- [Installation](#installation)
-- [See Also](#see-also)
+- [Screenshot](#screenshot)
 - [Support](#support)
+- [Contributors](#contributors)
+- [See Also](#see-also)
+- [FAQ](#faq)
 
 ## Features
 - __Blockchain:__ imuttable record and non-fungible tokens on Steem
@@ -53,20 +53,9 @@
 - __isomorphic:__ renders seamlessly in both Node and browsers
 
 ## Screenshot
-
 <p align="center">
   <img width="460" height="300" src="https://i.imgur.com/0rHqYS8.png">
 </p>
-
-## FAQ
-### Are there game instructions or a guide?
-Yes our game instructions and user guide can be found on our [website](https://qwoyn) and on the [@qwoyn Steemit blog](https://steemit.com/@qwoyn)
-
-## See Also
-- [Hashkings Smart Contract](https://github.com/disregardfiat/hashkings) - smart contract developer github
-- [Steem.js](https://github.com/steemit/steem-js) - Open software library for the steem blockchain
-- [Steem Keychain](https://github.com/MattyIce/steem-keychain) - Steem Wallet browser extension
-- [React.js](https://reactjs.org/) -  JavaScript library created by Facebook. React is a User Interface (UI) library.
 
 ## Support
 Creating a blockchain game takes a lot of time. Unlike others frameworks,
@@ -75,15 +64,21 @@ however that we also have to spend time working contracts to pay the bills.
 This is where you can help: by chipping in you can ensure more time is spent
 improving Hashkings rather than dealing with distractions.
 
+## See Also
+- [Hashkings Smart Contract](https://github.com/disregardfiat/hashkings) - smart contract developer github
+- [Steem.js](https://github.com/steemit/steem-js) - Open software library for the steem blockchain
+- [Steem Keychain](https://github.com/MattyIce/steem-keychain) - Steem Wallet browser extension
+- [React.js](https://reactjs.org/) -  JavaScript library created by Facebook. React is a User Interface (UI) library.
+
 ### Delegate
 Become a deledator and help ensure the development of independent quality
 software. You can help us keep the lights on, bellies full and work days sharp
 and focused on improving the state of the web.
 
-
-### Backers
-Become a backer, and buy us a coffee (or perhaps lunch?) every month or so.
-
-
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
+
+## FAQ
+### Is HashKings Open-Source
+Yes it is. MIT License
+### How much does HashKings Cost?

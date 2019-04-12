@@ -105,7 +105,9 @@ class PaginationSection extends React.Component {
             land
           }
         });
-      } catch {}
+      } catch {
+        Cookie.remove("username");
+      }
     }
   }
 

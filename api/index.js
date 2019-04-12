@@ -20,6 +20,26 @@ app.get('/p/:addr', (req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(state.land[addr], null, 3))
 });
+app.get('/a/:user', (req, res, next) => {
+    let user = req.params.user, arr = []
+    res.setHeader('Content-Type', 'application/json');
+    if(state.users[user]){
+        for (var i = 0 ; i < state.users[user].addrs.length ; i++){
+            arr.push(state.users[user].addrs[i])
+        }
+    }
+    for ( var i = 0 ; i < arr.length ; i++){
+        insert = ''
+        var insert = state.land[arr[i]]
+        if(insert){
+            insert.id = arr[i]
+            if(insert.care.length>3){insert.care.splice(3,insert.care.length-3)}
+            if(insert.aff.length>3){insert.aff.splice(3,insert.aff.length-3)}
+            arr.splice(i,1,insert)
+        }
+    }
+    res.send(JSON.stringify(arr, null, 3))
+});
 
 app.get('/stats', (req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
@@ -47,292 +67,1187 @@ app.get('/u/:user', (req, res, next) => {
 
 app.listen(port, () => console.log(`HASHKINGS token API listening on port ${port}!`))
 var state = {
-    delegations: [],
-    kudos: {},
-    stats: {
-        vs: 2001,
-        dust: 25,
-        time: 31159798,
-        offsets: {
-            a: 9600,
-            b: 21600,
-            c: 0,
-            d: 19200,
-            e: 20400,
-            f: 7200
-        },
-        bu: '',
-        bi: 0,
-        prices: {
-            listed: {
-                a: 20000,
-                b: 20000,
-                c: 20000,
-                d: 20000,
-                e: 20000,
-                f: 20000,
-                t: 20000,
-                seeds: {
-                    reg: 750,
-                    mid: 1500,
-                    top: 3000
-                },
-                supplies: {
-
-                }
+   "delegations": [
+      {
+         "delegator": "jonyoudyer",
+         "vests": 39980749568,
+         "availible": 0,
+         "used": 1
+      },
+      {
+         "delegator": "pugqueen",
+         "vests": 39976125874,
+         "availible": 0,
+         "used": 1
+      },
+      {
+         "delegator": "mondoshawan",
+         "vests": 39975980553,
+         "availible": 0,
+         "used": 1
+      },
+      {
+         "delegator": "stephanus",
+         "vests": 39974588563,
+         "availible": 0,
+         "used": 1
+      },
+      {
+         "delegator": "inthenow",
+         "vests": 39974577206,
+         "availible": 0,
+         "used": 1
+      }
+   ],
+   "kudos": {
+      "bluntsmasha": 2,
+      "jonyoudyer": 1,
+      "prettynicevideo": 1,
+      "qwoyn": 1,
+      "ghosthunter1": 1,
+      "gregorypatrick": 1,
+      "californiacrypto": 1,
+      "mondoshawan": 1
+   },
+   "stats": {
+      "vs": 1997,
+      "dust": 25,
+      "time": 31159798,
+      "offsets": {
+         "a": 9600,
+         "b": 21600,
+         "c": 0,
+         "d": 19200,
+         "e": 20400,
+         "f": 7200
+      },
+      "bu": "QmeeSxBx5EEoosNKeUi4JTnUMukxrZSyge8jTVeV7MFmsK",
+      "bi": 31958000,
+      "prices": {
+         "listed": {
+            "a": 20000,
+            "b": 20000,
+            "c": 20000,
+            "d": 20000,
+            "e": 20000,
+            "f": 20000,
+            "t": 20000,
+            "seeds": {
+               "reg": 750,
+               "mid": 1500,
+               "top": 3000
             },
-            purchase: {
-                land: 19500
+            "supplies": {}
+         },
+         "purchase": {
+            "land": 19500
+         }
+      },
+      "supply": {
+         "land": {
+            "a": 4151,
+            "ac": 50,
+            "b": 4161,
+            "bc": 40,
+            "c": 4164,
+            "cc": 37,
+            "d": 4169,
+            "dc": 32,
+            "e": 4186,
+            "ec": 15,
+            "f": 4194,
+            "fc": 7,
+            "g": 0,
+            "gc": 0,
+            "t": 420000,
+            "tc": 1,
+            "counter": 0
+         },
+         "strains": [
+            "hk",
+            "afg",
+            "lkg",
+            "mis",
+            "lb",
+            "kbr",
+            "aca",
+            "swz",
+            "kmj",
+            "dp",
+            "mal",
+            "pam",
+            "cg",
+            "ach",
+            "tha",
+            "cht"
+         ]
+      }
+   },
+   "bal": {
+      "r": 21,
+      "c": 0,
+      "b": 0,
+      "p": 141903
+   },
+   "refund": [
+   ],
+   "lands": {
+      "forSale": []
+   },
+   "land": {
+      "a10": {
+         "owner": "qwoyn",
+         "strain": "kbr",
+         "xp": 2250,
+         "care": [
+            [
+               31958716,
+               "watered"
+            ],
+            [
+               31941511,
+               "watered",
+               "c"
+            ],
+            [
+               31929468,
+               "watered"
+            ],
+            [
+               31874759,
+               "watered",
+               "c"
+            ],
+            [
+               31846989,
+               "watered",
+               "c"
+            ],
+            [
+               31816312,
+               "watered",
+               "c"
+            ],
+            [
+               31815632,
+               "watered",
+               "c"
+            ],
+            [
+               31789626,
+               "watered",
+               "c"
+            ],
+            [
+               31763213,
+               "watered",
+               "c"
+            ],
+            [
+               31713786,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31713776,
+         "stage": 1,
+         "substage": 8
+      },
+      "a2": {
+         "owner": "jonyoudyer",
+         "strain": "mis",
+         "xp": 2250,
+         "care": [
+            [
+               31930218,
+               "watered",
+               "c"
+            ],
+            [
+               31901661,
+               "watered",
+               "c"
+            ],
+            [
+               31872829,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31853281,
+         "stage": 1,
+         "substage": 3
+      },
+      "b34": {
+         "owner": "fracasgrimm",
+         "strain": "kbr",
+         "xp": 2250,
+         "care": [
+            [
+               31936407,
+               "watered"
+            ],
+            [
+               31901978,
+               "watered",
+               "c"
+            ],
+            [
+               31885962,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31885890,
+         "stage": 1,
+         "substage": 2
+      },
+      "e13": {
+         "owner": "pugqueen",
+         "strain": "cg",
+         "xp": 2250,
+         "care": [
+            [
+               31958737,
+               "watered"
+            ],
+            [
+               31906070,
+               "watered",
+               "c"
+            ],
+            [
+               31886232,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31886216,
+         "stage": 1,
+         "substage": 2
+      },
+      "e14": {
+         "owner": "mondoshawan",
+         "strain": "hk",
+         "xp": 2250,
+         "care": [
+            [
+               31953848,
+               "watered",
+               "c"
+            ],
+            [
+               31925485,
+               "watered",
+               "c"
+            ],
+            [
+               31900342,
+               "watered"
+            ],
+            [
+               31887742,
+               "watered",
+               "c"
+            ],
+            [
+               31887741,
+               "watered"
+            ]
+         ],
+         "aff": [],
+         "planted": 31887728,
+         "stage": 1,
+         "substage": 3
+      },
+      "a43": {
+         "owner": "gregorypatrick",
+         "strain": "afg",
+         "xp": 2250,
+         "care": [
+            [
+               31957272,
+               "watered"
+            ],
+            [
+               31929103,
+               "watered",
+               "c"
+            ],
+            [
+               31900194,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31900185,
+         "stage": 1,
+         "substage": 2
+      },
+      "a7": {
+         "owner": "prettynicevideo",
+         "strain": "afg",
+         "xp": 2250,
+         "care": [
+            [
+               31936791,
+               "watered",
+               "c"
+            ],
+            [
+               31903067,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31903005,
+         "stage": 1,
+         "substage": 2
+      },
+      "b39": {
+         "owner": "stephanus",
+         "strain": "swz",
+         "xp": 2250,
+         "care": [
+            [
+               31953686,
+               "watered"
+            ],
+            [
+               31905303,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31905253,
+         "stage": 1,
+         "substage": 1
+      },
+      "a49": {
+         "owner": "inthenow",
+         "strain": "hk",
+         "xp": 2250,
+         "care": [
+            [
+               31905966,
+               "watered",
+               "c"
+            ],
+            [
+               31905633,
+               "watered"
+            ]
+         ],
+         "aff": [],
+         "planted": 31905556,
+         "stage": 1,
+         "substage": 1
+      },
+      "a9": {
+         "owner": "ghosthunter1",
+         "strain": "dp",
+         "xp": 2250,
+         "care": [
+            [
+               31934193,
+               "watered",
+               "c"
+            ],
+            [
+               31906043,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31905642,
+         "stage": 1,
+         "substage": 2
+      },
+      "a11": {
+         "owner": "bluntsmasha",
+         "strain": "hk",
+         "xp": 2250,
+         "care": [
+            [
+               31956037,
+               "watered"
+            ],
+            [
+               31936220,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31911522,
+         "stage": 1,
+         "substage": 1
+      },
+      "b2": {
+         "owner": "bluntsmasha",
+         "strain": "lb",
+         "xp": 2250,
+         "care": [
+            [
+               31956044,
+               "watered"
+            ],
+            [
+               31936226,
+               "watered"
+            ]
+         ],
+         "aff": [],
+         "planted": 31911985,
+         "stage": 1,
+         "substage": 0
+      },
+      "c1": {
+         "owner": "bluntsmasha",
+         "strain": "afg",
+         "xp": 2250,
+         "care": [
+            [
+               31956052,
+               "watered"
+            ],
+            [
+               31936232,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31911995,
+         "stage": 1,
+         "substage": 1
+      },
+      "f2": {
+         "owner": "bluntsmasha",
+         "strain": "aca",
+         "xp": 2250,
+         "care": [
+            [
+               31956059,
+               "watered"
+            ],
+            [
+               31936238,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31912004,
+         "stage": 1,
+         "substage": 1
+      },
+      "b32": {
+         "owner": "sooflauschig",
+         "strain": "afg",
+         "xp": 2250,
+         "care": [
+            [
+               31958097,
+               "watered"
+            ],
+            [
+               31929983,
+               "watered",
+               "c"
+            ],
+            [
+               31929981,
+               "watered"
+            ],
+            [
+               31929977,
+               "watered"
+            ],
+            [
+               31929976,
+               "watered"
+            ],
+            [
+               31929972,
+               "watered"
+            ],
+            [
+               31929963,
+               "watered"
+            ],
+            [
+               31929956,
+               "watered"
+            ],
+            [
+               31929955,
+               "watered"
+            ]
+         ],
+         "aff": [],
+         "planted": 31929923,
+         "stage": 1,
+         "substage": 1
+      },
+      "a48": {
+         "owner": "californiacrypto",
+         "strain": "afg",
+         "xp": 2250,
+         "care": [
+            [
+               31932962,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31932911,
+         "stage": 1,
+         "substage": 1
+      }
+   },
+   "users": {
+      "a1-shroom-spores": {
+         "addrs": [
+            "a1"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "shinedojo": {
+         "addrs": [
+            "e1"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "jonyoudyer": {
+         "addrs": [
+            "a2",
+            "a3",
+            "e11"
+         ],
+         "seeds": [
+            {
+               "strain": "swz",
+               "xp": 2250
+            },
+            {
+               "strain": "swz",
+               "xp": 2250
             }
-        },
-        supply: {
-            land: {
-                a: 4153,
-                ac: 48,
-                b: 4162,
-                bc: 39,
-                c: 4165,
-                cc: 36,
-                d: 4169,
-                dc: 32,
-                e: 4191,
-                ec: 10,
-                f: 4195,
-                fc: 6,
-                g: 0,
-                gc: 0,
-                t: 420000,
-                tc: 1,
-                counter: 0
+         ],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 1,
+         "u": 0
+      },
+      "em3di": {
+         "addrs": [
+            "e2"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "timetraveljesus": {
+         "addrs": [
+            "a4",
+            "e3"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 2
+      },
+      "onlyzul": {
+         "addrs": [
+            "a5",
+            "d1",
+            "d2",
+            "e5"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 4
+      },
+      "besancia": {
+         "addrs": [
+            "a6"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "prettynicevideo": {
+         "addrs": [
+            "a7",
+            "a8",
+            "e6",
+            "f1"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 5
+      },
+      "ghosthunter1": {
+         "addrs": [
+            "a9",
+            "b1",
+            "e7"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 2
+      },
+      "qwoyn": {
+         "addrs": [
+            "a10"
+         ],
+         "seeds": [
+            {
+               "strain": "dp",
+               "xp": 2250
             },
-            strains: ['hk', 'afg', 'lkg', 'mis', 'lb', 'kbr', 'aca', 'swz', 'kmj', 'dp', 'mal', 'pam', 'cg', 'ach', 'tha', 'cht']
-        },
-    },
-    bal: {
-        r: 0,
-        c: 0,
-        b: 0,
-        p: 40503
-    },
-    refund: [],
-    lands: {
-        forSale: []
-    },
-    land: {},
-    users: {
-        "a1-shroom-spores": {
-            addrs: ['a1'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "shinedojo": {
-            addrs: ['e1'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "jonyoudyer": {
-            addrs: ['a2', 'a3'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 2
-        },
-        "em3di": {
-            addrs: ['e2'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "timetraveljesus": {
-            addrs: ['a4', 'e3'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 2
-        },
-        "onlyzul": {
-            addrs: ['a5', 'd1', 'd2', 'e5'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 4
-        },
-        "besancia": {
-            addrs: ['a6'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "prettynicevideo": {
-            addrs: ['a7', 'a8', 'e6', 'f1'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 6
-        },
-        "ghosthunter1": {
-            addrs: ['a9', 'b1', 'e7'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 3
-        },
-        "qwoyn": {
-            addrs: ['a10'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "disregardfiat": {
-            addrs: ['e8'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "bluntsmasha": {
-            addrs: ['a11', 'b2', 'c1', 'f2'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 4
-        },
-        "tryp": {
-            addrs: ['a12', 'a13', 'a14', 'c3', 'c4'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 5
-        },
-        "highroadseeds": {
-            addrs: ['c5', 'c6'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 2
-        },
-        "mrkhuffins": {
-            addrs: ['a15', 'b3', 'c7', 'd3'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 4
-        },
-        "allcapsonezero": {
-            addrs: ['b4'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "nelsius": {
-            addrs: ['a16'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "luegenbaron": {
-            addrs: ['b5'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "ngc": {
-            addrs: ['a17', 'a18', 'a19', 'a20', 'a21', 'a22', 'a23', 'a24', 'a25', 'a26', 'a27', 'a28', 'a29', 'a30', 'a31', 'a32', 'a33', 'a34', 'a35', 'a36', 'a37', 'a38', 'a39', 'a40', 'a41', 'a42', 'b6', 'b7', 'b8', 'b9', 'b10', 'b11', 'b12', 'b13', 'b14', 'b15', 'b16', 'b17', 'b18', 'b19', 'b20', 'b21', 'b22', 'b23', 'b24', 'b25', 'b26', 'b27', 'b28', 'b29', 'b30', 'b31', 'c8', 'c9', 'c10', 'c11', 'c12', 'c13', 'c14', 'c15', 'c16', 'c17', 'c18', 'c19', 'c20', 'c21', 'c22', 'c23', 'c24', 'c25', 'c26', 'c27', 'c28', 'c29', 'c30', 'c31', 'c32', 'c33', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'd11', 'd12', 'd13', 'd14', 'd15', 'd16', 'd17', 'd18', 'd19', 'd20', 'd21', 'd22', 'd23', 'd24', 'd25', 'd26', 'd27', 'd28', 'd29'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 120
-        },
-        "sooflauschig": {
-            addrs: ['b32'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "pangoli": {
-            addrs: ['b33'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "fracasgrimm": {
-            addrs: ['b34'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "gregorypatrick": {
-            addrs: ['a43'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "markegiles": {
-            addrs: ['a44', 'b35', 'c34', 'd30'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 4
-        },
-        "cowboyblazerfan": {
-            addrs: ['a45'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "movingman": {
-            addrs: ['a46'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "dantrevino": {
-            addrs: ['b36'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        },
-        "eldun": {
-            addrs: ['b37', 'f3'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 3
-        },
-        "napoleon2702": {
-            addrs: ['a47', 'b38', 'c35', 'd31', 'e9', 'f4'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 6
-        },
-        "geekpowered": {
-            addrs: ['f5'],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 1
-        }
-    }
+            {
+               "strain": "lb",
+               "xp": 2250
+            },
+            {
+               "strain": "hk",
+               "xp": 2250
+            }
+         ],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "disregardfiat": {
+         "addrs": [
+            "e8"
+         ],
+         "seeds": [
+            {
+               "strain": "cht",
+               "xp": 2250
+            }
+         ],
+         "inv": [],
+         "stats": [],
+         "v": 0
+      },
+      "azuremoon": {
+         "addrs": [
+            "e12"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "bluntsmasha": {
+         "addrs": [
+            "a11",
+            "b2",
+            "c1",
+            "f2"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0
+      },
+      "tryp": {
+         "addrs": [
+            "a12",
+            "a13",
+            "a14",
+            "c3",
+            "c4"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 5
+      },
+      "highroadseeds": {
+         "addrs": [
+            "c5",
+            "c6"
+         ],
+         "seeds": [
+            {
+               "strain": "dp",
+               "xp": 2250
+            },
+            {
+               "strain": "aca",
+               "xp": 2250
+            }
+         ],
+         "inv": [],
+         "stats": [],
+         "v": 0
+      },
+      "mrkhuffins": {
+         "addrs": [
+            "a15",
+            "b3",
+            "c7",
+            "d3"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 4
+      },
+      "allcapsonezero": {
+         "addrs": [
+            "b4"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "nelsius": {
+         "addrs": [
+            "a16"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "luegenbaron": {
+         "addrs": [
+            "b5"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "ngc": {
+         "addrs": [
+            "a17",
+            "a18",
+            "a19",
+            "a20",
+            "a21",
+            "a22",
+            "a23",
+            "a24",
+            "a25",
+            "a26",
+            "a27",
+            "a28",
+            "a29",
+            "a30",
+            "a31",
+            "a32",
+            "a33",
+            "a34",
+            "a35",
+            "a36",
+            "a37",
+            "a38",
+            "a39",
+            "a40",
+            "a41",
+            "a42",
+            "b6",
+            "b7",
+            "b8",
+            "b9",
+            "b10",
+            "b11",
+            "b12",
+            "b13",
+            "b14",
+            "b15",
+            "b16",
+            "b17",
+            "b18",
+            "b19",
+            "b20",
+            "b21",
+            "b22",
+            "b23",
+            "b24",
+            "b25",
+            "b26",
+            "b27",
+            "b28",
+            "b29",
+            "b30",
+            "b31",
+            "c8",
+            "c9",
+            "c10",
+            "c11",
+            "c12",
+            "c13",
+            "c14",
+            "c15",
+            "c16",
+            "c17",
+            "c18",
+            "c19",
+            "c20",
+            "c21",
+            "c22",
+            "c23",
+            "c24",
+            "c25",
+            "c26",
+            "c27",
+            "c28",
+            "c29",
+            "c30",
+            "c31",
+            "c32",
+            "c33",
+            "d4",
+            "d5",
+            "d6",
+            "d7",
+            "d8",
+            "d9",
+            "d10",
+            "d11",
+            "d12",
+            "d13",
+            "d14",
+            "d15",
+            "d16",
+            "d17",
+            "d18",
+            "d19",
+            "d20",
+            "d21",
+            "d22",
+            "d23",
+            "d24",
+            "d25",
+            "d26",
+            "d27",
+            "d28",
+            "d29"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 120
+      },
+      "sooflauschig": {
+         "addrs": [
+            "b32"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0
+      },
+      "pangoli": {
+         "addrs": [
+            "b33"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "fracasgrimm": {
+         "addrs": [
+            "b34"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0
+      },
+      "gregorypatrick": {
+         "addrs": [
+            "a43"
+         ],
+         "seeds": [
+            {
+               "strain": "hk",
+               "xp": 2250
+            },
+            {
+               "strain": "dp",
+               "xp": 2250
+            }
+         ],
+         "inv": [],
+         "stats": [],
+         "v": 0
+      },
+      "markegiles": {
+         "addrs": [
+            "a44",
+            "b35",
+            "c34",
+            "d30",
+            "e10"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 4
+      },
+      "cowboyblazerfan": {
+         "addrs": [
+            "a45"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "movingman": {
+         "addrs": [
+            "a46"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "dantrevino": {
+         "addrs": [
+            "b36"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "eldun": {
+         "addrs": [
+            "b37",
+            "f3"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 3
+      },
+      "napoleon2702": {
+         "addrs": [
+            "a47",
+            "b38",
+            "c35",
+            "d31",
+            "e9",
+            "f4"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 6
+      },
+      "geekpowered": {
+         "addrs": [
+            "f5"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 1
+      },
+      "greenhouseradio": {
+         "addrs": [],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 0,
+         "u": 0
+      },
+      "eirik": {
+         "addrs": [
+            "c36"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 0,
+         "u": 0
+      },
+      "onthewayout": {
+         "addrs": [
+            "f6"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 0,
+         "u": 0
+      },
+      "californiacrypto": {
+         "addrs": [
+            "a48"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 0,
+         "u": 0
+      },
+      "smartsteem": {
+         "addrs": [],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 0,
+         "u": 0
+      },
+      "booster": {
+         "addrs": [],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 0,
+         "u": 0
+      },
+      "steemvotesio": {
+         "addrs": [],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 0,
+         "u": 0
+      },
+      "steemlike": {
+         "addrs": [],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 0,
+         "u": 0
+      },
+      "blocktrades": {
+         "addrs": [],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 2,
+         "u": 0
+      },
+      "pugqueen": {
+         "addrs": [
+            "e13"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 1,
+         "u": 0
+      },
+      "mondoshawan": {
+         "addrs": [
+            "e14"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 1,
+         "u": 0
+      },
+      "stephanus": {
+         "addrs": [
+            "b39"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 1,
+         "u": 0
+      },
+      "inthenow": {
+         "addrs": [
+            "a49"
+         ],
+         "seeds": [],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 1,
+         "u": 0
+      }
+   },
+   "news": {
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "f": [],
+      "g": [],
+      "h": [],
+      "i": [],
+      "t": []
+   },
+   "payday": [
+      [
+         {
+            "account": "pugqueen",
+            "weight": 10000
+         }
+      ],
+      [
+         {
+            "account": "sooflauschig",
+            "weight": 10000
+         }
+      ],
+      [
+         {
+            "account": "fracasgrimm",
+            "weight": 10000
+         }
+      ],
+      [
+         {
+            "account": "stephanus",
+            "weight": 10000
+         }
+      ]
+   ]
 }
-var startingBlock = ENV.STARTINGBLOCK || 31152000; //GENESIS BLOCK
+var startingBlock = ENV.STARTINGBLOCK || 31958500 ; //GENESIS BLOCK
 const username = ENV.ACCOUNT || 'hashkings'; //account with all the SP
 const key = steem.PrivateKey.from(ENV.KEY); //active key for account
 const sh = ENV.sh || ''
@@ -395,15 +1310,274 @@ function startApp() {
         if (num % 1000 === 0 && processor.isStreaming()) {
             ipfsSaveState(num, JSON.stringify(state))
         }
+        if (num % 28800 === 2880 && state.payday) {
+            console.log("?"+num)
+        var body = `It's a nice day in Jamaica`
+            if (state.news.e.length > 0){body = state.news.e[0];state.news.e.shift();}
+            state.refund.push(['sign',[["comment", 
+                                 {"parent_author": "", 
+                                  "parent_permlink": 'hashkings', 
+                                  "author": username, 
+                                  "permlink": 'h'+num, 
+                                  "title": `Almanac | Jamaica | ${num}`, 
+                                  "body": body,
+                                  "json_metadata": JSON.stringify({tags:["hashkings"]})}], 
+                                ["comment_options", 
+                                 {"author": username, 
+                                  "permlink": 'h'+num, 
+                                  "max_accepted_payout": "1000000.000 SBD", 
+                                  "percent_steem_dollars": 10000, 
+                                  "allow_votes": true, 
+                                  "allow_curation_rewards": true, 
+                                  "extensions": 
+                                  [[0, 
+                                    {"beneficiaries":state.payday[0]}]]}]] ])
+            state.payday.shift()
+    }
+        if (num % 28800 === 3180 && state.payday) {
+            console.log("?"+num)
+    state.refund.push(['sign',[["vote",{"author":username,"permlink":`h${num-300}`,"voter":username,"weight":10000}]]])
+    }
+        
+    if (num % 28800 === 3660 && state.payday) {
+        console.log("?"+num)
+        var body = `It's a nice day in Central America`
+            if (state.news.d.length > 0){body = state.news.d[0];state.news.d.shift();}
+            state.refund.push(['sign',[["comment", 
+                                 {"parent_author": "", 
+                                  "parent_permlink": 'hashkings', 
+                                  "author": username, 
+                                  "permlink": 'h'+num, 
+                                  "title": `Almanac | Central America | ${num}`, 
+                                  "body": body,
+                                  "json_metadata": JSON.stringify({tags:["hashkings"]})}], 
+                                ["comment_options", 
+                                 {"author": username, 
+                                  "permlink": 'h'+num, 
+                                  "max_accepted_payout": "1000000.000 SBD", 
+                                  "percent_steem_dollars": 10000, 
+                                  "allow_votes": true, 
+                                  "allow_curation_rewards": true, 
+                                  "extensions": 
+                                  [[0, 
+                                    {"beneficiaries":state.payday[0]}]]}]] ])
+            state.payday.shift()
+    }
+        if (num % 28800 === 3960 && state.payday) {
+            console.log("?"+num)
+    state.refund.push(['sign',[["vote",{"author":username,"permlink":`h${num-300}`,"voter":username,"weight":10000}]]])
+    }
+        if (num % 28800 === 5440 && state.payday) {
+            
+            console.log("?"+num)
+        var body = `It's a nice day in Mexico`
+            if (state.news.f.length > 0){body = state.news.f[0];state.news.f.shift();}
+            state.refund.push(['sign',[["comment", 
+                                 {"parent_author": "", 
+                                  "parent_permlink": 'hashkings', 
+                                  "author": username, 
+                                  "permlink": 'h'+num, 
+                                  "title": `Almanac | Central America | ${num}`, 
+                                  "body": body,
+                                  "json_metadata": JSON.stringify({tags:["hashkings"]})}], 
+                                ["comment_options", 
+                                 {"author": username, 
+                                  "permlink": 'h'+num, 
+                                  "max_accepted_payout": "1000000.000 SBD", 
+                                  "percent_steem_dollars": 10000, 
+                                  "allow_votes": true, 
+                                  "allow_curation_rewards": true, 
+                                  "extensions": 
+                                  [[0, 
+                                    {"beneficiaries":state.payday[0]}]]}]] ])
+            state.payday.shift()
+    }
+        if (num % 28800 === 5740 && state.payday) {
+            console.log("?"+num)
+    state.refund.push(['sign',[["vote",{"author":username,"permlink":`h${num-300}`,"voter":username,"weight":10000}]]])
+    }
+        if (num % 28800 === 12000 && state.payday) {
+            console.log("?"+num)
+        var body = `It's a nice day in Asia`
+            if (state.news.c.length > 0){body = state.news.c[0];state.news.c.shift();}
+            state.refund.push(['sign',[["comment", 
+                                 {"parent_author": "", 
+                                  "parent_permlink": 'hashkings', 
+                                  "author": username, 
+                                  "permlink": 'h'+num, 
+                                  "title": `Almanac | Asia | ${num}`, 
+                                  "body": body,
+                                  "json_metadata": JSON.stringify({tags:["hashkings"]})}], 
+                                ["comment_options", 
+                                 {"author": username, 
+                                  "permlink": 'h'+num, 
+                                  "max_accepted_payout": "1000000.000 SBD", 
+                                  "percent_steem_dollars": 10000, 
+                                  "allow_votes": true, 
+                                  "allow_curation_rewards": true, 
+                                  "extensions": 
+                                  [[0, 
+                                    {"beneficiaries":state.payday[0]}]]}]] ])
+            state.payday.shift()
+    }
+        if (num % 28800 === 12300 && state.payday) {
+            console.log("?"+num)
+    state.refund.push(['sign',[["vote",{"author":username,"permlink":`h${num-300}`,"voter":username,"weight":10000}]]])
+    }
+        
+        if (num % 28800 === 15000 && state.payday) {
+            console.log("?"+num)
+        var body = `It's a nice day in Afganistan`
+            if (state.news.a.length > 0){body = state.news.a[0];state.news.a.shift();}
+            state.refund.push(['sign',[["comment", 
+                                 {"parent_author": "", 
+                                  "parent_permlink": 'hashkings', 
+                                  "author": username, 
+                                  "permlink": 'h'+num, 
+                                  "title": `Almanac | Afganistan | ${num}`, 
+                                  "body": body,
+                                  "json_metadata": JSON.stringify({tags:["hashkings"]})}], 
+                                ["comment_options", 
+                                 {"author": username, 
+                                  "permlink": 'h'+num, 
+                                  "max_accepted_payout": "1000000.000 SBD", 
+                                  "percent_steem_dollars": 10000, 
+                                  "allow_votes": true, 
+                                  "allow_curation_rewards": true, 
+                                  "extensions": 
+                                  [[0, 
+                                    {"beneficiaries":state.payday[0]}]]}]] ])
+            state.payday.shift()
+    }
+        if (num % 28800 === 15300 && state.payday) {
+            console.log("?"+num)
+    state.refund.push(['sign',[["vote",{"author":username,"permlink":`h${num-300}`,"voter":username,"weight":10000}]]])
+    }
+        if (num % 28800 === 10000 && state.payday) {
+            console.log("?"+num)
+        var body = `Testing Hashkings Automated features 10`
+            if (state.news.g.length > 0){body = state.news.g[0];state.news.g.shift();}
+            state.refund.push(['sign',[["comment", 
+                                 {"parent_author": "", 
+                                  "parent_permlink": 'hashkings', 
+                                  "author": username, 
+                                  "permlink": 'h'+num, 
+                                  "title": `Automated | ${num}`, 
+                                  "body": body,
+                                  "json_metadata": JSON.stringify({tags:["hashkings"]})}], 
+                                ["comment_options", 
+                                 {"author": username, 
+                                  "permlink": 'h'+num, 
+                                  "max_accepted_payout": "1000000.000 SBD", 
+                                  "percent_steem_dollars": 10000, 
+                                  "allow_votes": true, 
+                                  "allow_curation_rewards": true, 
+                                  "extensions": 
+                                  [[0, 
+                                    {"beneficiaries":state.payday[0]}]]}]] ])
+            state.payday.shift()
+    }
+        if (num % 28800 === 10300 && state.payday) {
+            console.log("?"+num)
+    state.refund.push(['sign',[["vote",{"author":username,"permlink":`h${num-300}`,"voter":username,"weight":10000}]]])
+    }
+        if (num % 28800 === 20000 && state.payday) {
+            console.log("?"+num)
+        var body = `Testing Hashkings Automated features 20`
+            if (state.news.h.length > 0){body = state.news.h[0];state.news.h.shift();}
+            state.refund.push(['sign',[["comment", 
+                                 {"parent_author": "", 
+                                  "parent_permlink": 'hashkings', 
+                                  "author": username, 
+                                  "permlink": 'h'+num, 
+                                  "title": `Automated | ${num}`, 
+                                  "body": body,
+                                  "json_metadata": JSON.stringify({tags:["hashkings"]})}], 
+                                ["comment_options", 
+                                 {"author": username, 
+                                  "permlink": 'h'+num, 
+                                  "max_accepted_payout": "1000000.000 SBD", 
+                                  "percent_steem_dollars": 10000, 
+                                  "allow_votes": true, 
+                                  "allow_curation_rewards": true, 
+                                  "extensions": 
+                                  [[0, 
+                                    {"beneficiaries":state.payday[0]}]]}]] ])
+            state.payday.shift()
+    }
+        if (num % 28800 === 20300 && state.payday) {
+            console.log("?"+num)
+    state.refund.push(['sign',[["vote",{"author":username,"permlink":`h${num-300}`,"voter":username,"weight":10000}]]])
+    }
+        if (num % 28800 === 25000 && state.payday) {
+            console.log("?"+num)
+        var body = `Testing Hashkings Automated features 25`
+            if (state.news.i.length > 0){body = state.news.i[0];state.news.i.shift();}
+            state.refund.push(['sign',[["comment", 
+                                 {"parent_author": "", 
+                                  "parent_permlink": 'hashkings', 
+                                  "author": username, 
+                                  "permlink": 'h'+num, 
+                                  "title": `Automated | ${num}`, 
+                                  "body": body,
+                                  "json_metadata": JSON.stringify({tags:["hashkings"]})}], 
+                                ["comment_options", 
+                                 {"author": username, 
+                                  "permlink": 'h'+num, 
+                                  "max_accepted_payout": "1000000.000 SBD", 
+                                  "percent_steem_dollars": 10000, 
+                                  "allow_votes": true, 
+                                  "allow_curation_rewards": true, 
+                                  "extensions": 
+                                  [[0, 
+                                    {"beneficiaries":state.payday[0]}]]}]] ])
+            state.payday.shift()
+    }
+        if (num % 28800 === 25300 && state.payday) {
+            console.log("?"+num)
+    state.refund.push(['sign',[["vote",{"author":username,"permlink":`h${num-300}`,"voter":username,"weight":10000}]]])
+    }
+        if (num % 28800 === 22000 && state.payday) {
+            console.log("?"+num)
+        var body = `It's a nice day in Afganistan 22`
+            if (state.news.t.length > 0){body = state.news.t[0];state.news.t.shift();}
+            state.refund.push(['sign',[["comment", 
+                                 {"parent_author": "", 
+                                  "parent_permlink": 'hashkings', 
+                                  "author": username, 
+                                  "permlink": 'h'+num, 
+                                  "title": `Automated | ${num}`, 
+                                  "body": body,
+                                  "json_metadata": JSON.stringify({tags:["hashkings"]})}], 
+                                ["comment_options", 
+                                 {"author": username, 
+                                  "permlink": 'h'+num, 
+                                  "max_accepted_payout": "1000000.000 SBD", 
+                                  "percent_steem_dollars": 10000, 
+                                  "allow_votes": true, 
+                                  "allow_curation_rewards": true, 
+                                  "extensions": 
+                                  [[0, 
+                                    {"beneficiaries":state.payday[0]}]]}]] ])
+            state.payday.shift()
+    }
+    if (num % 28800 === 22300 && state.payday) {
+        console.log("?"+num)
+    state.refund.push(['sign',[["vote",{"author":username,"permlink":`h${num-300}`,"voter":username,"weight":10000}]]])
+    }
+        
         if (num % 28800 === 0) {
             var d = parseInt(state.bal.c / 4)
             state.bal.r += state.bal.c
             if (d) {
                 state.refund.push(['xfer', 'disregardfiat', d, 'Dev Cut'])
                 state.refund.push(['xfer', 'qwoyn-fund', d, 'Partners Cut'])
-                state.refund.push(['xfer', 'qwoyn-chest', d, 'Warchest'])
+                state.refund.push(['xfer', 'qwoyn', d, 'Warchest'])
                 state.bal.c -= d * 3
-                state.refund.push(['xfer', 'qwoyn', state.bal.c, 'Producer Cut'])
+                d = parseInt(state.bal / 5)
+                state.refund.push(['xfer', 'jrawsthorne', d, 'Partner Cut'])
+                state.bal.c -= d
+                state.refund.push(['xfer', 'qwoyn-chest', state.bal.c, 'Producer Cut'])
                 state.bal.c = 0
                 if (state.bal.d > state.bal.b) {
                     state.bal.d -= state.bal.b;
@@ -414,16 +1588,46 @@ function startApp() {
                 }
                 state.refund.push(['power', username, state.bal.b, 'Power to the people!'])
             }
+            state.payday = whotopay()
+            var body = `It's a nice day in Africa`
+            if (state.news.b.length > 0){body = state.news.b[0];state.news.b.shift();}
+            state.refund.push(['sign',[["comment", 
+                                 {"parent_author": "", 
+                                  "parent_permlink": 'hashkings', 
+                                  "author": username, 
+                                  "permlink": 'h'+num, 
+                                  "title": `Almanac | Africa | ${num}`, 
+                                  "body": body,
+                                  "json_metadata": JSON.stringify({tags:['hashkings']})}], 
+                                ["comment_options", 
+                                 {"author": username, 
+                                  "permlink": 'h'+num, 
+                                  "max_accepted_payout": "1000000.000 SBD", 
+                                  "percent_steem_dollars": 10000, 
+                                  "allow_votes": true, 
+                                  "allow_curation_rewards": true, 
+                                  "extensions": 
+                                  [[0, 
+                                    {"beneficiaries":state.payday[0]}]]}]] ])
+            state.payday.shift()
+            console.log({state})
         }
+    if (num % 28800 === 300) {
+        console.log("?"+num)
+    state.refund.push(['sign',[["vote",{"author":username,"permlink":`h${num-300}`,"voter":username,"weight":10000}]]])
+    }
     });
+    
     processor.on('water', function(json, from) {
         let plants = json.plants,
             plantnames = ''
         for (var i = 0; i < plants.length; i++) {
+            try {
             if (state.land[plants[i]].owner == from) {
                 state.land[plants[i]].care.unshift([processor.getCurrentBlockNumber(), 'watered']);
                 plantnames += `${plants[i]} `
             }
+            } catch (e){console.log(`${from} can't water what is not theirs`)}
         }
         console.log(`${from} watered ${plantnames}`)
     });
@@ -462,18 +1666,35 @@ function startApp() {
     });
 
     processor.on('report', function(json, from) {
-        for (var i = 0; i < state.refund.length; i++) {
+        try{for (var i = 0; i < state.refund.length; i++) {
             if (state.refund[i][2].block == json.block) state.refund.splice(i, 1)
-        }
+        }}catch(e){}
     });
     processor.on('grant', function(json, from) {
         if(from=='hashkings'){state.users[json.to].v = 1}
     });
+    processor.on('news', function(json, from) {
+        if(from=='hashkings'){
+            if(!state.news){
+                state.news = {a:[],b:[],c:[],d:[],f:[],g:[],h:[],i:[],t:[]}
+            }
+            state.news[json.queue].push(json.body)
+         }
+    });
 
     processor.on('plant', function(json, from) {
-        const index = state.users[from].addrs.indexOf(json.addr)
-        var seed = ''
-        if (state.users[from].seeds[json.seed]) seed = state.users[from].seeds.splice(json.seed, 1)[0]
+        var index, seed=''
+        try{
+            index = state.users[from].addrs.indexOf(json.addr)
+            for (var i = 0;i < state.users[from].seeds.length; i++){
+                if(state.users[from].seeds[i].strain = json.seed){seed=state.users[from].seeds.splice(i, 1);break;}
+            }
+        } catch (e) {}
+        if (!seed){
+            try {
+                seed=state.users[from].seeds.splice(0, 1)
+            }catch (e) {}
+        } 
         if (index >= 0 && seed) {
             console.log({
                 seed
@@ -528,6 +1749,28 @@ function startApp() {
             }
         }
     });
+    processor.onOperation('comment_options', function(json) {
+        for(var i = 0;i<state.refund.length;i++){
+            if(state.refund[i][0]=='sign'){
+                if(state.refund[i][1][0][0]=='comment'){
+                    if (json.author == username && json.permlink == state.refund[i][1][0][1].permlink && state.refund[i][1][0][0] == 'comment') {
+                        state.refund.splice(i,1)
+                    }
+                }
+            }
+        }
+    });
+    processor.onOperation('vote', function(json) {
+        for(var i = 0;i<state.refund.length;i++){
+            if(state.refund[i][0]=='sign'){
+                if(state.refund[i][1][0][0]=='vote'){
+                    if (json.author == username && json.permlink == state.refund[i][1][0][1].permlink && state.refund[i][1][0][0] == 'vote') {
+                        state.refund.splice(i,1)
+                    }
+                }
+            }
+        }
+    });
     processor.onOperation('delegate_vesting_shares', function(json, from) { //grab posts to reward
         const vests = parseInt(parseFloat(json.vesting_shares) * 1000000)
         var record = ''
@@ -540,7 +1783,7 @@ function startApp() {
             a: 0,
             u: 0
         }
-        var availible = parseInt(vests / (state.stats.prices.listed.a * (state.stats.vs - 5) * 1000)),
+        var availible = parseInt(vests / (state.stats.prices.listed.a * (state.stats.vs) * 1000)),
             used = 0;
         if (json.delegatee == 'hashkings' && vests) {
             for (var i = 0; i < state.delegations.length; i++) {
@@ -754,6 +1997,17 @@ var bot = {
             }
         )
     },
+    sign: function(op, callback) {
+        console.log('attempting'+op[0])
+        client.broadcast.sendOperations(op, key).then(
+            function(result) {
+                console.log(result)
+            },
+            function(error) {
+                console.log(error)
+            }
+        );
+    },
     power: function(toa, amount, callback) {
         const op = [
             'transfer_to_vesting',
@@ -802,58 +2056,64 @@ function whotopay() {
         h = 1,
         o = []
     for (d in state.kudos) {
-        c += state.kudos[d];
+        c = parseInt(c) + parseInt(state.kudos[d])
         if (state.kudos[d] > h) {
             h = state.kudos[d]
         };
         if (state.kudos[d] == 1) {
-            d.unshift({
+            o.unshift({
                 account: d,
-                weight: state.kudos[d]
+                weight: parseInt(state.kudos[d])
             })
         } else {
-            for (var i = d.length - 1; i > 0; i--) {
-                for (var p in d[i]) {
-                    if (state.kudos[d] <= d[i][p]) {
-                        d.splice(i, 0, {
+            if(!o.length){o.unshift({
+                account: d,
+                weight: parseInt(state.kudos[d])
+            })}
+            for (var i = o.length - 1; i > 0; i--) {
+                    if (state.kudos[d] <= o[i].weight ||(state.kudos[d] > o[i].weight && i == o.length)) {
+                        o.splice(i, 0, {
                             account: d,
-                            weight: state.kudos[d]
+                            weight: parseInt(state.kudos[d])
                         });
                         i = 0;
                     }
-                }
             }
         }
     }
-    if (d.length > 3000) {
+    if (o.length > 3000) {
         b = 3000
     } else {
-        b = d.length
+        b = o.length
     }
     while (b) {
         for (var r in a) {
-            a[r].push(d.pop());
+            a[r].push(o.pop());
             b--
+            if(!b)break;
         }
     }
     state.kudos = {}
-    if (d.length) {
-        for (var i = 0; i < d.length; i++) {
-            state.kudos[d[i].account] = d[i].weight
+        for (var i = 0; i < o.length; i++) {
+            state.kudos[o[i].account] = parseInt(o[i].weight)
         }
-    }
     for (var r in a) {
         var u = 0,
             q = 0
         for (var i = 0; i < a[r].length; i++) {
-            u += a[r][i].weight
+            u = parseInt(u) + parseInt(a[r][i].weight)
         }
-        q = parseInt(u / 10000)
+        q = parseInt(10000/u)
         for (var i = 0; i < a[r].length; i++) {
-            a[r][i].weight = parseInt(a[r][i].weight * u)
+            a[r][i].weight = parseInt(parseInt(a[r][i].weight) * q)
         }
     }
-    return a
+    o = []
+    for (var i in a){
+        o.push(a[i])
+    }
+    console.log('payday:'+o)
+    return o
 }
 
 function kudo(user) {
