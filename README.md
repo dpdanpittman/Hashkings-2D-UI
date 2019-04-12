@@ -1,6 +1,6 @@
 <h1 align="center">HashKings</h1>
 <div align="center">
-  [![Build Status](https://travis-ci.org/dpdanpittman/Hashkings-2D-UI.svg?branch=master)](https://travis-ci.org/dpdanpittman/Hashkings-2D-UI)
+![Build Status](https://travis-ci.org/dpdanpittman/Hashkings-2D-UI.svg?branch=master)
   <strong>Gamified Staking</strong>
 </div>
 <div align="center">
