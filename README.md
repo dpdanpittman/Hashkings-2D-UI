@@ -1,9 +1,7 @@
 <h1 align="center">HashKings</h1>
-<center>
-<a href="https://travis-ci.org/dpdanpittman/Hashkings-2D-UI">
-<img border="0" alt="W3Schools" src="https://travis-ci.org/dpdanpittman/Hashkings-2D-UI.svg?branch=master" width="100" height="100">
-</center>
 <div align="center">
+<a href="https://travis-ci.org/dpdanpittman/Hashkings-2D-UI">
+<img border="0" alt="buildpassed" src="https://travis-ci.org/dpdanpittman/Hashkings-2D-UI.svg?branch=master">
   <strong>Gamified Staking</strong>
 </div>
 <div align="center">
