@@ -20,8 +20,8 @@
       Community
     </a>
     <span> | </span>
-    <a href="https://steemit.com/@hashkings">
-      Steemit
+    <a href="https://steepeak.com/@hashkings">
+      Blog
     </a>
     <span> | </span>
     <a href="https://discord.gg/DcsPHUG">
