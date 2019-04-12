@@ -158,10 +158,29 @@ class MainPage extends React.Component {
 		  <h2><center>Delegate Steem Power to @hashkings and choose a Garden</center></h2>
 		  <h1><center><b><font color="green" ><u>20 Steem</u></font></b></center></h1>
 		  <br/>
+		  <div>
 		  <center>
+		  <h5>1 Garden Plot</h5>
 		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
           Delegate 20 Steem
 		  </Button>
+		  <h5>2 Total Plots</h5>
+		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
+          Delegate 40 Steem
+		  </Button>
+		  <h5>3 Total Plots</h5>
+		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
+          Delegate 60 Steem
+		  </Button>
+		  <h5>4 Total Plots</h5>
+		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
+          Delegate 80 Steem
+		  </Button>
+		  <h5>5 Total Plots</h5>
+		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
+          Delegate 100 Steem
+		  </Button>
+		  </div>
 		  </center>
 		  <center>
 		  <div>
