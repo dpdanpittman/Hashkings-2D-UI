@@ -17,6 +17,8 @@ import Cookie from 'js-cookie';
 const ColoredLine = ({ color }) => (
     <hr
         style={{
+			align: "center",
+			width: 1100,
             color: color,
             backgroundColor: color,
             height: 5
@@ -158,13 +160,38 @@ class MainPage extends React.Component {
 		  <h2><center>Delegate Steem Power to @hashkings and choose a Garden</center></h2>
 		  <h1><center><b><font color="green" ><u>20 Steem</u></font></b></center></h1>
 		  <br/>
+		  <div>
 		  <center>
+		  <h4>1 Garden Plot</h4>
 		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
           Delegate 20 Steem
 		  </Button>
+		  <br />
+		  <br />
+		  <h4>2 Total Plots</h4>
+		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
+          Delegate 40 Steem
+		  </Button><br /><br />
+		  <h4>3 Total Plots</h4>
+		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
+          Delegate 60 Steem
+		  </Button><br /><br />
+		  <h4>4 Total Plots</h4>
+		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
+          Delegate 80 Steem
+		  </Button><br /><br />
+		  <h4>5 Total Plots</h4>
+		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
+          Delegate 100 Steem
+		  </Button><br />
 		  </center>
+		  </div>
 		  <center>
+		  <ColoredLine color="green" />
+		  <br/>
+		  <br/>
 		  <div>
+		  <h2><font color="purple">Now Choose your Gardens one at a time!</font></h2>
 		  <Dropdown>
 		    <Dropdown.Toggle variant="success" id="dropdown-menu-align-center">
 		    Choose your Garden
@@ -193,6 +220,7 @@ class MainPage extends React.Component {
 		  <h5><u>Basic Seeds.</u></h5>
 		  <p>These seeds come with <b>1 XP</b> and cost .75 Steem. These seeds are for the casual gardner looking to earn only passive income from their crops</p>
 		  <br/>
+		  <center>
 		  <h4><u>Choose Below</u></h4>
 		  <ColoredLine color="green" />
 		  <Dropdown>
@@ -308,9 +336,9 @@ class MainPage extends React.Component {
 				alt="..."
                 className="img-raised"
                 src={require("assets/img/landing-page.png")}
-                /></center>
+                /></center>      </center>
         </Container>
-      </div>
+	  </div>
     );
   }
 }

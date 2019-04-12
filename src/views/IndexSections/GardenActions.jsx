@@ -193,7 +193,6 @@ class PaginationSection extends React.Component {
             <br />
             <br />
             Each Action is timed! and the closer to the correct time you water
-            and feed etc... the more XP you will receive
           </p>
           <br />
           <br />
