@@ -21,7 +21,6 @@ class Index extends React.Component {
         <IndexNavbar />
         <div className="wrapper">
           <div className="main">
-		  <PageHeader />
             <MainPage />
             <GardenActions />
           </div>

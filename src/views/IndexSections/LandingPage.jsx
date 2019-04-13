@@ -5,7 +5,7 @@ import ImageGallery from 'react-image-gallery';
 import { Dropdown } from 'react-bootstrap';
 import "react-image-gallery/styles/css/image-gallery.css";
 import {
-  Button,
+//  Button,
   Container
 //  Row,
 //  Col
@@ -153,38 +153,15 @@ class MainPage extends React.Component {
     return (
       <div className="section section-basic" id="basic-elements" overflow="visible">
 		<Container>
-		<center><img alt="weed divider" src={require("assets/img/weed_divider.png")} style={{ width: "60%" }} /></center>
-		  <br/>
 		  <center><ImageGallery items={images} /></center>
 		  <br/>
 		  <h2><center>Delegate Steem Power to @hashkings and choose a Garden</center></h2>
-		  <h1><center><b><font color="green" ><u>20 Steem</u></font></b></center></h1>
+		  <h1><center><b><font color="green" ><u>20 Steem Power Delegation per Plot</u></font></b></center></h1>
+		  <h3><center><b><font color="red">VERY IMPORTANT!  You must delegate the correct amount or you will destroy your garden</font></b></center></h3>
+		  <h4><center>This means that if you already own one garden and have delegated 20 Steem Power you most delegate an additional 20 Steem Power for each plot you purchase thereafter!</center></h4>
+		  <h5><center>One garden plot = 20 Steem Power Delegation | Two garden plots = 40 Steem Power  | Three garden plots = 60 Steem Power AND SO ON...</center></h5> 
 		  <br/>
 		  <div>
-		  <center>
-		  <h4>1 Garden Plot</h4>
-		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
-          Delegate 20 Steem
-		  </Button>
-		  <br />
-		  <br />
-		  <h4>2 Total Plots</h4>
-		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
-          Delegate 40 Steem
-		  </Button><br /><br />
-		  <h4>3 Total Plots</h4>
-		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
-          Delegate 60 Steem
-		  </Button><br /><br />
-		  <h4>4 Total Plots</h4>
-		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
-          Delegate 80 Steem
-		  </Button><br /><br />
-		  <h4>5 Total Plots</h4>
-		  <Button onClick={() => this.delegatorLease()} className="btn-round" color="success" type="button">
-          Delegate 100 Steem
-		  </Button><br />
-		  </center>
 		  </div>
 		  <center>
 		  <ColoredLine color="green" />

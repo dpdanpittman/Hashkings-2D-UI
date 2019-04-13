@@ -278,7 +278,7 @@ class PaginationSection extends React.Component {
               <Col md="4">
                 <h2>Inventory</h2>
                 <div>
-                  <h4>My Gardens</h4>
+                  <h4>My Active Gardens</h4>
                   {userGardens.map((garden, i) => (
                     <h5 key={garden.id}>
                       {garden.count} {garden.name} Plot
@@ -313,7 +313,7 @@ class PaginationSection extends React.Component {
             </Row>
           </center>
           <div className="space-70" />
-          <h3 className="mb-4">Daily Progress</h3>
+          <h3 className="mb-4"><font color="red">Daily Progress(Coming Soon)</font></h3>
           <Row>
             <Col md="6">
               <div className="progress-container">
