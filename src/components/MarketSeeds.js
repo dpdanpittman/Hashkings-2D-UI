@@ -204,7 +204,7 @@ export class MarketSeeds extends Component {
                                     <MultiSelect id="multiselect" placeholder="Choose" value={this.state.selectedBasicSeeds} options={this.state.BasicOptions} onChange={event => this.setState({selectedBasicSeeds: event.value})} />
                                 </div>
 								<div className="p-col-12 p-md-4">
-                                    <Button label="Buy Seeds" icon="pi pi-external-link" onClick={() => this.setState({dialogVisible:true})} />
+                                    <Button label="Lease Gardens" icon="pi pi-external-link" onClick={() => this.setState({dialogVisible:true})} />
                                 </div>
 							</div>
                         </div>
@@ -226,7 +226,7 @@ export class MarketSeeds extends Component {
                                     <MultiSelect id="multiselect" placeholder="Choose" value={this.state.selectedPremiumSeeds} options={this.state.PremiumOptions} onChange={event => this.setState({selectedPremiumSeeds: event.value})} />
                                 </div>
 								<div className="p-col-12 p-md-4">
-                                    <Button label="Buy Seeds" icon="pi pi-external-link" onClick={() => this.setState({dialogVisible:true})} />
+                                    <Button label="Lease Gardens" icon="pi pi-external-link" onClick={() => this.setState({dialogVisible:true})} />
                                 </div>
 							</div>
                         </div>
@@ -248,7 +248,7 @@ export class MarketSeeds extends Component {
                                     <MultiSelect id="multiselect" placeholder="Choose" value={this.state.selectedHandPickedSeeds} options={this.state.HandPickedOptions} onChange={event => this.setState({selectedHandPickedSeeds: event.value})} />
                                 </div>
 								<div className="p-col-12 p-md-4">
-                                    <Button label="Buy Seeds" icon="pi pi-external-link" onClick={() => this.setState({dialogVisible:true})} />
+                                    <Button label="Lease Gardens" icon="pi pi-external-link" onClick={() => this.setState({dialogVisible:true})} />
                                 </div>
 							</div>
                         </div>

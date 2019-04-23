@@ -41,12 +41,12 @@ export class LoginPage extends Component {
           push("/garden");
         } else {
           // Show a better error
-          alert("Your username is invalid");
+          alert("Error");
         }
       });
     } else {
       // Show a better error
-      alert("Please install Steem Keychain");
+      alert("No keychain");
     }
   };
   render() {
@@ -74,7 +74,7 @@ export class LoginPage extends Component {
                 If you do not have Steem Keychain installed please click
                 <a
                   href="https://chrome.google.com/webstore/detail/steem-keychain/lkcjlnjfpbikmcmbachjpdbijejflpcm?hl=en"
-                  alt="Keychain Download for Chrome" target="_blank" rel="noopener noreferrer"
+                  alt="..."
                 >
                   {" "}
                   here

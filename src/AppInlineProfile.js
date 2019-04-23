@@ -8,15 +8,15 @@ export class AppInlineProfile extends Component {
         this.state = {
 			username: "Please Login"
         };
+
     }
-	
     render() {
         return  (
             <div className="profile">
                 <div>
                     <img src="assets/layout/images/profile.png" alt="hashkings" />
                 </div>
-				<b>Welcome</b>
+				<b>Welcome <a href="/#/login"><font color="blue">{this.state.username}</font></a></b>
             </div>
         );
     }

@@ -10,6 +10,14 @@ export class GardenPage extends Component {
   constructor() {
     super();
     this.state = {
+      cities: [
+        {name: "New York", code: "NY"},
+        {name: "Rome", code: "RM"},
+        {name: "London", code: "LDN"},
+        {name: "Istanbul", code: "IST"},
+        {name: "Paris", code: "PRS"}
+      ],
+      city: "",
       plantSeedModal: false,
       waterModal: false,
       user: {
@@ -81,7 +89,7 @@ export class GardenPage extends Component {
                   <u>
                     {this.state.user.loaded
                       ? "Please sign in to see your garden"
-                      : "Walking down the garden pathway"}
+                      : "Loading your garden"}
                   </u>
                 </b>
               </h1>
@@ -96,10 +104,11 @@ export class GardenPage extends Component {
             <div className="p-col-12">
               <h1>
                 <b>
-                  <center><u>Welcome to your Gardens</u></center>
+                  <u>Welcome to your Garden</u>
                 </b>
               </h1>
               <br />
+              <p>Here is where you will perform all your Garden Actions</p>
             </div>
             <div className="p-grid">
               <div className="p-col-3" />
