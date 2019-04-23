@@ -5,6 +5,7 @@ var fs = require('fs');
 const cors = require('cors');
 const express = require('express')
 const ENV = process.env;
+const maxEx = process.max_extentions || 8
 const IPFS = require('ipfs-api');
 const ipfs = new IPFS({
     host: 'ipfs.infura.io',
@@ -65,6 +66,19 @@ app.get('/u/:user', (req, res, next) => {
     res.send(JSON.stringify(state.users[user], null, 3))
 });
 
+app.get('/delegation/:user', (req, res, next) => {
+    let user = req.params.user
+    var op = {}
+    for(i=0;i<state.delegations.length;i++){
+        if(state.delegations[i].delegator == user){
+            op = state.delegations[i]
+            break;
+        }
+    }
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(op, null, 3))
+});
+
 app.listen(port, () => console.log(`HASHKINGS token API listening on port ${port}!`))
 var state = {
    "delegations": [
@@ -81,12 +95,6 @@ var state = {
          "used": 1
       },
       {
-         "delegator": "mondoshawan",
-         "vests": 39975980553,
-         "availible": 0,
-         "used": 1
-      },
-      {
          "delegator": "stephanus",
          "vests": 39974588563,
          "availible": 0,
@@ -97,17 +105,48 @@ var state = {
          "vests": 39974577206,
          "availible": 0,
          "used": 1
+      },
+      {
+         "delegator": "fracasgrimm",
+         "vests": 39969572242,
+         "availible": 0,
+         "used": 1
+      },
+      {
+         "delegator": "qwoyn-fund",
+         "vests": 39969265471,
+         "availible": 0,
+         "used": 1
+      },
+      {
+         "delegator": "mondoshawan",
+         "vests": 79938134591,
+         "availible": 0,
+         "used": 2
+      },
+      {
+         "delegator": "luegenbaron",
+         "vests": 79937710499,
+         "availible": 1,
+         "used": 1
       }
    ],
    "kudos": {
       "bluntsmasha": 2,
+      "qwoyn-fund": 1,
       "jonyoudyer": 1,
       "prettynicevideo": 1,
       "qwoyn": 1,
       "ghosthunter1": 1,
+      "ngc": 1,
       "gregorypatrick": 1,
       "californiacrypto": 1,
-      "mondoshawan": 1
+      "disregardfiat": 1,
+      "luegenbaron": 2,
+      "mondoshawan": 2,
+      "pugqueen": 1,
+      "fracasgrimm": 1,
+      "stephanus": 1
    },
    "stats": {
       "vs": 1997,
@@ -121,8 +160,8 @@ var state = {
          "e": 20400,
          "f": 7200
       },
-      "bu": "QmeeSxBx5EEoosNKeUi4JTnUMukxrZSyge8jTVeV7MFmsK",
-      "bi": 31958000,
+      "bu": "QmabZDfUvCXeNtseTMTSM6vPCz9KbBQnkoXpc7T5tuQFmW",
+      "bi": 31990000,
       "prices": {
          "listed": {
             "a": 20000,
@@ -147,16 +186,16 @@ var state = {
          "land": {
             "a": 4151,
             "ac": 50,
-            "b": 4161,
-            "bc": 40,
-            "c": 4164,
-            "cc": 37,
+            "b": 4159,
+            "bc": 42,
+            "c": 4163,
+            "cc": 38,
             "d": 4169,
             "dc": 32,
-            "e": 4186,
-            "ec": 15,
-            "f": 4194,
-            "fc": 7,
+            "e": 4184,
+            "ec": 17,
+            "f": 4193,
+            "fc": 8,
             "g": 0,
             "gc": 0,
             "t": 420000,
@@ -184,13 +223,12 @@ var state = {
       }
    },
    "bal": {
-      "r": 21,
-      "c": 0,
-      "b": 0,
+      "r": 0,
+      "c": 3149,
+      "b": 5851,
       "p": 141903
    },
-   "refund": [
-   ],
+   "refund": [],
    "lands": {
       "forSale": []
    },
@@ -201,6 +239,15 @@ var state = {
          "xp": 2250,
          "care": [
             [
+               31987400,
+               "watered"
+            ],
+            [
+               31958717,
+               "watered",
+               "c"
+            ],
+            [
                31958716,
                "watered"
             ],
@@ -208,57 +255,24 @@ var state = {
                31941511,
                "watered",
                "c"
-            ],
-            [
-               31929468,
-               "watered"
-            ],
-            [
-               31874759,
-               "watered",
-               "c"
-            ],
-            [
-               31846989,
-               "watered",
-               "c"
-            ],
-            [
-               31816312,
-               "watered",
-               "c"
-            ],
-            [
-               31815632,
-               "watered",
-               "c"
-            ],
-            [
-               31789626,
-               "watered",
-               "c"
-            ],
-            [
-               31763213,
-               "watered",
-               "c"
-            ],
-            [
-               31713786,
-               "watered",
-               "c"
             ]
          ],
          "aff": [],
          "planted": 31713776,
          "stage": 1,
-         "substage": 8
+         "substage": 9,
+         "id": "a10"
       },
       "a2": {
          "owner": "jonyoudyer",
          "strain": "mis",
          "xp": 2250,
          "care": [
+            [
+               31959632,
+               "watered",
+               "c"
+            ],
             [
                31930218,
                "watered",
@@ -268,17 +282,13 @@ var state = {
                31901661,
                "watered",
                "c"
-            ],
-            [
-               31872829,
-               "watered",
-               "c"
             ]
          ],
          "aff": [],
          "planted": 31853281,
          "stage": 1,
-         "substage": 3
+         "substage": 4,
+         "id": "a2"
       },
       "b34": {
          "owner": "fracasgrimm",
@@ -286,16 +296,17 @@ var state = {
          "xp": 2250,
          "care": [
             [
-               31936407,
-               "watered"
-            ],
-            [
-               31901978,
+               31966430,
                "watered",
                "c"
             ],
             [
-               31885962,
+               31936407,
+               "watered",
+               "c"
+            ],
+            [
+               31901978,
                "watered",
                "c"
             ]
@@ -303,7 +314,8 @@ var state = {
          "aff": [],
          "planted": 31885890,
          "stage": 1,
-         "substage": 2
+         "substage": 4,
+         "id": "b34"
       },
       "e13": {
          "owner": "pugqueen",
@@ -311,30 +323,35 @@ var state = {
          "xp": 2250,
          "care": [
             [
-               31958737,
+               31987421,
                "watered"
             ],
             [
-               31906070,
+               31974787,
                "watered",
                "c"
             ],
             [
-               31886232,
-               "watered",
-               "c"
+               31971974,
+               "watered"
             ]
          ],
          "aff": [],
          "planted": 31886216,
          "stage": 1,
-         "substage": 2
+         "substage": 3,
+         "id": "e13"
       },
       "e14": {
          "owner": "mondoshawan",
          "strain": "hk",
          "xp": 2250,
          "care": [
+            [
+               31982745,
+               "watered",
+               "c"
+            ],
             [
                31953848,
                "watered",
@@ -344,25 +361,13 @@ var state = {
                31925485,
                "watered",
                "c"
-            ],
-            [
-               31900342,
-               "watered"
-            ],
-            [
-               31887742,
-               "watered",
-               "c"
-            ],
-            [
-               31887741,
-               "watered"
             ]
          ],
          "aff": [],
          "planted": 31887728,
          "stage": 1,
-         "substage": 3
+         "substage": 4,
+         "id": "e14"
       },
       "a43": {
          "owner": "gregorypatrick",
@@ -370,8 +375,13 @@ var state = {
          "xp": 2250,
          "care": [
             [
-               31957272,
+               31985953,
                "watered"
+            ],
+            [
+               31957272,
+               "watered",
+               "c"
             ],
             [
                31929103,
@@ -387,13 +397,18 @@ var state = {
          "aff": [],
          "planted": 31900185,
          "stage": 1,
-         "substage": 2
+         "substage": 3
       },
       "a7": {
          "owner": "prettynicevideo",
          "strain": "afg",
          "xp": 2250,
          "care": [
+            [
+               31962985,
+               "watered",
+               "c"
+            ],
             [
                31936791,
                "watered",
@@ -408,7 +423,8 @@ var state = {
          "aff": [],
          "planted": 31903005,
          "stage": 1,
-         "substage": 2
+         "substage": 3,
+         "id": "a7"
       },
       "b39": {
          "owner": "stephanus",
@@ -416,8 +432,14 @@ var state = {
          "xp": 2250,
          "care": [
             [
+               31967150,
+               "watered",
+               "c"
+            ],
+            [
                31953686,
-               "watered"
+               "watered",
+               "c"
             ],
             [
                31905303,
@@ -428,7 +450,7 @@ var state = {
          "aff": [],
          "planted": 31905253,
          "stage": 1,
-         "substage": 1
+         "substage": 3
       },
       "a49": {
          "owner": "inthenow",
@@ -456,12 +478,16 @@ var state = {
          "xp": 2250,
          "care": [
             [
-               31934193,
+               31990174,
+               "watered"
+            ],
+            [
+               31960875,
                "watered",
                "c"
             ],
             [
-               31906043,
+               31934193,
                "watered",
                "c"
             ]
@@ -469,7 +495,8 @@ var state = {
          "aff": [],
          "planted": 31905642,
          "stage": 1,
-         "substage": 2
+         "substage": 3,
+         "id": "a9"
       },
       "a11": {
          "owner": "bluntsmasha",
@@ -478,7 +505,8 @@ var state = {
          "care": [
             [
                31956037,
-               "watered"
+               "watered",
+               "c"
             ],
             [
                31936220,
@@ -489,7 +517,7 @@ var state = {
          "aff": [],
          "planted": 31911522,
          "stage": 1,
-         "substage": 1
+         "substage": 2
       },
       "b2": {
          "owner": "bluntsmasha",
@@ -498,7 +526,8 @@ var state = {
          "care": [
             [
                31956044,
-               "watered"
+               "watered",
+               "c"
             ],
             [
                31936226,
@@ -508,7 +537,7 @@ var state = {
          "aff": [],
          "planted": 31911985,
          "stage": 1,
-         "substage": 0
+         "substage": 1
       },
       "c1": {
          "owner": "bluntsmasha",
@@ -517,7 +546,8 @@ var state = {
          "care": [
             [
                31956052,
-               "watered"
+               "watered",
+               "c"
             ],
             [
                31936232,
@@ -528,7 +558,7 @@ var state = {
          "aff": [],
          "planted": 31911995,
          "stage": 1,
-         "substage": 1
+         "substage": 2
       },
       "f2": {
          "owner": "bluntsmasha",
@@ -537,7 +567,8 @@ var state = {
          "care": [
             [
                31956059,
-               "watered"
+               "watered",
+               "c"
             ],
             [
                31936238,
@@ -548,7 +579,7 @@ var state = {
          "aff": [],
          "planted": 31912004,
          "stage": 1,
-         "substage": 1
+         "substage": 2
       },
       "b32": {
          "owner": "sooflauschig",
@@ -556,53 +587,76 @@ var state = {
          "xp": 2250,
          "care": [
             [
-               31958097,
+               31988651,
                "watered"
+            ],
+            [
+               31958097,
+               "watered",
+               "c"
             ],
             [
                31929983,
                "watered",
                "c"
-            ],
-            [
-               31929981,
-               "watered"
-            ],
-            [
-               31929977,
-               "watered"
-            ],
-            [
-               31929976,
-               "watered"
-            ],
-            [
-               31929972,
-               "watered"
-            ],
-            [
-               31929963,
-               "watered"
-            ],
-            [
-               31929956,
-               "watered"
-            ],
-            [
-               31929955,
-               "watered"
             ]
          ],
          "aff": [],
          "planted": 31929923,
          "stage": 1,
-         "substage": 1
+         "substage": 2,
+         "id": "b32"
       },
       "a48": {
          "owner": "californiacrypto",
          "strain": "afg",
          "xp": 2250,
          "care": [
+            [
+               31990196,
+               "watered"
+            ],
+            [
+               31961958,
+               "watered",
+               "c"
+            ],
+            [
+               31961898,
+               "watered"
+            ],
+            [
+               31961872,
+               "watered"
+            ],
+            [
+               31961855,
+               "watered"
+            ],
+            [
+               31961834,
+               "watered"
+            ],
+            [
+               31961831,
+               "watered"
+            ],
+            [
+               31961823,
+               "watered"
+            ],
+            [
+               31961819,
+               "watered"
+            ],
+            [
+               31961816,
+               "watered"
+            ],
+            [
+               31961813,
+               "watered"
+            ],
             [
                31932962,
                "watered",
@@ -611,6 +665,125 @@ var state = {
          ],
          "aff": [],
          "planted": 31932911,
+         "stage": 1,
+         "substage": 2
+      },
+      "b5": {
+         "owner": "luegenbaron",
+         "strain": "aca",
+         "xp": 2250,
+         "care": [
+            [
+               31985867,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31968004,
+         "stage": 1,
+         "substage": 1,
+         "id": "b5"
+      },
+      "e8": {
+         "owner": "disregardfiat",
+         "strain": "cht",
+         "xp": 2250,
+         "care": [
+            [
+               31969946,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31968022,
+         "stage": 1,
+         "substage": 1,
+         "id": "e8"
+      },
+      "a17": {
+         "owner": "ngc",
+         "strain": "hk",
+         "xp": 2250,
+         "care": [
+            [
+               31968692,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31968683,
+         "stage": 1,
+         "substage": 1
+      },
+      "f7": {
+         "owner": "qwoyn-fund",
+         "strain": 0,
+         "xp": 2250,
+         "care": [
+            [
+               31987415,
+               "watered"
+            ],
+            [
+               31972397,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31972387,
+         "stage": 1,
+         "substage": 1,
+         "id": "f7"
+      },
+      "b41": {
+         "owner": "mondoshawan",
+         "strain": "mis",
+         "xp": 750,
+         "care": [
+            [
+               31982749,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31978223,
+         "stage": 1,
+         "substage": 1,
+         "id": "b41"
+      },
+      "c37": {
+         "owner": "luegenbaron",
+         "strain": "afg",
+         "xp": 2250,
+         "care": [
+            [
+               31985875,
+               "watered"
+            ]
+         ],
+         "aff": [],
+         "planted": 31985840,
+         "stage": 1,
+         "substage": 0
+      },
+      "e16": {
+         "owner": "luegenbaron",
+         "strain": "kbr",
+         "xp": 2250,
+         "care": [
+            [
+               31985880,
+               "watered",
+               "c"
+            ]
+         ],
+         "aff": [],
+         "planted": 31985846,
          "stage": 1,
          "substage": 1
       }
@@ -714,10 +887,19 @@ var state = {
             "b1",
             "e7"
          ],
-         "seeds": [],
+         "seeds": [
+            {
+               "strain": "kbr",
+               "xp": 2250
+            },
+            {
+               "strain": "cg",
+               "xp": 2250
+            }
+         ],
          "inv": [],
          "stats": [],
-         "v": 2
+         "v": 0
       },
       "qwoyn": {
          "addrs": [
@@ -745,12 +927,7 @@ var state = {
          "addrs": [
             "e8"
          ],
-         "seeds": [
-            {
-               "strain": "cht",
-               "xp": 2250
-            }
-         ],
+         "seeds": [],
          "inv": [],
          "stats": [],
          "v": 0
@@ -840,12 +1017,16 @@ var state = {
       },
       "luegenbaron": {
          "addrs": [
-            "b5"
+            "b5",
+            "c37",
+            "e16"
          ],
          "seeds": [],
          "inv": [],
          "stats": [],
-         "v": 1
+         "v": 0,
+         "a": 1,
+         "u": 0
       },
       "ngc": {
          "addrs": [
@@ -954,10 +1135,63 @@ var state = {
             "d28",
             "d29"
          ],
-         "seeds": [],
+         "seeds": [
+            {
+               "strain": "afg",
+               "xp": 2250
+            },
+            {
+               "strain": "lkg",
+               "xp": 2250
+            },
+            {
+               "strain": "cg",
+               "xp": 2250
+            },
+            {
+               "strain": "mis",
+               "xp": 2250
+            },
+            {
+               "strain": "lb",
+               "xp": 2250
+            },
+            {
+               "strain": "kbr",
+               "xp": 2250
+            },
+            {
+               "strain": "aca",
+               "xp": 2250
+            },
+            {
+               "strain": "swz",
+               "xp": 2250
+            },
+            {
+               "strain": "kmj",
+               "xp": 2250
+            },
+            {
+               "strain": "dp",
+               "xp": 2250
+            },
+            {
+               "strain": "mal",
+               "xp": 2250
+            },
+            {
+               "strain": "pam",
+               "xp": 2250
+            },
+            {
+               "strain": "cg",
+               "xp": 2250
+            }
+         ],
          "inv": [],
          "stats": [],
-         "v": 120
+         "v": 106
       },
       "sooflauschig": {
          "addrs": [
@@ -979,12 +1213,20 @@ var state = {
       },
       "fracasgrimm": {
          "addrs": [
-            "b34"
+            "b34",
+            "b40"
          ],
-         "seeds": [],
+         "seeds": [
+            {
+               "strain": "aca",
+               "xp": 750
+            }
+         ],
          "inv": [],
          "stats": [],
-         "v": 0
+         "v": 0,
+         "a": 1,
+         "u": 0
       },
       "gregorypatrick": {
          "addrs": [
@@ -1177,7 +1419,9 @@ var state = {
       },
       "mondoshawan": {
          "addrs": [
-            "e14"
+            "e14",
+            "e15",
+            "b41"
          ],
          "seeds": [],
          "inv": [],
@@ -1207,6 +1451,22 @@ var state = {
          "v": 0,
          "a": 1,
          "u": 0
+      },
+      "qwoyn-fund": {
+         "addrs": [
+            "f7"
+         ],
+         "seeds": [
+            {
+               "strain": "aca",
+               "xp": 2250
+            }
+         ],
+         "inv": [],
+         "stats": [],
+         "v": 0,
+         "a": 1,
+         "u": 0
       }
    },
    "news": {
@@ -1218,36 +1478,19 @@ var state = {
       "g": [],
       "h": [],
       "i": [],
-      "t": []
+      "t": [],
+      "e": []
    },
    "payday": [
-      [
-         {
-            "account": "pugqueen",
-            "weight": 10000
-         }
-      ],
-      [
-         {
-            "account": "sooflauschig",
-            "weight": 10000
-         }
-      ],
       [
          {
             "account": "fracasgrimm",
             "weight": 10000
          }
-      ],
-      [
-         {
-            "account": "stephanus",
-            "weight": 10000
-         }
       ]
    ]
 }
-var startingBlock = ENV.STARTINGBLOCK || 31958500 ; //GENESIS BLOCK
+var startingBlock = ENV.STARTINGBLOCK || 31990367 ; //GENESIS BLOCK
 const username = ENV.ACCOUNT || 'hashkings'; //account with all the SP
 const key = steem.PrivateKey.from(ENV.KEY); //active key for account
 const sh = ENV.sh || ''
@@ -1295,23 +1538,27 @@ function startApp() {
         for (var i = 0; i < td.length; i++) {
             daily(td[i])
         }
-        if (num % 50 === 0 && state.refund.length && processor.isStreaming() || processor.isStreaming() && state.refund.length > 60) {
+        if (num % 125 === 0 && state.refund.length && processor.isStreaming() || processor.isStreaming() && state.refund.length > 60) {
             if (state.refund[0].length == 4) bot[state.refund[0][0]].call(this, state.refund[0][1], state.refund[0][2], state.refund[0][3])
             if (state.refund[0].length == 3) bot[state.refund[0][0]].call(this, state.refund[0][1], state.refund[0][2])
             if (state.refund[0].length == 2) bot[state.refund[0][0]].call(this, state.refund[0][1])
             state.refund.push(state.refund.shift())
         }
         if (num % 100 === 0 && !processor.isStreaming()) {
+            if(!state.news.e)state.news.e=[]
             client.database.getDynamicGlobalProperties().then(function(result) {
                 console.log('At block', num, 'with', result.head_block_number - num, 'left until real-time.')
             });
         }
 
         if (num % 1000 === 0 && processor.isStreaming()) {
+            if(!state.blacklist)state.blacklist={}
             ipfsSaveState(num, JSON.stringify(state))
         }
         if (num % 28800 === 2880 && state.payday) {
             console.log("?"+num)
+            
+            state.payday[0] = sortExtentions(state.payday[0],'account')
         var body = `It's a nice day in Jamaica`
             if (state.news.e.length > 0){body = state.news.e[0];state.news.e.shift();}
             state.refund.push(['sign',[["comment", 
@@ -1341,6 +1588,7 @@ function startApp() {
         
     if (num % 28800 === 3660 && state.payday) {
         console.log("?"+num)
+        state.payday[0] = sortExtentions(state.payday[0],'account')
         var body = `It's a nice day in Central America`
             if (state.news.d.length > 0){body = state.news.d[0];state.news.d.shift();}
             state.refund.push(['sign',[["comment", 
@@ -1370,6 +1618,7 @@ function startApp() {
         if (num % 28800 === 5440 && state.payday) {
             
             console.log("?"+num)
+            state.payday[0] = sortExtentions(state.payday[0],'account')
         var body = `It's a nice day in Mexico`
             if (state.news.f.length > 0){body = state.news.f[0];state.news.f.shift();}
             state.refund.push(['sign',[["comment", 
@@ -1398,6 +1647,7 @@ function startApp() {
     }
         if (num % 28800 === 12000 && state.payday) {
             console.log("?"+num)
+            state.payday[0] = sortExtentions(state.payday[0],'account')
         var body = `It's a nice day in Asia`
             if (state.news.c.length > 0){body = state.news.c[0];state.news.c.shift();}
             state.refund.push(['sign',[["comment", 
@@ -1427,6 +1677,7 @@ function startApp() {
         
         if (num % 28800 === 15000 && state.payday) {
             console.log("?"+num)
+            state.payday[0] = sortExtentions(state.payday[0],'account')
         var body = `It's a nice day in Afganistan`
             if (state.news.a.length > 0){body = state.news.a[0];state.news.a.shift();}
             state.refund.push(['sign',[["comment", 
@@ -1455,6 +1706,7 @@ function startApp() {
     }
         if (num % 28800 === 10000 && state.payday) {
             console.log("?"+num)
+            state.payday[0] = sortExtentions(state.payday[0],'account')
         var body = `Testing Hashkings Automated features 10`
             if (state.news.g.length > 0){body = state.news.g[0];state.news.g.shift();}
             state.refund.push(['sign',[["comment", 
@@ -1483,6 +1735,7 @@ function startApp() {
     }
         if (num % 28800 === 20000 && state.payday) {
             console.log("?"+num)
+            state.payday[0] = sortExtentions(state.payday[0],'account')
         var body = `Testing Hashkings Automated features 20`
             if (state.news.h.length > 0){body = state.news.h[0];state.news.h.shift();}
             state.refund.push(['sign',[["comment", 
@@ -1511,6 +1764,8 @@ function startApp() {
     }
         if (num % 28800 === 25000 && state.payday) {
             console.log("?"+num)
+            
+            state.payday[0] = sortExtentions(state.payday[0],'account')
         var body = `Testing Hashkings Automated features 25`
             if (state.news.i.length > 0){body = state.news.i[0];state.news.i.shift();}
             state.refund.push(['sign',[["comment", 
@@ -1539,6 +1794,7 @@ function startApp() {
     }
         if (num % 28800 === 22000 && state.payday) {
             console.log("?"+num)
+            state.payday[0] = sortExtentions(state.payday[0],'account')
         var body = `It's a nice day in Afganistan 22`
             if (state.news.t.length > 0){body = state.news.t[0];state.news.t.shift();}
             state.refund.push(['sign',[["comment", 
@@ -1574,21 +1830,15 @@ function startApp() {
                 state.refund.push(['xfer', 'qwoyn-fund', d, 'Partners Cut'])
                 state.refund.push(['xfer', 'qwoyn', d, 'Warchest'])
                 state.bal.c -= d * 3
-                d = parseInt(state.bal / 5)
+                d = parseInt(state.bal.c / 5)
                 state.refund.push(['xfer', 'jrawsthorne', d, 'Partner Cut'])
                 state.bal.c -= d
                 state.refund.push(['xfer', 'qwoyn-chest', state.bal.c, 'Producer Cut'])
                 state.bal.c = 0
-                if (state.bal.d > state.bal.b) {
-                    state.bal.d -= state.bal.b;
-                    state.bal.b = 0
-                } else if (state.bal.d <= state.bal.b) {
-                    state.bal.b -= state.bal.d;
-                    state.bal.d = 0
-                }
                 state.refund.push(['power', username, state.bal.b, 'Power to the people!'])
             }
             state.payday = whotopay()
+            state.payday[0] = sortExtentions(state.payday[0],'account')
             var body = `It's a nice day in Africa`
             if (state.news.b.length > 0){body = state.news.b[0];state.news.b.shift();}
             state.refund.push(['sign',[["comment", 
@@ -1692,7 +1942,7 @@ function startApp() {
         } catch (e) {}
         if (!seed){
             try {
-                seed=state.users[from].seeds.splice(0, 1)
+                if(state.users[from].seeds.length)seed=state.users[from].seeds.splice(0, 1)
             }catch (e) {}
         }
         console.log(index,seed,from)
@@ -1771,69 +2021,63 @@ function startApp() {
             }
         }
     });
-    processor.onOperation('delegate_vesting_shares', function(json, from) { //grab posts to reward
-        const vests = parseInt(parseFloat(json.vesting_shares) * 1000000)
-        var record = ''
-        if (!state.users[json.delegator] && json.delegatee == username) state.users[json.delegator] = {
-            addrs: [],
-            seeds: [],
-            inv: [],
-            stats: [],
-            v: 0,
-            a: 0,
-            u: 0
+processor.onOperation('delegate_vesting_shares', function(json, from) { //grab posts to reward
+  const vests = parseInt(parseFloat(json.vesting_shares) * 1000000)
+  var record = ''
+  if(json.delegatee == username){
+    for (var i = 0; i < state.delegations.length; i++) {
+      if (state.delegations[i].delegator == json.delegator) {
+        record = state.delegations.splice(i, 1)
+        break;
+      }
+    }
+    if (!state.users[json.delegator] && json.delegatee == username && !record) state.users[json.delegator] = {
+      addrs: [],
+      seeds: [],
+      inv: [],
+      stats: [],
+      v: 0
+    }
+    var availible = parseInt(vests / (state.stats.prices.listed.a * (state.stats.vs) * 1000)),
+    used = 0;
+    if (record) {
+      const use = record.used || 0
+      if (record.vests < vests) {
+        availible = parseInt(availible) - parseInt(use);
+        used = parseInt(use)
+      } else {
+        if (use > availible) {
+          var j = parseInt(use) - parseInt(availible);
+          for (var i = state.users[json.delegator].addrs.length - j; i < state.users[json.delegator].addrs.length; i++) {
+            delete state.land[state.users[json.delegator].addrs[i]];
+            state.users[json.delegator].addrs.pop()
+            state.lands.forSale.push(state.users[json.delegator].addrs[i])
+          }
+          used = parseInt(availible)
+          availible = 0
+        } else {
+          availible = parseInt(availible) - parseInt(use)
+          used = parseInt(use)
         }
-        var availible = parseInt(vests / (state.stats.prices.listed.a * (state.stats.vs) * 1000)),
-            used = 0;
-        if (json.delegatee == 'hashkings' && vests) {
-            for (var i = 0; i < state.delegations.length; i++) {
-                if (state.delegations[i].delegator == json.delegator) {
-                    record = state.delegations.splice(i, 1)
-                    break;
-                }
-            }
-
-            if (record) {
-                if (record.vests < vests) {
-                    availible = availible - record.used;
-                    used = record.used
-                } else {
-                    if (record.used > availible) {
-                        var j = record.used - availible;
-                        for (var i = state.users[json.delegator].addrs.length - j; i < state.users[json.delegator].addrs.length; i++) {
-                            delete state.land[state.users[json.delegator].addrs[i]];
-                            state.lands.forSale.push(state.users[json.delegator].addrs[i])
-                        }
-                        used = availible
-                        availible = 0
-                    } else {
-                        availible = availible - record.used
-                        used = record.used
-                    }
-                }
-            }
-            state.users[json.delegator].a = availible
-            state.users[json.delegator].u = used
-            state.delegations.push({
-                delegator: json.delegator,
-                vests,
-                availible,
-                used
-            })
-            console.log(processor.getCurrentBlockNumber() + `:${json.delegator} has delegated and earned ${availible} lands for @hashkings`)
-        } else if (json.delegatee == username && !vests) {
-            for (var i = 0; i < state.delegations.length; i++) {
-                if (state.delegations[i].delegator == json.delegator) {
-                    state.delegations.splice(i, 1)
-                    break;
-                }
-            }
-            console.log(processor.getCurrentBlockNumber() + `:${json.delegator} has removed delegation to @hashkings`)
-        }
-    });
+      }
+      state.delegations.push({
+        delegator: json.delegator,
+        vests,
+        availible,
+        used
+      })
+    }
+  }
+});
     processor.onOperation('transfer', function(json) {
         if (json.to == username && json.amount.split(' ')[1] == 'STEEM') {
-            if (!state.users[json.from]) state.users[json.from] = {
+            fetch(`http://blacklist.usesteem.com/user/${json.from}`)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(myJson) {
+                if(myJson.blacklisted.length == 0){
+                    if (!state.users[json.from]) state.users[json.from] = {
                 addrs: [],
                 seeds: [],
                 inv: [],
@@ -1876,7 +2120,7 @@ function startApp() {
                         state.refund.push(['xfer', json.from, amount, 'Managing Land?...Maybe have your STEEM back'])
                     }
                 } else if (want == 'rseed' && amount == state.stats.prices.listed.seeds.reg || want == 'mseed' && amount == state.stats.prices.listed.seeds.mid || want == 'tseed' && amount == state.stats.prices.listed.seeds.top) {
-                    if (state.stats.supply.strains.indexOf(type) < 0) type = state.stats.supply.strains[state.users.length % state.stats.supply.strains.length]
+                    if (state.stats.supply.strains.indexOf(type) < 0){ type = state.stats.supply.strains[state.users.length % (state.stats.supply.strains.length -1)]}
                     var xp = 1
                     if (want == 'mseed') xp = 750
                     if (want == 'tseed') xp = 2250
@@ -1902,6 +2146,21 @@ function startApp() {
                 state.refund.push(['xfer', json.from, amount, 'Sorry, this account only accepts in game transactions.'])
                 console.log(`${json.from} sent a weird transfer...refund?`)
             }
+                } else {
+                    if (state.blacklist[json.from]){
+                        var users = parseInt(amount/2),
+                            ops = parseInt(amount - users)
+                        state.balance.b += users
+                        state.bal.c += ops
+                    } else {
+                        state.bal.r += amount
+                        state.refund.push(['xfer', json.from, amount, 'This account is on the global blacklist. You may remove your delegation, any further transfers will be treated as donations.'])
+                        state.blacklist[json.from] = true
+                        console.log(`${json.from} blacklisted`)
+                    }
+                }
+            })
+            
         } else if (json.from == username) {
             const amount = parseInt(parseFloat(json.amount) * 1000)
             for (var i = 0; i < state.refund.length; i++) {
@@ -2081,8 +2340,8 @@ function whotopay() {
             }
         }
     }
-    if (o.length > 3000) {
-        b = 3000
+    if (o.length > (maxEx * 10)) {
+        b = (maxEx * 10)
     } else {
         b = o.length
     }
@@ -2114,6 +2373,23 @@ function whotopay() {
     }
     console.log('payday:'+o)
     return o
+}
+
+function sortExtentions(a, key) {
+    var b=[],c=[]
+    for(i=0;i<a.length;i++){
+        b.push(a[i][key])
+    }
+    b = b.sort()
+    for(i=0;i<a.length;i++){
+        if(a[i][key]==b[0]){
+            c.push(a[i])
+            b.shift()
+            i=0
+            if(c.length==a.length)break;
+        }
+    }
+    return c
 }
 
 function kudo(user) {
