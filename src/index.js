@@ -1,21 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-
-import "./assets/css/nucleo-icons.css";
-import "./assets/scss/blk-design-system-react.scss?v=1.0.0";
-import "./assets/demo/demo.css";
-
-import Index from "views/Index.jsx";
-import Login from "./Login.jsx";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'babel-polyfill';
+import App from './App';
+//import * as serviceWorker from './serviceWorker';
+import { HashRouter } from 'react-router-dom'
+import ScrollToTop from './ScrollToTop';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-	  <Route path="/login" exact component={Login} />
-      <Route path="/home" render={props => <Index {...props} />} />
-      <Redirect from="/" to="/login" />
-    </Switch>
-  </BrowserRouter>,
-  document.getElementById("root")
-  );
+    <HashRouter>
+        <ScrollToTop>
+            <App></App>
+        </ScrollToTop>
+    </HashRouter>,
+    document.getElementById('root')
+);
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+//serviceWorker.unregister();
