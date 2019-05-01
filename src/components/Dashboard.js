@@ -5,14 +5,19 @@ import {Button} from "primereact/button";
 import {Chart} from "primereact/chart";
 import {FullCalendar} from "primereact/fullcalendar";
 import {HashkingsAPI} from "../service/HashkingsAPI";
+import Cookie from "js-cookie";
 
 export class Dashboard extends Component {
   constructor() {
     super();
     this.state = {
+      username: Cookie.get("username"),
       stats: {
         gardeners: 0,
-        gardens: 0
+        gardens: 0,
+        availableSeeds: 0,
+        activeGardens: 0,
+        availableGardens: 0
       },
       tasks: [],
       city: null,
@@ -56,16 +61,30 @@ export class Dashboard extends Component {
 
   async componentDidMount() {
     try {
-      const stats = await this.hashkingsApi.getStats();
+      const username = this.state.username;
+      const [stats, user, userLand] = await Promise.all([
+        this.hashkingsApi.getStats(),
+        this.hashkingsApi.getUser(username),
+        this.hashkingsApi.getUserLand(username)
+      ]);
 
       const {ac, bc, cc, dc, ec, fc} = stats.supply.land;
 
       const gardens = ac + bc + cc + dc + ec + fc;
 
+      const activeGardens = userLand.filter(land => typeof land === "object")
+        .length;
+      const availableGardens = userLand.filter(land => typeof land === "string")
+        .length;
+      const availableSeeds = user.seeds.length;
+
       this.setState({
         stats: {
           gardeners: stats.gardeners,
-          gardens
+          gardens,
+          availableSeeds,
+          activeGardens,
+          availableGardens
         }
       });
     } catch {}
@@ -183,7 +202,7 @@ export class Dashboard extends Component {
             </div>
             <div className="highlight-details ">
               <span>Active Gardens</span>
-              <span className="count">10</span>
+              <span className="count">{this.state.stats.activeGardens}</span>
             </div>
           </div>
         </div>
@@ -197,7 +216,7 @@ export class Dashboard extends Component {
             </div>
             <div className="highlight-details ">
               <span>Total Seeds</span>
-              <span className="count">2</span>
+              <span className="count">{this.state.stats.availableSeeds}</span>
             </div>
           </div>
         </div>
@@ -211,7 +230,7 @@ export class Dashboard extends Component {
             </div>
             <div className="highlight-details ">
               <span>Empty Gardens</span>
-              <span className="count">0</span>
+              <span className="count">{this.state.stats.availableGardens}</span>
             </div>
           </div>
         </div>
