@@ -14,6 +14,10 @@ export class HashkingsAPI {
   getUserLand(username) {
     return this.get(`a/${username}`);
   }
+
+  getUserDelegation(username) {
+    return this.get(`delegation/${username}`);
+}
 }
 
 export const gardenNames = {
