@@ -17,7 +17,11 @@ export class HashkingsAPI {
 
   getUserDelegation(username) {
     return this.get(`delegation/${username}`);
-}
+  }
+
+  getStats() {
+    return this.get("stats");
+  }
 }
 
 export const gardenNames = {
