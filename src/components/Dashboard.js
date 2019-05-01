@@ -11,7 +11,8 @@ export class Dashboard extends Component {
     super();
     this.state = {
       stats: {
-        gardeners: 0
+        gardeners: 0,
+        gardens: 0
       },
       tasks: [],
       city: null,
@@ -56,9 +57,15 @@ export class Dashboard extends Component {
   async componentDidMount() {
     try {
       const stats = await this.hashkingsApi.getStats();
+
+      const {ac, bc, cc, dc, ec, fc} = stats.supply.land;
+
+      const gardens = ac + bc + cc + dc + ec + fc;
+
       this.setState({
         stats: {
-          gardeners: stats.gardeners
+          gardeners: stats.gardeners,
+          gardens
         }
       });
     } catch {}
@@ -155,7 +162,7 @@ export class Dashboard extends Component {
           <div className="card summary">
             <span className="title">Total Gardens</span>
             <span className="detail">Number of gardens</span>
-            <span className="count purchases">3274</span>
+            <span className="count purchases">{this.state.stats.gardens}</span>
           </div>
         </div>
         <div className="p-col-12 p-lg-4">
