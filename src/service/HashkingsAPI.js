@@ -22,6 +22,24 @@ export class HashkingsAPI {
   getStats() {
     return this.get("stats");
   }
+
+  getAll() {
+    return this.get("");
+  }
+
+  getDGPO() {
+    return axios
+      .post(
+        "https://api.steemit.com",
+        JSON.stringify({
+          id: 0,
+          jsonrpc: "2.0",
+          method: "condenser_api.get_dynamic_global_properties",
+          params: []
+        })
+      )
+      .then(res => res.data.result);
+  }
 }
 
 export const gardenNames = {

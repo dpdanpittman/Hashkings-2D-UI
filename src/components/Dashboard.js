@@ -1,10 +1,9 @@
 import React, {Component} from "react";
 import {CarService} from "../service/CarService";
 import {Panel} from "primereact/panel";
-import {Button} from "primereact/button";
 import {Chart} from "primereact/chart";
 import {FullCalendar} from "primereact/fullcalendar";
-import {HashkingsAPI} from "../service/HashkingsAPI";
+import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
 import Cookie from "js-cookie";
 
 export class Dashboard extends Component {
@@ -17,7 +16,9 @@ export class Dashboard extends Component {
         gardens: 0,
         availableSeeds: 0,
         activeGardens: 0,
-        availableGardens: 0
+        availableGardens: 0,
+        activity: [],
+        delegation: 0
       },
       tasks: [],
       city: null,
@@ -62,29 +63,68 @@ export class Dashboard extends Component {
   async componentDidMount() {
     try {
       const username = this.state.username;
-      const [stats, user, userLand] = await Promise.all([
+      const [stats, user, userLand, all, dgpo] = await Promise.all([
         this.hashkingsApi.getStats(),
         this.hashkingsApi.getUser(username),
-        this.hashkingsApi.getUserLand(username)
+        this.hashkingsApi.getUserLand(username),
+        this.hashkingsApi.getAll(),
+        this.hashkingsApi.getDGPO()
       ]);
 
       const {ac, bc, cc, dc, ec, fc} = stats.supply.land;
 
       const gardens = ac + bc + cc + dc + ec + fc;
 
-      const activeGardens = userLand.filter(land => typeof land === "object")
-        .length;
-      const availableGardens = userLand.filter(land => typeof land === "string")
-        .length;
-      const availableSeeds = user.seeds.length;
+      const activeGardens = userLand.filter(land => typeof land === "object");
+      const availableGardens = userLand.filter(
+        land => typeof land === "string"
+      );
+      const availableSeeds = user.seeds;
+
+      const watered = activeGardens
+        .map(garden =>
+          garden.care
+            .filter(care => care[1] === "watered")
+            .map(watered => ({
+              block: watered[0],
+              id: garden.id,
+              strain: garden.strain,
+              type: "watered"
+            }))
+        )
+        .flat();
+      const planted = activeGardens.map(garden => ({
+        id: garden.id,
+        strain: garden.strain,
+        block: garden.planted,
+        type: "planted"
+      }));
+
+      const activity = [...planted, ...watered]
+        .sort((a, b) => a.block > b.block)
+        .slice(0, 4)
+        .reverse();
+
+      const totalDelegation = all.delegations
+        .map(delegation => delegation.vests)
+        .reduce((prev, current) => prev + current);
+
+      const delegationVestsToSteem = (
+        (parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) *
+          totalDelegation) /
+        parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
+        1000000
+      ).toFixed(3);
 
       this.setState({
         stats: {
           gardeners: stats.gardeners,
           gardens,
-          availableSeeds,
-          activeGardens,
-          availableGardens
+          availableSeeds: availableSeeds.length,
+          activeGardens: activeGardens.length,
+          availableGardens: availableGardens.length,
+          activity,
+          delegation: delegationVestsToSteem
         }
       });
     } catch {}
@@ -187,8 +227,10 @@ export class Dashboard extends Component {
         <div className="p-col-12 p-lg-4">
           <div className="card summary">
             <span className="title">Planet Economy</span>
-            <span className="detail">Total Weekly Earnings</span>
-            <span className="count revenue">$1243.21</span>
+            <span className="detail">Total Delegated Steem</span>
+            <span className="count revenue">
+              {this.state.stats.delegation} STEEM
+            </span>
           </div>
         </div>
 
@@ -297,47 +339,26 @@ export class Dashboard extends Component {
 
         <div className="p-col-12 p-lg-4">
           <Panel header="Activity" style={{height: "100%"}}>
-            <div className="activity-header">
-              <div className="p-grid">
-                <div className="p-col-6">
-                  <span style={{fontWeight: "bold"}}>Last Activity</span>
-                  <p>Updated 1 minute ago</p>
-                </div>
-                <div className="p-col-6" style={{textAlign: "right"}}>
-                  <Button label="Refresh" icon="pi pi-refresh" />
-                </div>
-              </div>
-            </div>
-
             <ul className="activity-list">
-              <li>
-                <div className="count">Watered</div>
-                <div className="p-grid">
-                  <div className="p-col-6">Plot #</div>
-                  <div className="p-col-6">a10</div>
-                </div>
-              </li>
-              <li>
-                <div className="count">Watered</div>
-                <div className="p-grid">
-                  <div className="p-col-6">Plot #</div>
-                  <div className="p-col-6">a10</div>
-                </div>
-              </li>
-              <li>
-                <div className="count">Watered</div>
-                <div className="p-grid">
-                  <div className="p-col-6">Plot #</div>
-                  <div className="p-col-6">a10</div>
-                </div>
-              </li>
-              <li>
-                <div className="count">Watered</div>
-                <div className="p-grid">
-                  <div className="p-col-6">Plot #</div>
-                  <div className="p-col-6">a10</div>
-                </div>
-              </li>
+              {this.state.stats.activity.map(action => (
+                <li key={action.block}>
+                  <div className="count">
+                    {action.type.charAt(0).toUpperCase() + action.type.slice(1)}
+                  </div>
+                  <div className="p-grid">
+                    <div className="p-col-6">Plot #</div>
+                    <div className="p-col-6">{action.id}</div>
+                  </div>
+                  <div className="p-grid">
+                    <div className="p-col-6">Block #</div>
+                    <div className="p-col-6">{action.block}</div>
+                  </div>
+                  <div className="p-grid">
+                    <div className="p-col-6">Seed</div>
+                    <div className="p-col-6">{seedNames[action.strain]}</div>
+                  </div>
+                </li>
+              ))}
             </ul>
           </Panel>
         </div>
