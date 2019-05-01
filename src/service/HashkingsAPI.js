@@ -43,3 +43,18 @@ export const seedNames = {
   tha: "Thai",
   cht: "Chocolate Thai"
 };
+
+export const seedTypes = {
+  reg: {
+    num: 750,
+    str: "0.750"
+  },
+  mid: {
+    num: 1500,
+    str: "1.500"
+  },
+  top: {
+    num: 3000,
+    str: "3.000"
+  }
+};
