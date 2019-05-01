@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {CarService} from "../service/CarService";
 import {Panel} from "primereact/panel";
-import {Button} from "primereact/button";
 import {Chart} from "primereact/chart";
 import {FullCalendar} from "primereact/fullcalendar";
 import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
@@ -18,7 +17,8 @@ export class Dashboard extends Component {
         availableSeeds: 0,
         activeGardens: 0,
         availableGardens: 0,
-        activity: []
+        activity: [],
+        delegation: 0
       },
       tasks: [],
       city: null,
@@ -63,10 +63,12 @@ export class Dashboard extends Component {
   async componentDidMount() {
     try {
       const username = this.state.username;
-      const [stats, user, userLand] = await Promise.all([
+      const [stats, user, userLand, all, dgpo] = await Promise.all([
         this.hashkingsApi.getStats(),
         this.hashkingsApi.getUser(username),
-        this.hashkingsApi.getUserLand(username)
+        this.hashkingsApi.getUserLand(username),
+        this.hashkingsApi.getAll(),
+        this.hashkingsApi.getDGPO()
       ]);
 
       const {ac, bc, cc, dc, ec, fc} = stats.supply.land;
@@ -103,6 +105,17 @@ export class Dashboard extends Component {
         .slice(0, 4)
         .reverse();
 
+      const totalDelegation = all.delegations
+        .map(delegation => delegation.vests)
+        .reduce((prev, current) => prev + current);
+
+      const delegationVestsToSteem = (
+        (parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) *
+          totalDelegation) /
+        parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
+        1000000
+      ).toFixed(3);
+
       this.setState({
         stats: {
           gardeners: stats.gardeners,
@@ -110,7 +123,8 @@ export class Dashboard extends Component {
           availableSeeds: availableSeeds.length,
           activeGardens: activeGardens.length,
           availableGardens: availableGardens.length,
-          activity
+          activity,
+          delegation: delegationVestsToSteem
         }
       });
     } catch {}
@@ -213,8 +227,10 @@ export class Dashboard extends Component {
         <div className="p-col-12 p-lg-4">
           <div className="card summary">
             <span className="title">Planet Economy</span>
-            <span className="detail">Total Weekly Earnings</span>
-            <span className="count revenue">$1243.21</span>
+            <span className="detail">Total Delegated Steem</span>
+            <span className="count revenue">
+              {this.state.stats.delegation} STEEM
+            </span>
           </div>
         </div>
 
