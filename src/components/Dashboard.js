@@ -229,7 +229,7 @@ export class Dashboard extends Component {
             <span className="title">Planet Economy</span>
             <span className="detail">Total Delegated Steem</span>
             <span className="count revenue">
-              {this.state.stats.delegation} STEEM
+              {this.state.stats.delegation}
             </span>
           </div>
         </div>
