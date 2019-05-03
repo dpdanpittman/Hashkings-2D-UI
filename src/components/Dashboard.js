@@ -113,7 +113,7 @@ export class Dashboard extends Component {
         (parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) *
           totalDelegation) /
         parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
-        1000000
+        1000000 + 3500
       ).toFixed(3);
 
       this.setState({
