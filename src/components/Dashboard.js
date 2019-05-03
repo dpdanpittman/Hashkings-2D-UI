@@ -131,7 +131,7 @@ export class Dashboard extends Component {
 
   render() {
     return (
-      <div className="p-grid p-fluid dashboard">
+      <div className="p-grid p-fluid dashboard bgimgdash">
         <div className="p-col-12 p-lg-4">
           <div className="card summary">
             <span className="title">HashKings Citizens</span>
@@ -216,44 +216,6 @@ export class Dashboard extends Component {
           <div className="card">
             <Chart type="line" data={this.state.lineData} />
           </div>
-        </div>
-        <div className="p-col-12 p-lg-4 contacts">
-          <Panel header="Achievements">
-            <ul>
-              <li>
-                <button className="p-link">
-                  <img
-                    src="assets/layout/images/avatar_1.png"
-                    width="35"
-                    alt="avatar1"
-                  />
-                  <span className="name">Founder</span>
-                </button>
-              </li>
-              <li>
-                <button className="p-link">
-                  <img
-                    src="assets/layout/images/avatar_2.png"
-                    width="35"
-                    alt="avatar2"
-                  />
-                  <span className="name">Apprentice</span>
-                </button>
-              </li>
-              <li>
-                <button className="p-link">
-                  <img
-                    src="assets/layout/images/avatar_3.png"
-                    width="35"
-                    alt="avatar3"
-                  />
-                  <span className="name">10 Days in a row</span>
-                </button>
-              </li>
-            </ul>
-          </Panel>
-        </div>
-        <div className="p-col-12 p-lg-8">
         </div>
 
         <div className="p-col-12 p-lg-4">
