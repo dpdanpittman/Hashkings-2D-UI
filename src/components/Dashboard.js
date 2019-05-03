@@ -148,7 +148,7 @@ export class Dashboard extends Component {
         </div>
         <div className="p-col-12 p-lg-4">
           <div className="card summary">
-            <span className="title">Planet Economy</span>
+            <span className="title">Economy</span>
             <span className="detail">Total Delegated Steem</span>
             <span className="count revenue">
               {this.state.stats.delegation}
