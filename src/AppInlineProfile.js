@@ -4,13 +4,14 @@ import Cookie from "js-cookie";
 export class AppInlineProfile extends Component {
     constructor() {
         super();
-		Cookie.get("username");
         this.state = {
-			username: "Please Login"
+			username: Cookie.get("username")
         };
 
     }
+	
     render() {
+		if (this.state.username) {
         return  (
             <div className="profile">
                 <div>
@@ -19,5 +20,16 @@ export class AppInlineProfile extends Component {
 				<b>Welcome <a href="/#/login"><font color="blue">{this.state.username}</font></a></b>
             </div>
         );
-    }
+    }else {
+        return  (
+            <div className="profile">
+                <div>
+                    <img src="assets/layout/images/profile.png" alt="hashkings" />
+                </div>
+				<b>Welcome <a href="/#/login"><font color="blue">Please Login</font></a></b>
+            </div>
+        );
+    	
+	}
+}
 }
