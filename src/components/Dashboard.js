@@ -62,65 +62,89 @@ export class Dashboard extends Component {
   async componentDidMount() {
     try {
       const username = this.state.username;
-      const [stats, user, userLand, all, dgpo] = await Promise.all([
+
+      let requests = [
         this.hashkingsApi.getStats(),
-        this.hashkingsApi.getUser(username),
-        this.hashkingsApi.getUserLand(username),
         this.hashkingsApi.getAll(),
         this.hashkingsApi.getDGPO()
-      ]);
+      ];
+
+      if (username) {
+        const userRequests = [
+          this.hashkingsApi.getUser(username),
+          this.hashkingsApi.getUserLand(username)
+        ];
+        requests = [...requests, ...userRequests];
+      }
+      const [stats, all, dgpo, user, userLand] = await Promise.all(requests);
 
       const {ac, bc, cc, dc, ec, fc} = stats.supply.land;
 
       const gardens = ac + bc + cc + dc + ec + fc;
 
-      const activeGardens = userLand.filter(land => typeof land === "object");
-      const availableGardens = userLand.filter(
-        land => typeof land === "string"
-      );
-      const availableSeeds = user.seeds;
-
-      const watered = activeGardens
-        .map(garden =>
-          garden.care
-            .filter(care => care[1] === "watered")
-            .map(watered => ({
-              block: watered[0],
-              id: garden.id,
-              strain: garden.strain,
-              type: "watered"
-            }))
-        )
-        .flat();
-      const planted = activeGardens.map(garden => ({
-        id: garden.id,
-        strain: garden.strain,
-        block: garden.planted,
-        type: "planted"
-      }));
-
-      const activity = [...planted, ...watered]
-          .sort((a, b) => b.block - a.block)
-          .slice(0, 4);
+      const totalDelegation = all.delegations
+        .map(delegation => delegation.vests)
+        .reduce((prev, current) => prev + current);
 
       const delegationVestsToSteem = (
         (parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) *
           totalDelegation) /
-        parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
-        1000000 + 3500
+          parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
+          1000000 +
+        3500
       ).toFixed(3);
 
-      this.setState({
-        stats: {
-          gardeners: stats.gardeners,
-          gardens,
-          availableSeeds: availableSeeds.length,
-          activeGardens: activeGardens.length,
-          availableGardens: availableGardens.length,
-          activity,
-          delegation: delegationVestsToSteem
-        }
-      });
+      if (username) {
+        const activeGardens = userLand.filter(land => typeof land === "object");
+        const availableGardens = userLand.filter(
+          land => typeof land === "string"
+        );
+        const availableSeeds = user.seeds;
+
+        const watered = activeGardens
+          .map(garden =>
+            garden.care
+              .filter(care => care[1] === "watered")
+              .map(watered => ({
+                block: watered[0],
+                id: garden.id,
+                strain: garden.strain,
+                type: "watered"
+              }))
+          )
+          .flat();
+        const planted = activeGardens.map(garden => ({
+          id: garden.id,
+          strain: garden.strain,
+          block: garden.planted,
+          type: "planted"
+        }));
+
+        const activity = [...planted, ...watered]
+          .sort((a, b) => b.block - a.block)
+          .slice(0, 4);
+
+        this.setState({
+          stats: {
+            gardeners: stats.gardeners,
+            gardens,
+            availableSeeds: availableSeeds.length,
+            activeGardens: activeGardens.length,
+            availableGardens: availableGardens.length,
+            activity,
+            delegation: delegationVestsToSteem
+          }
+        });
+      } else {
+        this.setState({
+          stats: {
+            ...this.state.stats,
+            gardeners: stats.gardeners,
+            gardens,
+            delegation: delegationVestsToSteem
+          }
+        });
+      }
     } catch {}
   }
 
@@ -145,99 +169,113 @@ export class Dashboard extends Component {
           <div className="card summary">
             <span className="title">Economy</span>
             <span className="detail">Total Delegated Steem</span>
-            <span className="count revenue">
-              {this.state.stats.delegation}
-            </span>
+            <span className="count revenue">{this.state.stats.delegation}</span>
           </div>
         </div>
 
-        <div className="p-col-12 p-md-6 p-xl-3">
-          <div className="highlight-box">
-            <div
-              className="initials"
-              style={{backgroundColor: "#007be5", color: "#00448f"}}
-            >
-              <span>AG</span>
+        {this.state.username && (
+          <>
+            <div className="p-col-12 p-md-6 p-xl-3">
+              <div className="highlight-box">
+                <div
+                  className="initials"
+                  style={{backgroundColor: "#007be5", color: "#00448f"}}
+                >
+                  <span>AG</span>
+                </div>
+                <div className="highlight-details ">
+                  <span>Active Gardens</span>
+                  <span className="count">
+                    {this.state.stats.activeGardens}
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="highlight-details ">
-              <span>Active Gardens</span>
-              <span className="count">{this.state.stats.activeGardens}</span>
+            <div className="p-col-12 p-md-6 p-xl-3">
+              <div className="highlight-box">
+                <div
+                  className="initials"
+                  style={{backgroundColor: "#ef6262", color: "#a83d3b"}}
+                >
+                  <span>TS</span>
+                </div>
+                <div className="highlight-details ">
+                  <span>Total Seeds</span>
+                  <span className="count">
+                    {this.state.stats.availableSeeds}
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="p-col-12 p-md-6 p-xl-3">
-          <div className="highlight-box">
-            <div
-              className="initials"
-              style={{backgroundColor: "#ef6262", color: "#a83d3b"}}
-            >
-              <span>TS</span>
+            <div className="p-col-12 p-md-6 p-xl-3">
+              <div className="highlight-box">
+                <div
+                  className="initials"
+                  style={{backgroundColor: "#20d077", color: "#038d4a"}}
+                >
+                  <span>EG</span>
+                </div>
+                <div className="highlight-details ">
+                  <span>Empty Gardens</span>
+                  <span className="count">
+                    {this.state.stats.availableGardens}
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="highlight-details ">
-              <span>Total Seeds</span>
-              <span className="count">{this.state.stats.availableSeeds}</span>
+            <div className="p-col-12 p-md-6 p-xl-3">
+              <div className="highlight-box">
+                <div
+                  className="initials"
+                  style={{backgroundColor: "#f9c851", color: "#b58c2b"}}
+                >
+                  <span>WP</span>
+                </div>
+                <div className="highlight-details ">
+                  <span>Estimated Steem</span>
+                  <span className="count">0.896</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="p-col-12 p-md-6 p-xl-3">
-          <div className="highlight-box">
-            <div
-              className="initials"
-              style={{backgroundColor: "#20d077", color: "#038d4a"}}
-            >
-              <span>EG</span>
+            <div className="p-col-12 p-lg-8">
+              <div className="card">
+                <Chart type="line" data={this.state.lineData} />
+              </div>
             </div>
-            <div className="highlight-details ">
-              <span>Empty Gardens</span>
-              <span className="count">{this.state.stats.availableGardens}</span>
-            </div>
-          </div>
-        </div>
-        <div className="p-col-12 p-md-6 p-xl-3">
-          <div className="highlight-box">
-            <div
-              className="initials"
-              style={{backgroundColor: "#f9c851", color: "#b58c2b"}}
-            >
-              <span>WP</span>
-            </div>
-            <div className="highlight-details ">
-              <span>Estimated Steem</span>
-              <span className="count">0.896</span>
-            </div>
-          </div>
-        </div>
-        <div className="p-col-12 p-lg-8">
-          <div className="card">
-            <Chart type="line" data={this.state.lineData} />
-          </div>
-        </div>
 
-        <div className="p-col-12 p-lg-4">
-          <Panel header="Activity" style={{height: "100%"}}>
-            <ul className="activity-list">
-              {this.state.stats.activity.map(action => (
-                <li key={action.block}>
-                  <div className="count">
-                    {action.type.charAt(0).toUpperCase() + action.type.slice(1)}
-                  </div>
-                  <div className="p-grid">
-                    <div className="p-col-6">Plot #</div>
-                    <div className="p-col-6">{action.id}</div>
-                  </div>
-                  <div className="p-grid">
-                    <div className="p-col-6">Block #</div>
-                    <div className="p-col-6">{action.block}</div>
-                  </div>
-                  <div className="p-grid">
-                    <div className="p-col-6">Seed</div>
-                    <div className="p-col-6">{seedNames[action.strain]}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </Panel>
-        </div>
+            <div className="p-col-12 p-lg-4">
+              <Panel header="Activity" style={{height: "100%"}}>
+                <ul className="activity-list">
+                  {this.state.stats.activity.map(action => (
+                    <li key={action.block}>
+                      <div className="count">
+                        {action.type.charAt(0).toUpperCase() +
+                          action.type.slice(1)}
+                      </div>
+                      <div className="p-grid">
+                        <div className="p-col-6">Plot #</div>
+                        <div className="p-col-6">{action.id}</div>
+                      </div>
+                      <div className="p-grid">
+                        <div className="p-col-6">Block #</div>
+                        <div className="p-col-6">{action.block}</div>
+                      </div>
+                      <div className="p-grid">
+                        <div className="p-col-6">Seed</div>
+                        <div className="p-col-6">
+                          {seedNames[action.strain]}
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                  {this.state.stats.activity.length === 0 && (
+                    <p>No recent activity</p>
+                  )}
+                </ul>
+              </Panel>
+            </div>
+          </>
+        )}
       </div>
     );
   }
