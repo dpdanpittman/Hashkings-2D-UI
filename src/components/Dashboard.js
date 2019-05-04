@@ -100,13 +100,8 @@ export class Dashboard extends Component {
       }));
 
       const activity = [...planted, ...watered]
-        .sort((a, b) => a.block > b.block)
-        .slice(0, 4)
-        .reverse();
-
-      const totalDelegation = all.delegations
-        .map(delegation => delegation.vests)
-        .reduce((prev, current) => prev + current);
+          .sort((a, b) => b.block - a.block)
+          .slice(0, 4);
 
       const delegationVestsToSteem = (
         (parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) *
