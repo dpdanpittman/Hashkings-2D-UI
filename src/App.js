@@ -91,9 +91,7 @@ class App extends Component {
       {
         label: "Dashboard",
         icon: "pi pi-fw pi-home",
-        command: () => {
-          window.location = "/";
-        }
+        to: "/"
       },
       /*{
                 label: 'Menu Mode', icon: 'pi pi-fw pi-cog',
