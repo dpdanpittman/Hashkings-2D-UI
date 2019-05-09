@@ -64,7 +64,7 @@ export const seedNames = {
   kmj: "Kilimanjaro",
   mal: "Malawi",
   pam: "Panama Red",
-  cg: "Columbian Gold",
+  cg: "Colombian Gold",
   ach: "Aceh",
   tha: "Thai",
   cht: "Chocolate Thai"
