@@ -17,16 +17,39 @@ import "primeflex/primeflex.css";
 import "fullcalendar/dist/fullcalendar.css";
 import "./layout/layout.css";
 import "./App.css";
+import steemConnectAPI from "./service/SteemConnectAPI";
+import Cookie from "js-cookie";
+
+export const StateContext = React.createContext();
 
 class App extends Component {
   constructor() {
+    const accessToken = Cookie.get("access_token");
+
+    if (accessToken) {
+      steemConnectAPI.setAccessToken(accessToken);
+    }
+
     super();
     this.state = {
       layoutMode: "static",
       layoutColorMode: "dark",
       staticMenuInactive: false,
       overlayMenuActive: false,
-      mobileMenuActive: false
+      mobileMenuActive: false,
+      localState: {
+        username: "",
+        login: (username, loginType) =>
+          this.setState(state => ({
+            localState: {
+              ...state.localState,
+              username,
+              loginType
+            }
+          })),
+        steemConnectAPI,
+        loginType: undefined
+      }
     };
 
     this.onWrapperClick = this.onWrapperClick.bind(this);
@@ -93,23 +116,9 @@ class App extends Component {
         icon: "pi pi-fw pi-home",
         to: "/"
       },
-      /*{
-                label: 'Menu Mode', icon: 'pi pi-fw pi-cog',
-                items: [
-                    {label: 'Static Menu', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutMode: 'static'}) },
-                    {label: 'Overlay Menu', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutMode: 'overlay'}) }
-                ]
-            },
             {
-                label: 'Menu Colors', icon: 'pi pi-fw pi-align-left',
-                items: [
-                    {label: 'Dark', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutColorMode: 'dark'}) },
-                    {label: 'Light', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutColorMode: 'light'}) }
-                ]
-            },*/
-      {
         label: "Ganja Farm",
-        icon: "pi pi-fw pi-globe" /*badge: '9',*/,
+        icon: "pi pi-fw pi-globe",
         items: [{label: "Garden", icon: "pi pi-fw pi-file", to: "/garden"}]
       },
       {
@@ -165,12 +174,23 @@ class App extends Component {
     else this.removeClass(document.body, "body-overflow-hidden");
   }
 
-  render() {
-    let logo =
-      this.state.layoutColorMode === "dark"
-        ? "assets/layout/images/hashkingsbanner.png"
-        : "assets/layout/images/hashkingsbanner.png";
+  componentDidMount() {
+    if (!this.state.localState.username && Cookie.get("access_token")) {
+      this.state.localState.steemConnectAPI
+        .me()
+        .then(res => {
+          this.state.localState.login(res.name, "sc");
+        })
+        .catch(e => {
+          console.log(e);
+          Cookie.remove("access_token");
+        });
+    } else if (!this.state.localState.username && Cookie.get("username")) {
+      this.state.localState.login(Cookie.get("username"), "sk");
+    }
+  }
 
+  render() {
     let wrapperClass = classNames("layout-wrapper", {
       "layout-overlay": this.state.layoutMode === "overlay",
       "layout-static": this.state.layoutMode === "static",
@@ -185,6 +205,7 @@ class App extends Component {
     });
 
     return (
+      <StateContext.Provider value={this.state.localState}>
       <div className={wrapperClass} onClick={this.onWrapperClick}>
         <AppTopbar onToggleMenu={this.onToggleMenu} />
 
@@ -199,7 +220,10 @@ class App extends Component {
           >
             <div className="layout-sidebar-scroll-content">
               <div className="layout-logo">
-                <img alt="Logo" src={logo} />
+                  <img
+                    alt="Logo"
+                    src="assets/layout/images/hashkingsbanner.png"
+                  />
               </div>
               <AppInlineProfile />
               <AppMenu
@@ -218,6 +242,7 @@ class App extends Component {
         </div>
         <div className="layout-mask" />
       </div>
+      </StateContext.Provider>
     );
   }
 }
