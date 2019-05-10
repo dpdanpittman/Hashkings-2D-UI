@@ -1,35 +1,21 @@
-import React, { Component } from 'react';
-import Cookie from "js-cookie";
+import React, {useContext} from "react";
+import {Link} from "react-router-dom";
+import {StateContext} from "./App";
 
-export class AppInlineProfile extends Component {
-    constructor() {
-        super();
-        this.state = {
-			username: Cookie.get("username")
-        };
+export const AppInlineProfile = () => {
+  const {username} = useContext(StateContext);
 
-    }
-	
-    render() {
-		if (this.state.username) {
-        return  (
-            <div className="profile">
-                <div>
-                    <img src="assets/layout/images/profile.png" alt="hashkings" />
-                </div>
-				<b>Welcome <a href="/#/login"><font color="blue">{this.state.username}</font></a></b>
-            </div>
-        );
-    }else {
-        return  (
-            <div className="profile">
-                <div>
-                    <img src="assets/layout/images/profile.png" alt="hashkings" />
-                </div>
-				<b>Welcome <a href="/#/login"><font color="blue">Please Login</font></a></b>
-            </div>
-        );
-    	
-	}
-}
-}
+  return (
+    <div className="profile">
+      <div>
+        <img src="assets/layout/images/profile.png" alt="hashkings" />
+      </div>
+      <b>
+        Welcome{" "}
+        <Link to="/login">
+          <font color="blue">{username || "Please Login"}</font>
+        </Link>
+      </b>
+    </div>
+  );
+};
