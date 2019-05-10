@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'babel-polyfill';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "babel-polyfill";
+import App from "./App";
 //import * as serviceWorker from './serviceWorker';
-import { HashRouter } from 'react-router-dom'
-import ScrollToTop from './ScrollToTop';
+import {BrowserRouter} from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 
 ReactDOM.render(
-    <HashRouter>
-        <ScrollToTop>
-            <App></App>
-        </ScrollToTop>
-    </HashRouter>,
-    document.getElementById('root')
+  <BrowserRouter>
+    <ScrollToTop>
+      <App />
+    </ScrollToTop>
+  </BrowserRouter>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
