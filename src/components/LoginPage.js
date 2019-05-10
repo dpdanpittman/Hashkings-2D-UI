@@ -1,33 +1,19 @@
-import React, {Component} from "react";
+import React, {useState, useContext} from "react";
 import {InputText} from "primereact/inputtext";
 import {Panel} from "primereact/panel";
 import Cookie from "js-cookie";
 import {Button} from "primereact/button";
 import {withRouter} from "react-router-dom";
+import {StateContext} from "../App";
 
-export class LoginPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: ""
-    };
-  }
+export const LoginPage = ({history}) => {
+  const [username, setUsername] = useState("");
+  const {steemConnectAPI, login} = useContext(StateContext);
 
-  validateForm() {
-    return this.state.username.length > 0;
-  }
-
-  handleChange = event => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
-  };
-
-  handleSubmit = event => {
+  const handleSubmit = event => {
     event.preventDefault();
 
-    const username = this.state.username;
-    const push = this.props.history.push;
+    const push = history.push;
     const message = "{login: `" + username + "`}";
     const key_type = "Posting";
     const steem_keychain = window.steem_keychain;
@@ -38,6 +24,7 @@ export class LoginPage extends Component {
       ) {
         if (response.success) {
           Cookie.set("username", username);
+          login(username, "sk");
           push("/garden");
         } else {
           // Show a better error
@@ -49,43 +36,58 @@ export class LoginPage extends Component {
       alert("No keychain");
     }
   };
-  render() {
-    return (
-      <center>
-        <Panel header="Please Login with Steem Keychain">
-          <div className="p-grid">
-            <div className="p-col-12">
-              <img alt="..." src="https://i.imgur.com/jvJLKua.png" />
-              <div className="card">
-                <div className="p-col-12">
-                  <InputText
-                    type="text"
-                    placeholder="Steem Username"
-                    autoFocus
-                    onChange={this.handleChange}
-                    id="username"
-                  />
-                </div>
-                <div className="p-col-12">
-                  <Button onClick={this.handleSubmit} label="Login" />
-                </div>
+
+  const scLogin = () => {
+    const next =
+      window.location.pathname.length > 1 ? window.location.pathname : "";
+    const url = steemConnectAPI.getLoginURL(next);
+    window.location.href = url;
+  };
+
+  return (
+    <center>
+      <Panel header="Please Login with Steem Keychain or SteemConnect">
+        <div className="p-grid">
+          <div className="p-col-12">
+            <img alt="..." src="https://i.imgur.com/jvJLKua.png" />
+            <div className="card">
+              <div className="p-col-12">
+                <InputText
+                  type="text"
+                  placeholder="Steem Username"
+                  autoFocus
+                  onChange={e => setUsername(e.target.value)}
+                  id="username"
+                  value={username}
+                />
+              </div>
+              <div className="p-col-12">
+                <Button
+                  onClick={handleSubmit}
+                  label="Login with STEEM Keychain"
+                />
               </div>
               <h4>
-                If you do not have Steem Keychain installed please click
+                If you do not have Steem Keychain installed please click{" "}
                 <a
                   href="https://chrome.google.com/webstore/detail/steem-keychain/lkcjlnjfpbikmcmbachjpdbijejflpcm?hl=en"
                   alt="..."
                 >
-                  {" "}
                   here
                 </a>
               </h4>
+              <div className="p-col-12">
+                <p>OR</p>
+              </div>
+              <div className="p-col-12">
+                <Button onClick={scLogin} label="Login with SteemConnect" />
+              </div>
             </div>
           </div>
-        </Panel>
-      </center>
-    );
-  }
-}
+        </div>
+      </Panel>
+    </center>
+  );
+};
 
 export default withRouter(LoginPage);

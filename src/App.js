@@ -18,6 +18,7 @@ import "fullcalendar/dist/fullcalendar.css";
 import "./layout/layout.css";
 import "./App.css";
 import steemConnectAPI from "./service/SteemConnectAPI";
+import SCCallback from "./components/SCCallback";
 import Cookie from "js-cookie";
 
 export const StateContext = React.createContext();
@@ -116,7 +117,7 @@ class App extends Component {
         icon: "pi pi-fw pi-home",
         to: "/"
       },
-            {
+      {
         label: "Ganja Farm",
         icon: "pi pi-fw pi-globe",
         items: [{label: "Garden", icon: "pi pi-fw pi-file", to: "/garden"}]
@@ -206,42 +207,43 @@ class App extends Component {
 
     return (
       <StateContext.Provider value={this.state.localState}>
-      <div className={wrapperClass} onClick={this.onWrapperClick}>
-        <AppTopbar onToggleMenu={this.onToggleMenu} />
+        <div className={wrapperClass} onClick={this.onWrapperClick}>
+          <AppTopbar onToggleMenu={this.onToggleMenu} />
 
-        <div
-          ref={el => (this.sidebar = el)}
-          className={sidebarClassName}
-          onClick={this.onSidebarClick}
-        >
-          <ScrollPanel
-            ref={el => (this.layoutMenuScroller = el)}
-            style={{height: "100%"}}
+          <div
+            ref={el => (this.sidebar = el)}
+            className={sidebarClassName}
+            onClick={this.onSidebarClick}
           >
-            <div className="layout-sidebar-scroll-content">
-              <div className="layout-logo">
+            <ScrollPanel
+              ref={el => (this.layoutMenuScroller = el)}
+              style={{height: "100%"}}
+            >
+              <div className="layout-sidebar-scroll-content">
+                <div className="layout-logo">
                   <img
                     alt="Logo"
                     src="assets/layout/images/hashkingsbanner.png"
                   />
+                </div>
+                <AppInlineProfile />
+                <AppMenu
+                  model={this.menu}
+                  onMenuItemClick={this.onMenuItemClick}
+                />
               </div>
-              <AppInlineProfile />
-              <AppMenu
-                model={this.menu}
-                onMenuItemClick={this.onMenuItemClick}
-              />
-            </div>
-          </ScrollPanel>
+            </ScrollPanel>
+          </div>
+          <div className="layout-main">
+            <Route path="/login" component={LoginPage} />
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/garden" component={GardenPage} />
+            <Route path="/market/gardenplots" component={MarketPlots} />
+            <Route path="/market/seedbank" component={MarketSeeds} />
+            <Route path="/callback" component={SCCallback} />
+          </div>
+          <div className="layout-mask" />
         </div>
-        <div className="layout-main">
-          <Route path="/login" component={LoginPage} />
-          <Route path="/" exact component={Dashboard} />
-          <Route path="/garden" component={GardenPage} />
-          <Route path="/market/gardenplots" component={MarketPlots} />
-          <Route path="/market/seedbank" component={MarketSeeds} />
-        </div>
-        <div className="layout-mask" />
-      </div>
       </StateContext.Provider>
     );
   }
