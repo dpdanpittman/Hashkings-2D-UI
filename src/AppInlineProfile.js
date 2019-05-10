@@ -8,7 +8,7 @@ export const AppInlineProfile = () => {
   return (
     <div className="profile">
       <div>
-        <img src="assets/layout/images/profile.png" alt="hashkings" />
+        <img src="/assets/layout/images/profile.png" alt="hashkings" />
       </div>
       <b>
         Welcome{" "}

@@ -223,7 +223,7 @@ class App extends Component {
                 <div className="layout-logo">
                   <img
                     alt="Logo"
-                    src="assets/layout/images/hashkingsbanner.png"
+                    src="/assets/layout/images/hashkingsbanner.png"
                   />
                 </div>
                 <AppInlineProfile />
