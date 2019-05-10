@@ -10,14 +10,6 @@ export class GardenPage extends Component {
   constructor() {
     super();
     this.state = {
-      cities: [
-        {name: "New York", code: "NY"},
-        {name: "Rome", code: "RM"},
-        {name: "London", code: "LDN"},
-        {name: "Istanbul", code: "IST"},
-        {name: "Paris", code: "PRS"}
-      ],
-      city: "",
       plantSeedModal: false,
       waterModal: false,
       user: {
@@ -411,6 +403,25 @@ function WaterModal({isOpen, toggleModal, activeGardens, username}) {
     }
   };
 
+  const waterGardens = activeGardens.map(garden => {
+    let name = `${gardenNames[garden.id[0]]} - ${garden.id}`;
+
+    const waterActions = garden.care
+      .filter(care => care[1] === "watered")
+      .sort((a, b) => b[0] - a[0]);
+
+    if (waterActions.length > 0) {
+      name = `${name} - Last watered: Block ${waterActions[0][0]}`;
+    } else {
+      name = `${name} - Last watered: Never`;
+    }
+
+    return {
+      id: garden.id,
+      name
+    };
+  });
+
   return (
     <>
       <Dialog
@@ -432,9 +443,7 @@ function WaterModal({isOpen, toggleModal, activeGardens, username}) {
               optionLabel="name"
               id="garden"
               value={garden}
-              options={_.uniqBy(activeGardens, garden => garden.id[0]).map(
-                garden => ({...garden, name: gardenNames[garden.id[0]]})
-              )}
+              options={waterGardens}
               style={{width: "100%"}}
               onChange={e => {
                 setGarden(e.value);
