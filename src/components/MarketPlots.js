@@ -107,6 +107,7 @@ export class MarketPlots extends Component {
                     </font>
                   </b>
                 </h4>
+				<h3>IMPORTANT! Each plot requires a 20 SP delgation.</h3>
               </div>
               {/* <div className="p-col-12 p-md-2">Gardens</div> */}
               <Delegate
