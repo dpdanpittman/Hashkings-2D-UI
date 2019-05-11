@@ -16,17 +16,39 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import "fullcalendar/dist/fullcalendar.css";
 import "./layout/layout.css";
-import "./App.css";
+import "./App.scss";
+import steemConnectAPI from "./service/SteemConnectAPI";
+import SCCallback from "./components/SCCallback";
+
+export const StateContext = React.createContext();
 
 class App extends Component {
   constructor() {
+    const accessToken = localStorage.getItem("sc_token");
+
+    if (accessToken) {
+      steemConnectAPI.setAccessToken(accessToken);
+    }
+
     super();
     this.state = {
       layoutMode: "static",
       layoutColorMode: "dark",
       staticMenuInactive: false,
       overlayMenuActive: false,
-      mobileMenuActive: false
+      mobileMenuActive: false,
+      localState: {
+        username: "",
+        login: username =>
+          this.setState(state => ({
+            localState: {
+              ...state.localState,
+              username
+            }
+          })),
+        steemConnectAPI,
+        loginType: undefined
+      }
     };
 
     this.onWrapperClick = this.onWrapperClick.bind(this);
@@ -93,23 +115,9 @@ class App extends Component {
         icon: "pi pi-fw pi-home",
         to: "/"
       },
-      /*{
-                label: 'Menu Mode', icon: 'pi pi-fw pi-cog',
-                items: [
-                    {label: 'Static Menu', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutMode: 'static'}) },
-                    {label: 'Overlay Menu', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutMode: 'overlay'}) }
-                ]
-            },
-            {
-                label: 'Menu Colors', icon: 'pi pi-fw pi-align-left',
-                items: [
-                    {label: 'Dark', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutColorMode: 'dark'}) },
-                    {label: 'Light', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutColorMode: 'light'}) }
-                ]
-            },*/
       {
         label: "Ganja Farm",
-        icon: "pi pi-fw pi-globe" /*badge: '9',*/,
+        icon: "pi pi-fw pi-globe",
         items: [{label: "Garden", icon: "pi pi-fw pi-file", to: "/garden"}]
       },
       {
@@ -165,12 +173,21 @@ class App extends Component {
     else this.removeClass(document.body, "body-overflow-hidden");
   }
 
-  render() {
-    let logo =
-      this.state.layoutColorMode === "dark"
-        ? "assets/layout/images/hashkingsbanner.png"
-        : "assets/layout/images/hashkingsbanner.png";
+  componentDidMount() {
+    if (!this.state.localState.username && localStorage.getItem("sc_token")) {
+      this.state.localState.steemConnectAPI
+        .me()
+        .then(res => {
+          this.state.localState.login(res.name);
+        })
+        .catch(e => {
+          console.log(e);
+          localStorage.removeItem("sc_token");
+        });
+    }
+  }
 
+  render() {
     let wrapperClass = classNames("layout-wrapper", {
       "layout-overlay": this.state.layoutMode === "overlay",
       "layout-static": this.state.layoutMode === "static",
@@ -185,39 +202,45 @@ class App extends Component {
     });
 
     return (
-      <div className={wrapperClass} onClick={this.onWrapperClick}>
-        <AppTopbar onToggleMenu={this.onToggleMenu} />
+      <StateContext.Provider value={this.state.localState}>
+        <div className={wrapperClass} onClick={this.onWrapperClick}>
+          <AppTopbar onToggleMenu={this.onToggleMenu} />
 
-        <div
-          ref={el => (this.sidebar = el)}
-          className={sidebarClassName}
-          onClick={this.onSidebarClick}
-        >
-          <ScrollPanel
-            ref={el => (this.layoutMenuScroller = el)}
-            style={{height: "100%"}}
+          <div
+            ref={el => (this.sidebar = el)}
+            className={sidebarClassName}
+            onClick={this.onSidebarClick}
           >
-            <div className="layout-sidebar-scroll-content">
-              <div className="layout-logo">
-                <img alt="Logo" src={logo} />
+            <ScrollPanel
+              ref={el => (this.layoutMenuScroller = el)}
+              style={{height: "100%"}}
+            >
+              <div className="layout-sidebar-scroll-content">
+                <div className="layout-logo">
+                  <img
+                    alt="Logo"
+                    src="/assets/layout/images/hashkingsbanner.png"
+                  />
+                </div>
+                <AppInlineProfile />
+                <AppMenu
+                  model={this.menu}
+                  onMenuItemClick={this.onMenuItemClick}
+                />
               </div>
-              <AppInlineProfile />
-              <AppMenu
-                model={this.menu}
-                onMenuItemClick={this.onMenuItemClick}
-              />
-            </div>
-          </ScrollPanel>
+            </ScrollPanel>
+          </div>
+          <div className="layout-main">
+            <Route path="/login" component={LoginPage} />
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/garden" component={GardenPage} />
+            <Route path="/market/gardenplots" component={MarketPlots} />
+            <Route path="/market/seedbank" component={MarketSeeds} />
+            <Route path="/callback" component={SCCallback} />
+          </div>
+          <div className="layout-mask" />
         </div>
-        <div className="layout-main">
-          <Route path="/login" component={LoginPage} />
-          <Route path="/" exact component={Dashboard} />
-          <Route path="/garden" component={GardenPage} />
-          <Route path="/market/gardenplots" component={MarketPlots} />
-          <Route path="/market/seedbank" component={MarketSeeds} />
-        </div>
-        <div className="layout-mask" />
-      </div>
+      </StateContext.Provider>
     );
   }
 }

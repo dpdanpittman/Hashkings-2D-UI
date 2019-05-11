@@ -1,91 +1,82 @@
-import React, {Component} from "react";
+import React, {useState, useContext} from "react";
 import {InputText} from "primereact/inputtext";
 import {Panel} from "primereact/panel";
-import Cookie from "js-cookie";
 import {Button} from "primereact/button";
 import {withRouter} from "react-router-dom";
+import {StateContext} from "../App";
+import useSteemKeychain from "../hooks/useSteemKeychain";
 
-export class LoginPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: ""
-    };
-  }
+export const LoginPage = ({history}) => {
+  const [username, setUsername] = useState("");
+  const {steemConnectAPI, login} = useContext(StateContext);
+  const [loggingIn, setLoggingIn] = useState(false);
 
-  validateForm() {
-    return this.state.username.length > 0;
-  }
+  const hasSteemKeychain = useSteemKeychain();
 
-  handleChange = event => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
-  };
+  const keychainLoggedIn = (_, token) => {
+    if (token) {
+      steemConnectAPI.setAccessToken(token);
 
-  handleSubmit = event => {
-    event.preventDefault();
-
-    const username = this.state.username;
-    const push = this.props.history.push;
-    const message = "{login: `" + username + "`}";
-    const key_type = "Posting";
-    const steem_keychain = window.steem_keychain;
-
-    if (window.steem_keychain && username) {
-      steem_keychain.requestSignBuffer(username, message, key_type, function(
-        response
-      ) {
-        if (response.success) {
-          Cookie.set("username", username);
-          push("/garden");
-        } else {
-          // Show a better error
-          alert("Error");
-        }
-      });
+      steemConnectAPI
+        .me()
+        .then(res => {
+          login(res.name);
+          localStorage.setItem("sc_token", token);
+          history.push("/garden");
+        })
+        .catch(e => {
+          console.log(e);
+          setUsername("");
+          setLoggingIn(false);
+        });
     } else {
-      // Show a better error
-      alert("No keychain");
+      setUsername("");
+      setLoggingIn(false);
     }
   };
-  render() {
-    return (
-      <center>
-        <Panel header="Please Login with Steem Keychain">
-          <div className="p-grid">
-            <div className="p-col-12">
-              <img alt="..." src="https://i.imgur.com/jvJLKua.png" />
-              <div className="card">
+
+  const Login = () => {
+    setLoggingIn(true);
+    steemConnectAPI.login({username}, keychainLoggedIn);
+  };
+
+  const loginLabelPrefix = loggingIn ? "Logging in with" : "Login with";
+  const loginLabelSuffix = hasSteemKeychain()
+    ? "STEEM Keychain"
+    : "SteemConnect";
+
+  return (
+    <center>
+      <Panel header="Please Login with Steem Keychain or SteemConnect">
+        <div className="p-grid">
+          <div className="p-col-12">
+            <img alt="..." src="https://i.imgur.com/jvJLKua.png" />
+            <div className="card">
+              {hasSteemKeychain() && (
                 <div className="p-col-12">
                   <InputText
                     type="text"
                     placeholder="Steem Username"
                     autoFocus
-                    onChange={this.handleChange}
+                    onChange={e => setUsername(e.target.value)}
                     id="username"
+                    value={username}
                   />
                 </div>
-                <div className="p-col-12">
-                  <Button onClick={this.handleSubmit} label="Login" />
-                </div>
+              )}
+              <div className="p-col-12">
+                <Button
+                  disabled={(hasSteemKeychain() && !username) || loggingIn}
+                  onClick={Login}
+                  label={`${loginLabelPrefix} ${loginLabelSuffix}`}
+                />
               </div>
-              <h4>
-                If you do not have Steem Keychain installed please click
-                <a
-                  href="https://chrome.google.com/webstore/detail/steem-keychain/lkcjlnjfpbikmcmbachjpdbijejflpcm?hl=en"
-                  alt="..."
-                >
-                  {" "}
-                  here
-                </a>
-              </h4>
             </div>
           </div>
-        </Panel>
-      </center>
-    );
-  }
-}
+        </div>
+      </Panel>
+    </center>
+  );
+};
 
 export default withRouter(LoginPage);

@@ -40,6 +40,96 @@ export class HashkingsAPI {
       )
       .then(res => res.data.result);
   }
+
+  async getDashboardStats(username = undefined) {
+    let requests = [this.getStats(), this.getAll(), this.getDGPO()];
+
+    if (username) {
+      const userRequests = [this.getUser(username), this.getUserLand(username)];
+      requests = [...requests, ...userRequests];
+    }
+
+    const [stats, all, dgpo, user, userLand] = await Promise.all(requests);
+
+    const {ac, bc, cc, dc, ec, fc} = stats.supply.land;
+
+    const gardens = ac + bc + cc + dc + ec + fc;
+
+    const totalDelegation = all.delegations
+      .map(delegation => delegation.vests)
+      .reduce((prev, current) => prev + current);
+
+    const delegationVestsToSteem = (
+      (parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) *
+        totalDelegation) /
+        parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
+        1000000 +
+      3500
+    ).toFixed(3);
+
+    if (username) {
+      const activeGardens = userLand.filter(land => typeof land === "object");
+      const availableGardens = userLand.filter(
+        land => typeof land === "string"
+      );
+      const availableSeeds = user.seeds;
+
+      const watered = activeGardens
+        .map(garden =>
+          garden.care
+            .filter(care => care[1] === "watered")
+            .map(watered => ({
+              block: watered[0],
+              id: garden.id,
+              strain: garden.strain,
+              type: "watered"
+            }))
+        )
+        .flat();
+      const planted = activeGardens.map(garden => ({
+        id: garden.id,
+        strain: garden.strain,
+        block: garden.planted,
+        type: "planted"
+      }));
+
+      const activity = [...planted, ...watered]
+        .sort((a, b) => b.block - a.block)
+        .slice(0, 4);
+
+      return {
+        gardeners: stats.gardeners,
+        gardens,
+        availableSeeds: availableSeeds.length,
+        activeGardens: activeGardens.length,
+        availableGardens: availableGardens.length,
+        activity,
+        delegation: delegationVestsToSteem
+      };
+    } else {
+      return {
+        gardeners: stats.gardeners,
+        gardens,
+        delegation: delegationVestsToSteem
+      };
+    }
+  }
+
+  async getUserGarden(username) {
+    const [user, userLand] = await Promise.all([
+      this.getUser(username),
+      this.getUserLand(username)
+    ]);
+    const activeGardens = userLand.filter(land => typeof land === "object");
+    const availableGardens = userLand.filter(land => typeof land === "string");
+    const availableSeeds = user.seeds;
+
+    return {
+      activeGardens,
+      availableGardens,
+      availableSeeds
+    };
+  }
 }
 
 export const gardenNames = {
