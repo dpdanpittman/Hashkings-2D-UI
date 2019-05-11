@@ -1,48 +1,49 @@
 import React, {useState, useContext} from "react";
 import {InputText} from "primereact/inputtext";
 import {Panel} from "primereact/panel";
-import Cookie from "js-cookie";
 import {Button} from "primereact/button";
 import {withRouter} from "react-router-dom";
 import {StateContext} from "../App";
+import useSteemKeychain from "../hooks/useSteemKeychain";
 
 export const LoginPage = ({history}) => {
   const [username, setUsername] = useState("");
   const {steemConnectAPI, login} = useContext(StateContext);
+  const [loggingIn, setLoggingIn] = useState(false);
 
-  const handleSubmit = event => {
-    event.preventDefault();
+  const hasSteemKeychain = useSteemKeychain();
 
-    const push = history.push;
-    const message = "{login: `" + username + "`}";
-    const key_type = "Posting";
-    const steem_keychain = window.steem_keychain;
+  const keychainLoggedIn = (_, token) => {
+    if (token) {
+      steemConnectAPI.setAccessToken(token);
 
-    if (window.steem_keychain && username) {
-      steem_keychain.requestSignBuffer(username, message, key_type, function(
-        response
-      ) {
-        if (response.success) {
-          Cookie.set("username", username);
-          login(username, "sk");
-          push("/garden");
-        } else {
-          // Show a better error
-          alert("Error");
-        }
-      });
+      steemConnectAPI
+        .me()
+        .then(res => {
+          login(res.name);
+          localStorage.setItem("sc_token", token);
+          history.push("/garden");
+        })
+        .catch(e => {
+          console.log(e);
+          setUsername("");
+          setLoggingIn(false);
+        });
     } else {
-      // Show a better error
-      alert("No keychain");
+      setUsername("");
+      setLoggingIn(false);
     }
   };
 
-  const scLogin = () => {
-    const next =
-      window.location.pathname.length > 1 ? window.location.pathname : "";
-    const url = steemConnectAPI.getLoginURL(next);
-    window.location.href = url;
+  const Login = () => {
+    setLoggingIn(true);
+    steemConnectAPI.login({username}, keychainLoggedIn);
   };
+
+  const loginLabelPrefix = loggingIn ? "Logging in with" : "Login with";
+  const loginLabelSuffix = hasSteemKeychain()
+    ? "STEEM Keychain"
+    : "SteemConnect";
 
   return (
     <center>
@@ -51,36 +52,24 @@ export const LoginPage = ({history}) => {
           <div className="p-col-12">
             <img alt="..." src="https://i.imgur.com/jvJLKua.png" />
             <div className="card">
-              <div className="p-col-12">
-                <InputText
-                  type="text"
-                  placeholder="Steem Username"
-                  autoFocus
-                  onChange={e => setUsername(e.target.value)}
-                  id="username"
-                  value={username}
-                />
-              </div>
+              {hasSteemKeychain() && (
+                <div className="p-col-12">
+                  <InputText
+                    type="text"
+                    placeholder="Steem Username"
+                    autoFocus
+                    onChange={e => setUsername(e.target.value)}
+                    id="username"
+                    value={username}
+                  />
+                </div>
+              )}
               <div className="p-col-12">
                 <Button
-                  onClick={handleSubmit}
-                  label="Login with STEEM Keychain"
+                  disabled={(hasSteemKeychain() && !username) || loggingIn}
+                  onClick={Login}
+                  label={`${loginLabelPrefix} ${loginLabelSuffix}`}
                 />
-              </div>
-              <h4>
-                If you do not have Steem Keychain installed please click{" "}
-                <a
-                  href="https://chrome.google.com/webstore/detail/steem-keychain/lkcjlnjfpbikmcmbachjpdbijejflpcm?hl=en"
-                  alt="..."
-                >
-                  here
-                </a>
-              </h4>
-              <div className="p-col-12">
-                <p>OR</p>
-              </div>
-              <div className="p-col-12">
-                <Button onClick={scLogin} label="Login with SteemConnect" />
               </div>
             </div>
           </div>

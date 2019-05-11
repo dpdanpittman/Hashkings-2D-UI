@@ -16,16 +16,15 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import "fullcalendar/dist/fullcalendar.css";
 import "./layout/layout.css";
-import "./App.css";
+import "./App.scss";
 import steemConnectAPI from "./service/SteemConnectAPI";
 import SCCallback from "./components/SCCallback";
-import Cookie from "js-cookie";
 
 export const StateContext = React.createContext();
 
 class App extends Component {
   constructor() {
-    const accessToken = Cookie.get("access_token");
+    const accessToken = localStorage.getItem("sc_token");
 
     if (accessToken) {
       steemConnectAPI.setAccessToken(accessToken);
@@ -40,12 +39,11 @@ class App extends Component {
       mobileMenuActive: false,
       localState: {
         username: "",
-        login: (username, loginType) =>
+        login: username =>
           this.setState(state => ({
             localState: {
               ...state.localState,
-              username,
-              loginType
+              username
             }
           })),
         steemConnectAPI,
@@ -176,18 +174,16 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (!this.state.localState.username && Cookie.get("access_token")) {
+    if (!this.state.localState.username && localStorage.getItem("sc_token")) {
       this.state.localState.steemConnectAPI
         .me()
         .then(res => {
-          this.state.localState.login(res.name, "sc");
+          this.state.localState.login(res.name);
         })
         .catch(e => {
           console.log(e);
-          Cookie.remove("access_token");
+          localStorage.removeItem("sc_token");
         });
-    } else if (!this.state.localState.username && Cookie.get("username")) {
-      this.state.localState.login(Cookie.get("username"), "sk");
     }
   }
 
