@@ -89,12 +89,13 @@ export const MarketPlots = () => {
               <h4>
                 <b>
                   <font color="green">
-                    Below you will find our Avaialable Plots. In order to Lease
-                    a garden please choose how many Gardens you would like then
+                    Below you will find our Available Plots. In order to Lease a
+                    garden please choose how many Gardens you would like then
                     choose your favorite regions.
                   </font>
                 </b>
               </h4>
+              <h3>IMPORTANT! Each plot requires a 20 SP delegation.</h3>
             </div>
             {/* <div className="p-col-12 p-md-2">Gardens</div> */}
             <Delegate

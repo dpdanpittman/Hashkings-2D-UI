@@ -12,15 +12,15 @@
 
 <div align="center">
   <h3>
-    <a href="https://qwoyn.io">
+    <a href="https://www.qwoyn.io">
       Website
     </a>
     <span> | </span>
-    <a href="https://discord.gg/DcsPHUG">
+    <a href="https://discord.gg/Zq29TWe">
       Community
     </a>
     <span> | </span>
-    <a href="https://steepeak.com/@hashkings">
+    <a href="https://steempeak.com/@hashkings">
       Blog
     </a>
     <span> | </span>
