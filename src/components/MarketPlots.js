@@ -101,7 +101,7 @@ export class MarketPlots extends Component {
                 <h4>
                   <b>
                     <font color="green">
-                      Below you will find our Avaialable Plots. In order to
+                      Below you will find our Available Plots. In order to
                       Lease a garden please choose how many Gardens you would
                       like then choose your favorite regions.
                     </font>
