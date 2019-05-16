@@ -19,6 +19,7 @@ import "./layout/layout.css";
 import "./App.scss";
 import steemConnectAPI from "./service/SteemConnectAPI";
 import SCCallback from "./components/SCCallback";
+import UserGarden from "./components/UserGarden";
 
 export const StateContext = React.createContext();
 
@@ -233,7 +234,8 @@ class App extends Component {
           <div className="layout-main">
             <Route path="/login" component={LoginPage} />
             <Route path="/" exact component={Dashboard} />
-            <Route path="/garden" component={GardenPage} />
+            <Route path="/garden/:username" component={UserGarden} />
+            <Route exact path="/garden" component={GardenPage} />
             <Route path="/market/gardenplots" component={MarketPlots} />
             <Route path="/market/seedbank" component={MarketSeeds} />
             <Route path="/callback" component={SCCallback} />

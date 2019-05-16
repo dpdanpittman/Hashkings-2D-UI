@@ -3,7 +3,6 @@ import {Button} from "primereact/button";
 import {Dialog} from "primereact/dialog";
 import {gardenNames} from "../service/HashkingsAPI";
 import {Dropdown} from "primereact/dropdown";
-import _ from "lodash";
 import {StateContext} from "../App";
 
 export default function WaterModal({
