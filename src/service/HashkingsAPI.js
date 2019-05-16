@@ -122,7 +122,7 @@ export class HashkingsAPI {
     ]);
     const activeGardens = userLand.filter(land => typeof land === "object");
     const availableGardens = userLand.filter(land => typeof land === "string");
-    const availableSeeds = user.seeds;
+    const availableSeeds = user.seeds || [];
 
     return {
       activeGardens,
