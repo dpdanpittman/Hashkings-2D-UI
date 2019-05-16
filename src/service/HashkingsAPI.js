@@ -130,6 +130,10 @@ export class HashkingsAPI {
       availableSeeds
     };
   }
+
+  userExists(username) {
+    return this.getAll().then(all => Object.keys(all.users).includes(username));
+  }
 }
 
 export const gardenNames = {
