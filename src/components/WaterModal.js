@@ -2,7 +2,7 @@ import React, {useContext, useState, useEffect} from "react";
 import {Button} from "primereact/button";
 import {Dialog} from "primereact/dialog";
 import {gardenNames} from "../service/HashkingsAPI";
-import {Dropdown} from "primereact/dropdown";
+import {MultiSelect} from "primereact/multiselect";
 import {StateContext} from "../App";
 
 export default function WaterModal({
@@ -11,13 +11,14 @@ export default function WaterModal({
   activeGardens,
   username
 }) {
-  const [garden, setGarden] = useState();
+  const [gardens, setGardens] = useState([]);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const {steemConnectAPI} = useContext(StateContext);
 
   useEffect(() => {
     if (!isOpen) {
-      setGarden();
+      setGardens([]);
       setIsSubmitting(false);
     }
   }, [isOpen]);
@@ -31,11 +32,11 @@ export default function WaterModal({
   };
 
   const handleSubmit = () => {
-    if (username && garden) {
+    if (username && gardens.length > 0) {
       setIsSubmitting(true);
 
       const custom_json_id = "qwoyn_water";
-      const custom_JSON = JSON.stringify({plants: [garden.id]});
+      const custom_JSON = JSON.stringify({plants: gardens.map(g => g.id)});
 
       steemConnectAPI.customJson(
         [],
@@ -66,6 +67,14 @@ export default function WaterModal({
     };
   });
 
+  const selectedGardensTemplate = option => {
+    if (option) {
+      return <span>{`${option.id} `}</span>;
+    } else {
+      return <span>Choose some gardens...</span>;
+    }
+  };
+
   return (
     <>
       <Dialog
@@ -81,25 +90,23 @@ export default function WaterModal({
         {activeGardens.length === 0 ? (
           <p>Sorry, you don't have any active gardens</p>
         ) : (
-          <form onSubmit={handleSubmit}>
+          <>
             <label htmlFor="garden">Garden</label>
-            <Dropdown
-              optionLabel="name"
-              id="garden"
-              value={garden}
-              options={waterGardens}
+            <MultiSelect
               style={{width: "100%"}}
-              onChange={e => {
-                setGarden(e.value);
-              }}
-              placeholder="Choose a garden..."
+              optionLabel="name"
+              value={gardens}
+              options={waterGardens}
+              onChange={e => setGardens(e.value)}
+              filter={true}
+              selectedItemTemplate={selectedGardensTemplate}
             />
             <Button
               disabled={isSubmitting}
               label={isSubmitting ? "Watering" : "Water"}
               onClick={handleSubmit}
             />
-          </form>
+          </>
         )}
       </Dialog>
     </>
