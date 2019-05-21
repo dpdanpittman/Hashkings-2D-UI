@@ -20,6 +20,7 @@ import "./App.scss";
 import steemConnectAPI from "./service/SteemConnectAPI";
 import SCCallback from "./components/SCCallback";
 import UserGarden from "./components/UserGarden";
+import WelcomePage from "./components/WelcomePage";
 
 export const StateContext = React.createContext();
 
@@ -114,7 +115,7 @@ class App extends Component {
       {
         label: "Dashboard",
         icon: "pi pi-fw pi-home",
-        to: "/"
+        to: "/dashboard"
       },
       {
         label: "Ganja Farm",
@@ -233,10 +234,11 @@ class App extends Component {
           </div>
           <div className="layout-main">
             <Route path="/login" component={LoginPage} />
-            <Route path="/" exact component={Dashboard} />
+            <Route path="/" exact component={WelcomePage} />
             <Route path="/garden/:username" component={UserGarden} />
             <Route exact path="/garden" component={GardenPage} />
             <Route path="/market/gardenplots" component={MarketPlots} />
+			<Route path="/dashboard" component={Dashboard} />
             <Route path="/market/seedbank" component={MarketSeeds} />
             <Route path="/callback" component={SCCallback} />
           </div>
