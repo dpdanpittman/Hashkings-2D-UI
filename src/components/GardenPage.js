@@ -58,7 +58,7 @@ export const GardenPage = () => {
             <div className="p-col-3" />
             <div className="p-col-6">
               <div className="card-blank card-w-title">
-                <h1>Plant a Seed</h1>
+                <h1>Plant a bag of seeds</h1>
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button

@@ -22,7 +22,7 @@ export const LoginPage = ({history}) => {
         .then(res => {
           login(res.name);
           localStorage.setItem("sc_token", token);
-          history.push("/garden");
+          history.push("/");
         })
         .catch(e => {
           console.log(e);
