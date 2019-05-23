@@ -21,6 +21,7 @@ import steemConnectAPI from "./service/SteemConnectAPI";
 import SCCallback from "./components/SCCallback";
 import UserGarden from "./components/UserGarden";
 import WelcomePage from "./components/WelcomePage";
+import FAQPage from "./components/FAQPage";
 
 export const StateContext = React.createContext();
 
@@ -144,6 +145,11 @@ class App extends Component {
         command: () => {
           window.location = "https://steempeak.com/@hashkings";
         }
+      },
+	  {
+        label: "FAQ",
+        icon: "pi pi-fw pi-circle-off",
+        to: "/faq"
       }
     ];
   }
@@ -241,6 +247,7 @@ class App extends Component {
 			<Route path="/dashboard" component={Dashboard} />
             <Route path="/market/seedbank" component={MarketSeeds} />
             <Route path="/callback" component={SCCallback} />
+			<Route path="/faq" component={FAQPage} />
           </div>
           <div className="layout-mask" />
         </div>
