@@ -45,7 +45,9 @@ export const FAQPage = () => {
 			If you forget to water your plants will not grow of course and your payouts will also stop. In the future your plant will also die but this has not been incorporated into the game yet.
 
 			<p><u><b>What is the difference between types of seeds and what does experience do?</b></u></p> 
-
+			This is a special feature which will include our very own kief token which will be used to purchase items from the
+			grow shop.
+			
 			<p><u><b>How many garden plots/seeds can I own?</b></u></p> 
 			There are a total of 25,200 plots of land available and you can own as many as are available at the time of delegation. At the moment you can own as many seeds are year green thumb can handle.
 
