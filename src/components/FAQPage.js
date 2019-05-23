@@ -23,17 +23,12 @@ export const FAQPage = () => {
 			Yes there is an initial leasing fee for land plots (plus 20 SP delegation) and seeds also cost a small amount of STEEM to purchase.
 
 			<p><u><b>What kind of features will be added in the future?</b></u></p> 
-			Graphical Inventory
-			Map of planted and available plots
-			Number of available plots on Dashboard
-			Limited number of special Steem OG seeds with High XP
-			CannaDex, our internal exchange
-			Grow shop for buying supplies (These will be used to acquire new traits)
+			A graphical inventory and map of planted/available plots, improved dashboard, limited edition seeds, CannaDex internal exchange.
 			
 			<p><u><b>Where do I begin?</b></u></p> 
 			First head over to "Marketplace" and click "Garden Plots" to lease your first plot of land. You can lease one or more up to six. 
 
-			Then click "Seeds" under the "Marketplace" menu and purchase your first seed's
+			Then click "Seeds" under the "Marketplace" menu and purchase your first seeds
 
 			<p><u><b>What should I do after I plant my seeds?</b></u></p> 
 			Go to "Ganja Farm" and click "Garden". There you will find the Water you Garden function.
@@ -49,7 +44,7 @@ export const FAQPage = () => {
 			grow shop.
 			
 			<p><u><b>How many garden plots/seeds can I own?</b></u></p> 
-			There are a total of 25,200 plots of land available and you can own as many as are available at the time of delegation. At the moment you can own as many seeds are year green thumb can handle.
+			There are a total of 25,200 plots of land available and you can own as many as are available at the time of delegation. At the moment you can own as many seeds as your green thumb can handle.
 
 			<p><u><b>What is CannaDex and what will it do?</b></u></p>
 			This is our internal exchange where you will buy and sell various nutrients, grow equipment and seeds
