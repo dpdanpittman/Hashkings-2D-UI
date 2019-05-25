@@ -53,7 +53,6 @@
 - **React.js:** our frontend is written with the react framework
 - **custom api:** unique requests to the STEEM Blockchain
 - **minimal requirements:** easy to use with [STEEM Keychain](https://chrome.google.com/webstore/detail/steem-keychain/lkcjlnjfpbikmcmbachjpdbijejflpcm?hl=en)
-- **isomorphic:** renders seamlessly in both Node and browsers
 
 ## Screenshot
 
@@ -61,7 +60,9 @@
   <img width="460" height="300" src="https://i.imgur.com/Xml2iZ1.png">
 </p>
 
-##Community SupportWe need your help! Hashkings is independently funded and developed so your contributions are welcome. The development team is working dilligently day and night to create this dApp from the ground up
+## Community Support
+
+We need your help! Hashkings is independently funded and developed so your contributions are welcome. The development team is working dilligently day and night to create this dApp from the ground up
 . Please contact Dan if you are willing to help bring this project to the next level.
 
 ## See Also
@@ -94,7 +95,8 @@ When gardeners take care of their plants they grow points toward votes... distri
 ### Does it cost money to play?
 
 Yes there is an initial leasing fee for land plots (plus 20 SP delegation) and seeds also cost a small amount of STEEM to purchase.
-###What kind of features will be added in the future?
+
+### What kind of features will be added in the future?
 
 A graphical inventory and map of planted/available plots, improved dashboard, limited edition seeds, CannaDex internal exchange.
 
