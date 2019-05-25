@@ -93,3 +93,8 @@ button.load-payouts {
   max-width: 200px;
   margin-top: 20px;
 }
+
+.activity-log {
+  max-height: 600px;
+  overflow-y: scroll;
+}

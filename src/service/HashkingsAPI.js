@@ -1,4 +1,5 @@
 import axios from "axios";
+import {format as formatTimeAgo} from "timeago.js";
 
 export class HashkingsAPI {
   baseUrl = "https://hashkings.herokuapp.com/";
@@ -127,6 +128,8 @@ export class HashkingsAPI {
 
     const gardens = ac + bc + cc + dc + ec + fc;
 
+    const headBlockNum = dgpo.head_block_number;
+
     const totalDelegation = all.delegations
       .map(delegation => delegation.vests)
       .reduce((prev, current) => prev + current);
@@ -149,24 +152,38 @@ export class HashkingsAPI {
         .map(garden =>
           garden.care
             .filter(care => care[1] === "watered")
-            .map(watered => ({
-              block: watered[0],
-              id: garden.id,
-              strain: garden.strain,
-              type: "watered"
-            }))
+            .map(watered => {
+              const date = new Date(Date.now());
+              date.setSeconds(
+                date.getSeconds() - (headBlockNum - watered[0]) * 3
+              );
+              return {
+                when: formatTimeAgo(date),
+                id: garden.id,
+                block: watered[0],
+                strain: garden.strain,
+                type: "watered"
+              };
+            })
         )
         .flat();
-      const planted = activeGardens.map(garden => ({
-        id: garden.id,
-        strain: garden.strain,
-        block: garden.planted,
-        type: "planted"
-      }));
+      const planted = activeGardens.map(garden => {
+        const date = new Date(Date.now());
+        date.setSeconds(
+          date.getSeconds() - (headBlockNum - garden.planted) * 3
+        );
+        return {
+          id: garden.id,
+          strain: garden.strain,
+          when: formatTimeAgo(date),
+          block: garden.planted,
+          type: "planted"
+        };
+      });
 
-      const activity = [...planted, ...watered]
-        .sort((a, b) => b.block - a.block)
-        .slice(0, 4);
+      const activity = [...planted, ...watered].sort(
+        (a, b) => b.block - a.block
+      );
 
       return {
         gardeners: stats.gardeners,
