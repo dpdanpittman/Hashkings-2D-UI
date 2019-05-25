@@ -27,18 +27,79 @@ export class HashkingsAPI {
     return this.get("");
   }
 
-  getDGPO() {
+  getSteemAPI(method, params) {
     return axios
       .post(
         "https://api.steemit.com",
         JSON.stringify({
           id: 0,
           jsonrpc: "2.0",
-          method: "condenser_api.get_dynamic_global_properties",
-          params: []
+          method: `condenser_api.${method}`,
+          params
         })
       )
       .then(res => res.data.result);
+  }
+
+  getDGPO() {
+    return this.getSteemAPI("get_dynamic_global_properties", []);
+  }
+
+  async getAccountHistory(username, startId = -1) {
+    const history = await this.getSteemAPI("get_account_history", [
+      username,
+      startId,
+      500
+    ]);
+
+    const payouts = history
+      .reverse()
+      .filter(
+        h =>
+          h[1].op[0] === "comment_benefactor_reward" &&
+          h[1].op[1].author === "hashkings"
+      )
+      .map(payout => {
+        const [
+          _,
+          {
+            block,
+            timestamp,
+            op: [__, {permlink, sbd_payout, steem_payout, vesting_payout}]
+          }
+        ] = payout;
+
+        return {
+          permlink,
+          sbd_payout,
+          steem_payout,
+          vesting_payout,
+          timestamp,
+          block
+        };
+      });
+
+    const lastTx = history[history.length - 1];
+    const oldestBlock = lastTx[1].block;
+    const oldestId = lastTx[0] - 1;
+
+    if (payouts.length === 0) {
+      if (oldestBlock < 32113302) {
+        return {
+          payouts: [],
+          oldestId,
+          stop: true
+        };
+      } else {
+        return this.getAccountHistory(username, oldestId);
+      }
+    } else {
+      return {
+        payouts,
+        oldestId,
+        stop: oldestBlock < 32113302 // block of first payment
+      };
+    }
   }
 
   async getDashboardStats(username = undefined) {
@@ -62,8 +123,8 @@ export class HashkingsAPI {
     const delegationVestsToSteem = (
       (parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) *
         totalDelegation) /
-        parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
-        1000000
+      parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
+      1000000
     ).toFixed(3);
 
     if (username) {
