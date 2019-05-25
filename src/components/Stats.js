@@ -25,19 +25,31 @@ export default function() {
 
         setSteemPerVest(spv);
 
-      hashkingsApi
+        hashkingsApi
           .getAccountHistory(spv, username)
-        .then(({payouts, oldestId, stop}) => {
-          setOldestId(oldestId);
-          setRecentPayouts(payouts);
+          .then(({payouts, oldestId, stop}) => {
+            setOldestId(oldestId);
+            setRecentPayouts(payouts);
 
-          if (stop) {
-            setNoMorePayments(true);
-          }
-        });
+            if (stop) {
+              setNoMorePayments(true);
+            }
+          });
       });
     }
   }, [username]);
+
+  function blockTemplate(data) {
+    return (
+      <a
+        href={`https://steemd.com/b/${
+          data.block
+        }#0000000000000000000000000000000000000000`}
+      >
+        {data.block}
+      </a>
+    );
+  }
 
   function fetchMore() {
     setLoading(true);
@@ -101,8 +113,8 @@ export default function() {
               >
                 <Column field="timestamp" header="Date" sortable={true} />
                 <Column
-                  field="steem_payout"
-                  header="STEEM Payout"
+                  field="sp_payout"
+                  header="STEEM Power Payout"
                   sortable={true}
                 />
                 <Column
@@ -111,11 +123,16 @@ export default function() {
                   sortable={true}
                 />
                 <Column
-                  field="vesting_payout"
-                  header="VESTS Payout"
+                  field="steem_payout"
+                  header="STEEM Payout"
                   sortable={true}
                 />
-                <Column field="block" header="Block" sortable={true} />
+                <Column
+                  field="block"
+                  header="Block"
+                  sortable={true}
+                  body={blockTemplate}
+                />
               </DataTable>
               <Button
                 className="load-payouts"
