@@ -27,18 +27,90 @@ export class HashkingsAPI {
     return this.get("");
   }
 
-  getDGPO() {
+  getSteemAPI(method, params) {
     return axios
       .post(
         "https://api.steemit.com",
         JSON.stringify({
           id: 0,
           jsonrpc: "2.0",
-          method: "condenser_api.get_dynamic_global_properties",
-          params: []
+          method: `condenser_api.${method}`,
+          params
         })
       )
       .then(res => res.data.result);
+  }
+
+  getDGPO() {
+    return this.getSteemAPI("get_dynamic_global_properties", []);
+  }
+
+  async getAccountHistory(steemPerVest, username, startId = -1) {
+    try {
+      const history = await this.getSteemAPI("get_account_history", [
+        username,
+        startId,
+        500
+      ]);
+
+      const payouts = history
+        .reverse()
+        .filter(
+          h =>
+            h[1].op[0] === "comment_benefactor_reward" &&
+            h[1].op[1].author === "hashkings"
+        )
+        .map(payout => {
+          const [
+            _,
+            {
+              block,
+              timestamp,
+              op: [__, {permlink, sbd_payout, steem_payout, vesting_payout}]
+            }
+          ] = payout;
+
+          return {
+            permlink,
+            sbd_payout,
+            steem_payout,
+            sp_payout: `${(vesting_payout.split(" ")[0] * steemPerVest).toFixed(
+              3
+            )} SP`,
+            timestamp,
+            block
+          };
+        });
+
+      const lastTx = history[history.length - 1];
+      const oldestBlock = lastTx[1].block;
+      const oldestId = lastTx[0] - 1;
+
+      if (payouts.length === 0) {
+        if (oldestBlock < 32113302) {
+          return {
+            payouts: [],
+            oldestId,
+            stop: true
+          };
+        } else {
+          return this.getAccountHistory(username, oldestId);
+        }
+      } else {
+        return {
+          payouts,
+          oldestId,
+          stop: oldestBlock < 32113302 // block of first payment
+        };
+      }
+    } catch (e) {
+      console.log(e);
+      return {
+        payouts: [],
+        oldestId: startId,
+        stop: false
+      };
+    }
   }
 
   async getDashboardStats(username = undefined) {
