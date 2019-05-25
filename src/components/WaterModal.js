@@ -4,12 +4,14 @@ import {Dialog} from "primereact/dialog";
 import {gardenNames} from "../service/HashkingsAPI";
 import {MultiSelect} from "primereact/multiselect";
 import {StateContext} from "../App";
+import {format as formatTimeAgo} from "timeago.js";
 
 export default function WaterModal({
   isOpen,
   toggleModal,
   activeGardens,
-  username
+  username,
+  headBlockNum
 }) {
   const [gardens, setGardens] = useState([]);
 
@@ -56,7 +58,11 @@ export default function WaterModal({
       .sort((a, b) => b[0] - a[0]);
 
     if (waterActions.length > 0) {
-      name = `${name} - Last watered: Block ${waterActions[0][0]}`;
+      const date = new Date(Date.now());
+      date.setSeconds(
+        date.getSeconds() - (headBlockNum - waterActions[0][0]) * 3
+      );
+      name = `${name} - Last watered: ${formatTimeAgo(date)}`;
     } else {
       name = `${name} - Last watered: Never`;
     }
