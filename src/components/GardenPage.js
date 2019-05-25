@@ -14,7 +14,8 @@ export const GardenPage = () => {
   const [user, setUser] = useState({
     availableSeeds: [],
     activeGardens: [],
-    availableGardens: []
+    availableGardens: [],
+    headBlockNum: undefined
   });
 
   const hashkingsApi = new HashkingsAPI();
@@ -131,6 +132,7 @@ export const GardenPage = () => {
             toggleModal={() => setWaterModal(!waterModal)}
             activeGardens={user.activeGardens}
             username={username}
+            headBlockNum={user.headBlockNum}
           />
         </div>
       </div>
