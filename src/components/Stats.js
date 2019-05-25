@@ -12,13 +12,21 @@ export default function() {
   const [oldestId, setOldestId] = useState(-1);
   const [loading, setLoading] = useState(false);
   const [noMorePayments, setNoMorePayments] = useState(false);
+  const [steemPerVest, setSteemPerVest] = useState(0);
 
   const hashkingsApi = new HashkingsAPI();
 
   useEffect(() => {
     if (username) {
+      hashkingsApi.getDGPO().then(dgpo => {
+        const spv =
+          parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
+          parseFloat(dgpo.total_vesting_shares.split(" ")[0]);
+
+        setSteemPerVest(spv);
+
       hashkingsApi
-        .getAccountHistory(username)
+          .getAccountHistory(spv, username)
         .then(({payouts, oldestId, stop}) => {
           setOldestId(oldestId);
           setRecentPayouts(payouts);
@@ -27,13 +35,14 @@ export default function() {
             setNoMorePayments(true);
           }
         });
+      });
     }
   }, [username]);
 
   function fetchMore() {
     setLoading(true);
     hashkingsApi
-      .getAccountHistory(username, oldestId)
+      .getAccountHistory(steemPerVest, username, oldestId)
       .then(({payouts, oldestId, stop}) => {
         setOldestId(oldestId);
         setRecentPayouts([...recentPayouts, ...payouts]);

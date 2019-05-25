@@ -45,7 +45,7 @@ export class HashkingsAPI {
     return this.getSteemAPI("get_dynamic_global_properties", []);
   }
 
-  async getAccountHistory(username, startId = -1) {
+  async getAccountHistory(steemPerVest, username, startId = -1) {
     try {
       const history = await this.getSteemAPI("get_account_history", [
         username,
@@ -74,7 +74,9 @@ export class HashkingsAPI {
             permlink,
             sbd_payout,
             steem_payout,
-            vesting_payout,
+            sp_payout: `${(vesting_payout.split(" ")[0] * steemPerVest).toFixed(
+              3
+            )} SP`,
             timestamp,
             block
           };
