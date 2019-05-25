@@ -22,6 +22,7 @@ import SCCallback from "./components/SCCallback";
 import UserGarden from "./components/UserGarden";
 import WelcomePage from "./components/WelcomePage";
 import FAQPage from "./components/FAQPage";
+import Stats from "./components/Stats";
 
 export const StateContext = React.createContext();
 
@@ -140,13 +141,18 @@ class App extends Component {
         ]
       },
       {
+        label: "Stats",
+        icon: "pi pi-fw pi-file",
+        to: "/stats"
+      },
+      {
         label: "CannaDex(Coming Soon)",
         icon: "pi pi-fw pi-file",
         command: () => {
           window.location = "https://steempeak.com/@hashkings";
         }
       },
-	  {
+      {
         label: "FAQ",
         icon: "pi pi-fw pi-circle-off",
         to: "/faq"
@@ -244,10 +250,11 @@ class App extends Component {
             <Route path="/garden/:username" component={UserGarden} />
             <Route exact path="/garden" component={GardenPage} />
             <Route path="/market/gardenplots" component={MarketPlots} />
-			<Route path="/dashboard" component={Dashboard} />
+            <Route path="/dashboard" component={Dashboard} />
             <Route path="/market/seedbank" component={MarketSeeds} />
             <Route path="/callback" component={SCCallback} />
-			<Route path="/faq" component={FAQPage} />
+            <Route path="/faq" component={FAQPage} />
+            <Route path="/stats" component={Stats} />
           </div>
           <div className="layout-mask" />
         </div>
