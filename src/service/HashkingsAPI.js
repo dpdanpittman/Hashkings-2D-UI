@@ -94,7 +94,7 @@ export class HashkingsAPI {
             stop: true
           };
         } else {
-          return this.getAccountHistory(username, oldestId);
+          return this.getAccountHistory(steemPerVest, username, oldestId);
         }
       } else {
         return {
