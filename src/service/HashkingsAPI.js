@@ -46,58 +46,67 @@ export class HashkingsAPI {
   }
 
   async getAccountHistory(username, startId = -1) {
-    const history = await this.getSteemAPI("get_account_history", [
-      username,
-      startId,
-      500
-    ]);
+    try {
+      const history = await this.getSteemAPI("get_account_history", [
+        username,
+        startId,
+        500
+      ]);
 
-    const payouts = history
-      .reverse()
-      .filter(
-        h =>
-          h[1].op[0] === "comment_benefactor_reward" &&
-          h[1].op[1].author === "hashkings"
-      )
-      .map(payout => {
-        const [
-          _,
-          {
-            block,
+      const payouts = history
+        .reverse()
+        .filter(
+          h =>
+            h[1].op[0] === "comment_benefactor_reward" &&
+            h[1].op[1].author === "hashkings"
+        )
+        .map(payout => {
+          const [
+            _,
+            {
+              block,
+              timestamp,
+              op: [__, {permlink, sbd_payout, steem_payout, vesting_payout}]
+            }
+          ] = payout;
+
+          return {
+            permlink,
+            sbd_payout,
+            steem_payout,
+            vesting_payout,
             timestamp,
-            op: [__, {permlink, sbd_payout, steem_payout, vesting_payout}]
-          }
-        ] = payout;
+            block
+          };
+        });
 
-        return {
-          permlink,
-          sbd_payout,
-          steem_payout,
-          vesting_payout,
-          timestamp,
-          block
-        };
-      });
+      const lastTx = history[history.length - 1];
+      const oldestBlock = lastTx[1].block;
+      const oldestId = lastTx[0] - 1;
 
-    const lastTx = history[history.length - 1];
-    const oldestBlock = lastTx[1].block;
-    const oldestId = lastTx[0] - 1;
-
-    if (payouts.length === 0) {
-      if (oldestBlock < 32113302) {
-        return {
-          payouts: [],
-          oldestId,
-          stop: true
-        };
+      if (payouts.length === 0) {
+        if (oldestBlock < 32113302) {
+          return {
+            payouts: [],
+            oldestId,
+            stop: true
+          };
+        } else {
+          return this.getAccountHistory(username, oldestId);
+        }
       } else {
-        return this.getAccountHistory(username, oldestId);
+        return {
+          payouts,
+          oldestId,
+          stop: oldestBlock < 32113302 // block of first payment
+        };
       }
-    } else {
+    } catch (e) {
+      console.log(e);
       return {
-        payouts,
-        oldestId,
-        stop: oldestBlock < 32113302 // block of first payment
+        payouts: [],
+        oldestId: startId,
+        stop: false
       };
     }
   }
