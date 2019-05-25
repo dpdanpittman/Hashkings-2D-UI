@@ -62,8 +62,8 @@ export class HashkingsAPI {
     const delegationVestsToSteem = (
       (parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) *
         totalDelegation) /
-        parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
-        1000000
+      parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
+      1000000
     ).toFixed(3);
 
     if (username) {
@@ -115,9 +115,10 @@ export class HashkingsAPI {
   }
 
   async getUserGarden(username) {
-    const [user, userLand] = await Promise.all([
+    const [user, userLand, dgpo] = await Promise.all([
       this.getUser(username),
-      this.getUserLand(username)
+      this.getUserLand(username),
+      this.getDGPO()
     ]);
     const activeGardens = userLand.filter(land => typeof land === "object");
     const availableGardens = userLand.filter(land => typeof land === "string");
@@ -126,7 +127,8 @@ export class HashkingsAPI {
     return {
       activeGardens,
       availableGardens,
-      availableSeeds
+      availableSeeds,
+      headBlockNum: dgpo.head_block_number
     };
   }
 
