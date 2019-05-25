@@ -69,8 +69,8 @@
 
 ### Delegate
 STEEM delegations assist in the development of quality independent 
-software. You can help us keep the lights on, bellies full and work days sharp
- and focused on improving the state of the web.
+software. You can help us keep the lights on, bellies full and work days sharp 
+and focused on improving the state of the web.
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)(Open-source) 
@@ -79,33 +79,33 @@ software. You can help us keep the lights on, bellies full and work days sharp
 ### What is Hashkings?
 
 Hashkings is a virtual Cannabis farming game on the STEEM blockchain. You can lease plots of land, buy seeds and grow your own plants which are then harvested and sold at market.
-###How do you make money from the game?
+### How do you make money from the game?
 
 When gardeners take care of their plants they grow points toward votes... distributing the inflation controlled by our collective Steem power. This is done by placing our growers as beneficiaries on semi-automated posts, and then voting on these posts. Additionally, any extra game mechanics purchased contribute to our SP... increasing over time the benefits for everybody involved. In short, contribute to the SP and earn the benefactor rewards off the semi-automated posts every one to four days.
-###Does it cost money to play?
+### Does it cost money to play?
 
 Yes there is an initial leasing fee for land plots (plus 20 SP delegation) and seeds also cost a small amount of STEEM to purchase.
-###What kind of features will be added in the future?
+### What kind of features will be added in the future?
 
 A graphical inventory and map of planted/available plots, improved dashboard, limited edition seeds, CannaDex internal exchange.
-###Where do I begin?
+### Where do I begin?
 
 First head over to "Marketplace" and click "Garden Plots" to lease your first plot of land. You can lease one or more up to six. Then click "Seeds" under the "Marketplace" menu and purchase your first seeds
-###What should I do after I plant my seeds?
+### What should I do after I plant my seeds?
 
 Go to "Ganja Farm" and click "Garden". There you will find the Water you Garden function.
-###How often should I water my plants?
+### How often should I water my plants?
 
 No more than once per day is fine.
-###What happens if I forget to water?
+### What happens if I forget to water?
 
 If you forget to water your plants will not grow of course and your payouts will also stop. In the future your plant will also die but this has not been incorporated into the game yet.
-###What is the difference between types of seeds and what does experience do?
+### What is the difference between types of seeds and what does experience do?
 
 This is a special feature which will be implemented with an in-game token. In the future our Kief token which will be used to purchase items from the grow shop.
-###How many garden plots/seeds can I own?
+### How many garden plots/seeds can I own?
 
 There are a total of 25,200 plots of land available and you can own as many as are available at the time of delegation. At the moment you can own as many seeds as your green thumb can handle.
-###What is CannaDex and what will it do?
+### What is CannaDex and what will it do?
 
 This is our internal exchange where you will buy and sell various nutrients, grow equipment and seeds

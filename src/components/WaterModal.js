@@ -78,7 +78,7 @@ export default function WaterModal({
   return (
     <>
       <Dialog
-        header="Water your Garden"
+        header="Water your Gardens"
         visible={isOpen}
         modal={true}
         style={{width: "50vw", maxWidth: 500}}
@@ -88,24 +88,26 @@ export default function WaterModal({
         id="waterModal"
       >
         {activeGardens.length === 0 ? (
-          <p>Sorry, you don't have any active gardens</p>
+          <p>Sorry, you don't have any active gardens.</p>
         ) : (
           <>
-            <label htmlFor="garden">Garden</label>
-            <MultiSelect
-              style={{width: "100%"}}
-              optionLabel="name"
-              value={gardens}
-              options={waterGardens}
-              onChange={e => setGardens(e.value)}
-              filter={true}
-              selectedItemTemplate={selectedGardensTemplate}
-            />
-            <Button
+            <label htmlFor="garden"><b>Choose a garden or gardens then click water</b></label>
+			<br/><br/>
+			  <Button
               disabled={isSubmitting}
               label={isSubmitting ? "Watering" : "Water"}
               onClick={handleSubmit}
-            />
+              />
+			  <br/><br/>
+              <MultiSelect
+                style={{width: "100%"}}
+                optionLabel="name"
+                value={gardens}
+                options={waterGardens}
+                onChange={e => setGardens(e.value)}
+                filter={true}
+                selectedItemTemplate={selectedGardensTemplate}
+              />
           </>
         )}
       </Dialog>

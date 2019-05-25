@@ -37,7 +37,7 @@ function UserGarden({
         <div className="p-col-12">
           <h1>
             <b>
-              <u>Inventory for {username}</u>
+              <u>{username}'s Inventory</u>
             </b>
           </h1>
         </div>

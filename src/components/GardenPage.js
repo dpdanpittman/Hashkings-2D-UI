@@ -52,13 +52,21 @@ export const GardenPage = () => {
               </b>
             </h1>
             <br />
-            <p>Here is where you will perform all your Garden Actions</p>
+            <h2><u>Before you begin make sure to purchase seeds and lease garden plots</u></h2>
+			<p><b><a href="/market/seedbank">Purchase seeds</a></b></p>
+			<p><b><a href="/market/gardenplots">Lease gardens</a></b></p>
+			<center>
+				<div className="p-col-12">
+				<img alt="weed_divider" height="100px" src={require("./weed_divider.png")} />
+				</div>
+			</center>			
+			<h2><b>Planting and watering.</b></h2>
           </div>
           <div className="p-grid">
             <div className="p-col-3" />
             <div className="p-col-6">
               <div className="card-blank card-w-title">
-                <h1>Plant a bag of seeds</h1>
+                <h1>Plant seeds</h1>
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -101,7 +109,7 @@ export const GardenPage = () => {
         </div>
         <center>
           <div className="p-col-12">
-            <img alt="..." height="100px" src={require("./weed_divider.png")} />
+            <img alt="weed_divider" height="100px" src={require("./weed_divider.png")} />
           </div>
         </center>
         <div className="p-col-12">
@@ -110,9 +118,6 @@ export const GardenPage = () => {
               <b>Inventory</b>
             </h1>
             <Inventory user={user} />
-          </div>
-          <div className="p-col-12">
-            <h2>Grow Timer (Coming Soon)</h2>
           </div>
           <PlantModal
             isOpen={plantSeedModal}
