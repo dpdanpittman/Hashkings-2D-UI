@@ -58,8 +58,8 @@
   <img width="460" height="300" src="https://i.imgur.com/Xml2iZ1.png">
 </p>
 
-##Community SupportWe need your help! Hashkings is independently funded and developed so your contributions are welcome. The development team is working dilligently day and night to create this dApp from the ground up
-. Please contact Dan if you are willing to help bring this project to the next level.
+## Community Support
+We need your help! Hashkings is independently funded and developed so your contributions are welcome. The development team is working dilligently day and night to create this dApp from the ground up. Please contact Dan if you are willing to help bring this project to the next level.
 
 ## See Also
 - [Hashkings Smart Contract](https://github.com/disregardfiat/hashkings) - smart contract developer github

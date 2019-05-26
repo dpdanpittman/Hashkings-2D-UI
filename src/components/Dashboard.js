@@ -58,8 +58,8 @@ export const Dashboard = () => {
     <div className="p-grid p-fluid dashboard bgimgdash">
       <div className="p-col-12 p-lg-4">
         <div className="card summary">
-          <span className="title">HashKings Citizens</span>
-          <span className="detail">Total number of Citizens</span>
+          <span className="title">HashKings Gardeners</span>
+          <span className="detail">Total number of Gardeners</span>
           <span className="count visitors">{dashboardStats.gardeners}</span>
         </div>
       </div>
@@ -72,7 +72,7 @@ export const Dashboard = () => {
       </div>
       <div className="p-col-12 p-lg-4">
         <div className="card summary">
-          <span className="title">Economy</span>
+          <span className="title">Cannanomy</span>
           <span className="detail">Total Delegated Steem</span>
           <span className="count revenue">{dashboardStats.delegation}</span>
         </div>
@@ -80,7 +80,8 @@ export const Dashboard = () => {
 
       {username && (
         <>
-          <div className="p-col-12 p-md-6 p-xl-3">
+
+          <div className="p-col-12 p-md-6 p-xl-4">
             <div className="highlight-box">
               <div
                 className="initials"
@@ -94,7 +95,7 @@ export const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="p-col-12 p-md-6 p-xl-3">
+          <div className="p-col-12 p-md-6 p-xl-4">
             <div className="highlight-box">
               <div
                 className="initials"
@@ -108,7 +109,7 @@ export const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="p-col-12 p-md-6 p-xl-3">
+          <div className="p-col-12 p-md-6 p-xl-4">
             <div className="highlight-box">
               <div
                 className="initials"
@@ -119,20 +120,6 @@ export const Dashboard = () => {
               <div className="highlight-details ">
                 <span>Empty Gardens</span>
                 <span className="count">{dashboardStats.availableGardens}</span>
-              </div>
-            </div>
-          </div>
-          <div className="p-col-12 p-md-6 p-xl-3">
-            <div className="highlight-box">
-              <div
-                className="initials"
-                style={{backgroundColor: "#f9c851", color: "#b58c2b"}}
-              >
-                <span>WP</span>
-              </div>
-              <div className="highlight-details ">
-                <span>Estimated Steem</span>
-                <span className="count">0.896</span>
               </div>
             </div>
           </div>

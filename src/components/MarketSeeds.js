@@ -10,7 +10,7 @@ export const MarketSeeds = () => (
             <font color="white">Welcome to the Hashkings Dispensary</font>
           </h1>
           <br />
-          <h4 className="seed-title">Hand-Picked Seeds</h4>
+          <h4 className="seed-title">Top-Shelf Seeds</h4>
           <p>
             <font color="white">
               These are the best seeds in our seed bank and come with 2250 XP.
@@ -40,7 +40,7 @@ export const MarketSeeds = () => (
       <div className="p-col-6">
         <div className="card-blank card-w-title">
           <h1>
-            <font color="blue">Hand-Picked Seeds</font>
+            <font color="blue">Top-Shelf Seeds</font>
           </h1>
           <h2>
             <b>3 Steem</b>
