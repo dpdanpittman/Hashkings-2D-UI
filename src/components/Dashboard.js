@@ -130,7 +130,10 @@ export const Dashboard = () => {
           </div>
 
           <div className="p-col-12 p-lg-4">
-            <Panel header="Activity" style={{height: "100%"}}>
+            <Panel
+              header="Activity (max 3 actions per garden)"
+              className="activity-log"
+            >
               <ul className="activity-list">
                 {dashboardStats.activity.map(action => (
                   <li key={action.block}>
@@ -143,8 +146,8 @@ export const Dashboard = () => {
                       <div className="p-col-6">{action.id}</div>
                     </div>
                     <div className="p-grid">
-                      <div className="p-col-6">Block #</div>
-                      <div className="p-col-6">{action.block}</div>
+                      <div className="p-col-6">Time</div>
+                      <div className="p-col-6">{action.when}</div>
                     </div>
                     <div className="p-grid">
                       <div className="p-col-6">Seed</div>
