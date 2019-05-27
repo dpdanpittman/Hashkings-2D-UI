@@ -122,22 +122,27 @@ class App extends Component {
       {
         label: "Ganja Farm",
         icon: "pi pi-fw pi-globe",
-        items: [{label: "Garden", icon: "pi pi-fw pi-file", to: "/garden"}]
+        items: [{label: "Farm", icon: "pi pi-fw pi-file", to: "/farm"}]
       },
       {
-        label: "Marketplace",
+        label: "Grow Shop",
         icon: "pi pi-fw pi-file",
         items: [
           {
-            label: "Garden Plots",
+            label: "Farm Plots",
             icon: "pi pi-fw pi-circle-off",
-            to: "/market/gardenplots"
+            to: "/market/farmplots"
           },
           {
             label: "Seeds",
             icon: "pi pi-fw pi-circle-off",
             to: "/market/seedbank"
-          }
+          },
+          {
+            label: "Supplies(Coming Soon)",
+            icon: "pi pi-fw pi-circle-off",
+            to: "/market/seedbank"
+          }	  
         ]
       },
       {
@@ -149,7 +154,7 @@ class App extends Component {
         label: "CannaDex(Coming Soon)",
         icon: "pi pi-fw pi-file",
         command: () => {
-          window.location = "https://steempeak.com/@hashkings";
+          window.location = "https://steempeak.com/@qwoyn";
         }
       },
       {
@@ -248,8 +253,8 @@ class App extends Component {
             <Route path="/login" component={LoginPage} />
             <Route path="/" exact component={WelcomePage} />
             <Route path="/garden/:username" component={UserGarden} />
-            <Route exact path="/garden" component={GardenPage} />
-            <Route path="/market/gardenplots" component={MarketPlots} />
+            <Route exact path="/farm" component={GardenPage} />
+            <Route path="/market/farmplots" component={MarketPlots} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/market/seedbank" component={MarketSeeds} />
             <Route path="/callback" component={SCCallback} />

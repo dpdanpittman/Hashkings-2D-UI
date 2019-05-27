@@ -58,21 +58,21 @@ export const Dashboard = () => {
     <div className="p-grid p-fluid dashboard bgimgdash">
       <div className="p-col-12 p-lg-4">
         <div className="card summary">
-          <span className="title">HashKings Gardeners</span>
-          <span className="detail">Total number of Gardeners</span>
+          <span className="title">HashKings Farmers</span>
+          <span className="detail">Total number of Farmers</span>
           <span className="count visitors">{dashboardStats.gardeners}</span>
         </div>
       </div>
       <div className="p-col-12 p-lg-4">
         <div className="card summary">
-          <span className="title">Total Gardens</span>
-          <span className="detail">Number of gardens</span>
+          <span className="title">Total Farms</span>
+          <span className="detail">Number of farms</span>
           <span className="count purchases">{dashboardStats.gardens}</span>
         </div>
       </div>
       <div className="p-col-12 p-lg-4">
         <div className="card summary">
-          <span className="title">Cannanomy</span>
+          <span className="title">Economy</span>
           <span className="detail">Total Delegated Steem</span>
           <span className="count revenue">{dashboardStats.delegation}</span>
         </div>
@@ -90,7 +90,7 @@ export const Dashboard = () => {
                 <span>AG</span>
               </div>
               <div className="highlight-details ">
-                <span>Active Gardens</span>
+                <span>Active Plots</span>
                 <span className="count">{dashboardStats.activeGardens}</span>
               </div>
             </div>
@@ -118,7 +118,7 @@ export const Dashboard = () => {
                 <span>EG</span>
               </div>
               <div className="highlight-details ">
-                <span>Empty Gardens</span>
+                <span>Empty Plots</span>
                 <span className="count">{dashboardStats.availableGardens}</span>
               </div>
             </div>
@@ -131,7 +131,7 @@ export const Dashboard = () => {
 
           <div className="p-col-12 p-lg-4">
             <Panel
-              header="Activity (max 3 actions per garden)"
+              header="Activity (max 3 actions per farm)"
               className="activity-log"
             >
               <ul className="activity-list">

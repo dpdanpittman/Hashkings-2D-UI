@@ -47,21 +47,16 @@ export const GardenPage = () => {
       <div className="card-blank">
         <div className="p-fluid">
           <div className="p-col-12">
-            <h1>
-              <b>
-                <u>Welcome to your Garden</u>
-              </b>
-            </h1>
             <br />
-            <h2><u>Before you begin make sure to purchase seeds and lease garden plots</u></h2>
-			<p><b><a href="/market/seedbank">Purchase seeds</a></b></p>
+            <h1><b>Before you begin, make sure to acquire seeds and lease farm plots</b></h1>
+			<p><b><a href="/market/seedbank">Acquire seeds</a></b></p>
 			<p><b><a href="/market/gardenplots">Lease gardens</a></b></p>
 			<center>
 				<div className="p-col-12">
-				<img alt="weed_divider" height="100px" src={require("./weed_divider.png")} />
+				<center><h1><b>Welcome to your Farm</b></h1></center>
 				</div>
 			</center>			
-			<h2><b>Planting and watering.</b></h2>
+			<h2><b><u>Plant Seeds and Maintain Your Plots</u></b></h2>
           </div>
           <div className="p-grid">
             <div className="p-col-3" />
@@ -83,8 +78,8 @@ export const GardenPage = () => {
               <iframe
                 title="sun giphy"
                 src="https://giphy.com/embed/L08sJsg6tEUyb1E0VW"
-                width="100"
-                height="100"
+                width="150"
+                height="150"
                 frameBorder="0"
                 className="giphy-embed"
                 allowFullScreen
@@ -93,7 +88,7 @@ export const GardenPage = () => {
             <div className="p-col-3" />
             <div className="p-col-6">
               <div className="card-blank card-w-title">
-                <h1>Water your Garden</h1>
+                <h1>Water your Farm Plots</h1>
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -106,7 +101,123 @@ export const GardenPage = () => {
               </div>
             </div>
             <div className="p-col-3" />
+			<div className="p-col-3">
+              <iframe
+                title="gardener"
+                src="https://giphy.com/embed/l41JUdNquX31AlVqo"
+                width="150"
+                height="150"
+                frameBorder="0"
+                className="giphy-embed"
+                allowFullScreen
+              />
+            </div>
+            <div className="p-col-6">
+              <div className="card-blank card-w-title">
+                <h1>Feed your plants(Coming Soon)</h1>
+                <div className="p-grid">
+                  <div className="p-col-12">
+                    <Button
+                      label="Coming Soon"
+                      icon="pi pi-external-link"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="p-col-3" />
+			<div className="p-col-3" />
+            <div className="p-col-6">
+              <div className="card-blank card-w-title">
+                <h1>Prune Leaves(Coming Soon)</h1>
+                <div className="p-grid">
+                  <div className="p-col-12">
+                    <Button
+                      label="Coming Soon"
+                      icon="pi pi-external-link"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="p-col-3" />
+            <div className="p-col-3" />
           </div>
+		  <h2><b><u>Pollinate and Harvest(Coming Soon)</u></b></h2>
+		  <div className="p-grid">
+			<div className="p-col-3" />
+            <div className="p-col-6">
+              <div className="card-blank card-w-title">
+                <h1>Pollinate your buds</h1>
+                <div className="p-grid">
+                  <div className="p-col-12">
+                    <Button
+                      label="Coming Soon"
+                      icon="pi pi-external-link"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+			<div className="p-col-3" />  
+			<div className="p-col-3" />
+            <div className="p-col-6">
+              <div className="card-blank card-w-title">
+                <h1>Harvest</h1>
+                <div className="p-grid">
+                  <div className="p-col-12">
+                    <Button
+                      label="Coming Soon"
+                      icon="pi pi-external-link"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>		  
+		  </div>
+		  <h2><b><u>Extended Care(Coming Soon)</u></b></h2>
+		  <div className="p-grid">
+			<div className="p-col-3" />
+            <div className="p-col-6">
+              <div className="card-blank card-w-title">
+                <h1>Check Soil PH</h1>
+                <div className="p-grid">
+                  <div className="p-col-12">
+                    <Button
+                      label="Coming Soon"
+                      icon="pi pi-external-link"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+			<div className="p-col-3">
+              <iframe
+                title="dropper"
+                src="https://giphy.com/embed/9LXMo1s7RgsZfjvgzA"
+                width="150"
+                height="150"
+                frameBorder="0"
+                className="giphy-embed"
+                allowFullScreen
+              />
+			</div>  
+			<div className="p-col-3" />
+            <div className="p-col-6">
+              <div className="card-blank card-w-title">
+                <h1>Fix Soil PH</h1>
+                <div className="p-grid">
+                  <div className="p-col-12">
+                    <Button
+                      label="Coming Soon"
+                      icon="pi pi-external-link"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="p-col-3" />		  
+		  </div>
         </div>
         <center>
           <div className="p-col-12">

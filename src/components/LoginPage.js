@@ -56,7 +56,7 @@ export const LoginPage = ({history}) => {
                 <div className="p-col-12">
                   <InputText
                     type="text"
-                    placeholder="Steem Username"
+                    placeholder="STEEM Username"
                     autoFocus
                     onChange={e => setUsername(e.target.value)}
                     id="username"
