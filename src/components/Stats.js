@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useContext, useState, useEffect, useRef} from "react";
 import {Button} from "primereact/button";
 import {HashkingsAPI} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
@@ -8,6 +8,9 @@ import {Checkbox} from "primereact/checkbox";
 
 export default function() {
   const {username} = useContext(StateContext);
+  const payoutsTable = useRef(null);
+  const landPurchasesTable = useRef(null);
+  const seedPurchasesTable = useRef(null);
 
   const [recentPayouts, setRecentPayouts] = useState([]);
   const [recentLandPurchases, setRecentLandPurchases] = useState([]);
@@ -124,12 +127,21 @@ export default function() {
           </div>
           <div className="p-col-12">
             <div className="card-weedLeft card-w-title">
-              <h1 className="section-heading">Payouts (since {oldestDate})</h1>
+              <h1 className="section-heading">
+                Payouts (since {oldestDate}){" "}
+                <Button
+                  className="export-stats"
+                  disabled={loading}
+                  label="Export as CSV"
+                  onClick={() => payoutsTable.current.exportCSV()}
+                />
+              </h1>
               <DataTable
                 value={recentPayouts}
                 loading={loading}
                 responsive={true}
                 emptyMessage="No payouts found"
+                ref={payoutsTable}
               >
                 <Column field="timestamp" header="Date" sortable={true} />
                 <Column
@@ -156,12 +168,19 @@ export default function() {
               </DataTable>
               <h1 className="section-heading">
                 Land purchases (since {oldestDate})
+                <Button
+                  className="export-stats"
+                  disabled={loading}
+                  label="Export as CSV"
+                  onClick={() => landPurchasesTable.current.exportCSV()}
+                />
               </h1>
               <DataTable
                 value={recentLandPurchases}
                 loading={loading}
                 emptyMessage="No purchases found"
                 responsive={true}
+                ref={landPurchasesTable}
               >
                 <Column field="timestamp" header="Date" sortable={true} />
                 <Column field="region" header="Region" filter={true} />
@@ -175,12 +194,19 @@ export default function() {
               </DataTable>
               <h1 className="section-heading">
                 Seed purchases (since {oldestDate})
+                <Button
+                  className="export-stats"
+                  disabled={loading}
+                  label="Export as CSV"
+                  onClick={() => seedPurchasesTable.current.exportCSV()}
+                />
               </h1>
               <DataTable
                 value={recentSeedPurchases}
                 loading={loading}
                 emptyMessage="No purchases found"
                 responsive={true}
+                ref={seedPurchasesTable}
               >
                 <Column field="timestamp" header="Date" sortable={true} />
                 <Column field="strain" header="Strain" filter={true} />
@@ -202,7 +228,7 @@ export default function() {
                 />
                 <label htmlFor="fetchAll" className="p-checkbox-label">
                   {" "}
-                  Fetch all history (can take a while)
+                  Load all history (can take a while)
                 </label>
               </div>
               <Button
@@ -215,7 +241,7 @@ export default function() {
                     ? "Loading More"
                     : "Load More"
                 }
-                onClick={() => fetchMore(false)}
+                onClick={fetchMore}
               />
             </div>
           </div>
