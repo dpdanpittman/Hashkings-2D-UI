@@ -50,7 +50,7 @@ export const MarketSeeds = () => (
             <div className="p-col-12 p-md-2">
               <label htmlFor="multiselect" />
             </div>
-            <BuySeed type="top" />
+            <BuySeed type="t" />
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@ export const MarketSeeds = () => (
             <div className="p-col-12 p-md-2">
               <label htmlFor="multiselect" />
             </div>
-            <BuySeed type="mid" />
+            <BuySeed type="m" />
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@ export const MarketSeeds = () => (
             <div className="p-col-12 p-md-2">
               <label htmlFor="multiselect" />
             </div>
-            <BuySeed type="reg" />
+            <BuySeed type="r" />
           </div>
         </div>
       </div>

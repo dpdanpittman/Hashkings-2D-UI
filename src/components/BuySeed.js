@@ -17,7 +17,7 @@ export default function BuySeed({type}) {
     if (seed && username) {
       setIsSubmitting(true);
 
-      const memo = `${type[0]}seed ${seed.id}`;
+      const memo = `${type}seed ${seed.id}`;
       const to = "hashkings";
       const amount = seedTypes[type].str;
       const currency = "STEEM";

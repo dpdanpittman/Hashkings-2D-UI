@@ -89,7 +89,7 @@
   color: #fff;
 }
 
-button.load-payouts {
+button.load-history {
   max-width: 200px;
   margin-top: 20px;
 }
@@ -97,4 +97,11 @@ button.load-payouts {
 .activity-log {
   max-height: 600px;
   overflow-y: scroll;
+}
+
+.section-heading {
+  font-weight: bold;
+}
+#fetch-all-history {
+  margin-top: 20px;
 }

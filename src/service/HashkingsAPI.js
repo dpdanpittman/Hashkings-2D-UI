@@ -46,16 +46,15 @@ export class HashkingsAPI {
     return this.getSteemAPI("get_dynamic_global_properties", []);
   }
 
-  async getAccountHistory(steemPerVest, username, startId = -1) {
+  async getAccountHistory(steemPerVest, username, fetchAll, startId = -1) {
     try {
       const history = await this.getSteemAPI("get_account_history", [
         username,
         startId,
         500
-      ]);
+      ]).then(h => h.reverse());
 
       const payouts = history
-        .reverse()
         .filter(
           h =>
             h[1].op[0] === "comment_benefactor_reward" &&
@@ -63,11 +62,11 @@ export class HashkingsAPI {
         )
         .map(payout => {
           const [
-            _,
+            ,
             {
               block,
               timestamp,
-              op: [__, {permlink, sbd_payout, steem_payout, vesting_payout}]
+              op: [, {permlink, sbd_payout, steem_payout, vesting_payout}]
             }
           ] = payout;
 
@@ -83,33 +82,121 @@ export class HashkingsAPI {
           };
         });
 
+      const landPurchases = history
+        .filter(
+          h =>
+            h[1].op[0] === "transfer" &&
+            h[1].op[1].to === "hashkings" &&
+            Object.keys(gardenNames).includes(h[1].op[1].memo.split(" ")[0]) &&
+            h[1].op[1].memo.split(" ")[1] === "manage"
+        )
+        .map(purchase => {
+          const [
+            ,
+            {
+              block,
+              timestamp,
+              trx_id,
+              op: [, {memo, amount}]
+            }
+          ] = purchase;
+
+          return {
+            region: gardenNames[memo.split(" ")[0]],
+            amount,
+            timestamp,
+            block,
+            trx_id
+          };
+        });
+
+      const seedPurchases = history
+        .filter(
+          h =>
+            h[1].op[0] === "transfer" &&
+            h[1].op[1].to === "hashkings" &&
+            Object.keys(seedTypes).includes(h[1].op[1].memo.split(" ")[0][0]) &&
+            h[1].op[1].memo.split(" ")[0].slice(1) === "seed" &&
+            Object.keys(seedNames).includes(h[1].op[1].memo.split(" ")[1])
+        )
+        .map(purchase => {
+          const [
+            ,
+            {
+              block,
+              timestamp,
+              trx_id,
+              op: [, {memo, amount}]
+            }
+          ] = purchase;
+
+          return {
+            strain: seedNames[memo.split(" ")[1]],
+            type: seedTypes[memo.split(" ")[0][0]].name,
+            amount,
+            timestamp,
+            block,
+            trx_id
+          };
+        });
+
+      console.log(
+        history.filter(
+          h =>
+            h[1].op[0] === "comment_benefactor_reward" &&
+            h[1].op[1].author === "hashkings"
+        )
+      );
+
       const lastTx = history[history.length - 1];
       const oldestBlock = lastTx[1].block;
       const oldestId = lastTx[0] - 1;
 
-      if (payouts.length === 0) {
-        if (oldestBlock < 32113302) {
+      if (
+        payouts.length === 0 &&
+        landPurchases.length === 0 &&
+        seedPurchases.length === 0 &&
+        oldestBlock >= 31804536
+      ) {
+        return this.getAccountHistory(
+          steemPerVest,
+          username,
+          fetchAll,
+          oldestId
+        );
+      } else {
+        if (oldestBlock >= 31804536 && fetchAll) {
+          const next = await this.getAccountHistory(
+            steemPerVest,
+            username,
+            fetchAll,
+            oldestId
+          );
           return {
-            payouts: [],
-            oldestId,
-            stop: true
+            ...next,
+            payouts: [...payouts, ...next.payouts],
+            landPurchases: [...landPurchases, ...next.landPurchases],
+            seedPurchases: [...seedPurchases, ...next.seedPurchases]
           };
         } else {
-          return this.getAccountHistory(steemPerVest, username, oldestId);
+          return {
+            payouts,
+            oldestId,
+            stop: oldestBlock < 31804536, // block of first action,
+            date: new Date(lastTx[1].timestamp).toDateString(),
+            landPurchases,
+            seedPurchases
+          };
         }
-      } else {
-        return {
-          payouts,
-          oldestId,
-          stop: oldestBlock < 32113302 // block of first payment
-        };
       }
     } catch (e) {
       console.log(e);
       return {
         payouts: [],
         oldestId: startId,
-        stop: false
+        stop: false,
+        landPurchases: [],
+        seedPurchases: []
       };
     }
   }
@@ -255,16 +342,19 @@ export const seedNames = {
 };
 
 export const seedTypes = {
-  reg: {
+  r: {
     num: 750,
-    str: "0.750"
+    str: "0.750",
+    name: "Basic"
   },
-  mid: {
+  m: {
     num: 1500,
-    str: "1.500"
+    str: "1.500",
+    name: "Premium"
   },
-  top: {
+  t: {
     num: 3000,
-    str: "3.000"
+    str: "3.000",
+    name: "Hand-Picked"
   }
 };

@@ -4,20 +4,29 @@ import {HashkingsAPI} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
+import {Checkbox} from "primereact/checkbox";
 
 export default function() {
   const {username} = useContext(StateContext);
 
   const [recentPayouts, setRecentPayouts] = useState([]);
+  const [recentLandPurchases, setRecentLandPurchases] = useState([]);
+  const [recentSeedPurchases, setRecentSeedPurchases] = useState([]);
   const [oldestId, setOldestId] = useState(-1);
   const [loading, setLoading] = useState(false);
-  const [noMorePayments, setNoMorePayments] = useState(false);
+  const [noMoreHistory, setNoMoreHistory] = useState(false);
   const [steemPerVest, setSteemPerVest] = useState(0);
+  const [fetchAll, setFetchAll] = useState(false);
+
+  const [oldestDate, setOldestDate] = useState(
+    new Date(Date.now()).toDateString()
+  );
 
   const hashkingsApi = new HashkingsAPI();
 
   useEffect(() => {
     if (username) {
+      setLoading(true);
       hashkingsApi.getDGPO().then(dgpo => {
         const spv =
           parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
@@ -26,41 +35,53 @@ export default function() {
         setSteemPerVest(spv);
 
         hashkingsApi
-          .getAccountHistory(spv, username)
-          .then(({payouts, oldestId, stop}) => {
-            setOldestId(oldestId);
-            setRecentPayouts(payouts);
+          .getAccountHistory(spv, username, false)
+          .then(
+            ({payouts, oldestId, stop, date, landPurchases, seedPurchases}) => {
+              setOldestId(oldestId);
+              setRecentPayouts(payouts);
+              setRecentLandPurchases(landPurchases);
+              setRecentSeedPurchases(seedPurchases);
 
-            if (stop) {
-              setNoMorePayments(true);
+              if (stop) {
+                setNoMoreHistory(true);
+              }
+
+              if (date) {
+                setOldestDate(date);
+              }
+
+              setLoading(false);
             }
-          });
+          );
       });
     }
   }, [username]);
 
   function blockTemplate(data) {
+    const trx_id = data.trx_id || "0000000000000000000000000000000000000000";
+
     return (
-      <a
-        href={`https://steemd.com/b/${
-          data.block
-        }#0000000000000000000000000000000000000000`}
-      >
-        {data.block}
-      </a>
+      <a href={`https://steemd.com/b/${data.block}#${trx_id}`}>{data.block}</a>
     );
   }
 
   function fetchMore() {
     setLoading(true);
     hashkingsApi
-      .getAccountHistory(steemPerVest, username, oldestId)
-      .then(({payouts, oldestId, stop}) => {
+      .getAccountHistory(steemPerVest, username, fetchAll, oldestId)
+      .then(({payouts, oldestId, stop, date, landPurchases, seedPurchases}) => {
         setOldestId(oldestId);
         setRecentPayouts([...recentPayouts, ...payouts]);
+        setRecentLandPurchases([...recentLandPurchases, ...landPurchases]);
+        setRecentSeedPurchases([...recentSeedPurchases, ...seedPurchases]);
 
         if (stop) {
-          setNoMorePayments(true);
+          setNoMoreHistory(true);
+        }
+
+        if (date) {
+          setOldestDate(date);
         }
 
         setLoading(false);
@@ -103,13 +124,12 @@ export default function() {
           </div>
           <div className="p-col-12">
             <div className="card-weedLeft card-w-title">
-              <h1>
-                <b>Payouts</b>
-              </h1>
+              <h1 className="section-heading">Payouts (since {oldestDate})</h1>
               <DataTable
                 value={recentPayouts}
                 loading={loading}
-                emptyMessage="No payments found"
+                responsive={true}
+                emptyMessage="No payouts found"
               >
                 <Column field="timestamp" header="Date" sortable={true} />
                 <Column
@@ -134,17 +154,68 @@ export default function() {
                   body={blockTemplate}
                 />
               </DataTable>
+              <h1 className="section-heading">
+                Land purchases (since {oldestDate})
+              </h1>
+              <DataTable
+                value={recentLandPurchases}
+                loading={loading}
+                emptyMessage="No purchases found"
+                responsive={true}
+              >
+                <Column field="timestamp" header="Date" sortable={true} />
+                <Column field="region" header="Region" filter={true} />
+                <Column field="amount" header="Amount" sortable={true} />
+                <Column
+                  field="block"
+                  header="Block"
+                  sortable={true}
+                  body={blockTemplate}
+                />
+              </DataTable>
+              <h1 className="section-heading">
+                Seed purchases (since {oldestDate})
+              </h1>
+              <DataTable
+                value={recentSeedPurchases}
+                loading={loading}
+                emptyMessage="No purchases found"
+                responsive={true}
+              >
+                <Column field="timestamp" header="Date" sortable={true} />
+                <Column field="strain" header="Strain" filter={true} />
+                <Column field="type" header="Type" filter={true} />
+                <Column field="amount" header="Amount" sortable={true} />
+                <Column
+                  field="block"
+                  header="Block"
+                  sortable={true}
+                  body={blockTemplate}
+                />
+              </DataTable>
+              <div id="fetch-all-history">
+                <Checkbox
+                  inputId="fetchAll"
+                  onChange={() => setFetchAll(!fetchAll)}
+                  checked={fetchAll}
+                  disabled={loading || noMoreHistory}
+                />
+                <label htmlFor="fetchAll" className="p-checkbox-label">
+                  {" "}
+                  Fetch all history (can take a while)
+                </label>
+              </div>
               <Button
-                className="load-payouts"
-                disabled={loading || noMorePayments}
+                className="load-history"
+                disabled={loading || noMoreHistory}
                 label={
-                  noMorePayments
-                    ? "No more payments"
+                  noMoreHistory
+                    ? "No more history"
                     : loading
                     ? "Loading More"
                     : "Load More"
                 }
-                onClick={fetchMore}
+                onClick={() => fetchMore(false)}
               />
             </div>
           </div>
