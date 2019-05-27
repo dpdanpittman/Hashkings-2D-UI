@@ -79,7 +79,7 @@ export default function GiftSeed() {
         <InputText
           className="form-input"
           value={to}
-          onChange={e => setTo(e.target.value)}
+          onChange={e => setTo(e.target.value.trim())}
           placeholder="STEEM user to send to"
         />
         <Dropdown
