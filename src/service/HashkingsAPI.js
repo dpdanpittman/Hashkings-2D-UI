@@ -311,6 +311,12 @@ export class HashkingsAPI {
   userExists(username) {
     return this.getAll().then(all => Object.keys(all.users).includes(username));
   }
+
+  steemUserExists(username) {
+    return this.getSteemAPI("get_accounts", [[username]]).then(
+      user => user && user[0] && user[0].name
+    );
+  }
 }
 
 export const gardenNames = {

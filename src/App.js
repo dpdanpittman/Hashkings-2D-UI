@@ -23,6 +23,7 @@ import UserGarden from "./components/UserGarden";
 import WelcomePage from "./components/WelcomePage";
 import FAQPage from "./components/FAQPage";
 import Stats from "./components/Stats";
+import Gifting from "./components/Gifting";
 
 export const StateContext = React.createContext();
 
@@ -122,7 +123,14 @@ class App extends Component {
       {
         label: "Ganja Farm",
         icon: "pi pi-fw pi-globe",
-        items: [{label: "Farm", icon: "pi pi-fw pi-file", to: "/farm"}]
+        items: [
+          {label: "Farm", icon: "pi pi-fw pi-file", to: "/farm"},
+          {
+            label: "Gifting",
+            icon: "pi pi-fw pi-file",
+            to: "/gifting"
+          }
+        ]
       },
       {
         label: "Grow Shop",
@@ -142,7 +150,7 @@ class App extends Component {
             label: "Supplies(Coming Soon)",
             icon: "pi pi-fw pi-circle-off",
             to: "/market/seedbank"
-          }	  
+          }
         ]
       },
       {
@@ -260,6 +268,7 @@ class App extends Component {
             <Route path="/callback" component={SCCallback} />
             <Route path="/faq" component={FAQPage} />
             <Route path="/stats" component={Stats} />
+            <Route path="/gifting" component={Gifting} />
           </div>
           <div className="layout-mask" />
         </div>
