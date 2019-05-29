@@ -67,11 +67,12 @@ export default function BuyGarden({username, updateDelegation, delegation}) {
 
   return (
     <>
-      <label htmlFor="seed">Purchase Garden</label>
+      <label htmlFor="seed"><font color="black"><b>Purchase plot of land to for your farm</b></font></label>
+	  <br/>
       <p>
-        You can purchase at most {delegation.available} garden
+        <b><font color="black">You can purchase at most {delegation.available} garden
         {delegation.available === 1 ? "" : "s"} based on the amount of Steem
-        Power you have delegated
+        Power you have delegated</font></b>
       </p>
       <div className="p-col-12 p-md-4">
         <Dropdown

@@ -24,13 +24,11 @@ export default function() {
       <div className="card-blank-light">
         <div className="p-fluid">
           <div className="p-col-12">
-            <h1>
-              <b>
-                <u>Gifting</u>
-              </b>
-            </h1>
+              <div className="p-col-12">
+				<img src="https://i.imgur.com/S1AblSA.png" width="250" height="100" />
             <br />
-            <p>Here is where you can gift any steem user a seed.</p>
+            <h1><b><font color="black">This is your one stop shop for gifting and sending seeds to your friends.</font></b></h1>
+			  </div>
           </div>
           <div className="p-col-12">
             <div className="card-weedLeft card-w-title">

@@ -4,8 +4,9 @@ import BuySeed from "./BuySeed";
 export const MarketSeeds = () => (
   <div className="p-fluid bgimg">
     <div className="p-grid">
+	<div className="p-col-2" />
       <div className="p-col-8">
-        <div className="card-blank card-w-title bgWeedimg">
+        <div className="card-blank-red card-w-title bgWeedimg">
           <h1>
             <font color="white">Welcome to the Hashkings Dispensary</font>
           </h1>
@@ -35,10 +36,10 @@ export const MarketSeeds = () => (
           </p>
         </div>
       </div>
-      <div className="p-col-4" />
+      
       <div className="p-col-3" />
       <div className="p-col-6">
-        <div className="card-blank card-w-title">
+        <div className="card-blank-red card-w-title">
           <h1>
             <font color="blue">Top-Shelf Seeds</font>
           </h1>
@@ -57,7 +58,7 @@ export const MarketSeeds = () => (
       <div className="p-col-3" />
       <div className="p-col-3" />
       <div className="p-col-6">
-        <div className="card-blank card-w-title">
+        <div className="card-blank-gold card-w-title">
           <h1>
             <font color="green">Premium Seeds</font>
           </h1>
@@ -76,7 +77,7 @@ export const MarketSeeds = () => (
       <div className="p-col-3" />
       <div className="p-col-3" />
       <div className="p-col-6">
-        <div className="card-blank card-w-title">
+        <div className="card-blank-light card-w-title">
           <h1>Basic Seeds</h1>
           <h2>
             <b>.75 Steem</b>

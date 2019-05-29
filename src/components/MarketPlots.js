@@ -83,19 +83,19 @@ export const MarketPlots = () => {
               <ImageGallery items={images} />
             </center>
           </div>
-          <div className="card-blank card-w-title">
-            <h1>Welcome to Garden Sales</h1>
+          <div className="card-blank-light card-w-title">
+            <img src="https://i.imgur.com/BrBDD5B.png" width="250" height="100" />
             <div className="p-grid">
               <h4>
                 <b>
-                  <font color="green">
+                  <font color="black">
                     Below you will find our Available Plots. In order to Lease a
                     garden please choose how many Gardens you would like then
                     choose your favorite regions.
                   </font>
                 </b>
               </h4>
-              <h3>IMPORTANT! Each plot requires a 20 SP delegation.</h3>
+              <h3><font color="#C50215">IMPORTANT!</font><font color="black"> Each plot requires a 20 SP delegation.</font></h3>
             </div>
             {/* <div className="p-col-12 p-md-2">Gardens</div> */}
             <Delegate
@@ -111,7 +111,7 @@ export const MarketPlots = () => {
               />
             )}
             {delegation.available === 0 && (
-              <p>Please delegate more Steem Power above to purchase a garden</p>
+              <p><font color="black"><b>Please delegate more Steem Power above to purchase a garden</b></font></p>
             )}
           </div>
         </div>
