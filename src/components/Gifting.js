@@ -21,7 +21,7 @@ export default function() {
     );
   } else {
     return (
-      <div className="card-blank">
+      <div className="card-blank-light">
         <div className="p-fluid">
           <div className="p-col-12">
             <h1>

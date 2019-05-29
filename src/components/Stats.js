@@ -111,7 +111,7 @@ export default function() {
     );
   } else {
     return (
-      <div className="card-blank">
+      <div className="card-blank-light">
         <div className="p-fluid">
           <div className="p-col-12">
             <h1>
@@ -126,7 +126,7 @@ export default function() {
             </p>
           </div>
           <div className="p-col-12">
-            <div className="card-weedLeft card-w-title">
+            <div className="card-blank-gold card-w-title">
               <h1 className="section-heading">
                 Payouts (since {oldestDate}){" "}
                 <Button

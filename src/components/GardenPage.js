@@ -49,10 +49,10 @@ export const GardenPage = () => {
           <div className="p-col-12">
 			<center>
 				<div className="p-col-12">
-				<center><h1><b><font color="black">Welcome to your Farm</font></b></h1></center>
+				<img src="https://i.imgur.com/wab47CT.png" width="450" height="150" />
 				</div>
 			<br/><br/>			
-			<h2><b><u><font color="black">Plant Seeds and Maintain Your Plots</font></u></b></h2></center>
+			<h1><b><font color="black">Plant Seeds, Water Plots, Harvest and Care</font></b></h1></center>
           </div>
 		  <br/><br/>
           <div className="p-grid">
@@ -214,9 +214,7 @@ export const GardenPage = () => {
         </div>
         <div className="p-col-12">
           <div className="card-weedLeft card-w-title">
-            <h1>
-              <b><font color="black">Inventory</font></b>
-            </h1>
+		  <center><img src="https://i.imgur.com/jctsukU.png" width="200" height="100" /></center>
             <Inventory user={user} />
           </div>
           <PlantModal
