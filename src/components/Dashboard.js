@@ -89,7 +89,7 @@ export const Dashboard = () => {
               >
                 <span>AG</span>
               </div>
-              <div className="highlight-details ">
+              <div className="highlight-details">
                 <span>Active Plots</span>
                 <span className="count">{dashboardStats.activeGardens}</span>
               </div>
@@ -103,7 +103,7 @@ export const Dashboard = () => {
               >
                 <span>TS</span>
               </div>
-              <div className="highlight-details ">
+              <div className="highlight-details">
                 <span>Total Seeds</span>
                 <span className="count">{dashboardStats.availableSeeds}</span>
               </div>
