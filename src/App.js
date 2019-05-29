@@ -124,7 +124,15 @@ class App extends Component {
         label: "Ganja Farm",
         icon: "pi pi-fw pi-globe",
         items: [
-          {label: "Farm", icon: "pi pi-fw pi-file", to: "/farm"},
+          {
+			label: "Farming", 
+			icon: "pi pi-fw pi-file", 
+			to: "/farm"
+		  },
+		  {
+            label: "View Farm (Coming Soon)",
+            icon: "pi pi-fw pi-file"
+          },
           {
             label: "Gifting",
             icon: "pi pi-fw pi-file",
@@ -141,13 +149,17 @@ class App extends Component {
             icon: "pi pi-fw pi-circle-off",
             to: "/market/farmplots"
           },
+		  {
+            label: "Farm Maps (Coming Soon)",
+            icon: "pi pi-fw pi-circle-off"
+          },
           {
             label: "Seeds",
             icon: "pi pi-fw pi-circle-off",
             to: "/market/seedbank"
           },
           {
-            label: "Supplies(Coming Soon)",
+            label: "Supplies (Coming Soon)",
             icon: "pi pi-fw pi-circle-off",
             to: "/market/seedbank"
           }
@@ -159,7 +171,7 @@ class App extends Component {
         to: "/stats"
       },
       {
-        label: "CannaDex(Coming Soon)",
+        label: "CannaDex (Coming Soon)",
         icon: "pi pi-fw pi-file",
         command: () => {
           window.location = "https://steempeak.com/@qwoyn";
