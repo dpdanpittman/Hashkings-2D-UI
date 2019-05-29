@@ -44,24 +44,21 @@ export const GardenPage = () => {
     );
   } else {
     return (
-      <div className="card-blank">
+      <div className="card-blank-light">
         <div className="p-fluid">
           <div className="p-col-12">
-            <br />
-            <h1><b>Before you begin, make sure to acquire seeds and lease farm plots</b></h1>
-			<p><b><a href="/market/seedbank">Acquire seeds</a></b></p>
-			<p><b><a href="/market/gardenplots">Lease gardens</a></b></p>
 			<center>
 				<div className="p-col-12">
-				<center><h1><b>Welcome to your Farm</b></h1></center>
+				<center><h1><b><font color="black">Welcome to your Farm</font></b></h1></center>
 				</div>
-			</center>			
-			<h2><b><u>Plant Seeds and Maintain Your Plots</u></b></h2>
+			<br/><br/>			
+			<h2><b><u><font color="black">Plant Seeds and Maintain Your Plots</font></u></b></h2></center>
           </div>
+		  <br/><br/>
           <div className="p-grid">
             <div className="p-col-3" />
             <div className="p-col-6">
-              <div className="card-blank card-w-title">
+              <div className="card-blank-green card-w-title">
                 <h1>Plant seeds</h1>
                 <div className="p-grid">
                   <div className="p-col-12">
@@ -87,7 +84,7 @@ export const GardenPage = () => {
             </div>
             <div className="p-col-3" />
             <div className="p-col-6">
-              <div className="card-blank card-w-title">
+              <div className="card-blank-green card-w-title">
                 <h1>Water your Farm Plots</h1>
                 <div className="p-grid">
                   <div className="p-col-12">
@@ -102,18 +99,9 @@ export const GardenPage = () => {
             </div>
             <div className="p-col-3" />
 			<div className="p-col-3">
-              <iframe
-                title="gardener"
-                src="https://giphy.com/embed/l41JUdNquX31AlVqo"
-                width="150"
-                height="150"
-                frameBorder="0"
-                className="giphy-embed"
-                allowFullScreen
-              />
             </div>
             <div className="p-col-6">
-              <div className="card-blank card-w-title">
+              <div className="card-blank-green card-w-title">
                 <h1>Feed your plants(Coming Soon)</h1>
                 <div className="p-grid">
                   <div className="p-col-12">
@@ -128,7 +116,7 @@ export const GardenPage = () => {
             <div className="p-col-3" />
 			<div className="p-col-3" />
             <div className="p-col-6">
-              <div className="card-blank card-w-title">
+              <div className="card-blank-green card-w-title">
                 <h1>Prune Leaves(Coming Soon)</h1>
                 <div className="p-grid">
                   <div className="p-col-12">
@@ -142,12 +130,14 @@ export const GardenPage = () => {
             </div>
             <div className="p-col-3" />
             <div className="p-col-3" />
-          </div>
-		  <h2><b><u>Pollinate and Harvest(Coming Soon)</u></b></h2>
+          </div><center>
+		  <br/><br/><br/>
+		  <h2><b><u><font color="black">Pollinate and Harvest</font><font color="red">(Coming Soon)</font></u></b></h2></center>
+		  <br/><br/>
 		  <div className="p-grid">
 			<div className="p-col-3" />
             <div className="p-col-6">
-              <div className="card-blank card-w-title">
+              <div className="card-blank-red card-w-title">
                 <h1>Pollinate your buds</h1>
                 <div className="p-grid">
                   <div className="p-col-12">
@@ -162,7 +152,7 @@ export const GardenPage = () => {
 			<div className="p-col-3" />  
 			<div className="p-col-3" />
             <div className="p-col-6">
-              <div className="card-blank card-w-title">
+              <div className="card-blank-red card-w-title">
                 <h1>Harvest</h1>
                 <div className="p-grid">
                   <div className="p-col-12">
@@ -175,11 +165,14 @@ export const GardenPage = () => {
               </div>
             </div>		  
 		  </div>
-		  <h2><b><u>Extended Care(Coming Soon)</u></b></h2>
+		  <br/><br/><br/>
+		  <center>
+		  <h2><b><u><font color="black">Extended Care<font color="red">(Coming Soon)</font></font></u></b></h2></center>
+		  <br/><br/>
 		  <div className="p-grid">
 			<div className="p-col-3" />
             <div className="p-col-6">
-              <div className="card-blank card-w-title">
+              <div className="card-blank-gold card-w-title">
                 <h1>Check Soil PH</h1>
                 <div className="p-grid">
                   <div className="p-col-12">
@@ -204,7 +197,7 @@ export const GardenPage = () => {
 			</div>  
 			<div className="p-col-3" />
             <div className="p-col-6">
-              <div className="card-blank card-w-title">
+              <div className="card-blank-gold card-w-title">
                 <h1>Fix Soil PH</h1>
                 <div className="p-grid">
                   <div className="p-col-12">
@@ -219,15 +212,10 @@ export const GardenPage = () => {
             <div className="p-col-3" />		  
 		  </div>
         </div>
-        <center>
-          <div className="p-col-12">
-            <img alt="weed_divider" height="100px" src={require("./weed_divider.png")} />
-          </div>
-        </center>
         <div className="p-col-12">
           <div className="card-weedLeft card-w-title">
             <h1>
-              <b>Inventory</b>
+              <b><font color="black">Inventory</font></b>
             </h1>
             <Inventory user={user} />
           </div>
