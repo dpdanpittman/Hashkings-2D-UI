@@ -60,7 +60,7 @@ export const GardenPage = () => {
               />
             </div>
 			<div className="p-col-12">
-			  <img src="https://i.imgur.com/wab47CT.png" width="450" height="150" />
+			  <img src="https://i.imgur.com/th9zO4u.png" width="450" height="100" />
 		    </div>
 			<h1><b><font color="black">Daily and Weekly Care</font></b></h1></center>
           </div>
