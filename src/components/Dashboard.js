@@ -123,13 +123,7 @@ export const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="p-col-12 p-lg-8">
-            <div className="card">
-              <Chart type="line" data={lineData} />
-            </div>
-          </div>
-
-          <div className="p-col-12 p-lg-4">
+          <div className="p-col-12 p-lg-12">
             <Panel
               header="Activity (max 3 actions per farm)"
               className="activity-log"
