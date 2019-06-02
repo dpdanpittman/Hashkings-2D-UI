@@ -44,21 +44,32 @@ export const GardenPage = () => {
     );
   } else {
     return (
-      <div className="card-blank-light">
+      <div className="card-blank-brown">
         <div className="p-fluid">
           <div className="p-col-12">
 			<center>
-				<div className="p-col-12">
-				<img src="https://i.imgur.com/wab47CT.png" width="450" height="150" />
-				</div>
+			<div className="p-col-3">
+              <iframe
+                title="sun giphy"
+                src="https://giphy.com/embed/L08sJsg6tEUyb1E0VW"
+                width="150"
+                height="150"
+                frameBorder="0"
+                className="giphy-embed"
+                allowFullScreen
+              />
+            </div>
+			<div className="p-col-12">
+			  <img src="https://i.imgur.com/wab47CT.png" width="450" height="150" />
+		    </div>
 			<h1><b><font color="black">Plant Seeds, Water Plots, Harvest and Care</font></b></h1></center>
           </div>
+		  </div>
 		  <br/><br/>
           <div className="p-grid">
-            <div className="p-col-3" />
             <div className="p-col-6">
-              <div className="card-blank-green card-w-title">
-                <h1>Plant seeds</h1>
+              <div className="card-blank-darkbrown card-w-title">
+                <img src="https://i.imgur.com/XTOvfHc.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -70,21 +81,9 @@ export const GardenPage = () => {
                 </div>
               </div>
             </div>
-            <div className="p-col-3">
-              <iframe
-                title="sun giphy"
-                src="https://giphy.com/embed/L08sJsg6tEUyb1E0VW"
-                width="150"
-                height="150"
-                frameBorder="0"
-                className="giphy-embed"
-                allowFullScreen
-              />
-            </div>
-            <div className="p-col-3" />
             <div className="p-col-6">
-              <div className="card-blank-green card-w-title">
-                <h1>Water your Farm Plots</h1>
+              <div className="card-blank-water card-w-title">
+                <img src="https://i.imgur.com/jTd9uqX.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -96,12 +95,9 @@ export const GardenPage = () => {
                 </div>
               </div>
             </div>
-            <div className="p-col-3" />
-			<div className="p-col-3">
-            </div>
             <div className="p-col-6">
-              <div className="card-blank-green card-w-title">
-                <h1>Feed your plants(Coming Soon)</h1>
+              <div className="card-blank-nutrients card-w-title">
+                <img src="https://i.imgur.com/SmXHjbV.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -112,11 +108,9 @@ export const GardenPage = () => {
                 </div>
               </div>
             </div>
-            <div className="p-col-3" />
-			<div className="p-col-3" />
             <div className="p-col-6">
               <div className="card-blank-green card-w-title">
-                <h1>Prune Leaves(Coming Soon)</h1>
+                <img src="https://i.imgur.com/nbgWWrh.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -127,17 +121,15 @@ export const GardenPage = () => {
                 </div>
               </div>
             </div>
-            <div className="p-col-3" />
-            <div className="p-col-3" />
-          </div><center>
+          </div>
 		  <br/><br/><br/>
-		  <h2><b><u><font color="black">Pollinate and Harvest</font><font color="red">(Coming Soon)</font></u></b></h2></center>
+		  <center>
+		  <h1><b><font color="black">Pollinate and Harvest</font><font color="red">(Coming Soon)</font></b></h1></center>
 		  <br/><br/>
 		  <div className="p-grid">
-			<div className="p-col-3" />
             <div className="p-col-6">
-              <div className="card-blank-red card-w-title">
-                <h1>Pollinate your buds</h1>
+              <div className="card-blank-pollen card-w-title">
+			  <img src="https://i.imgur.com/B5hVUwe.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -148,11 +140,9 @@ export const GardenPage = () => {
                 </div>
               </div>
             </div>
-			<div className="p-col-3" />  
-			<div className="p-col-3" />
             <div className="p-col-6">
               <div className="card-blank-red card-w-title">
-                <h1>Harvest</h1>
+                <img src="https://i.imgur.com/ELNOAbz.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -166,13 +156,12 @@ export const GardenPage = () => {
 		  </div>
 		  <br/><br/><br/>
 		  <center>
-		  <h2><b><u><font color="black">Extended Care<font color="red">(Coming Soon)</font></font></u></b></h2></center>
+		  <h1><b><u><font color="black">Extended Care<font color="red">(Coming Soon)</font></font></u></b></h1></center>
 		  <br/><br/>
 		  <div className="p-grid">
-			<div className="p-col-3" />
             <div className="p-col-6">
-              <div className="card-blank-gold card-w-title">
-                <h1>Check Soil PH</h1>
+              <div className="card-blank-ph card-w-title">
+                <img src="https://i.imgur.com/TcVJ8JP.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -183,21 +172,9 @@ export const GardenPage = () => {
                 </div>
               </div>
             </div>
-			<div className="p-col-3">
-              <iframe
-                title="dropper"
-                src="https://giphy.com/embed/9LXMo1s7RgsZfjvgzA"
-                width="150"
-                height="150"
-                frameBorder="0"
-                className="giphy-embed"
-                allowFullScreen
-              />
-			</div>  
-			<div className="p-col-3" />
             <div className="p-col-6">
-              <div className="card-blank-gold card-w-title">
-                <h1>Fix Soil PH</h1>
+              <div className="card-blank-fixph card-w-title">
+                <img src="https://i.imgur.com/xA95PfK.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -207,10 +184,8 @@ export const GardenPage = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="p-col-3" />		  
+            </div>	  
 		  </div>
-        </div>
         <div className="p-col-12">
           <div className="card-weedLeft card-w-title">
 		  <center><img src="https://i.imgur.com/jctsukU.png" width="200" height="100" /></center>

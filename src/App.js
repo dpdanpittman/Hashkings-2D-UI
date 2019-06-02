@@ -282,7 +282,8 @@ class App extends Component {
             <Route path="/stats" component={Stats} />
             <Route path="/gifting" component={Gifting} />
           </div>
-          <div className="layout-mask" />
+          <div className="layout-mask"> 
+		  </div>
         </div>
       </StateContext.Provider>
     );

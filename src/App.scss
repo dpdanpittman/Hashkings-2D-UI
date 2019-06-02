@@ -26,10 +26,130 @@
   }
 }
 
-.card-blank-gold {
+.card-blank-ph {
   box-shadow: 10px 10px 5px black;
   border-radius: 25px;
-  background-color: #AA9639;
+  background-color: #656a73;
+  padding: 1em;
+  margin-bottom: 16px;
+  // @include border-radius($borderRadius);
+
+  &.card-w-title {
+    padding-bottom: 2em;
+  }
+
+  h1 {
+    margin: 0.5em 0 0.5em 0;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 0.1em;
+    font-size: 24px;
+
+    &:first-child {
+      margin: 0 0 0.5em 0;
+    }
+  }
+}
+
+.card-blank-fixph {
+  box-shadow: 10px 10px 5px black;
+  border-radius: 25px;
+  background-color: #848d90;
+  padding: 1em;
+  margin-bottom: 16px;
+  // @include border-radius($borderRadius);
+
+  &.card-w-title {
+    padding-bottom: 2em;
+  }
+
+  h1 {
+    margin: 0.5em 0 0.5em 0;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 0.1em;
+    font-size: 24px;
+
+    &:first-child {
+      margin: 0 0 0.5em 0;
+    }
+  }
+}
+
+.card-blank-brown {
+  box-shadow: 10px 10px 5px black;
+  border-radius: 25px;
+  background-color: #804227;
+  padding: 1em;
+  margin-bottom: 16px;
+  // @include border-radius($borderRadius);
+
+  &.card-w-title {
+    padding-bottom: 2em;
+  }
+
+  h1 {
+    margin: 0.5em 0 0.5em 0;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 0.1em;
+    font-size: 24px;
+
+    &:first-child {
+      margin: 0 0 0.5em 0;
+    }
+  }
+}
+
+.card-blank-darkbrown {
+  box-shadow: 10px 10px 5px black;
+  border-radius: 25px;
+  background-color: #4d2416;
+  padding: 1em;
+  margin-bottom: 16px;
+  // @include border-radius($borderRadius);
+
+  &.card-w-title {
+    padding-bottom: 2em;
+  }
+
+  h1 {
+    margin: 0.5em 0 0.5em 0;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 0.1em;
+    font-size: 24px;
+
+    &:first-child {
+      margin: 0 0 0.5em 0;
+    }
+  }
+}
+
+.card-blank-nutrients {
+  box-shadow: 10px 10px 5px black;
+  border-radius: 25px;
+  background-color: #472d58;
+  padding: 1em;
+  margin-bottom: 16px;
+  // @include border-radius($borderRadius);
+
+  &.card-w-title {
+    padding-bottom: 2em;
+  }
+
+  h1 {
+    margin: 0.5em 0 0.5em 0;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 0.1em;
+    font-size: 24px;
+
+    &:first-child {
+      margin: 0 0 0.5em 0;
+    }
+  }
+}
+
+.card-blank-water {
+  box-shadow: 10px 10px 5px black;
+  border-radius: 25px;
+  background-color: #124c5d;
   padding: 1em;
   margin-bottom: 16px;
   // @include border-radius($borderRadius);
@@ -53,7 +173,7 @@
 .card-blank-green {
   box-shadow: 10px 10px 5px black;
   border-radius: 25px;
-  background-color: #C6A300;
+  background-color: #08c874;
   padding: 1em;
   margin-bottom: 16px;
   // @include border-radius($borderRadius);
@@ -74,10 +194,10 @@
   }
 }
 
-.card-blank-greenish {
+.card-blank-pollen {
   box-shadow: 10px 10px 5px black;
   border-radius: 25px;
-  background-color: #C6A300;
+  background-color: #e48914;
   padding: 1em;
   margin-bottom: 16px;
   // @include border-radius($borderRadius);
@@ -214,9 +334,9 @@
   }
 }
 
-.card-weedLeft-light {
+.card-weedLeft-brown {
   border-radius: 25px;
-  background-color: #576E5A;
+  background-color: #804227;
   padding: 1em;
   margin-bottom: 16px;
   // @include border-radius($borderRadius);
