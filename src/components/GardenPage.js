@@ -62,7 +62,7 @@ export const GardenPage = () => {
 			<div className="p-col-12">
 			  <img src="https://i.imgur.com/wab47CT.png" width="450" height="150" />
 		    </div>
-			<h1><b><font color="black">Plant Seeds, Water Plots, Harvest and Care</font></b></h1></center>
+			<h1><b><font color="black">Daily and Weekly Care</font></b></h1></center>
           </div>
 		  </div>
 		  <br/><br/>
