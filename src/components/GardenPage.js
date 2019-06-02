@@ -188,7 +188,7 @@ export const GardenPage = () => {
 		  </div>
         <div className="p-col-12">
           <div className="card-weedLeft card-w-title">
-		  <center><img src="https://i.imgur.com/jctsukU.png" width="200" height="100" /></center>
+		  <center><h1><b><font color="black">Inventory</font></b></h1></center>
             <Inventory user={user} />
           </div>
           <PlantModal

@@ -58,22 +58,22 @@ export const Dashboard = () => {
     <div className="p-grid p-fluid dashboard bgimgdash">
       <div className="p-col-12 p-lg-4">
         <div className="card summary">
-          <span className="title">HashKings Farmers</span>
-          <span className="detail">Total number of Farmers</span>
+          <span className="title"><font color="white">HashKings Farmers</font></span>
+          <span className="detail"><font color="white">Total number of Farmers</font></span>
           <span className="count visitors">{dashboardStats.gardeners}</span>
         </div>
       </div>
       <div className="p-col-12 p-lg-4">
         <div className="card summary">
-          <span className="title">Total Farms</span>
-          <span className="detail">Number of farms</span>
+          <span className="title"><font color="white">Total Farms</font></span>
+          <span className="detail"><font color="white">Number of farms</font></span>
           <span className="count purchases">{dashboardStats.gardens}</span>
         </div>
       </div>
       <div className="p-col-12 p-lg-4">
         <div className="card summary">
-          <span className="title">Economy</span>
-          <span className="detail">Total Delegated Steem</span>
+          <span className="title"><font color="white">Economy</font></span>
+          <span className="detail"><font color="white">Total Delegated Steem</font></span>
           <span className="count revenue">{dashboardStats.delegation}</span>
         </div>
       </div>
