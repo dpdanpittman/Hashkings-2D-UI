@@ -60,7 +60,7 @@ export const GardenPage = () => {
               />
             </div>
 			<div className="p-col-12">
-			  <img src="https://i.imgur.com/th9zO4u.png" width="450" height="100" />
+			  <img src="https://i.imgur.com/CR1joah.png" width="450" height="100" />
 		    </div>
 			<h1><b><font color="black">Daily and Weekly Care</font></b></h1></center>
           </div>
@@ -69,7 +69,7 @@ export const GardenPage = () => {
           <div className="p-grid">
             <div className="p-col-6">
               <div className="card-blank-darkbrown card-w-title">
-                <img src="https://i.imgur.com/XTOvfHc.png" width="400" height="75" />
+                <img src="https://i.imgur.com/rS4kysA.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -83,7 +83,7 @@ export const GardenPage = () => {
             </div>
             <div className="p-col-6">
               <div className="card-blank-water card-w-title">
-                <img src="https://i.imgur.com/jTd9uqX.png" width="400" height="75" />
+                <img src="https://i.imgur.com/SiK2AhU.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -97,7 +97,7 @@ export const GardenPage = () => {
             </div>
             <div className="p-col-6">
               <div className="card-blank-nutrients card-w-title">
-                <img src="https://i.imgur.com/SmXHjbV.png" width="400" height="75" />
+                <img src="https://i.imgur.com/Yfdv2uC.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -110,7 +110,7 @@ export const GardenPage = () => {
             </div>
             <div className="p-col-6">
               <div className="card-blank-green card-w-title">
-                <img src="https://i.imgur.com/nbgWWrh.png" width="400" height="75" />
+                <img src="https://i.imgur.com/pvh6cuj.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -129,7 +129,7 @@ export const GardenPage = () => {
 		  <div className="p-grid">
             <div className="p-col-6">
               <div className="card-blank-pollen card-w-title">
-			  <img src="https://i.imgur.com/B5hVUwe.png" width="400" height="75" />
+			  <img src="https://i.imgur.com/T8JNCZs.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -142,7 +142,7 @@ export const GardenPage = () => {
             </div>
             <div className="p-col-6">
               <div className="card-blank-red card-w-title">
-                <img src="https://i.imgur.com/ELNOAbz.png" width="400" height="75" />
+                <img src="https://i.imgur.com/wHKvHYK.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -161,7 +161,7 @@ export const GardenPage = () => {
 		  <div className="p-grid">
             <div className="p-col-6">
               <div className="card-blank-ph card-w-title">
-                <img src="https://i.imgur.com/TcVJ8JP.png" width="400" height="75" />
+                <img src="https://i.imgur.com/1hU0SER.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
@@ -174,7 +174,7 @@ export const GardenPage = () => {
             </div>
             <div className="p-col-6">
               <div className="card-blank-fixph card-w-title">
-                <img src="https://i.imgur.com/xA95PfK.png" width="400" height="75" />
+                <img src="https://i.imgur.com/Cyn3Wdd.png" width="400" height="75" />
                 <div className="p-grid">
                   <div className="p-col-12">
                     <Button
