@@ -1,7 +1,7 @@
 {
   "name": "sigma-react",
   "version": "2.0.0-beta.2-SNAPSHOT",
-  "homepage": "/sigma-react",
+  "homepage": "/",
   "private": false,
   "repository": {
     "type": "git",
@@ -15,6 +15,7 @@
     "chart.js": "2.7.3",
     "classnames": "^2.2.6",
     "dns": "^0.2.2",
+    "express": "^4.17.1",
     "fetch": "^1.1.0",
     "fullcalendar": "4.0.0-alpha.2",
     "js-cookie": "^2.2.0",
@@ -41,7 +42,8 @@
     "build-css": "node-sass-chokidar src/layout/ -o src/layout/ | node-sass-chokidar public/assets/layout/ -o public/assets/layout/",
     "watch-css": "npm run build-css && node-sass-chokidar src/layout/ -o src/layout/ --watch --recursive | node-sass-chokidar public/assets/layout/ -o public/assets/layout/ --watch --recursive",
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
+    "start:dev": "npm-run-all -p watch-css start-js",
+    "start": "node server.js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test",
