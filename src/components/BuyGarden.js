@@ -5,7 +5,12 @@ import {gardenNames} from "../service/HashkingsAPI";
 import useSteemKeychain from "../hooks/useSteemKeychain";
 import {sign} from "steemconnect";
 
-export default function BuyGarden({username, updateDelegation, delegation}) {
+export default function BuyGarden({
+  username,
+  updateDelegation,
+  delegation,
+  landSupply
+}) {
   const [garden, setGarden] = useState();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const hasSteemKeychain = useSteemKeychain();
@@ -67,22 +72,38 @@ export default function BuyGarden({username, updateDelegation, delegation}) {
 
   return (
     <>
-      <label htmlFor="seed"><font color="black"><b>Purchase plot of land to for your farm</b></font></label>
-	  <br/>
+      <label htmlFor="seed">
+        <font color="black">
+          <b>Purchase plot of land to for your farm</b>
+        </font>
+      </label>
+      <br />
       <p>
-        <b><font color="black">You can purchase at most {delegation.available} garden
-        {delegation.available === 1 ? "" : "s"} based on the amount of Steem
-        Power you have delegated</font></b>
+        <b>
+          <font color="black">
+            You can purchase at most {delegation.available} garden
+            {delegation.available === 1 ? "" : "s"} based on the amount of Steem
+            Power you have delegated
+          </font>
+        </b>
       </p>
       <div className="p-col-12 p-md-4">
         <Dropdown
           optionLabel="name"
           value={garden}
           id="name"
-          options={Object.keys(gardenNames).map(key => ({
-            id: key,
-            name: gardenNames[key]
-          }))}
+          options={Object.keys(gardenNames).map(key => {
+            let name = gardenNames[key];
+            if (landSupply) {
+              name = `${name} - ${landSupply[key] - landSupply[`${key}c`]}/${
+                landSupply[key]
+              } left`;
+            }
+            return {
+              id: key,
+              name
+            };
+          })}
           style={{width: "100%"}}
           onChange={e => {
             setGarden(e.value);

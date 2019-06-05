@@ -9,20 +9,24 @@ import BuyGarden from "./BuyGarden";
 export const MarketPlots = () => {
   const {username} = useContext(StateContext);
   const [delegation, setDelegation] = useState({used: 0, available: 0});
+  const [landSupply, setLandSupply] = useState();
 
   const hashkingsApi = new HashkingsAPI();
 
   useEffect(() => {
     if (username) {
-      hashkingsApi
-        .getUserDelegation(username)
-        .then(delegation => {
+      Promise.all([
+        hashkingsApi.getUserDelegation(username),
+        hashkingsApi.getStats()
+      ])
+        .then(([delegation, stats]) => {
           if (delegation && delegation.delegator) {
             setDelegation({
               used: delegation.used,
               available: delegation.availible
             });
           }
+          setLandSupply(stats.supply.land);
         })
         .catch(e => {
           console.log(e);
@@ -84,7 +88,11 @@ export const MarketPlots = () => {
             </center>
           </div>
           <div className="card-blank-light card-w-title">
-            <img src="https://i.imgur.com/BrBDD5B.png" width="250" height="100" />
+            <img
+              src="https://i.imgur.com/BrBDD5B.png"
+              width="250"
+              height="100"
+            />
             <div className="p-grid">
               <h4>
                 <b>
@@ -95,7 +103,13 @@ export const MarketPlots = () => {
                   </font>
                 </b>
               </h4>
-              <h3><font color="#C50215">IMPORTANT!</font><font color="black"> Each plot requires a 20 SP delegation.</font></h3>
+              <h3>
+                <font color="#C50215">IMPORTANT!</font>
+                <font color="black">
+                  {" "}
+                  Each plot requires a 20 SP delegation.
+                </font>
+              </h3>
             </div>
             {/* <div className="p-col-12 p-md-2">Gardens</div> */}
             <Delegate
@@ -108,10 +122,17 @@ export const MarketPlots = () => {
                 username={username}
                 delegation={delegation}
                 updateDelegation={updateDelegation}
+                landSupply={landSupply}
               />
             )}
             {delegation.available === 0 && (
-              <p><font color="black"><b>Please delegate more Steem Power above to purchase a garden</b></font></p>
+              <p>
+                <font color="black">
+                  <b>
+                    Please delegate more Steem Power above to purchase a garden
+                  </b>
+                </font>
+              </p>
             )}
           </div>
         </div>
