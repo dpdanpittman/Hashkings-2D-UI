@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
 import {Panel} from "primereact/panel";
-import {Chart} from "primereact/chart";
 import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 
@@ -14,24 +13,6 @@ export const Dashboard = () => {
     availableGardens: 0,
     activity: [],
     delegation: 0
-  });
-
-  const [lineData] = useState({
-    labels: ["4-20", "4-21", "4-22", "4-23", "4-24", "4-25", "4-26"],
-    datasets: [
-      {
-        label: "Last Week",
-        data: [65, 59, 80, 81, 56, 63, 65],
-        fill: false,
-        borderColor: "#bf2a2a"
-      },
-      {
-        label: "This Week",
-        data: [67, 57, 79, 82, 59, 55, 73],
-        fill: false,
-        borderColor: "#110adb"
-      }
-    ]
   });
 
   const hashkingsApi = new HashkingsAPI();
@@ -58,29 +39,40 @@ export const Dashboard = () => {
     <div className="p-grid p-fluid dashboard bgimgdash">
       <div className="p-col-12 p-lg-4">
         <div className="card summary">
-          <span className="title"><font color="white">HashKings Farmers</font></span>
-          <span className="detail"><font color="white">Total number of Farmers</font></span>
+          <span className="title">
+            <font color="white">HashKings Farmers</font>
+          </span>
+          <span className="detail">
+            <font color="white">Total number of Farmers</font>
+          </span>
           <span className="count visitors">{dashboardStats.gardeners}</span>
         </div>
       </div>
       <div className="p-col-12 p-lg-4">
         <div className="card summary">
-          <span className="title"><font color="white">Total Farms</font></span>
-          <span className="detail"><font color="white">Number of farms</font></span>
+          <span className="title">
+            <font color="white">Total Farms</font>
+          </span>
+          <span className="detail">
+            <font color="white">Number of farms</font>
+          </span>
           <span className="count purchases">{dashboardStats.gardens}</span>
         </div>
       </div>
       <div className="p-col-12 p-lg-4">
         <div className="card summary">
-          <span className="title"><font color="white">Economy</font></span>
-          <span className="detail"><font color="white">Total Delegated Steem</font></span>
+          <span className="title">
+            <font color="white">Economy</font>
+          </span>
+          <span className="detail">
+            <font color="white">Total Delegated Steem</font>
+          </span>
           <span className="count revenue">{dashboardStats.delegation}</span>
         </div>
       </div>
 
       {username && (
         <>
-
           <div className="p-col-12 p-md-6 p-xl-4">
             <div className="highlight-box">
               <div
