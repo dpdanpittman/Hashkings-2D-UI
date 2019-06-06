@@ -54,11 +54,13 @@ export class HashkingsAPI {
         500
       ]).then(h => h.reverse());
 
+      const accounts = ["hashkings", "hk-stream"];
+
       const payouts = history
         .filter(
           h =>
             h[1].op[0] === "comment_benefactor_reward" &&
-            h[1].op[1].author === "hashkings"
+            accounts.includes(h[1].op[1].author)
         )
         .map(payout => {
           const [
@@ -139,14 +141,6 @@ export class HashkingsAPI {
             trx_id
           };
         });
-
-      console.log(
-        history.filter(
-          h =>
-            h[1].op[0] === "comment_benefactor_reward" &&
-            h[1].op[1].author === "hashkings"
-        )
-      );
 
       const lastTx = history[history.length - 1];
       const oldestBlock = lastTx[1].block;
@@ -233,7 +227,7 @@ export class HashkingsAPI {
       const availableGardens = userLand.filter(
         land => typeof land === "string"
       );
-      const availableSeeds = user.seeds;
+      const availableSeeds = user.seeds | [];
 
       const watered = activeGardens
         .map(garden =>

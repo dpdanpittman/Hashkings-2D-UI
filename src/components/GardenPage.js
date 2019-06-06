@@ -4,7 +4,6 @@ import {HashkingsAPI} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import PlantModal from "./PlantModal";
 import WaterModal from "./WaterModal";
-import Inventory from "./Inventory";
 
 export const GardenPage = () => {
   const {username} = useContext(StateContext);
@@ -17,13 +16,16 @@ export const GardenPage = () => {
     availableGardens: [],
     headBlockNum: undefined
   });
+  const [headBlockNum, setHeadBlockNum] = useState(0);
 
   const hashkingsApi = new HashkingsAPI();
 
   useEffect(() => {
     if (username) {
       hashkingsApi.getUserGarden(username).then(garden => {
-        setUser(garden);
+        const {headBlockNum, ...user} = garden;
+        setUser(user);
+        setHeadBlockNum(headBlockNum);
       });
     }
   }, [username]);
@@ -231,32 +233,21 @@ export const GardenPage = () => {
             </div>
           </div>
         </div>
-        <div className="p-col-12">
-          <div className="card-weedLeft card-w-title">
-            <center>
-              <h1>
-                <b>
-                  <font color="black">Inventory</font>
-                </b>
-              </h1>
-            </center>
-            <Inventory user={user} />
-          </div>
-          <PlantModal
-            isOpen={plantSeedModal}
-            toggleModal={() => setPlantSeedModal(!plantSeedModal)}
-            availableGardens={user.availableGardens}
-            availableSeeds={user.availableSeeds}
-            username={username}
-          />
-          <WaterModal
-            isOpen={waterModal}
-            toggleModal={() => setWaterModal(!waterModal)}
-            activeGardens={user.activeGardens}
-            username={username}
-            headBlockNum={user.headBlockNum}
-          />
-        </div>
+
+        <PlantModal
+          isOpen={plantSeedModal}
+          toggleModal={() => setPlantSeedModal(!plantSeedModal)}
+          availableGardens={user.availableGardens}
+          availableSeeds={user.availableSeeds}
+          username={username}
+        />
+        <WaterModal
+          isOpen={waterModal}
+          toggleModal={() => setWaterModal(!waterModal)}
+          activeGardens={user.activeGardens}
+          username={username}
+          headBlockNum={headBlockNum}
+        />
       </div>
     );
   }

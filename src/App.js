@@ -24,6 +24,7 @@ import WelcomePage from "./components/WelcomePage";
 import FAQPage from "./components/FAQPage";
 import Stats from "./components/Stats";
 import Gifting from "./components/Gifting";
+import InventoryPage from "./components/InventoryPage";
 
 export const StateContext = React.createContext();
 
@@ -125,11 +126,16 @@ class App extends Component {
         icon: "pi pi-fw pi-globe",
         items: [
           {
-			label: "Farming", 
-			icon: "pi pi-fw pi-file", 
-			to: "/farm"
-		  },
-		  {
+            label: "Farming",
+            icon: "pi pi-fw pi-file",
+            to: "/farm"
+          },
+          {
+            label: "Inventory",
+            icon: "pi pi-fw pi-file",
+            to: "/inventory"
+          },
+          {
             label: "View Farm (Coming Soon)",
             icon: "pi pi-fw pi-file"
           },
@@ -149,7 +155,7 @@ class App extends Component {
             icon: "pi pi-fw pi-circle-off",
             to: "/market/farmplots"
           },
-		  {
+          {
             label: "Farm Maps (Coming Soon)",
             icon: "pi pi-fw pi-circle-off"
           },
@@ -160,8 +166,7 @@ class App extends Component {
           },
           {
             label: "Supplies (Coming Soon)",
-            icon: "pi pi-fw pi-circle-off",
-            to: "/market/seedbank"
+            icon: "pi pi-fw pi-circle-off"
           }
         ]
       },
@@ -281,9 +286,9 @@ class App extends Component {
             <Route path="/faq" component={FAQPage} />
             <Route path="/stats" component={Stats} />
             <Route path="/gifting" component={Gifting} />
+            <Route path="/inventory" component={InventoryPage} />
           </div>
-          <div className="layout-mask"> 
-		  </div>
+          <div className="layout-mask" />
         </div>
       </StateContext.Provider>
     );
