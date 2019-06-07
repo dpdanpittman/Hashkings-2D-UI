@@ -2,6 +2,8 @@ import React, {useContext, useEffect, useState} from "react";
 import {Panel} from "primereact/panel";
 import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
 
 export const Dashboard = () => {
   const {username} = useContext(StateContext);
@@ -12,7 +14,8 @@ export const Dashboard = () => {
     activeGardens: 0,
     availableGardens: 0,
     activity: [],
-    delegation: 0
+    delegation: 0,
+    leaderboard: []
   });
 
   const hashkingsApi = new HashkingsAPI();
@@ -149,6 +152,19 @@ export const Dashboard = () => {
           </div>
         </>
       )}
+      <div className="p-col-12 p-lg-12">
+        <DataTable
+          value={dashboardStats.leaderboard}
+          responsive={true}
+          emptyMessage="No users found"
+          header="Top 20 Leaderboard"
+          autoLayout={true}
+        >
+          <Column field="position" header="Position" />
+          <Column field="username" header="User" />
+          <Column field="xp" header="XP" sortable={true} />
+        </DataTable>
+      </div>
     </div>
   );
 };
