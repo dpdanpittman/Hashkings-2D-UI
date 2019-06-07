@@ -222,6 +222,28 @@ export class HashkingsAPI {
       1000000
     ).toFixed(3);
 
+    const leaderboard = Object.keys(all.users)
+      .map(username => {
+        const user = all.users[username];
+        const seedsXp = user.seeds
+          .map(seed => seed.xp)
+          .reduce((a, b) => a + b, 0);
+
+        const plantedXp = user.addrs
+          .map(addr => {
+            const plot = all.land[addr];
+            return plot ? plot.xp : 0;
+          })
+          .reduce((a, b) => a + b, 0);
+        return {
+          username: username,
+          xp: seedsXp + plantedXp
+        };
+      })
+      .sort((a, b) => b.xp - a.xp)
+      .slice(0, 20)
+      .map((l, position) => ({...l, position: position + 1}));
+
     if (username) {
       const activeGardens = userLand.filter(land => typeof land === "object");
       const availableGardens = userLand.filter(
@@ -273,13 +295,15 @@ export class HashkingsAPI {
         activeGardens: activeGardens.length,
         availableGardens: availableGardens.length,
         activity,
-        delegation: delegationVestsToSteem
+        delegation: delegationVestsToSteem,
+        leaderboard
       };
     } else {
       return {
         gardeners: stats.gardeners,
         gardens,
-        delegation: delegationVestsToSteem
+        delegation: delegationVestsToSteem,
+        leaderboard
       };
     }
   }
