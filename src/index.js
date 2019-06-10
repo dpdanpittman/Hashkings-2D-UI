@@ -1,16 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "babel-polyfill";
-import App from "./App";
+import App from "./MaterialApp";
 //import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
-import ScrollToTop from "./ScrollToTop";
+import {MuiThemeProvider} from "@material-ui/core/styles";
+
+import theme from "./theme";
 
 ReactDOM.render(
   <BrowserRouter>
-    <ScrollToTop>
+    <MuiThemeProvider theme={theme}>
       <App />
-    </ScrollToTop>
+    </MuiThemeProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );
