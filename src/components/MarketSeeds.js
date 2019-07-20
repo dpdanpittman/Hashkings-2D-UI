@@ -58,7 +58,7 @@ export const MarketSeeds = () => (
       <div className="p-col-3" />
       <div className="p-col-3" />
       <div className="p-col-6">
-        <div className="card-blank-gold card-w-title">
+        <div className="card-blank-red card-w-title">
           <h1>
             <font color="green">Premium Seeds</font>
           </h1>
