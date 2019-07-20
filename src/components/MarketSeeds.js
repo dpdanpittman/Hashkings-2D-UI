@@ -22,7 +22,7 @@ export const MarketSeeds = () => (
           <h4 className="seed-title">Premium Seeds</h4>
           <p>
             <font color="white">
-              Looking to grow get your feet wet and find new traits with these
+              Looking to grow and get your feet wet and find new traits with these
               10 XP seeds for 1.5 Steem
             </font>
           </p>
