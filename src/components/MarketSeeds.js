@@ -14,7 +14,7 @@ export const MarketSeeds = () => (
           <h4 className="seed-title">Top-Shelf Seeds</h4>
           <p>
             <font color="white">
-              These are the best seeds in our seed bank and come with 2250 XP.
+              These are the best seeds in our seed bank and come with 500 XP.
               For 3 Steem you will be able to purchase one of these top shelf
               seeds.
             </font>
@@ -23,7 +23,7 @@ export const MarketSeeds = () => (
           <p>
             <font color="white">
               Looking to grow get your feet wet and find new traits with these
-              750 XP seeds for 1.5 Steem
+              100 XP seeds for 1.5 Steem
             </font>
           </p>
           <h4 className="seed-title">Basic Seeds</h4>
