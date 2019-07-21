@@ -14,7 +14,6 @@ export const MarketSeeds = () => (
           <h4 className="seed-title">Top-Shelf Seeds</h4>
           <p>
             <font color="white">
-              These are the best seeds in our seed bank and come with 50 XP.
               For 3 Steem you will be able to purchase one of these top shelf
               seeds.
             </font>
@@ -23,14 +22,13 @@ export const MarketSeeds = () => (
           <p>
             <font color="white">
               Looking to grow and get your feet wet and find new traits with these
-              10 XP seeds for 1.5 Steem
+              seeds for 1.5 Steem
             </font>
           </p>
           <h4 className="seed-title">Basic Seeds</h4>
           <p>
             <font color="white">
-              These seeds come with 1 XP and cost .75 Steem. These seeds are for
-              the casual gardner looking to earn only passive income from their
+              hese seeds are for the casual gardner looking to earn only passive income from their
               crops
             </font>
           </p>
