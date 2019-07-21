@@ -241,7 +241,7 @@ export class HashkingsAPI {
         };
       })
       .sort((a, b) => b.xp - a.xp)
-      .slice(0, 20)
+      .slice(0, 82)
       .map((l, position) => ({...l, position: position + 1}));
 
     if (username) {
