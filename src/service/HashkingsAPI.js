@@ -211,7 +211,7 @@ export class HashkingsAPI {
 
     const headBlockNum = dgpo.head_block_number;
 
-    const totalDelegation = 646.35 + all.delegations
+    const totalDelegation = all.delegations
       .map(delegation => delegation.vests)
       .reduce((prev, current) => prev + current);
 
