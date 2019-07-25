@@ -157,7 +157,7 @@ export const Dashboard = () => {
           value={dashboardStats.leaderboard}
           responsive={true}
           emptyMessage="No users found"
-          header="Top 100 Farmers"
+          header="Top Farmers"
           autoLayout={true}
         >
           <Column field="position" header="Position" />
