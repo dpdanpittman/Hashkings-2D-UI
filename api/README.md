@@ -1,2 +1,0 @@
-# hashkings
-Gamified Staking
