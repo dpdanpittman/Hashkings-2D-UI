@@ -14,26 +14,26 @@ export const MarketSupplies = () => (
           <h4 className="seed-title">Nutrients and Supplies</h4>
           <p>
             <font color="white">
-              Organic Nutrients
-              Other Nutrients
-              PH Kits
+              Organic Nutrients, 
+              Other Nutrients,
+              PH Kits,
               Cal/Mag
             </font>
           </p>
           <h4 className="seed-title">Soil and Other Mediums</h4>
           <p>
             <font color="white">
-              Organic Mix
-              Perlite
+              Organic Mix,
+              Perlite,
               Coco
             </font>
           </p>
           <h4 className="seed-title">Tools</h4>
           <p>
             <font color="white">
-              Spade
-              Sheers
-              Shovel
+              Spade,
+              Sheers,
+              Shovel,
               Cages
             </font>
           </p>
@@ -52,9 +52,9 @@ export const MarketSupplies = () => (
           <br />
           <div className="p-grid">
             <div className="p-col-12 p-md-2">
-              //<label htmlFor="multiselect" />
+             {/* <label htmlFor="multiselect" />*/}
             </div>
-            //<BuySeed type="t" />
+            {/*<BuySeed type="t" />*/}
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@ export const MarketSupplies = () => (
       <div className="p-col-6">
         <div className="card-blank-red card-w-title">
           <h1>
-            <font color="green">Soil and other Mediums</font>
+            <font color="black">Soil and other Mediums</font>
           </h1>
           <h2>
             <b>100 KFQ</b>
@@ -71,9 +71,9 @@ export const MarketSupplies = () => (
           <br />
           <div className="p-grid">
             <div className="p-col-12 p-md-2">
-              //<label htmlFor="multiselect" />
+              {/*<label htmlFor="multiselect" />*/}
             </div>
-            //<BuySeed type="m" />
+            {/*<BuySeed type="m" />*/}
           </div>
         </div>
       </div>
@@ -81,16 +81,16 @@ export const MarketSupplies = () => (
       <div className="p-col-3" />
       <div className="p-col-6">
         <div className="card-blank-light card-w-title">
-          <h1>Tools</h1>
+          <h1><font color="black">Tools</font></h1>
           <h2>
             <b>500 KFQ</b>
           </h2>
           <br />
           <div className="p-grid">
             <div className="p-col-12 p-md-2">
-              //<label htmlFor="multiselect" />
+              {/*<label htmlFor="multiselect" />*/}
             </div>
-            //<BuySeed type="r" />
+            {/*<BuySeed type="r" />*/}
           </div>
         </div>
       </div>
