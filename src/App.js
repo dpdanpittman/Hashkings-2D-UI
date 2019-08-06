@@ -9,6 +9,7 @@ import LoginPage from "./components/LoginPage";
 import {GardenPage} from "./components/GardenPage";
 import {MarketPlots} from "./components/MarketPlots";
 import {MarketSeeds} from "./components/MarketSeeds";
+import {MarketSupplies} from "./components/MarketSupplies";
 import {ScrollPanel} from "primereact/components/scrollpanel/ScrollPanel";
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
@@ -143,6 +144,10 @@ class App extends Component {
             label: "Gifting",
             icon: "pi pi-fw pi-file",
             to: "/gifting"
+          },
+          {
+            label: "Farm Maps (Coming Soon)",
+            icon: "pi pi-fw pi-circle-off"
           }
         ]
       },
@@ -156,17 +161,14 @@ class App extends Component {
             to: "/market/farmplots"
           },
           {
-            label: "Farm Maps (Coming Soon)",
-            icon: "pi pi-fw pi-circle-off"
-          },
-          {
             label: "Seeds",
             icon: "pi pi-fw pi-circle-off",
             to: "/market/seedbank"
           },
           {
-            label: "Supplies (Coming Soon)",
-            icon: "pi pi-fw pi-circle-off"
+            label: "Supplies",
+            icon: "pi pi-fw pi-circle-off",
+            to: "/market/MarketSupplies"
           }
         ]
       },
@@ -287,6 +289,7 @@ class App extends Component {
             <Route path="/stats" component={Stats} />
             <Route path="/gifting" component={Gifting} />
             <Route path="/inventory" component={InventoryPage} />
+            <Route path="/market/MarketSupplies" component={MarketSupplies} />
           </div>
           <div className="layout-mask" />
         </div>
