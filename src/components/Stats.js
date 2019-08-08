@@ -1,17 +1,19 @@
-import React, {useContext, useState, useEffect, useRef} from "react";
-import {Button} from "primereact/button";
-import {HashkingsAPI} from "../service/HashkingsAPI";
-import {StateContext} from "../App";
-import {DataTable} from "primereact/datatable";
-import {Column} from "primereact/column";
-import {Checkbox} from "primereact/checkbox";
+import React, { useContext, useState, useEffect, useRef } from "react";
+import { Button } from "primereact/button";
+import { HashkingsAPI, seedNames } from "../service/HashkingsAPI";
+import { StateContext } from "../App";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import { Checkbox } from "primereact/checkbox";
+import { ProgressBar } from "primereact/progressbar";
 
 export default function() {
-  const {username} = useContext(StateContext);
+  const { username } = useContext(StateContext);
   const payoutsTable = useRef(null);
   const landPurchasesTable = useRef(null);
   const seedPurchasesTable = useRef(null);
 
+  const [gardens, setGardens] = useState([]);
   const [recentPayouts, setRecentPayouts] = useState([]);
   const [recentLandPurchases, setRecentLandPurchases] = useState([]);
   const [recentSeedPurchases, setRecentSeedPurchases] = useState([]);
@@ -37,26 +39,37 @@ export default function() {
 
         setSteemPerVest(spv);
 
-        hashkingsApi
-          .getAccountHistory(spv, username, false)
-          .then(
-            ({payouts, oldestId, stop, date, landPurchases, seedPurchases}) => {
-              setOldestId(oldestId);
-              setRecentPayouts(payouts);
-              setRecentLandPurchases(landPurchases);
-              setRecentSeedPurchases(seedPurchases);
+        Promise.all([
+          hashkingsApi
+            .getAccountHistory(spv, username, false)
+            .then(
+              ({
+                payouts,
+                oldestId,
+                stop,
+                date,
+                landPurchases,
+                seedPurchases
+              }) => {
+                setOldestId(oldestId);
+                setRecentPayouts(payouts);
+                setRecentLandPurchases(landPurchases);
+                setRecentSeedPurchases(seedPurchases);
 
-              if (stop) {
-                setNoMoreHistory(true);
+                if (stop) {
+                  setNoMoreHistory(true);
+                }
+
+                if (date) {
+                  setOldestDate(date);
+                }
               }
-
-              if (date) {
-                setOldestDate(date);
-              }
-
-              setLoading(false);
-            }
-          );
+            ),
+          hashkingsApi.getUserGarden(username).then(garden => {
+            console.log(garden.activeGardens);
+            setGardens(garden.activeGardens);
+          })
+        ]).then(() => setLoading(false));
       });
     }
   }, [username]);
@@ -73,22 +86,24 @@ export default function() {
     setLoading(true);
     hashkingsApi
       .getAccountHistory(steemPerVest, username, fetchAll, oldestId)
-      .then(({payouts, oldestId, stop, date, landPurchases, seedPurchases}) => {
-        setOldestId(oldestId);
-        setRecentPayouts([...recentPayouts, ...payouts]);
-        setRecentLandPurchases([...recentLandPurchases, ...landPurchases]);
-        setRecentSeedPurchases([...recentSeedPurchases, ...seedPurchases]);
+      .then(
+        ({ payouts, oldestId, stop, date, landPurchases, seedPurchases }) => {
+          setOldestId(oldestId);
+          setRecentPayouts([...recentPayouts, ...payouts]);
+          setRecentLandPurchases([...recentLandPurchases, ...landPurchases]);
+          setRecentSeedPurchases([...recentSeedPurchases, ...seedPurchases]);
 
-        if (stop) {
-          setNoMoreHistory(true);
+          if (stop) {
+            setNoMoreHistory(true);
+          }
+
+          if (date) {
+            setOldestDate(date);
+          }
+
+          setLoading(false);
         }
-
-        if (date) {
-          setOldestDate(date);
-        }
-
-        setLoading(false);
-      })
+      )
       .catch(e => {
         console.log(e);
         setLoading(false);
@@ -124,6 +139,51 @@ export default function() {
               Here is where you can see all of your stats such as historic
               payouts
             </p>
+          </div>
+          <div className="p-col-12">
+            <div className="card-blank-gold card-w-title">
+              <h1 className="section-heading">Progress of Active Gardens</h1>
+              <DataTable
+                value={gardens}
+                loading={loading}
+                responsive={true}
+                emptyMessage="No active gardens"
+              >
+                <Column field="id" header="Plot #" sortable={true} />
+                <Column
+                  field="strain"
+                  header="Strain"
+                  sortable={true}
+                  body={({ strain }) => seedNames[strain]}
+                />
+                <Column
+                  field="stage"
+                  header="Stage"
+                  sortable={true}
+                  body={({ stage }) => {
+                    return (
+                      <ProgressBar
+                        value={Math.floor((stage / 8) * 100)}
+                        showValue={false}
+                      />
+                    );
+                  }}
+                />
+                <Column
+                  field="substage"
+                  header="Substage"
+                  sortable={true}
+                  body={({ substage }) => {
+                    return (
+                      <ProgressBar
+                        value={Math.floor((substage / 14) * 100)}
+                        showValue={false}
+                      />
+                    );
+                  }}
+                />
+              </DataTable>
+            </div>
           </div>
           <div className="p-col-12">
             <div className="card-blank-gold card-w-title">
