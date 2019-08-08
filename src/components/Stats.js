@@ -66,7 +66,6 @@ export default function() {
               }
             ),
           hashkingsApi.getUserGarden(username).then(garden => {
-            console.log(garden.activeGardens);
             setGardens(garden.activeGardens);
           })
         ]).then(() => setLoading(false));
