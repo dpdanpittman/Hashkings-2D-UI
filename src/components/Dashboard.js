@@ -54,7 +54,7 @@ export const Dashboard = () => {
       <div className="p-col-12 p-lg-4">
         <div className="card summary">
           <span className="title">
-            <font color="white">Total Farms</font>
+            <font color="white">Active Farms</font>
           </span>
           <span className="detail">
             <font color="white">Number of farms</font>
@@ -76,48 +76,6 @@ export const Dashboard = () => {
 
       {username && (
         <>
-          <div className="p-col-12 p-md-6 p-xl-4">
-            <div className="highlight-box">
-              <div
-                className="initials"
-                style={{backgroundColor: "#007be5", color: "#00448f"}}
-              >
-                <span>AG</span>
-              </div>
-              <div className="highlight-details">
-                <span>Active Plots</span>
-                <span className="count">{dashboardStats.activeGardens}</span>
-              </div>
-            </div>
-          </div>
-          <div className="p-col-12 p-md-6 p-xl-4">
-            <div className="highlight-box">
-              <div
-                className="initials"
-                style={{backgroundColor: "#ef6262", color: "#a83d3b"}}
-              >
-                <span>TS</span>
-              </div>
-              <div className="highlight-details">
-                <span>Total Seeds</span>
-                <span className="count">{dashboardStats.availableSeeds}</span>
-              </div>
-            </div>
-          </div>
-          <div className="p-col-12 p-md-6 p-xl-4">
-            <div className="highlight-box">
-              <div
-                className="initials"
-                style={{backgroundColor: "#20d077", color: "#038d4a"}}
-              >
-                <span>EG</span>
-              </div>
-              <div className="highlight-details ">
-                <span>Empty Plots</span>
-                <span className="count">{dashboardStats.availableGardens}</span>
-              </div>
-            </div>
-          </div>
           <div className="p-col-12 p-lg-12">
             <DataTable
              value={dashboardStats.leaderboard}
