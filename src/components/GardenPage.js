@@ -68,7 +68,7 @@ export const GardenPage = () => {
           </div>          
         </div>
 
-        <div className="p-col-12">
+        <div className="p-col-3">
           <div className="p-col-12">
             <center>
               <div className="p-col-12">
