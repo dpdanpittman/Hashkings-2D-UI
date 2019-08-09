@@ -84,6 +84,22 @@ export const GardenPage = () => {
           </div>          
         </div>
 
+        <div className="p-col-3">
+          <div className="p-col-12">
+            <center>
+              <div className="p-col-12">
+              <div className="col-3">
+                  <Button
+                    label="Plant"
+                    icon="pi pi-external-link"
+                    onClick={() => setPlantSeedModal(!plantSeedModal)}
+                  />
+                </div>
+              </div>
+            </center>
+          </div>          
+        </div>
+
         <PlantModal
           isOpen={plantSeedModal}
           toggleModal={() => setPlantSeedModal(!plantSeedModal)}
