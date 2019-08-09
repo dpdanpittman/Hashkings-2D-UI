@@ -119,6 +119,19 @@ export const Dashboard = () => {
             </div>
           </div>
           <div className="p-col-12 p-lg-12">
+            <DataTable
+             value={dashboardStats.leaderboard}
+             responsive={true}
+             emptyMessage="No users found"
+             header="Top Farmers"
+             autoLayout={true}
+            >
+            <Column field="position" header="Position" />
+            <Column field="username" header="User" />
+            <Column field="xp" header="XP" sortable={true} />
+            </DataTable>
+          </div>
+          <div className="p-col-12 p-lg-12">
             <Panel
               header="Activity (max 3 actions per farm)"
               className="activity-log"
@@ -152,19 +165,6 @@ export const Dashboard = () => {
           </div>
         </>
       )}
-      <div className="p-col-12 p-lg-12">
-        <DataTable
-          value={dashboardStats.leaderboard}
-          responsive={true}
-          emptyMessage="No users found"
-          header="Top Farmers"
-          autoLayout={true}
-        >
-          <Column field="position" header="Position" />
-          <Column field="username" header="User" />
-          <Column field="xp" header="XP" sortable={true} />
-        </DataTable>
-      </div>
     </div>
   );
 };
