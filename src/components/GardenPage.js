@@ -51,11 +51,7 @@ export const GardenPage = () => {
           <div className="p-col-12">
             <center>
               <div className="p-col-12">
-                <img
-                  src="https://i.imgur.com/CR1joah.png"
-                  width="450"
-                  height="100"
-                />
+                <center><h1><b>Welcome to the Farm</b></h1></center>
                 <div className="p-col-3"></div>
                 <div className="p-col-3"></div>
               <div className="p-col-3">
@@ -78,9 +74,9 @@ export const GardenPage = () => {
             </b>
           </h1>          
         </div>
-        <div className="p-col-4 card-blank-darkbrown">
+        <div className="p-col-4 card-blank-brown">
           <div className="p-col-12">
-            <div className="card-blank-darkbrown card-w-title">
+            <div className="card-blank-brown card-w-title">
               <div className="p-grid">
                 <div className="p-col-12">
                   <Button
@@ -124,7 +120,7 @@ export const GardenPage = () => {
             </div>
           </div>
         </div>
-        <div className="p-col-3 card-blank-darkbrown">
+        <div className="p-col-3 card-blank-brown">
           <center>
           <b>
             <font color="black">Extended Care</font>
@@ -150,7 +146,7 @@ export const GardenPage = () => {
             </div>
           </div>
           </div>
-        <div className="p-col-3 card-blank-darkbrown">
+        <div className="p-col-3 card-blank-brown">
         <div className="p-grid">
         <center>
         <b>
