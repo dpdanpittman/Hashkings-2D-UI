@@ -87,13 +87,8 @@ export const GardenPage = () => {
         <br />
         <div className="p-col-4 card-blank-darkbrown">
         <div className="p-grid">
-          <div className="p-col-6">
+          <div className="p-col-12">
             <div className="card-blank-darkbrown card-w-title">
-              <img
-                src="https://i.imgur.com/rS4kysA.png"
-                width="400"
-                height="75"
-              />
               <div className="p-grid">
                 <div className="p-col-12">
                   <Button
@@ -105,13 +100,8 @@ export const GardenPage = () => {
               </div>
             </div>
           </div>
-          <div className="p-col-6">
+          <div className="p-col-12">
             <div className="card-blank-water card-w-title">
-              <img
-                src="https://i.imgur.com/SiK2AhU.png"
-                width="400"
-                height="75"
-              />
               <div className="p-grid">
                 <div className="p-col-12">
                   <Button
@@ -123,30 +113,20 @@ export const GardenPage = () => {
               </div>
             </div>
           </div>
-          <div className="p-col-6">
+          <div className="p-col-12">
             <div className="card-blank-nutrients card-w-title">
-              <img
-                src="https://i.imgur.com/Yfdv2uC.png"
-                width="400"
-                height="75"
-              />
               <div className="p-grid">
                 <div className="p-col-12">
-                  <Button label="Coming Soon" icon="pi pi-external-link" />
+                  <Button label="Prune" icon="pi pi-external-link" />
                 </div>
               </div>
             </div>
           </div>
           <div className="p-col-6">
             <div className="card-blank-green card-w-title">
-              <img
-                src="https://i.imgur.com/pvh6cuj.png"
-                width="400"
-                height="75"
-              />
               <div className="p-grid">
                 <div className="p-col-12">
-                  <Button label="Coming Soon" icon="pi pi-external-link" />
+                  <Button label="Feed" icon="pi pi-external-link" />
                 </div>
               </div>
             </div>
@@ -168,30 +148,20 @@ export const GardenPage = () => {
         <br />
         <div className="p-col-4">
         <div className="p-grid">
-          <div className="p-col-6">
+          <div className="p-col-12">
             <div className="card-blank-pollen card-w-title">
-              <img
-                src="https://i.imgur.com/T8JNCZs.png"
-                width="400"
-                height="75"
-              />
               <div className="p-grid">
                 <div className="p-col-12">
-                  <Button label="Coming Soon" icon="pi pi-external-link" />
+                  <Button label="Check PH" icon="pi pi-external-link" />
                 </div>
               </div>
             </div>
           </div>
-          <div className="p-col-6">
+          <div className="p-col-12">
             <div className="card-blank-red card-w-title">
-              <img
-                src="https://i.imgur.com/wHKvHYK.png"
-                width="400"
-                height="75"
-              />
               <div className="p-grid">
                 <div className="p-col-12">
-                  <Button label="Coming Soon" icon="pi pi-external-link" />
+                  <Button label="Fix PH" icon="pi pi-external-link" />
                 </div>
               </div>
             </div>
@@ -216,13 +186,8 @@ export const GardenPage = () => {
         <br />
         <div className="p-col-4">
         <div className="p-grid">
-          <div className="p-col-6">
+          <div className="p-col-12">
             <div className="card-blank-ph card-w-title">
-              <img
-                src="https://i.imgur.com/1hU0SER.png"
-                width="400"
-                height="75"
-              />
               <div className="p-grid">
                 <div className="p-col-12">
                   <Button label="Coming Soon" icon="pi pi-external-link" />
@@ -230,13 +195,8 @@ export const GardenPage = () => {
               </div>
             </div>
           </div>
-          <div className="p-col-6">
+          <div className="p-col-12">
             <div className="card-blank-fixph card-w-title">
-              <img
-                src="https://i.imgur.com/Cyn3Wdd.png"
-                width="400"
-                height="75"
-              />
               <div className="p-grid">
                 <div className="p-col-12">
                   <Button label="Coming Soon" icon="pi pi-external-link" />
