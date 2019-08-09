@@ -93,13 +93,7 @@ export const GardenPage = () => {
                     label="Plant"
                     icon="pi pi-external-link"
                     onClick={() => setPlantSeedModal(!plantSeedModal)}
-                  />
-                  <br/>
-                  <Button
-                    label="Plant"
-                    icon="pi pi-external-link"
-                    onClick={() => setPlantSeedModal(!plantSeedModal)}
-                  />                  
+                  />               
                 </div>
               </div>
             </center>
