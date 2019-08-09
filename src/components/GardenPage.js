@@ -73,10 +73,10 @@ export const GardenPage = () => {
           </h1>          
         </div>
         <div className="col-3">
-          <div className="p-col-12">
+          <div className="p-col-3">
             <div className="card-blank-brown card-w-title">
               <div className="p-grid">
-                <div className="p-col-12">
+                <div className="p-col-3">
                   <Button
                     label="Plant"
                     icon="pi pi-external-link"
@@ -86,10 +86,10 @@ export const GardenPage = () => {
               </div>
             </div>
           </div>
-          <div className="p-col-12">
+          <div className="p-col-3">
             <div className="card-blank-water card-w-title">
               <div className="p-grid">
-                <div className="p-col-12">
+                <div className="p-col-3">
                   <Button
                     label="Water"
                     icon="pi pi-external-link"
@@ -99,19 +99,19 @@ export const GardenPage = () => {
               </div>
             </div>
           </div>
-          <div className="p-col-12">
+          <div className="p-col-3">
             <div className="card-blank-nutrients card-w-title">
               <div className="p-grid">
-                <div className="p-col-12">
+                <div className="p-col-3">
                   <Button label="Prune" icon="pi pi-external-link" />
                 </div>
               </div>
             </div>
           </div>
-          <div className="p-col-12">
+          <div className="p-col-3">
             <div className="card-blank-green card-w-title">
               <div className="p-grid">
-                <div className="p-col-12">
+                <div className="p-col-3">
                   <Button label="Feed" icon="pi pi-external-link" />
                 </div>
               </div>
@@ -125,19 +125,19 @@ export const GardenPage = () => {
             <font color="red">(Coming Soon)</font>
           </b>
           </center>
-          <div className="p-col-12">
+          <div className="p-col-3">
             <div className="card-blank-pollen card-w-title">
               <div className="p-grid">
-                <div className="p-col-12">
+                <div className="p-col-3">
                   <Button label="Check PH" icon="pi pi-external-link" />
                 </div>
               </div>
             </div>
           </div>
-          <div className="p-col-12">
+          <div className="p-col-3">
             <div className="card-blank-red card-w-title">
               <div className="p-grid">
-                <div className="p-col-12">
+                <div className="p-col-3">
                   <Button label="Fix PH" icon="pi pi-external-link" />
                 </div>
               </div>
@@ -152,19 +152,19 @@ export const GardenPage = () => {
           <font color="red">(Coming Soon)</font>
         </b>
         </center>
-          <div className="p-col-12">
+          <div className="p-col-3">
             <div className="card-blank-ph card-w-title">
               <div className="p-grid">
-                <div className="p-col-12">
+                <div className="p-col-3">
                   <Button label="Coming Soon" icon="pi pi-external-link" />
                 </div>
               </div>
             </div>
           </div>
-          <div className="p-col-12">
+          <div className="p-col-3">
             <div className="card-blank-fixph card-w-title">
               <div className="p-grid">
-                <div className="p-col-12">
+                <div className="p-col-3">
                   <Button label="Coming Soon" icon="pi pi-external-link" />
                 </div>
               </div>
