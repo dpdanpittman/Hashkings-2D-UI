@@ -68,6 +68,7 @@ export const GardenPage = () => {
           </div>          
         </div>
 
+       <div className="p-col-6">
         <div className="col-3">
           <div className="p-grid">
             <center>
@@ -79,7 +80,9 @@ export const GardenPage = () => {
             </center>
             </div>
         </div>
+        </div>
 
+        <div className="p-col-6">
         <div className="col-3">
         <div className="p-grid">
             <center>
@@ -90,6 +93,7 @@ export const GardenPage = () => {
                   />
             </center>
             </div>
+        </div>
         </div>
 
         <PlantModal
