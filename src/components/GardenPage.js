@@ -73,10 +73,10 @@ export const GardenPage = () => {
           </h1>          
         </div>
         <div className="col-3">
-          <div className="p-col-3">
+          <div className="col-3">
             <div className="card-blank-brown card-w-title">
               <div className="p-grid">
-                <div className="p-col-3">
+                <div className="col-3">
                   <Button
                     label="Plant"
                     icon="pi pi-external-link"
@@ -86,10 +86,10 @@ export const GardenPage = () => {
               </div>
             </div>
           </div>
-          <div className="p-col-3">
+          <div className="col-3">
             <div className="card-blank-water card-w-title">
               <div className="p-grid">
-                <div className="p-col-3">
+                <div className="col-3">
                   <Button
                     label="Water"
                     icon="pi pi-external-link"
@@ -99,10 +99,10 @@ export const GardenPage = () => {
               </div>
             </div>
           </div>
-          <div className="p-col-3">
+          <div className="col-3">
             <div className="card-blank-nutrients card-w-title">
-              <div className="p-grid">
-                <div className="p-col-3">
+              <div className="p-grid-3">
+                <div className="col-3">
                   <Button label="Prune" icon="pi pi-external-link" />
                 </div>
               </div>
@@ -119,12 +119,7 @@ export const GardenPage = () => {
           </div>
         </div>
         <div className="col-3">
-          <center>
-          <b>
-            <font color="black">Extended Care</font>
-            <font color="red">(Coming Soon)</font>
-          </b>
-          </center>
+        <div className="p-grid">>
           <div className="p-col-3">
             <div className="card-blank-pollen card-w-title">
               <div className="p-grid">
@@ -144,14 +139,9 @@ export const GardenPage = () => {
             </div>
           </div>
           </div>
+          </div>
         <div className="col-3">
-        <div className="p-grid">
-        <center>
-        <b>
-          <font color="black">Harvest</font>
-          <font color="red">(Coming Soon)</font>
-        </b>
-        </center>
+        <div className="p-grid">>
           <div className="p-col-3">
             <div className="card-blank-ph card-w-title">
               <div className="p-grid">
