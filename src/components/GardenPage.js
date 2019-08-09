@@ -68,7 +68,7 @@ export const GardenPage = () => {
           </div>          
         </div>
 
-        <div className="p-col-3">
+        <div className="col-3">
             <center>
                   <Button
                     label="Water"
@@ -78,7 +78,7 @@ export const GardenPage = () => {
             </center>         
         </div>
 
-        <div className="p-col-3">
+        <div className="col-3">
             <center>
                   <Button
                     label="Plant"
