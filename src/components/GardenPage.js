@@ -47,10 +47,10 @@ export const GardenPage = () => {
   } else {
     return (
       <div className="card-blank-brown">
-        <div className="p-col-12">
-          <div className="p-col-12">
+        <div className="p-col-3">
+          <div className="p-col-3">
             <center>
-              <div className="p-col-12">
+              <div className="p-col-3">
                 <center><h1><b>Welcome to the Farm</b></h1></center>
               <div className="p-col-3">
                 <iframe
