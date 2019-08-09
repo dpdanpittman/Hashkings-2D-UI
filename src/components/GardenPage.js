@@ -70,25 +70,21 @@ export const GardenPage = () => {
 
         <div className="p-col-3">
             <center>
-              <div className="col-3">
                   <Button
                     label="Water"
                     icon="pi pi-external-link"
                     onClick={() => setWaterModal(!waterModal)}
                   />
-                </div>
             </center>         
         </div>
 
         <div className="p-col-3">
             <center>
-              <div className="col-3">
                   <Button
                     label="Plant"
                     icon="pi pi-external-link"
                     onClick={() => setPlantSeedModal(!plantSeedModal)}
-                  />               
-                </div>
+                  />
             </center>       
         </div>
 
