@@ -127,28 +127,24 @@ class App extends Component {
         icon: "pi pi-fw pi-globe",
         items: [
           {
-            label: "Inventory",
-            icon: "pi pi-fw pi-file",
-            to: "/inventory"
-          },
-          {
             label: "Farming",
             icon: "pi pi-fw pi-file",
             to: "/farm"
+          },
+          {
+            label: "Inventory",
+            icon: "pi pi-fw pi-file",
+            to: "/inventory"
           },
           {
             label: "Stats",
             icon: "pi pi-fw pi-file",
             to: "/stats"
           },
-          {
-            label: "Farm Maps (Coming Soon)",
-            icon: "pi pi-fw pi-circle-off"
-          }
         ]
       },
       {
-        label: "Grow Shop",
+        label: "Market",
         icon: "pi pi-fw pi-file",
         items: [
           {
@@ -171,6 +167,10 @@ class App extends Component {
             icon: "pi pi-fw pi-file",
             to: "/gifting"
           },
+          {
+            label: "Maps (Coming Soon)",
+            icon: "pi pi-fw pi-circle-off"
+          }
         ]
       },
       {

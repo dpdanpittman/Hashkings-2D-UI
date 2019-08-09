@@ -50,6 +50,14 @@ export const GardenPage = () => {
         <div className="p-fluid">
           <div className="p-col-12">
             <center>
+              <div className="p-col-12">
+                <img
+                  src="https://i.imgur.com/CR1joah.png"
+                  width="450"
+                  height="100"
+                />
+                <div className="p-col-3"></div>
+                <div className="p-col-3"></div>
               <div className="p-col-3">
                 <iframe
                   title="sun giphy"
@@ -61,20 +69,19 @@ export const GardenPage = () => {
                   allowFullScreen
                 />
               </div>
-              <div className="p-col-12">
-                <img
-                  src="https://i.imgur.com/CR1joah.png"
-                  width="450"
-                  height="100"
-                />
               </div>
+              </center>
               <h1>
                 <b>
-                  <font color="black">Daily and Weekly Care</font>
+                  <font color="black">Inventory</font>
                 </b>
               </h1>
-            </center>
           </div>
+          <h1>
+              <b>
+              <font color="black">Inventory</font>
+            </b>
+          </h1>          
         </div>
         <br />
         <br />
