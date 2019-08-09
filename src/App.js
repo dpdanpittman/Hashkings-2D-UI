@@ -127,23 +127,19 @@ class App extends Component {
         icon: "pi pi-fw pi-globe",
         items: [
           {
-            label: "Farming",
-            icon: "pi pi-fw pi-file",
-            to: "/farm"
-          },
-          {
             label: "Inventory",
             icon: "pi pi-fw pi-file",
             to: "/inventory"
           },
           {
-            label: "View Farm (Coming Soon)",
-            icon: "pi pi-fw pi-file"
+            label: "Farming",
+            icon: "pi pi-fw pi-file",
+            to: "/farm"
           },
           {
-            label: "Gifting",
+            label: "Stats",
             icon: "pi pi-fw pi-file",
-            to: "/gifting"
+            to: "/stats"
           },
           {
             label: "Farm Maps (Coming Soon)",
@@ -169,19 +165,19 @@ class App extends Component {
             label: "Supplies",
             icon: "pi pi-fw pi-circle-off",
             to: "/market/MarketSupplies"
-          }
+          },
+          {
+            label: "Gift Seeds",
+            icon: "pi pi-fw pi-file",
+            to: "/gifting"
+          },
         ]
       },
       {
-        label: "Stats",
-        icon: "pi pi-fw pi-file",
-        to: "/stats"
-      },
-      {
-        label: "CannaDex (Coming Soon)",
+        label: "Get KFQ on Steem-Engine",
         icon: "pi pi-fw pi-file",
         command: () => {
-          window.location = "https://steempeak.com/@qwoyn";
+          window.location = "https://steem-engine.com/?p=market&t=KFQ";
         }
       },
       {
