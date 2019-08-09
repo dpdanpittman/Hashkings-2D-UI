@@ -69,9 +69,7 @@ export const GardenPage = () => {
         </div>
 
         <div className="p-col-3">
-          <div className="p-col-12">
             <center>
-              <div className="p-col-12">
               <div className="col-3">
                   <Button
                     label="Water"
@@ -79,15 +77,11 @@ export const GardenPage = () => {
                     onClick={() => setWaterModal(!waterModal)}
                   />
                 </div>
-              </div>
-            </center>
-          </div>          
+            </center>         
         </div>
 
         <div className="p-col-3">
-          <div className="p-col-12">
             <center>
-              <div className="p-col-12">
               <div className="col-3">
                   <Button
                     label="Plant"
@@ -95,9 +89,7 @@ export const GardenPage = () => {
                     onClick={() => setPlantSeedModal(!plantSeedModal)}
                   />               
                 </div>
-              </div>
-            </center>
-          </div>          
+            </center>       
         </div>
 
         <PlantModal
