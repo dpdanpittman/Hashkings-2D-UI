@@ -52,21 +52,38 @@ export const GardenPage = () => {
             <center>
               <div className="p-col-12">
                 <center><h1><b>Welcome to the Farm</b></h1></center>
-              <div className="p-col-3">
-                <iframe
-                  title="sun giphy"
-                  src="https://giphy.com/embed/L08sJsg6tEUyb1E0VW"
-                  width="150"
-                  height="150"
-                  frameBorder="0"
-                  className="giphy-embed"
-                  allowFullScreen
-                />
+                  <div className="p-col-3">
+                    <iframe
+                      title="sun giphy"
+                      src="https://giphy.com/embed/L08sJsg6tEUyb1E0VW"
+                      width="150"
+                      height="150"
+                      frameBorder="0"
+                      className="giphy-embed"
+                      allowFullScreen
+                    />
+                  </div>
               </div>
-              </div>
-              </center>
+            </center>
           </div>          
         </div>
+
+        <div className="p-col-12">
+          <div className="p-col-12">
+            <center>
+              <div className="p-col-12">
+              <div className="col-3">
+                  <Button
+                    label="Water"
+                    icon="pi pi-external-link"
+                    onClick={() => setWaterModal(!waterModal)}
+                  />
+                </div>
+              </div>
+            </center>
+          </div>          
+        </div>
+
         <PlantModal
           isOpen={plantSeedModal}
           toggleModal={() => setPlantSeedModal(!plantSeedModal)}
