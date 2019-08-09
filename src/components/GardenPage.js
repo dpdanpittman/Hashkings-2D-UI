@@ -78,7 +78,7 @@ export const GardenPage = () => {
             </b>
           </h1>          
         </div>
-        <div className="p-col-4 card-blank-darkbrown">
+        <div className="p-col-3 card-blank-darkbrown">
         <div className="p-grid">
         <center>
           <b>
@@ -131,7 +131,7 @@ export const GardenPage = () => {
           </div>
         </div>
         </div>
-        <div className="p-col-4 card-blank-darkbrown">
+        <div className="p-col-3 card-blank-darkbrown">
         <div className="p-grid">
           <center>
           <b>
@@ -159,7 +159,7 @@ export const GardenPage = () => {
           </div>
           </div>
         </div>
-        <div className="p-col-4 card-blank-darkbrown">
+        <div className="p-col-3 card-blank-darkbrown">
         <div className="p-grid">
         <center>
         <b>
