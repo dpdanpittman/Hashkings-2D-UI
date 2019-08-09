@@ -85,6 +85,7 @@ export const GardenPage = () => {
         </div>
         <br />
         <br />
+        <div className="p-col-4 card-blank-darkbrown">
         <div className="p-grid">
           <div className="p-col-6">
             <div className="card-blank-darkbrown card-w-title">
@@ -151,19 +152,21 @@ export const GardenPage = () => {
             </div>
           </div>
         </div>
+        </div>
         <br />
         <br />
         <br />
         <center>
           <h1>
             <b>
-              <font color="black">Pollinate and Harvest</font>
+              <font color="black">Extended Care</font>
               <font color="red">(Coming Soon)</font>
             </b>
           </h1>
         </center>
         <br />
         <br />
+        <div className="p-col-4">
         <div className="p-grid">
           <div className="p-col-6">
             <div className="card-blank-pollen card-w-title">
@@ -193,6 +196,7 @@ export const GardenPage = () => {
               </div>
             </div>
           </div>
+          </div>
         </div>
         <br />
         <br />
@@ -202,7 +206,7 @@ export const GardenPage = () => {
             <b>
               <u>
                 <font color="black">
-                  Extended Care<font color="red">(Coming Soon)</font>
+                  Harvest<font color="red">(Coming Soon)</font>
                 </font>
               </u>
             </b>
@@ -210,6 +214,7 @@ export const GardenPage = () => {
         </center>
         <br />
         <br />
+        <div className="p-col-4">
         <div className="p-grid">
           <div className="p-col-6">
             <div className="card-blank-ph card-w-title">
@@ -240,7 +245,7 @@ export const GardenPage = () => {
             </div>
           </div>
         </div>
-
+        </div>
         <PlantModal
           isOpen={plantSeedModal}
           toggleModal={() => setPlantSeedModal(!plantSeedModal)}
