@@ -424,19 +424,19 @@ a {
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
       /* IE6-9 */ }
       .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > button {
-        color: #1b1919; }
+        color: #08636B; }
         .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > button:hover {
           color: #0388e5; }
       .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > ul {
         background-color: #2e3035; }
         .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > ul li button {
           border: 0 none;
-          color: #1b1919;
+          color: #08636B;
           border-top: 1px solid rgba(52, 56, 65, 0.6); }
           .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > ul li button:hover {
             color: #0388e5; }
       .layout-wrapper .layout-sidebar.layout-sidebar-dark ul li a {
-        color: #1b1919;
+        color: #08636B;
         border-top: 1px solid rgba(52, 56, 65, 0.6); }
         .layout-wrapper .layout-sidebar.layout-sidebar-dark ul li a:hover {
           color: #0388e5; }

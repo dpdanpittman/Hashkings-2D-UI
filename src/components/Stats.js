@@ -125,7 +125,7 @@ export default function() {
     );
   } else {
     return (
-      <div className="card-blank-light">
+      <div className="card-blank-brown">
         <div className="p-fluid">
           <div className="p-col-12">
             <h1>
@@ -140,7 +140,7 @@ export default function() {
             </p>
           </div>
           <div className="p-col-12">
-            <div className="card-blank-gold card-w-title">
+            <div className="card-blank-brown card-w-title">
               <h1 className="section-heading">Progress of Active Farms</h1>
               <DataTable
                 value={gardens}
@@ -185,7 +185,7 @@ export default function() {
             </div>
           </div>
           <div className="p-col-12">
-            <div className="card-blank-gold card-w-title">
+            <div className="card-blank-brown card-w-title">
               <h1 className="section-heading">
                 Payouts (since {oldestDate}){" "}
                 <Button
