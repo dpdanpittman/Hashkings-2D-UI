@@ -4,6 +4,7 @@ import {HashkingsAPI} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import PlantModal from "./PlantModal";
 import WaterModal from "./WaterModal";
+import Inventory from "./Inventory";
 
 export const GardenPage = () => {
   const {username} = useContext(StateContext);
@@ -37,7 +38,7 @@ export const GardenPage = () => {
           <div className="p-col-12">
             <h1>
               <b>
-                <u>Please sign in to see your garden</u>
+                <u>Please sign in to see your Farm</u>
               </b>
             </h1>
           </div>
@@ -46,12 +47,12 @@ export const GardenPage = () => {
     );
   } else {
     return (
-      <div className="card-blank-brown">
-        <div className="p-col-12">
-          <div className="p-col-12">
+      <div className="card-blank-green-1">
+        <div className="p-col-12 bg-black">
+          <div className="p-col-12 bg-sky">
             <center>
-              <div className="p-col-12">
-                <center><h1><b>Welcome to the Farm</b></h1></center>
+              <div className="p-col-12 bg-sky">
+                <center><h1><b><font color="#098819">Welcome to your Farm</font></b></h1></center>
                   <div className="p-col-3">
                     <iframe
                       title="sun giphy"
@@ -67,35 +68,106 @@ export const GardenPage = () => {
             </center>
           </div>          
         </div>
-
-       <div className="p-col-6">
-        <div className="col-3">
+       <div className="p-col-12">
+        <div className="card-blank-green-2">
           <div className="p-grid">
-            <center>
+            <div className="p-col-4">
+              <center><h2><b><u><font color="#FFC897">Daily</font></u></b></h2></center><br/>
+                  <center>
                   <Button
                     label="Water"
                     icon="pi pi-external-link"
                     onClick={() => setWaterModal(!waterModal)}
                   />
-            </center>
-            </div>
-        </div>
-        </div>
-
-        <div className="p-col-6">
-        <div className="col-3">
-        <div className="p-grid">
-            <center>
+                  </center>
+                  <br/>
+                  <center>
                   <Button
                     label="Plant"
                     icon="pi pi-external-link"
                     onClick={() => setPlantSeedModal(!plantSeedModal)}
                   />
-            </center>
-            </div>
+                  </center>
+      </div>
+      <div className="p-col-4">
+      <center><h2><b><u><font color="#FFC897">Extended (Coming Soon)</font></u></b></h2></center><br/>
+                  <center>
+                  <Button
+                    label="Check PH"
+                    icon="pi pi-external-link"
+                  />
+                  </center>
+                  <br/>
+                  <center>
+                  <Button
+                    label="Flush"
+                    icon="pi pi-external-link"
+                  />
+                  </center>
+                  <br/>
+                  <center>
+                        <Button
+                          label="Fix PH"
+                          icon="pi pi-external-link"
+                        />
+                  </center>
+                  <br/>
+                  <center>
+                        <Button
+                          label="Dry Soil"
+                          icon="pi pi-external-link"
+                        />
+                  </center>	
+      </div>
+      <div className="p-col-4">
+      <center><h2><b><u><font color="#FFC897">Harvest (Coming Soon)</font></u></b></h2></center><br/>
+                  <center>
+                  <Button
+                    label="Chop Plant"
+                    icon="pi pi-external-link"
+                  />
+                  </center>
+                  <br/>
+                  <center>
+                  <Button
+                    label="Trim"
+                    icon="pi pi-external-link"
+                  />
+                  </center>
+                  <br/>
+                  <center>
+                        <Button
+                          label="Hang Dry"
+                          icon="pi pi-external-link"
+                        />
+                  </center>
+                  <br/>
+                  <center>
+                        <Button
+                          label="Pollinate"
+                          icon="pi pi-external-link"
+                        />
+                  </center>	
+      </div>
+    </div>        
+</div>
+      <div className="card-blank-black">
+      <div className="p-fluid">
+        <div className="p-col-12">
+          <h1>
+            <b>
+              <u><font color="#FFC897">Inventory</font></u>
+            </b>
+          </h1>
         </div>
+      </div>
+      <div className="p-col-12">
+        <div className="card-blank-sand-3 card-w-title">
+          <Inventory user={user} />
         </div>
-
+      </div>
+    </div>
+</div>
         <PlantModal
           isOpen={plantSeedModal}
           toggleModal={() => setPlantSeedModal(!plantSeedModal)}

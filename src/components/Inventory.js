@@ -5,9 +5,11 @@ import _ from "lodash";
 export default function Inventory({user}) {
   return (
     <div className="p-grid">
-      <div className="card-blank-red p-col-3">
+      <div className="p-col-1" />
+      <div className="card-blank-brown p-col-5 p-grid">
+        <div className="p-col-6"><center>
         <h3>
-          <u>Active Gardens</u>
+          <u><font color="#FFC897">Active Gardens</font></u>
           {_.uniqBy(user.activeGardens, garden => garden.id[0])
             .map(garden => ({
               id: garden.id[0],
@@ -21,12 +23,11 @@ export default function Inventory({user}) {
                 {garden.count !== 1 ? "s" : ""}
               </p>
             ))}
-        </h3>
-      </div>
-	  <div className="p-col-1" />
-      <div className="card-blank-red p-col-3">
+        </h3></center>
+        </div>
+        <div className="p-col-6">
         <h3>
-          <u>Available Gardens</u>
+          <u><font color="#FFC897">Available Gardens</font></u>
           {_.uniqBy(user.availableGardens, garden => garden[0])
             .map(garden => ({
               id: garden[0],
@@ -41,11 +42,12 @@ export default function Inventory({user}) {
               </p>
             ))}
         </h3>
+        </div>
       </div>
-	  <div className="p-col-1" />
-      <div className="card-blank-red p-col-3">
+      <div className="p-col-1" />
+      <div className="card-blank-brown p-col-5 p-grid">
         <h3>
-          <u>Available Seeds</u>
+          <u><font color="#FFC897">Available Seeds</font></u>
           {_.uniqBy(user.availableSeeds, seed => seed.strain)
             .map(seed => ({
               strain: seed.strain,

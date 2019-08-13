@@ -1,11 +1,22 @@
-.bg-gold {
-   background-color: #AA9639;
+.bg-brown-5 {
+   background-color: #E57A1A;
+   border-radius: 25px;
 }
 
-.card-blank-grey {
+.bg-black {
+  background-color: rgb(0, 0, 0);
+  border-radius: 25px;
+}
+
+.bg-sky {
+  background-color: #79C4CB;
+  border-radius: 25px;
+}
+
+.card-blank-green-1 {
   box-shadow: 10px 10px 5px black;
   border-radius: 25px;
-  background-color: #959389;
+  background-color: black;
   padding: 1em;
   margin-bottom: 16px;
   // @include border-radius($borderRadius);
@@ -26,10 +37,38 @@
   }
 }
 
-.card-blank-ph {
+.card-blank-green-2 {
   box-shadow: 10px 10px 5px black;
   border-radius: 25px;
-  background-color: #656a73;
+  // background-color: #58CF67;
+  background-image: url("https://i.imgur.com/vAUGcFV.png");
+
+  padding: 1em;
+  margin-bottom: 16px;
+  // @include border-radius($borderRadius);
+
+  &.card-w-title {
+    padding-bottom: 2em;
+  }
+
+  h1 {
+    margin: 0.5em 0 0.5em 0;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 0.1em;
+    font-size: 24px;
+
+    &:first-child {
+      margin: 0 0 0.5em 0;
+    }
+  }
+}
+
+.card-blank-sand-3 {
+  box-shadow: 10px 10px 5px black;
+  border-radius: 25px;
+  background-color: #85E190;
+  // background-image: url("https://i.imgur.com/vAUGcFV.png");
+
   padding: 1em;
   margin-bottom: 16px;
   // @include border-radius($borderRadius);
@@ -79,7 +118,8 @@
   border-radius: 25px;
   background-color: #804227;
   padding: 1em;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  margin-top: 16px;
   // @include border-radius($borderRadius);
 
   &.card-w-title {
@@ -242,10 +282,10 @@
   }
 }
 
-.card-blank-light {
-  box-shadow: 10px 10px 5px black;
+.card-blank-red-1 {
+  // box-shadow: 10px 10px 5px black;
   border-radius: 25px;
-  background-color: #448F30;
+  background-color: #F45047;
   padding: 1em;
   margin-bottom: 16px;
   // @include border-radius($borderRadius);
@@ -288,7 +328,7 @@
 }
 
 .card-blank {
-  box-shadow: 10px 10px 5px black;
+  // box-shadow: 10px 10px 5px black;
   border-radius: 25px;
   background-color: #ffffff;
   padding: 1em;

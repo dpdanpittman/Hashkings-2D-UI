@@ -25,7 +25,6 @@ import WelcomePage from "./components/WelcomePage";
 import FAQPage from "./components/FAQPage";
 import Stats from "./components/Stats";
 import Gifting from "./components/Gifting";
-import InventoryPage from "./components/InventoryPage";
 
 export const StateContext = React.createContext();
 
@@ -130,11 +129,6 @@ class App extends Component {
             label: "Farming",
             icon: "pi pi-fw pi-file",
             to: "/farm"
-          },
-          {
-            label: "Inventory",
-            icon: "pi pi-fw pi-file",
-            to: "/inventory"
           },
           {
             label: "Stats",
@@ -284,7 +278,6 @@ class App extends Component {
             <Route path="/faq" component={FAQPage} />
             <Route path="/stats" component={Stats} />
             <Route path="/gifting" component={Gifting} />
-            <Route path="/inventory" component={InventoryPage} />
             <Route path="/market/MarketSupplies" component={MarketSupplies} />
           </div>
           <div className="layout-mask" />

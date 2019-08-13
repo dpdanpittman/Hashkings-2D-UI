@@ -9,19 +9,19 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  background: #C6A300;
+  background: #85E190;
   /* Old browsers */
-  background: -moz-linear-gradient(left, #C6A300 0%, #A43741 100%);
+  background: -moz-linear-gradient(left, #85E190 0%, #79C4CB 100%);
   /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #C6A300), color-stop(100%, #A43741));
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #85E190), color-stop(100%, #79C4CB));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(left, #C6A300 0%, #A43741 100%);
+  background: -webkit-linear-gradient(left, #85E190 0%, #79C4CB 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(left, #C6A300 0%, #A43741 100%);
+  background: -o-linear-gradient(left, #85E190 0%, #79C4CB 100%);
   /* Opera 11.10+ */
-  background: -ms-linear-gradient(left, #C6A300 0%, #A43741 100%);
+  background: -ms-linear-gradient(left, #85E190 0%, #79C4CB 100%);
   /* IE10+ */
-  background: linear-gradient(to right, #C6A300 0%, #A43741 100%);
+  background: linear-gradient(to right, #85E190 0%, #79C4CB 100%);
   /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$left, endColorstr=$right,GradientType=1 );
   /* IE6-9 */ }
@@ -90,19 +90,19 @@ a {
     color: #ffffff;
     z-index: 999;
     right: 0;
-    background: #C6A300;
+    background: #85E190;
     /* Old browsers */
-    background: -moz-linear-gradient(left, #C6A300 0%, #A43741 100%);
+    background: -moz-linear-gradient(left, #85E190 0%, #79C4CB 100%);
     /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #C6A300), color-stop(100%, #A43741));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #85E190), color-stop(100%, #79C4CB));
     /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left, #C6A300 0%, #A43741 100%);
+    background: -webkit-linear-gradient(left, #85E190 0%, #79C4CB 100%);
     /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left, #C6A300 0%, #A43741 100%);
+    background: -o-linear-gradient(left, #85E190 0%, #79C4CB 100%);
     /* Opera 11.10+ */
-    background: -ms-linear-gradient(left, #C6A300 0%, #A43741 100%);
+    background: -ms-linear-gradient(left, #85E190 0%, #79C4CB 100%);
     /* IE10+ */
-    background: linear-gradient(to right, #C6A300 0%, #A43741 100%);
+    background: linear-gradient(to right, #85E190 0%, #79C4CB 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$left, endColorstr=$right,GradientType=1 );
     /* IE6-9 */
@@ -256,19 +256,19 @@ a {
     -o-transition: left 0.7s;
     -webkit-transition: left 0.7s;
     transition: left 0.7s;
-    background: #C6A300;
+    background: #85E190;
     /* Old browsers */
-    background: -moz-linear-gradient(top, #C6A300 0%, #2C8437 100%);
+    background: -moz-linear-gradient(top, #85E190 0%, #85E190 100%);
     /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #C6A300), color-stop(100%, #2C8437));
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #85E190), color-stop(100%, #85E190));
     /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #C6A300 0%, #2C8437 100%);
+    background: -webkit-linear-gradient(top, #85E190 0%, #85E190 100%);
     /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #C6A300 0%, #2C8437 100%);
+    background: -o-linear-gradient(top, #85E190 0%, #85E190 100%);
     /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #C6A300 0%, #2C8437 100%);
+    background: -ms-linear-gradient(top, #85E190 0%, #85E190 100%);
     /* IE10+ */
-    background: linear-gradient(to bottom, #C6A300 0%, #2C8437 100%);
+    background: linear-gradient(to bottom, #85E190 0%, #85E190 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
     /* IE6-9 */
@@ -407,36 +407,36 @@ a {
         -webkit-border-radius: 50%;
         border-radius: 50%; }
     .layout-wrapper .layout-sidebar.layout-sidebar-dark {
-      background: #C6A300;
+      background: #85E190;
       /* Old browsers */
-      background: -moz-linear-gradient(top, #C6A300 0%, #2C8437 100%);
+      background: -moz-linear-gradient(top, #85E190 0%, #E57A1A 100%);
       /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #C6A300), color-stop(100%, #2C8437));
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #85E190), color-stop(100%, #E57A1A));
       /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(top, #C6A300 0%, #2C8437 100%);
+      background: -webkit-linear-gradient(top, #85E190 0%, #E57A1A 100%);
       /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(top, #C6A300 0%, #2C8437 100%);
+      background: -o-linear-gradient(top, #85E190 0%, #E57A1A 100%);
       /* Opera 11.10+ */
-      background: -ms-linear-gradient(top, #C6A300 0%, #2C8437 100%);
+      background: -ms-linear-gradient(top, #85E190 0%, #E57A1A 100%);
       /* IE10+ */
-      background: linear-gradient(to bottom, #C6A300 0%, #2C8437 100%);
+      background: linear-gradient(to bottom, #85E190 0%, #E57A1A 100%);
       /* W3C */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
       /* IE6-9 */ }
       .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > button {
-        color: #ffffff; }
+        color: #1b1919; }
         .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > button:hover {
           color: #0388e5; }
       .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > ul {
         background-color: #2e3035; }
         .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > ul li button {
           border: 0 none;
-          color: #ffffff;
+          color: #1b1919;
           border-top: 1px solid rgba(52, 56, 65, 0.6); }
           .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > ul li button:hover {
             color: #0388e5; }
       .layout-wrapper .layout-sidebar.layout-sidebar-dark ul li a {
-        color: #ffffff;
+        color: #1b1919;
         border-top: 1px solid rgba(52, 56, 65, 0.6); }
         .layout-wrapper .layout-sidebar.layout-sidebar-dark ul li a:hover {
           color: #0388e5; }
