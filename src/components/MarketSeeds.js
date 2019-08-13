@@ -2,33 +2,33 @@ import React from "react";
 import BuySeed from "./BuySeed";
 
 export const MarketSeeds = () => (
-  <div className="p-fluid bgimg">
+  <div className="card-blank-green p-fluid bgimg">
     <div className="p-grid">
 	<div className="p-col-2" />
       <div className="p-col-8">
-        <div className="card-blank-red card-w-title bgWeedimg">
+        <div className="card-blank-blue card-w-title bgimg-seeds-2">
           <h1>
-            <font color="white">Welcome to the Hashkings Dispensary</font>
+            <font color="#FFC897">Welcome to the Hashkings Dispensary</font>
           </h1>
           <br />
-          <h4 className="seed-title">Top-Shelf Seeds</h4>
+          <h4 className="seed-title"><font color="#FFC897">Top-Shelf Seeds</font></h4>
           <p>
-            <font color="white">
+            <font color="#FFC897">
               For 3 Steem you will be able to purchase one of these top shelf
               seeds.
             </font>
           </p>
-          <h4 className="seed-title">Premium Seeds</h4>
+          <h4 className="seed-title"><font color="#FFC897">Premium Seeds</font></h4>
           <p>
-            <font color="white">
+            <font color="#FFC897">
               Looking to grow and get your feet wet and find new traits with these
               seeds for 1.5 Steem
             </font>
           </p>
-          <h4 className="seed-title">Basic Seeds</h4>
+          <h4 className="seed-title"><font color="#FFC897">Basic Seeds</font></h4>
           <p>
-            <font color="white">
-              hese seeds are for the casual gardner looking to earn only passive income from their
+            <font color="#FFC897">
+              These seeds are for the casual farmer looking to earn only passive income from their
               crops
             </font>
           </p>
@@ -37,13 +37,12 @@ export const MarketSeeds = () => (
       
       <div className="p-col-3" />
       <div className="p-col-6">
-        <div className="card-blank-red card-w-title">
+        <div className="card-blank-dark-green card-w-title bgimg-seeds">
+          <center>
           <h1>
-            <font color="blue">Top-Shelf Seeds</font>
+            <font color="#08636B"><b><u>Top-Shelf Seeds - 3 STEEM</u></b></font>
           </h1>
-          <h2>
-            <b>3 Steem</b>
-          </h2>
+          </center>
           <br />
           <div className="p-grid">
             <div className="p-col-12 p-md-2">
@@ -56,13 +55,12 @@ export const MarketSeeds = () => (
       <div className="p-col-3" />
       <div className="p-col-3" />
       <div className="p-col-6">
-        <div className="card-blank-red card-w-title">
+        <div className="card-blank-dark-green card-w-title bgimg-seeds">
+          <center>
           <h1>
-            <font color="green">Premium Seeds</font>
+          <font color="#08636B"><b><u>Premium Seeds - 1.5 STEEM</u></b></font>
           </h1>
-          <h2>
-            <b>1.5 Steem</b>
-          </h2>
+          </center>
           <br />
           <div className="p-grid">
             <div className="p-col-12 p-md-2">
@@ -75,11 +73,10 @@ export const MarketSeeds = () => (
       <div className="p-col-3" />
       <div className="p-col-3" />
       <div className="p-col-6">
-        <div className="card-blank-light card-w-title">
-          <h1>Basic Seeds</h1>
-          <h2>
-            <b>.75 Steem</b>
-          </h2>
+        <div className="card-blank-dark-green card-w-title bgimg-seeds">
+          <center>
+          <h1><font color="#08636B"><b><u>Basic Seeds - 0.75 STEEM</u></b></font></h1>
+          </center>
           <br />
           <div className="p-grid">
             <div className="p-col-12 p-md-2">

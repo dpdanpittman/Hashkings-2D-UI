@@ -6,31 +6,31 @@ export const MarketSupplies = () => (
     <div className="p-grid">
 	<div className="p-col-2" />
       <div className="p-col-8">
-        <div className="card-blank-red card-w-title bgWeedimg">
+        <div className="card-blank-blue card-w-title bg-black">
           <h1>
-            <font color="white">Welcome to the Hashkings Grow Shop</font>
+            <font color="#FFC897">Welcome to the Hashkings Grow Shop</font>
           </h1>
           <br />
-          <h4 className="seed-title">Nutrients and Supplies</h4>
+          <h4 className="seed-title"><font color="#FFC897">Nutrients and Supplies</font></h4>
           <p>
-            <font color="white">
+            <font color="#FFC897">
               Organic Nutrients, 
               Other Nutrients,
               PH Kits,
               Cal/Mag
             </font>
           </p>
-          <h4 className="seed-title">Soil and Other Mediums</h4>
+          <h4 className="seed-title"><font color="#FFC897">Soil and Other Mediums</font></h4>
           <p>
-            <font color="white">
+            <font color="#FFC897">
               Organic Mix,
               Perlite,
               Coco
             </font>
           </p>
-          <h4 className="seed-title">Tools</h4>
+          <h4 className="seed-title"><font color="#FFC897">Tools</font></h4>
           <p>
-            <font color="white">
+            <font color="#FFC897">
               Spade,
               Sheers,
               Shovel,
@@ -40,11 +40,10 @@ export const MarketSupplies = () => (
         </div>
       </div>
       
-      <div className="p-col-3" />
-      <div className="p-col-6">
-        <div className="card-blank-red card-w-title">
+      <div className="p-col-4">
+        <div className="card-blank-blue card-w-title">
           <h1>
-            <font color="blue">Nutrients</font>
+            <font color="#FFC897">Nutrients</font>
           </h1>
           <h2>
             <b>150 KFQ</b>
@@ -58,12 +57,10 @@ export const MarketSupplies = () => (
           </div>
         </div>
       </div>
-      <div className="p-col-3" />
-      <div className="p-col-3" />
-      <div className="p-col-6">
-        <div className="card-blank-red card-w-title">
+      <div className="p-col-4">
+        <div className="card-blank-blue card-w-title">
           <h1>
-            <font color="black">Soil and other Mediums</font>
+            <font color="#FFC897">Soil and other Mediums</font>
           </h1>
           <h2>
             <b>100 KFQ</b>
@@ -77,11 +74,9 @@ export const MarketSupplies = () => (
           </div>
         </div>
       </div>
-      <div className="p-col-3" />
-      <div className="p-col-3" />
-      <div className="p-col-6">
-        <div className="card-blank-light card-w-title">
-          <h1><font color="black">Tools</font></h1>
+      <div className="p-col-4">
+        <div className="card-blank-blue card-w-title">
+          <h1><font color="#FFC897">Tools</font></h1>
           <h2>
             <b>500 KFQ</b>
           </h2>

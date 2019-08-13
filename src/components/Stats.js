@@ -125,7 +125,7 @@ export default function() {
     );
   } else {
     return (
-      <div className="card-blank-brown">
+      <div className="card-blank-sand-3">
         <div className="p-fluid">
           <div className="p-col-12">
             <h1>

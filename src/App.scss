@@ -89,6 +89,58 @@
   }
 }
 
+.card-blank-dark-green {
+  box-shadow: 10px 10px 5px black;
+  border-radius: 25px;
+  background-color: #098819;
+  // background-image: url("https://i.imgur.com/vAUGcFV.png");
+
+  padding: 1em;
+  margin-bottom: 16px;
+  // @include border-radius($borderRadius);
+
+  &.card-w-title {
+    padding-bottom: 2em;
+  }
+
+  h1 {
+    margin: 0.5em 0 0.5em 0;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 0.1em;
+    font-size: 24px;
+
+    &:first-child {
+      margin: 0 0 0.5em 0;
+    }
+  }
+}
+
+.card-blank-blue {
+  box-shadow: 10px 10px 5px black;
+  border-radius: 25px;
+  background-color: #08636B;
+  // background-image: url("https://i.imgur.com/vAUGcFV.png");
+
+  padding: 1em;
+  margin-bottom: 16px;
+  // @include border-radius($borderRadius);
+
+  &.card-w-title {
+    padding-bottom: 2em;
+  }
+
+  h1 {
+    margin: 0.5em 0 0.5em 0;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 0.1em;
+    font-size: 24px;
+
+    &:first-child {
+      margin: 0 0 0.5em 0;
+    }
+  }
+}
+
 .card-blank-fixph {
   box-shadow: 10px 10px 5px black;
   border-radius: 25px;
@@ -116,7 +168,7 @@
 .card-blank-brown {
   box-shadow: 10px 10px 5px black;
   border-radius: 25px;
-  background-color: #804227;
+  background-color: #AF590C;
   padding: 1em;
   margin-bottom: 20px;
   margin-top: 16px;
@@ -314,8 +366,28 @@
    background-color: #8B8568;
 }
 
+.bgimg-grow {
+  background-image: url("https://vtgrowshop.com/wp-content/uploads/2018/11/cropped-2018-11-02-14.28.43.jpg")
+}
+
+.bgimg-shovel {
+  background-image: url("https://i.kinja-img.com/gawker-media/image/upload/s--t303Fhwz--/c_scale,f_auto,fl_progressive,q_80,w_800/18l8wp6zl0z9cjpg.jpg");
+}
+
+.bgimg-soil {
+  background-image: url("https://www.ilovegrowingmarijuana.com/wp-content/uploads/2018/08/Soil.jpg");
+}
+
 .bgimg {
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/6f/Marijuana_seeds.jpg");
+  background-image: url("https://images1.westword.com/imager/u/original/9043422/den_canna_20150731_altitudedispensarywest_federal_slentz_05.jpg");
+}
+
+.bgimg-seeds-2 {
+  background-image: url("https://news.bitcoin.com/wp-content/uploads/2017/02/Global-Cannabis-Seed-Banks-Are-Accepting-Bitcoin.png");
+}
+
+.bgimg-seeds {
+  background-image: url("https://www.greencultured.co/wp-content/uploads/2017/06/Marijuana-Seeds.jpg");
 }
 
 .bgimgdash {

@@ -39,8 +39,8 @@ export const Dashboard = () => {
   }, [username]);
 
   return (
-    <div className="p-grid p-fluid dashboard bg-black">
-      <div className="p-col-12 p-lg-4">
+    <div className="p-grid p-fluid dashboard card-blank-sand-3">
+      <div className="p-col-12 p-lg-4 bg-black">
         <div className="card summary">
           <span className="title">
             <font color="white">HashKings Farmers</font>
@@ -51,7 +51,7 @@ export const Dashboard = () => {
           <span className="count visitors">{dashboardStats.gardeners}</span>
         </div>
       </div>
-      <div className="p-col-12 p-lg-4">
+      <div className="p-col-12 p-lg-4 bg-black">
         <div className="card summary">
           <span className="title">
             <font color="white">Active Farms</font>
@@ -62,7 +62,7 @@ export const Dashboard = () => {
           <span className="count purchases">{dashboardStats.gardens}</span>
         </div>
       </div>
-      <div className="p-col-12 p-lg-4">
+      <div className="p-col-12 p-lg-4 bg-black">
         <div className="card summary">
           <span className="title">
             <font color="white">Economy</font>
@@ -91,7 +91,7 @@ export const Dashboard = () => {
           </div>
           <div className="p-col-12 p-lg-12">
             <Panel
-              header="Activity (max 3 actions per farm)"
+              header="Activity (Displays 3 actions per farm)"
               className="activity-log"
             >
               <ul className="activity-list">

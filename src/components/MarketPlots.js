@@ -87,12 +87,7 @@ export const MarketPlots = () => {
               <ImageGallery items={images} />
             </center>
           </div>
-          <div className="card-blank-light card-w-title">
-            <img
-              src="https://i.imgur.com/BrBDD5B.png"
-              width="250"
-              height="100"
-            />
+          <div className="card-blank-green card-w-title">
             <div className="p-grid">
               <h4>
                 <b>
