@@ -6,9 +6,14 @@ import PlantModal from "./PlantModal";
 import WaterModal from "./WaterModal";
 import Inventory from "./Inventory";
 import {Panel} from "primereact/panel";
+import { DataTable } from "primereact/datatable";
+import { ProgressBar } from "primereact/progressbar";
+import { Column } from "primereact/column";
 
 export const GardenPage = () => {
   const {username} = useContext(StateContext);
+  const [loading] = useState(false);
+  const [gardens] = useState([]);
 
   const [dashboardStats, setDashboardStats] = useState({
     gardeners: 0,
@@ -228,6 +233,52 @@ export const GardenPage = () => {
             </Panel>
           </div>
         </div>
+
+        <div className="p-col-12">
+            <div className="card-blank-sand-3 card-w-title">
+              <h1 className="section-heading">Progress of Active Farms</h1>
+              <DataTable
+                value={gardens}
+                loading={loading}
+                responsive={true}
+                emptyMessage="No active farms"
+              >
+                <Column field="id" header="Plot #" sortable={true} />
+                <Column
+                  field="strain"
+                  header="Strain"
+                  sortable={true}
+                  body={({ strain }) => seedNames[strain]}
+                />
+                <Column
+                  field="stage"
+                  header="Stage out of 8"
+                  sortable={true}
+                  body={({ stage }) => {
+                    return (
+                      <ProgressBar
+                        value={Math.floor((stage / 8) * 100)}
+                        showValue={false}
+                      />
+                    );
+                  }}
+                />
+                <Column
+                  field="substage"
+                  header="Substage out of 14"
+                  sortable={true}
+                  body={({ substage }) => {
+                    return (
+                      <ProgressBar
+                        value={Math.floor((substage / 14) * 100)}
+                        showValue={false}
+                      />
+                    );
+                  }}
+                />
+              </DataTable>
+            </div>
+          </div>
 
         <PlantModal
           isOpen={plantSeedModal}
