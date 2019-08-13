@@ -89,38 +89,6 @@ export const Dashboard = () => {
             <Column field="xp" header="XP" sortable={true} />
             </DataTable>
           </div>
-          <div className="p-col-12 p-lg-12">
-            <Panel
-              header="Activity (Displays 3 actions per farm)"
-              className="activity-log"
-            >
-              <ul className="activity-list">
-                {dashboardStats.activity.map(action => (
-                  <li key={action.block}>
-                    <div className="count">
-                      {action.type.charAt(0).toUpperCase() +
-                        action.type.slice(1)}
-                    </div>
-                    <div className="p-grid">
-                      <div className="p-col-6">Plot #</div>
-                      <div className="p-col-6">{action.id}</div>
-                    </div>
-                    <div className="p-grid">
-                      <div className="p-col-6">Time</div>
-                      <div className="p-col-6">{action.when}</div>
-                    </div>
-                    <div className="p-grid">
-                      <div className="p-col-6">Seed</div>
-                      <div className="p-col-6">{seedNames[action.strain]}</div>
-                    </div>
-                  </li>
-                ))}
-                {dashboardStats.activity.length === 0 && (
-                  <p>No recent activity</p>
-                )}
-              </ul>
-            </Panel>
-          </div>
         </>
       )}
     </div>

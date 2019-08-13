@@ -1,13 +1,25 @@
 import React, {useContext, useState, useEffect} from "react";
 import {Button} from "primereact/button";
-import {HashkingsAPI} from "../service/HashkingsAPI";
+import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import PlantModal from "./PlantModal";
 import WaterModal from "./WaterModal";
 import Inventory from "./Inventory";
+import {Panel} from "primereact/panel";
 
 export const GardenPage = () => {
   const {username} = useContext(StateContext);
+
+  const [dashboardStats, setDashboardStats] = useState({
+    gardeners: 0,
+    gardens: 0,
+    availableSeeds: 0,
+    activeGardens: 0,
+    availableGardens: 0,
+    activity: [],
+    delegation: 0,
+    leaderboard: []
+  });
 
   const [plantSeedModal, setPlantSeedModal] = useState(false);
   const [waterModal, setWaterModal] = useState(false);
@@ -67,6 +79,13 @@ export const GardenPage = () => {
               </div>
             </center>
           </div>          
+        </div>
+        <div className="p-col-12">
+          <h1>
+            <b>
+              <u><font color="#FFC897">Farming</font></u>
+            </b>
+          </h1>
         </div>
        <div className="p-col-12">
         <div className="card-blank-green-2">
@@ -168,6 +187,48 @@ export const GardenPage = () => {
       </div>
     </div>
 </div>
+<div className="p-col-12">
+          <h1>
+            <b>
+              <u><font color="#FFC897">Recent Activity</font></u>
+            </b>
+          </h1>
+        </div>
+<div className="card-blank-sand-3 card-w-title">
+<div className="p-col-12 p-lg-12">
+            <Panel
+              header="Activity (Displays 3 actions per farm)"
+              className="activity-log"
+            >
+              <ul className="activity-list">
+                {dashboardStats.activity.map(action => (
+                  <li key={action.block}>
+                    <div className="count">
+                      {action.type.charAt(0).toUpperCase() +
+                        action.type.slice(1)}
+                    </div>
+                    <div className="p-grid">
+                      <div className="p-col-6">Plot #</div>
+                      <div className="p-col-6">{action.id}</div>
+                    </div>
+                    <div className="p-grid">
+                      <div className="p-col-6">Time</div>
+                      <div className="p-col-6">{action.when}</div>
+                    </div>
+                    <div className="p-grid">
+                      <div className="p-col-6">Seed</div>
+                      <div className="p-col-6">{seedNames[action.strain]}</div>
+                    </div>
+                  </li>
+                ))}
+                {dashboardStats.activity.length === 0 && (
+                  <p>No recent activity</p>
+                )}
+              </ul>
+            </Panel>
+          </div>
+        </div>
+
         <PlantModal
           isOpen={plantSeedModal}
           toggleModal={() => setPlantSeedModal(!plantSeedModal)}
