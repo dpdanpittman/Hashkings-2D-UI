@@ -117,11 +117,6 @@ class App extends Component {
   createMenu() {
     this.menu = [
       {
-        label: "Dashboard",
-        icon: "pi pi-fw pi-home",
-        to: "/dashboard"
-      },
-      {
         label: "Ganja Farm",
         icon: "pi pi-fw pi-globe",
         items: [
@@ -166,6 +161,11 @@ class App extends Component {
             icon: "pi pi-fw pi-circle-off"
           }
         ]
+      },
+      {
+        label: "Leaderboard",
+        icon: "pi pi-fw pi-home",
+        to: "/dashboard"
       },
       {
         label: "Get KFQ on Steem-Engine",

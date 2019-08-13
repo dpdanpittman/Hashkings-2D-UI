@@ -13,6 +13,17 @@ export default function() {
   const landPurchasesTable = useRef(null);
   const seedPurchasesTable = useRef(null);
 
+  const [dashboardStats, setDashboardStats] = useState({
+    gardeners: 0,
+    gardens: 0,
+    availableSeeds: 0,
+    activeGardens: 0,
+    availableGardens: 0,
+    activity: [],
+    delegation: 0,
+    leaderboard: []
+  });
+
   const [gardens, setGardens] = useState([]);
   const [recentPayouts, setRecentPayouts] = useState([]);
   const [recentLandPurchases, setRecentLandPurchases] = useState([]);
@@ -125,7 +136,7 @@ export default function() {
     );
   } else {
     return (
-      <div className="card-blank-sand-3">
+      <div className="card-blank-sand-3 bg-black">
         <div className="p-fluid">
           <div className="p-col-12">
             <h1>
@@ -134,13 +145,12 @@ export default function() {
               </b>
             </h1>
             <br />
-            <p>
-              <b>Here is where you can see all of your stats such as historic
-              payouts</b>
-            </p>
+            <h1>
+              <b>Past Payouts, Seed and Plot Purchases</b>
+            </h1>
           </div>
 
-          <div className="p-col-12">
+          <div className="p-col-12 bg-black">
             <div className="card-blank-brown card-w-title">
               <h1 className="section-heading">
                 Payouts (since {oldestDate}){" "}
