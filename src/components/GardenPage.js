@@ -48,15 +48,34 @@ export const GardenPage = () => {
     }
   }, [username]);
 
+  useEffect(() => {
+    hashkingsApi
+      .getDashboardStats(username)
+      .then(stats => {
+        if (username) {
+          setDashboardStats(stats);
+        } else {
+          setDashboardStats({
+            ...dashboardStats,
+            ...stats
+          });
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }, [username]);
+
   if (!username) {
     return (
       <div className="card-blank">
         <div className="p-fluid">
           <div className="p-col-12">
             <h1>
+              <a href="/login">
               <b>
                 <u>Please sign in to see your Farm</u>
-              </b>
+              </b></a>
             </h1>
           </div>
         </div>
@@ -234,9 +253,10 @@ export const GardenPage = () => {
           </div>
         </div>
 
+        <h1><font color="#FFC897"><b><u>Progress of Active Farms</u></b></font></h1>
         <div className="p-col-12">
             <div className="card-blank-sand-3 card-w-title">
-              <h1 className="section-heading">Progress of Active Farms</h1>
+              
               <DataTable
                 value={gardens}
                 loading={loading}

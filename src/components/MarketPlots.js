@@ -44,7 +44,7 @@ export const MarketPlots = () => {
         <div className="p-grid">
           <div className="p-col-12">
             <div className="card-blank card-w-title">
-              <h1>Please sign in to see your garden</h1>
+              <h1><a href="/login"><b><u>Please sign in to see your garden</u></b></a></h1>
             </div>
           </div>
         </div>
@@ -92,9 +92,8 @@ export const MarketPlots = () => {
               <h4>
                 <b>
                   <font color="black">
-                    Below you will find our Available Plots. In order to Lease a
-                    garden please choose how many Gardens you would like then
-                    choose your favorite regions.
+                    Here you find our Available Plots. In order to Lease a
+                    farm plot please choose the amount and region.
                   </font>
                 </b>
               </h4>

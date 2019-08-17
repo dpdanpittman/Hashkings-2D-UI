@@ -16,7 +16,7 @@ export class AppTopbar extends Component {
             <div className="layout-topbar clearfix">
                 <div className="layout-topbar-icons">
 					<button className="p-link layout-menu-button" onClick={this.props.onToggleMenu}>
-                    <span className="pi pi-bars"/>
+                    <span className="pi pi-bars" />
                     </button>
                 </div>
             </div>

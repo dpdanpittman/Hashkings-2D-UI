@@ -11,9 +11,10 @@ export default function() {
         <div className="p-fluid">
           <div className="p-col-12">
             <h1>
+              <a href="/login">
               <b>
-                <u>Please sign in to see your stats</u>
-              </b>
+                <u>Please sign in to see your Farm</u>
+              </b></a>
             </h1>
           </div>
         </div>
