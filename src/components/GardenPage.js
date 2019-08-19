@@ -1,5 +1,5 @@
 import React, {useContext, useState, useEffect} from "react";
-import {Button} from "primereact/button";
+import Button from '@material-ui/core/Button';
 import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import PlantModal from "./PlantModal";
@@ -118,18 +118,19 @@ export const GardenPage = () => {
               <center><h2><b><u><font color="#FFC897">Daily</font></u></b></h2></center><br/>
                   <center>
                   <Button
-                    label="Water"
-                    icon="pi pi-external-link"
+                    variant="contained" 
+                    color="primary"
                     onClick={() => setWaterModal(!waterModal)}
-                  />
+                  ><span>Water</span></Button>
                   </center>
                   <br/>
                   <center>
                   <Button
-                    label="Plant"
-                    icon="pi pi-external-link"
+                  variant="contained"
+                  color="primary"
                     onClick={() => setPlantSeedModal(!plantSeedModal)}
-                  />
+                  ><span>Plant</span>
+                  </Button>
                   </center>
       </div>
       <div className="p-col-4">
