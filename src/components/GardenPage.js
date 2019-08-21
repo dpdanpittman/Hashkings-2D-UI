@@ -68,7 +68,7 @@ export const GardenPage = () => {
 
   if (!username) {
     return (
-      <div className="card-blank">
+      <div className="card-blank-green">
         <div className="p-fluid">
           <div className="p-col-12">
             <h1>
@@ -255,9 +255,15 @@ export const GardenPage = () => {
         </div>
 
         <h1><font color="#FFC897"><b><u>Progress of Active Farms</u></b></font></h1>
-        <div className="p-col-12">
+        <h3><font color="#FFC897"><b>8 Stages with 14 Substages (1 substage is ~1 day.)</b></font></h3>
+        <br/>
+        <p><font color="#FFC897">Go from seed to harvest in 8 stages where each Stage has 14 substages and determine
+           the age of your cannabis.The progress bars below show you how 
+           far along your plants are.</font>
+        </p>
+
+          <div className="p-col-12">
             <div className="card-blank-sand-3 card-w-title">
-              
               <DataTable
                 value={gardens}
                 loading={loading}

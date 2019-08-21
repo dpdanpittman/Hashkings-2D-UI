@@ -43,7 +43,7 @@ export const MarketPlots = () => {
       <div className="p-fluid">
         <div className="p-grid">
           <div className="p-col-12">
-            <div className="card-blank card-w-title">
+            <div className="card-blank-green card-w-title">
               <h1><a href="/login"><b><u>Please sign in to see your garden</u></b></a></h1>
             </div>
           </div>

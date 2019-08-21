@@ -1,14 +1,21 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
+import ImageGallery from "react-image-gallery";
 
 export const WelcomePage = () => {
+
+const images = [
+    {
+      original: "https://i.imgur.com/Al7KczE.png"
+    }
+  ];
 
     return (
       <div className="card-blank">
         <div className="p-fluid">
         <center>
           <div className="p-col-12">
-            <img alt="welcome_graphic_qwoyn_hashkings" height="700px" src={require("./welcome.png")} />
+          <ImageGallery items={images} />
           </div>
         </center>
         </div>
