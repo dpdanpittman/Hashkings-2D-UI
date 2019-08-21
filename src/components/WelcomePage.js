@@ -6,7 +6,7 @@ export const WelcomePage = () => {
 
 const images = [
     {
-      original: "https://i.imgur.com/Al7KczE.png"
+      original: "https://i.imgur.com/jTxih7O.png"
     }
   ];
 
