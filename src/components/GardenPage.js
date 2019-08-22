@@ -69,16 +69,18 @@ export const GardenPage = () => {
   if (!username) {
     return (
       <div className="card-blank-green">
-        <div className="p-fluid">
-          <div className="p-col-12">
-            <h1>
+        <div className="p-grid">
+        <div className="p-col-3" />
+          <div className="p-col-6">
+            <center><h1>
               <a href="/login">
               <b>
                 <u>Please sign in to see your Farm</u>
               </b></a>
-            </h1>
-          </div>
+            </h1></center>
+            </div>
         </div>
+        <div className="p-col-3" />
       </div>
     );
   } else {
