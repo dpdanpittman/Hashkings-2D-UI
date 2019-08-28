@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import {Panel} from "primereact/panel";
-import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
+import {HashkingsAPI} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
@@ -85,7 +84,7 @@ export const Dashboard = () => {
              autoLayout={true}
             >
             <Column field="position" header="Position" />
-            <Column field="username" header="User" />
+            <Column field="username" header="Farmer" />
             <Column field="xp" header="XP" sortable={true} />
             </DataTable>
           </div>

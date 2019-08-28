@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useContext, useState, useEffect, useRef} from "react";
 import Button from '@material-ui/core/Button';
 import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
@@ -12,8 +12,9 @@ import { Column } from "primereact/column";
 
 export const GardenPage = () => {
   const {username} = useContext(StateContext);
-  const [loading] = useState(false);
-  const [gardens] = useState([]);
+  const payoutsTable = useRef(null);
+  const landPurchasesTable = useRef(null);
+  const seedPurchasesTable = useRef(null);
 
   const [dashboardStats, setDashboardStats] = useState({
     gardeners: 0,
@@ -34,6 +35,21 @@ export const GardenPage = () => {
     availableGardens: [],
     headBlockNum: undefined
   });
+
+  const [gardens, setGardens] = useState([]);
+  const [recentPayouts, setRecentPayouts] = useState([]);
+  const [recentLandPurchases, setRecentLandPurchases] = useState([]);
+  const [recentSeedPurchases, setRecentSeedPurchases] = useState([]);
+  const [oldestId, setOldestId] = useState(-1);
+  const [loading, setLoading] = useState(false);
+  const [noMoreHistory, setNoMoreHistory] = useState(false);
+  const [steemPerVest, setSteemPerVest] = useState(0);
+  const [fetchAll, setFetchAll] = useState(false);
+
+  const [oldestDate, setOldestDate] = useState(
+    new Date(Date.now()).toDateString()
+  );
+
   const [headBlockNum, setHeadBlockNum] = useState(0);
 
   const hashkingsApi = new HashkingsAPI();
@@ -65,6 +81,58 @@ export const GardenPage = () => {
         console.log(e);
       });
   }, [username]);
+
+  useEffect(() => {
+    if (username) {
+      setLoading(true);
+      hashkingsApi.getDGPO().then(dgpo => {
+        const spv =
+          parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
+          parseFloat(dgpo.total_vesting_shares.split(" ")[0]);
+
+        setSteemPerVest(spv);
+
+        Promise.all([
+          hashkingsApi
+            .getAccountHistory(spv, username, false)
+            .then(
+              ({
+                payouts,
+                oldestId,
+                stop,
+                date,
+                landPurchases,
+                seedPurchases
+              }) => {
+                setOldestId(oldestId);
+                setRecentPayouts(payouts);
+                setRecentLandPurchases(landPurchases);
+                setRecentSeedPurchases(seedPurchases);
+
+                if (stop) {
+                  setNoMoreHistory(true);
+                }
+
+                if (date) {
+                  setOldestDate(date);
+                }
+              }
+            ),
+          hashkingsApi.getUserGarden(username).then(garden => {
+            setGardens(garden.activeGardens);
+          })
+        ]).then(() => setLoading(false));
+      });
+    }
+  }, [username]);
+
+  function blockTemplate(data) {
+    const trx_id = data.trx_id || "0000000000000000000000000000000000000000";
+
+    return (
+      <a href={`https://steemd.com/b/${data.block}#${trx_id}`}>{data.block}</a>
+    );
+  }
 
   if (!username) {
     return (
