@@ -165,7 +165,7 @@ class App extends Component {
       {
         label: "Leaderboard",
         icon: "pi pi-fw pi-home",
-        to: "/dashboard"
+        to: "/leaderboard"
       },
       {
         label: "Get KFQ on Steem-Engine",
@@ -179,6 +179,14 @@ class App extends Component {
         label: "FAQ",
         icon: "pi pi-fw pi-circle-off",
         to: "/faq"
+      },
+      {
+        label: "Chat on Discord",
+        icon: "pi pi-fw pi-globe",
+        command: () => {
+          /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
+          window.open('https://discord.gg/Zq29TWe', '_blank');
+        }
       }
     ];
   }
@@ -273,7 +281,7 @@ class App extends Component {
             <Route path="/garden/:username" component={UserGarden} />
             <Route exact path="/farm" component={GardenPage} />
             <Route path="/market/farmplots" component={MarketPlots} />
-            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/leaderboard" component={Dashboard} />
             <Route path="/market/seedbank" component={MarketSeeds} />
             <Route path="/callback" component={SCCallback} />
             <Route path="/faq" component={FAQPage} />

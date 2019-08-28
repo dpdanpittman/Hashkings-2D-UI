@@ -219,7 +219,7 @@ export class HashkingsAPI {
       (parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) *
         totalDelegation) /
       parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
-      1000000
+      1000000 + 756.71
     ).toFixed(3);
 
     const leaderboard = Object.keys(all.users)
