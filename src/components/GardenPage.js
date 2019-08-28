@@ -12,9 +12,6 @@ import { Column } from "primereact/column";
 
 export const GardenPage = () => {
   const {username} = useContext(StateContext);
-  const payoutsTable = useRef(null);
-  const landPurchasesTable = useRef(null);
-  const seedPurchasesTable = useRef(null);
 
   const [dashboardStats, setDashboardStats] = useState({
     gardeners: 0,
@@ -37,18 +34,8 @@ export const GardenPage = () => {
   });
 
   const [gardens, setGardens] = useState([]);
-  const [recentPayouts, setRecentPayouts] = useState([]);
-  const [recentLandPurchases, setRecentLandPurchases] = useState([]);
-  const [recentSeedPurchases, setRecentSeedPurchases] = useState([]);
-  const [oldestId, setOldestId] = useState(-1);
   const [loading, setLoading] = useState(false);
-  const [noMoreHistory, setNoMoreHistory] = useState(false);
-  const [steemPerVest, setSteemPerVest] = useState(0);
-  const [fetchAll, setFetchAll] = useState(false);
-
-  const [oldestDate, setOldestDate] = useState(
-    new Date(Date.now()).toDateString()
-  );
+  const [setNoMoreHistory] = useState(false);
 
   const [headBlockNum, setHeadBlockNum] = useState(0);
 
@@ -90,31 +77,22 @@ export const GardenPage = () => {
           parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
           parseFloat(dgpo.total_vesting_shares.split(" ")[0]);
 
-        setSteemPerVest(spv);
+       
 
         Promise.all([
           hashkingsApi
             .getAccountHistory(spv, username, false)
             .then(
               ({
-                payouts,
-                oldestId,
                 stop,
-                date,
-                landPurchases,
-                seedPurchases
+                date
               }) => {
-                setOldestId(oldestId);
-                setRecentPayouts(payouts);
-                setRecentLandPurchases(landPurchases);
-                setRecentSeedPurchases(seedPurchases);
 
                 if (stop) {
                   setNoMoreHistory(true);
                 }
 
                 if (date) {
-                  setOldestDate(date);
                 }
               }
             ),
@@ -125,14 +103,6 @@ export const GardenPage = () => {
       });
     }
   }, [username]);
-
-  function blockTemplate(data) {
-    const trx_id = data.trx_id || "0000000000000000000000000000000000000000";
-
-    return (
-      <a href={`https://steemd.com/b/${data.block}#${trx_id}`}>{data.block}</a>
-    );
-  }
 
   if (!username) {
     return (
@@ -292,27 +262,28 @@ export const GardenPage = () => {
 <div className="card-blank-sand-3 card-w-title">
 <div className="p-col-12 p-lg-12">
             <Panel
-              header="Activity (Displays 3 actions per farm)"
+              header=""
               className="activity-log"
             >
-              <ul className="activity-list">
+              <ul className="card-blank-blue activity-list">
                 {dashboardStats.activity.map(action => (
                   <li key={action.block}>
-                    <div className="count">
-                      {action.type.charAt(0).toUpperCase() +
+                    <div className="card-blank count">
+                      <h2>
+                      <b><u>
+                      You {action.type.charAt(0).toUpperCase() +
                         action.type.slice(1)}
+                      </u></b>
+                      </h2>
                     </div>
                     <div className="p-grid">
-                      <div className="p-col-6">Plot #</div>
-                      <div className="p-col-6">{action.id}</div>
+                      <div className="card-blank-sand-3 p-col-3">{seedNames[action.strain]}</div>
                     </div>
                     <div className="p-grid">
-                      <div className="p-col-6">Time</div>
-                      <div className="p-col-6">{action.when}</div>
+                      <div className="card-blank-sand-3 p-col-3">{action.when}</div>
                     </div>
                     <div className="p-grid">
-                      <div className="p-col-6">Seed</div>
-                      <div className="p-col-6">{seedNames[action.strain]}</div>
+                      <div className="card-blank-sand-3 p-col-3">on Plot # {action.id}</div>
                     </div>
                   </li>
                 ))}
@@ -325,7 +296,7 @@ export const GardenPage = () => {
         </div>
 
         <h1><font color="#FFC897"><b><u>Progress of Active Farms</u></b></font></h1>
-        <h3><font color="#FFC897"><b>8 Stages with 14 Substages (1 substage is ~1 day.)</b></font></h3>
+        <h3><font color="#FFC897"><b>8 Stages with 14 Substages (1 substage is ~1 day)</b></font></h3>
         <br/>
         <p><font color="#FFC897">Go from seed to harvest in 8 stages where each Stage has 14 substages and determine
            the age of your cannabis.The progress bars below show you how 
