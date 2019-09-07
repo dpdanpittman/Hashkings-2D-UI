@@ -4,6 +4,7 @@ import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import PlantModal from "./PlantModal";
 import WaterModal from "./WaterModal";
+import HarvestModal from "./HarvestModal";
 import Inventory from "./Inventory";
 import {Panel} from "primereact/panel";
 import { DataTable } from "primereact/datatable";
@@ -26,6 +27,7 @@ export const GardenPage = () => {
 
   const [plantSeedModal, setPlantSeedModal] = useState(false);
   const [waterModal, setWaterModal] = useState(false);
+  const [harvestModal, setHarvestModal] = useState(false);
   const [user, setUser] = useState({
     availableSeeds: [],
     activeGardens: [],
@@ -204,12 +206,13 @@ export const GardenPage = () => {
                   </center>	
       </div>
       <div className="p-col-4">
-      <center><h2><b><u><font color="#FFC897">Harvest (Coming Soon)</font></u></b></h2></center><br/>
+      <center><h2><b><u><font color="#FFC897">Harvesting</font></u></b></h2></center><br/>
                   <center>
                   <Button
-                    label="Chop Plant"
-                    icon="pi pi-external-link"
-                  />
+                    variant="contained" 
+                    color="primary"
+                    onClick={() => setHarvestModal(!harvestModal)}
+                  ><span>Harvest</span></Button>
                   </center>
                   <br/>
                   <center>
@@ -362,6 +365,13 @@ export const GardenPage = () => {
           username={username}
           headBlockNum={headBlockNum}
         />
+        <HarvestModal
+          isOpen={harvestModal}
+          toggleModal={() => setHarvestModal(!harvestModal)}
+          activeGardens={user.activeGardens}
+          username={username}
+          headBlockNum={headBlockNum}
+        />   
       </div>
     );
   }
