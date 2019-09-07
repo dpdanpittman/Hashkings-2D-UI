@@ -62,7 +62,6 @@ export default function HarvestModal({
       date.setSeconds(
         date.getSeconds() - (headBlockNum - waterActions[0][0]) * 3
       );
-      name = `${name} - Already Harvested on ${formatTimeAgo(date)}`;
     }
 
     return {
@@ -75,14 +74,14 @@ export default function HarvestModal({
     if (option) {
       return <span>{`${option.id} `}</span>;
     } else {
-      return <span>Choose some gardens...</span>;
+      return <span>Choose your farms...</span>;
     }
   };
 
   return (
     <>
       <Dialog
-        header="Water your Gardens"
+        header="Harvest your Farms"
         visible={isOpen}
         modal={true}
         style={{width: "50vw", maxWidth: 500}}

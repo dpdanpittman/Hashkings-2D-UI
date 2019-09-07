@@ -303,7 +303,8 @@ export const GardenPage = () => {
         <br/>
         <p><font color="#FFC897">Go from seed to harvest in 8 stages where each Stage has 14 substages and determine
            the age of your cannabis.The progress bars below show you how 
-           far along your plants are.</font>
+           far along your plants are.</font><br/><br/>
+           <font color="#FFC897"><u>Once your plot reaches stage 8 you may use the harvest button</u></font>
         </p>
 
           <div className="p-col-12">
