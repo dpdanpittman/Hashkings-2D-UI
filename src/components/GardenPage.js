@@ -176,7 +176,7 @@ export const GardenPage = () => {
                   </center>
       </div>
       <div className="p-col-4">
-      <center><h2><b><u><font color="#FFC897">Extended (Coming Soon)</font></u></b></h2></center><br/>
+      <center><h2><b><u><font color="#FFC897"></font></u></b></h2></center><br/>
                   <center>
                   <Button
                     label="Check PH"
