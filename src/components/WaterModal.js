@@ -77,14 +77,14 @@ export default function WaterModal({
     if (option) {
       return <span>{`${option.id} `}</span>;
     } else {
-      return <span>Choose some gardens...</span>;
+      return <span>Choose some farms...</span>;
     }
   };
 
   return (
     <>
       <Dialog
-        header="Water your Gardens"
+        header="Water your Plots"
         visible={isOpen}
         modal={true}
         style={{width: "50vw", maxWidth: 500}}
@@ -94,10 +94,10 @@ export default function WaterModal({
         id="waterModal"
       >
         {activeGardens.length === 0 ? (
-          <p>Sorry, you don't have any active gardens.</p>
+          <p>Sorry, you don't have any active farms.</p>
         ) : (
           <>
-            <label htmlFor="garden"><b>Choose a garden or gardens then click water</b></label>
+            <label htmlFor="garden"><b>Choose a Plot or Plots then click water</b></label>
 			<br/><br/>
 			  <Button
               disabled={isSubmitting}

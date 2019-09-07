@@ -62,6 +62,7 @@ export default function HarvestModal({
       date.setSeconds(
         date.getSeconds() - (headBlockNum - waterActions[0][0]) * 3
       );
+      name = `${name} - Harvest: ${formatTimeAgo(date)}`;
     }
 
     return {
@@ -81,7 +82,7 @@ export default function HarvestModal({
   return (
     <>
       <Dialog
-        header="Harvest your Farms"
+        header="Harvest your Plants"
         visible={isOpen}
         modal={true}
         style={{width: "50vw", maxWidth: 500}}
@@ -91,10 +92,10 @@ export default function HarvestModal({
         id="waterModal"
       >
         {activeGardens.length === 0 ? (
-          <p>Sorry, you don't have any active farms.</p>
+          <p>Sorry, you don't have any active plots.</p>
         ) : (
           <>
-            <label htmlFor="garden"><b>Choose a farm or farms then click harvest</b></label>
+            <label htmlFor="garden"><b>Choose a plot or plots then click harvest</b></label>
 			<br/><br/>
 			  <Button
               disabled={isSubmitting}
