@@ -1,5 +1,5 @@
 import axios from "axios";
-import {format as formatTimeAgo} from "timeago.js";
+import { format as formatTimeAgo } from "timeago.js";
 
 export class HashkingsAPI {
   baseUrl = "https://hashkings.herokuapp.com/";
@@ -68,7 +68,7 @@ export class HashkingsAPI {
             {
               block,
               timestamp,
-              op: [, {permlink, sbd_payout, steem_payout, vesting_payout}]
+              op: [, { permlink, sbd_payout, steem_payout, vesting_payout }]
             }
           ] = payout;
 
@@ -99,7 +99,7 @@ export class HashkingsAPI {
               block,
               timestamp,
               trx_id,
-              op: [, {memo, amount}]
+              op: [, { memo, amount }]
             }
           ] = purchase;
 
@@ -128,7 +128,7 @@ export class HashkingsAPI {
               block,
               timestamp,
               trx_id,
-              op: [, {memo, amount}]
+              op: [, { memo, amount }]
             }
           ] = purchase;
 
@@ -205,7 +205,7 @@ export class HashkingsAPI {
 
     const [stats, all, dgpo, user, userLand] = await Promise.all(requests);
 
-    const {ac, bc, cc, dc, ec, fc} = stats.supply.land;
+    const { ac, bc, cc, dc, ec, fc } = stats.supply.land;
 
     const gardens = ac + bc + cc + dc + ec + fc;
 
@@ -218,8 +218,9 @@ export class HashkingsAPI {
     const delegationVestsToSteem = (
       (parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) *
         totalDelegation) /
-      parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
-      1000000 + 756.71
+        parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
+        1000000 +
+      756.71
     ).toFixed(3);
 
     const leaderboard = Object.keys(all.users)
@@ -242,7 +243,7 @@ export class HashkingsAPI {
       })
       .sort((a, b) => b.xp - a.xp)
       .slice(0, 20)
-      .map((l, position) => ({...l, position: position + 1}));
+      .map((l, position) => ({ ...l, position: position + 1 }));
 
     if (username) {
       const activeGardens = userLand.filter(land => typeof land === "object");
@@ -314,8 +315,14 @@ export class HashkingsAPI {
       this.getUserLand(username),
       this.getDGPO()
     ]);
-    const activeGardens = userLand.filter(land => typeof land === "object");
+    const activeGardens = userLand.filter(
+      land => typeof land === "object" && land.stage >= 0
+    );
     const availableGardens = userLand.filter(land => typeof land === "string");
+    const harvestedLand = userLand
+      .filter(land => typeof land === "object" && land.stage < 0)
+      .map(land => land.id);
+    availableGardens.push(...harvestedLand);
     const availableSeeds = user.seeds || [];
 
     return {
