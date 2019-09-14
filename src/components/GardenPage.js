@@ -262,8 +262,8 @@ export const GardenPage = () => {
             </b>
           </h1>
         </div>
-<div className="card-blank-sand-3 card-w-title">
-<div className="p-col-12 p-lg-12">
+<div className="card-blank-black-3 card-w-title">
+<div className="p-col-12 p-lg-12"><center>
             <Panel
               header=""
               className="activity-log"
@@ -273,20 +273,15 @@ export const GardenPage = () => {
                   <li key={action.block}>
                     <div className="card-blank count">
                       <h2>
-                      <b><u>
+                      <b><u><font size="6">
                       You {action.type.charAt(0).toUpperCase() +
                         action.type.slice(1)}
-                      </u></b>
+                      </font></u></b>
                       </h2>
                     </div>
                     <div className="p-grid">
-                      <div className="card-blank-sand-3 p-col-3">{seedNames[action.strain]}</div>
-                    </div>
-                    <div className="p-grid">
-                      <div className="card-blank-sand-3 p-col-3">{action.when}</div>
-                    </div>
-                    <div className="p-grid">
-                      <div className="card-blank-sand-3 p-col-3">on Plot # {action.id}</div>
+                      <div className="card-blank-sand-3 p-col-12"><font size="4">{seedNames[action.strain]} {action.when} on Plot # {action.id}</font></div>
+                    
                     </div>
                   </li>
                 ))}
@@ -294,7 +289,7 @@ export const GardenPage = () => {
                   <p>No recent activity</p>
                 )}
               </ul>
-            </Panel>
+            </Panel></center>
           </div>
         </div>
 
