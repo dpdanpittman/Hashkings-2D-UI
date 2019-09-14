@@ -137,30 +137,26 @@ export default function() {
     );
   } else {
     return (
-      <div className="card-blank-sand-3 bg-black">
+      <div className="card-blank-black-3 bg-black">
         <div className="p-fluid">
           <div className="p-col-12">
-            <h1>
-              <b>
-                <u>Stats</u>
-              </b>
-            </h1>
             <br />
-            <h1>
-              <b>Past Payouts, Seed and Plot Purchases</b>
-            </h1>
+            <center><h1>
+              <b><font color="white"><u>Past Payouts, Seed and Plot Purchases</u></font></b>
+            </h1></center>
           </div>
-
+          <br/>
+          <br/>
           <div className="p-col-12 bg-black">
-            <div className="card-blank-brown card-w-title">
-              <h1 className="section-heading">
+            <div className="card-blank-black card-w-title">
+              <h1 className="section-heading"><font color="white">
                 Payouts (since {oldestDate}){" "}
                 <Button
                   className="export-stats"
                   disabled={loading}
                   label="Export as CSV"
                   onClick={() => payoutsTable.current.exportCSV()}
-                />
+                /></font>
               </h1>
               <DataTable
                 value={recentPayouts}
@@ -192,14 +188,15 @@ export default function() {
                   body={blockTemplate}
                 />
               </DataTable>
-              <h1 className="section-heading">
+              <br/><br/><br/>
+              <h1 className="section-heading"><font color="white">
                 Land purchases (since {oldestDate})
                 <Button
                   className="export-stats"
                   disabled={loading}
                   label="Export as CSV"
                   onClick={() => landPurchasesTable.current.exportCSV()}
-                />
+                /></font>
               </h1>
               <DataTable
                 value={recentLandPurchases}
@@ -218,14 +215,15 @@ export default function() {
                   body={blockTemplate}
                 />
               </DataTable>
-              <h1 className="section-heading">
+              <br/><br/><br/>
+              <h1 className="section-heading"><font color="white">
                 Seed purchases (since {oldestDate})
                 <Button
                   className="export-stats"
                   disabled={loading}
                   label="Export as CSV"
                   onClick={() => seedPurchasesTable.current.exportCSV()}
-                />
+                /></font>
               </h1>
               <DataTable
                 value={recentSeedPurchases}
@@ -251,11 +249,11 @@ export default function() {
                   onChange={() => setFetchAll(!fetchAll)}
                   checked={fetchAll}
                   disabled={loading || noMoreHistory}
-                />
+                /><font color="white">
                 <label htmlFor="fetchAll" className="p-checkbox-label">
                   {" "}
                   Load all history (can take a while)
-                </label>
+                </label></font>
               </div>
               <Button
                 className="load-history"
