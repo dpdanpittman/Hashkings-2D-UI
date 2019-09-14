@@ -38,7 +38,7 @@ export const Dashboard = () => {
   }, [username]);
 
   return (
-    <div className="p-grid p-fluid dashboard card-blank-sand-3">
+    <div className="p-grid p-fluid dashboard card-blank-black">
       <div className="p-col-12 p-lg-4 bg-black">
         <div className="card summary">
           <span className="title">
