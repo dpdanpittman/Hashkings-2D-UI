@@ -137,19 +137,19 @@ export default function() {
     );
   } else {
     return (
-      <div className="card-blank-black-3 bg-black">
+      <div className="card-blank-sand-3 bg-black">
         <div className="p-fluid">
           <div className="p-col-12">
             <br />
             <center><h1>
-              <b><font color="white"><u>Past Payouts, Seed and Plot Purchases</u></font></b>
+              <b><font color="DFB17B"><u>Past Payouts, Seed and Plot Purchases</u></font></b>
             </h1></center>
           </div>
           <br/>
           <br/>
           <div className="p-col-12 bg-black">
-            <div className="card-blank-black card-w-title">
-              <h1 className="section-heading"><font color="white">
+            <div className="card-blank-sand-3 card-w-title">
+              <h1 className="section-heading"><font color="DFB17B">
                 Payouts (since {oldestDate}){" "}
                 <Button
                   className="export-stats"
@@ -189,7 +189,7 @@ export default function() {
                 />
               </DataTable>
               <br/><br/><br/>
-              <h1 className="section-heading"><font color="white">
+              <h1 className="section-heading"><font color="DFB17B">
                 Land purchases (since {oldestDate})
                 <Button
                   className="export-stats"
@@ -216,7 +216,7 @@ export default function() {
                 />
               </DataTable>
               <br/><br/><br/>
-              <h1 className="section-heading"><font color="white">
+              <h1 className="section-heading"><font color="DFB17B">
                 Seed purchases (since {oldestDate})
                 <Button
                   className="export-stats"
@@ -249,7 +249,7 @@ export default function() {
                   onChange={() => setFetchAll(!fetchAll)}
                   checked={fetchAll}
                   disabled={loading || noMoreHistory}
-                /><font color="white">
+                /><font color="DFB17B">
                 <label htmlFor="fetchAll" className="p-checkbox-label">
                   {" "}
                   Load all history (can take a while)

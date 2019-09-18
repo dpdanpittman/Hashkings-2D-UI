@@ -61,7 +61,9 @@ export default function Delegate({username, delegation, updateDelegation}) {
 
   return (
     <div>
-      <p><b><font color="black">{`You have delegated enough Steem Power for ${totalPlots} plot${
+      <hr/>
+      <br/>
+      <p><b><font color="DFB17B">{`You have delegated enough Steem Power for ${totalPlots} plot${
         totalPlots !== 1 ? "s" : ""
       } and have ${
         delegation.available

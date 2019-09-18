@@ -73,14 +73,16 @@ export default function BuyGarden({
   return (
     <>
       <label htmlFor="seed">
-        <font color="black">
+        <br/>
+        <br/>
+        <font color="DFB17B">
           <b>Purchase plot of land to for your farm</b>
         </font>
       </label>
       <br />
       <p>
         <b>
-          <font color="black">
+          <font color="DFB17B">
             You can purchase at most {delegation.available} garden
             {delegation.available === 1 ? "" : "s"} based on the amount of Steem
             Power you have delegated

@@ -87,19 +87,11 @@ export const MarketPlots = () => {
               <ImageGallery items={images} />
             </center>
           </div>
-          <div className="card-blank-green card-w-title">
+          <div className="card-blank-sand-3 card-w-title">
             <div className="p-grid">
-              <h4>
-                <b>
-                  <font color="black">
-                    Here you find our Available Plots. In order to Lease a
-                    farm plot please choose the amount and region.
-                  </font>
-                </b>
-              </h4>
               <h3>
                 <font color="#C50215">IMPORTANT!</font>
-                <font color="black">
+                <font color="DFB17B">
                   {" "}
                   Each plot requires a 20 SP delegation.
                 </font>
@@ -121,7 +113,7 @@ export const MarketPlots = () => {
             )}
             {delegation.available === 0 && (
               <p>
-                <font color="black">
+                <font color="DFB17B">
                   <b>
                     Please delegate more Steem Power above to purchase a garden
                   </b>
