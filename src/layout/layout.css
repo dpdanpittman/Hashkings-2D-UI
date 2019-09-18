@@ -9,19 +9,19 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  background: #85E190;
+  background: #164257;
   /* Old browsers */
-  background: -moz-linear-gradient(left, #85E190 0%, #79C4CB 100%);
+  background: -moz-linear-gradient(left, #164257 0%, #89571D 100%);
   /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #85E190), color-stop(100%, #79C4CB));
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #164257), color-stop(100%, #89571D));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(left, #85E190 0%, #79C4CB 100%);
+  background: -webkit-linear-gradient(left, #164257 0%, #89571D 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(left, #85E190 0%, #79C4CB 100%);
+  background: -o-linear-gradient(left, #164257 0%, #89571D 100%);
   /* Opera 11.10+ */
-  background: -ms-linear-gradient(left, #85E190 0%, #79C4CB 100%);
+  background: -ms-linear-gradient(left, #164257 0%, #89571D 100%);
   /* IE10+ */
-  background: linear-gradient(to right, #85E190 0%, #79C4CB 100%);
+  background: linear-gradient(to right, #164257 0%, #89571D 100%);
   /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$left, endColorstr=$right,GradientType=1 );
   /* IE6-9 */ }
@@ -90,19 +90,19 @@ a {
     color: #ffffff;
     z-index: 999;
     right: 0;
-    background: #85E190;
+    background: #164257;
     /* Old browsers */
-    background: -moz-linear-gradient(left, #85E190 0%, #79C4CB 100%);
+    background: -moz-linear-gradient(left, #164257 0%, #89571D 100%);
     /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #85E190), color-stop(100%, #79C4CB));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #164257), color-stop(100%, #89571D));
     /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left, #85E190 0%, #79C4CB 100%);
+    background: -webkit-linear-gradient(left, #164257 0%, #89571D 100%);
     /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left, #85E190 0%, #79C4CB 100%);
+    background: -o-linear-gradient(left, #164257 0%, #89571D 100%);
     /* Opera 11.10+ */
-    background: -ms-linear-gradient(left, #85E190 0%, #79C4CB 100%);
+    background: -ms-linear-gradient(left, #164257 0%, #89571D 100%);
     /* IE10+ */
-    background: linear-gradient(to right, #85E190 0%, #79C4CB 100%);
+    background: linear-gradient(to right, #164257 0%, #89571D 100%);
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$left, endColorstr=$right,GradientType=1 );
     /* IE6-9 */
@@ -235,7 +235,7 @@ a {
     .layout-wrapper .p-scrollpanel .p-scrollpanel-content {
       overflow: scroll; }
     .layout-wrapper .p-scrollpanel .p-scrollpanel-bar {
-      background: #aaaaaa;
+      background: #164257;
       opacity: 0.3;
       filter: alpha(opacity=30); }
     .layout-wrapper .p-scrollpanel .p-scrollpanel-hidden {
@@ -402,56 +402,56 @@ a {
         line-height: 16px;
         text-align: center;
         color: #ffffff;
-        background-color: #007be5;
+        background-color: #89571D;
         -moz-border-radius: 50%;
         -webkit-border-radius: 50%;
         border-radius: 50%; }
     .layout-wrapper .layout-sidebar.layout-sidebar-dark {
-      background: #85E190;
+      background: #164257;
       /* Old browsers */
-      background: -moz-linear-gradient(top, #85E190 0%, #E57A1A 100%);
+      background: -moz-linear-gradient(top, #164257 0%, #89571D 100%);
       /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #85E190), color-stop(100%, #E57A1A));
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #164257), color-stop(100%, #89571D));
       /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(top, #85E190 0%, #E57A1A 100%);
+      background: -webkit-linear-gradient(top, #164257 0%, #89571D 100%);
       /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(top, #85E190 0%, #E57A1A 100%);
+      background: -o-linear-gradient(top, #164257 0%, #89571D 100%);
       /* Opera 11.10+ */
-      background: -ms-linear-gradient(top, #85E190 0%, #E57A1A 100%);
+      background: -ms-linear-gradient(top, #164257 0%, #89571D 100%);
       /* IE10+ */
-      background: linear-gradient(to bottom, #85E190 0%, #E57A1A 100%);
+      background: linear-gradient(to bottom, #164257 0%, #89571D 100%);
       /* W3C */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
       /* IE6-9 */ }
       .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > button {
-        color: #08636B; }
+        color: #DFB17B; }
         .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > button:hover {
-          color: #0388e5; }
+          color: #B27E43; }
       .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > ul {
-        background-color: #2e3035; }
+        background-color: #011925; }
         .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > ul li button {
           border: 0 none;
-          color: #08636B;
-          border-top: 1px solid rgba(52, 56, 65, 0.6); }
+          color: #DFB17B;
+          border-top: 1px solid #011925; }
           .layout-wrapper .layout-sidebar.layout-sidebar-dark .profile > ul li button:hover {
-            color: #0388e5; }
+            color: #B27E43; }
       .layout-wrapper .layout-sidebar.layout-sidebar-dark ul li a {
-        color: #08636B;
-        border-top: 1px solid rgba(52, 56, 65, 0.6); }
+        color: #DFB17B;
+        border-top: 1px solid #011925; }
         .layout-wrapper .layout-sidebar.layout-sidebar-dark ul li a:hover {
-          color: #0388e5; }
+          color: #B27E43; }
         .layout-wrapper .layout-sidebar.layout-sidebar-dark ul li a.active-route {
-          background-color: #2e3035;
-          color: #0388e5; }
+          background-color: #011925;
+          color: #589F77; }
       .layout-wrapper .layout-sidebar.layout-sidebar-dark ul li.active-menuitem > a {
-        background-color: #2e3035;
-        color: #0388e5; }
+        background-color: #011925;
+        color: #589F77; }
       .layout-wrapper .layout-sidebar.layout-sidebar-dark ul li ul {
-        background-color: #2e3035; }
+        background-color: #011925; }
         .layout-wrapper .layout-sidebar.layout-sidebar-dark ul li ul li a {
           border: none; }
       .layout-wrapper .layout-sidebar.layout-sidebar-dark ul li:last-child > a {
-        border-bottom: 1px solid rgba(52, 56, 65, 0.6); }
+        border-bottom: 1px solid #011925; }
   .layout-wrapper .layout-main {
     -moz-transition: margin-left 0.7s;
     -o-transition: margin-left 0.7s;

@@ -126,30 +126,10 @@ export const GardenPage = () => {
   } else {
     return (
       <div className="card-blank-green-1">
-        <div className="p-col-12 bg-black">
-          <div className="p-col-12 bg-sky">
-            <center>
-              <div className="p-col-12 bg-sky">
-                <center><h1><b><font color="#098819">Welcome to your Farm</font></b></h1></center>
-                  <div className="p-col-3">
-                    <iframe
-                      title="sun giphy"
-                      src="https://giphy.com/embed/L08sJsg6tEUyb1E0VW"
-                      width="150"
-                      height="150"
-                      frameBorder="0"
-                      className="giphy-embed"
-                      allowFullScreen
-                    />
-                  </div>
-              </div>
-            </center>
-          </div>          
-        </div>
         <div className="p-col-12">
           <h1>
             <b>
-              <u><font color="#FFC897">Farming</font></u>
+              <u><font color="#DFB17B">Farming</font></u>
             </b>
           </h1>
         </div>
@@ -157,7 +137,7 @@ export const GardenPage = () => {
         <div className="card-blank-green-2">
           <div className="p-grid">
             <div className="p-col-4">
-              <center><h2><b><u><font color="#FFC897">Daily</font></u></b></h2></center><br/>
+              <center><h2><b><u><font color="#DFB17B">Daily</font></u></b></h2></center><br/>
                   <center>
                   <Button
                     variant="contained" 
@@ -206,7 +186,7 @@ export const GardenPage = () => {
                   </center>	
       </div>
       <div className="p-col-4">
-      <center><h2><b><u><font color="#FFC897">Harvesting</font></u></b></h2></center><br/>
+      <center><h2><b><u><font color="#DFB17B">Harvesting</font></u></b></h2></center><br/>
                   <center>
                   <Button
                     variant="contained" 
@@ -243,7 +223,7 @@ export const GardenPage = () => {
         <div className="p-col-12">
           <h1>
             <b>
-              <u><font color="#FFC897">Inventory</font></u>
+              <u><font color="#DFB17B">Inventory</font></u>
             </b>
           </h1>
         </div>
@@ -258,7 +238,7 @@ export const GardenPage = () => {
 <div className="p-col-12">
           <h1>
             <b>
-              <u><font color="#FFC897">Recent Activity</font></u>
+              <u><font color="#DFB17B">Recent Activity</font></u>
             </b>
           </h1>
         </div>
@@ -293,13 +273,13 @@ export const GardenPage = () => {
           </div>
         </div>
 
-        <h1><font color="#FFC897"><b><u>Progress of Active Farms</u></b></font></h1>
-        <h3><font color="#FFC897"><b>8 Stages with 14 Substages (1 substage is ~1 day)</b></font></h3>
+        <h1><font color="#DFB17B"><b><u>Progress of Active Farms</u></b></font></h1>
+        <h3><font color="#DFB17B"><b>8 Stages with 14 Substages (1 substage is ~1 day)</b></font></h3>
         <br/>
-        <p><font color="#FFC897">Go from seed to harvest in 8 stages where each Stage has 14 substages and determine
+        <p><font color="#DFB17B">Go from seed to harvest in 8 stages where each Stage has 14 substages and determine
            the age of your cannabis.The progress bars below show you how 
            far along your plants are.</font><br/><br/>
-           <font color="#FFC897"><u>Once your plot reaches stage 8 you may use the harvest button</u></font>
+           <font color="#DFB17B"><u>Once your plot reaches stage 8 you may use the harvest button</u></font>
         </p>
 
           <div className="p-col-12">

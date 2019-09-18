@@ -9,7 +9,7 @@ export default function Inventory({user}) {
       <div className="card-blank-brown p-col-5 p-grid">
         <div className="p-col-6"><center>
         <h3>
-          <u><font color="#FFC897">Active</font></u>
+          <u><font color="#DFB17B">Active</font></u>
           {_.uniqBy(user.activeGardens, garden => garden.id[0])
             .map(garden => ({
               id: garden.id[0],
@@ -27,7 +27,7 @@ export default function Inventory({user}) {
         </div>
         <div className="p-col-6">
         <h3>
-          <u><font color="#FFC897">Available</font></u></h3>
+          <u><font color="#DFB17B">Available</font></u></h3>
           {_.uniqBy(user.availableGardens, garden => garden[0])
             .map(garden => ({
               id: garden[0],
@@ -47,7 +47,7 @@ export default function Inventory({user}) {
       <div className="p-col-1" />
       <div className="card-blank-brown p-col-5 p-grid">
         <h3>
-          <u><font color="#FFC897">Available Seeds</font></u>
+          <u><font color="#DFB17B">Available Seeds</font></u>
           {_.uniqBy(user.availableSeeds, seed => seed.strain)
             .map(seed => ({
               strain: seed.strain,

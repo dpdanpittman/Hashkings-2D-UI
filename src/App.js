@@ -163,6 +163,11 @@ class App extends Component {
         ]
       },
       {
+        label: "Hashkings Curation Trail (Coming Soon)",
+        icon: "pi pi-fw pi-home",
+        //to: "/leaderboard"
+      },
+      {
         label: "Leaderboard",
         icon: "pi pi-fw pi-home",
         to: "/leaderboard"
