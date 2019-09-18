@@ -42,10 +42,10 @@ export const Dashboard = () => {
       <div className="p-col-12 p-lg-4 bg-black">
         <div className="card summary">
           <span className="title">
-            <font color="white">HashKings Farmers</font>
+            <font color="DFB17B">HashKings Farmers</font>
           </span>
           <span className="detail">
-            <font color="white">Total number of Farmers</font>
+            <font color="DFB17B">Total number of Farmers</font>
           </span>
           <span className="count visitors">{dashboardStats.gardeners}</span>
         </div>
@@ -53,10 +53,10 @@ export const Dashboard = () => {
       <div className="p-col-12 p-lg-4 bg-black">
         <div className="card summary">
           <span className="title">
-            <font color="white">Active Farms</font>
+            <font color="DFB17B">Active Farms</font>
           </span>
           <span className="detail">
-            <font color="white">Number of farms</font>
+            <font color="DFB17B">Number of farms</font>
           </span>
           <span className="count purchases">{dashboardStats.gardens}</span>
         </div>
@@ -64,12 +64,12 @@ export const Dashboard = () => {
       <div className="p-col-12 p-lg-4 bg-black">
         <div className="card summary">
           <span className="title">
-            <font color="white">Economy</font>
+            <font color="DFB17B">Economy</font>
           </span>
           <span className="detail">
-            <font color="white">Total Delegated Steem</font>
+            <font color="DFB17B">Total Delegated Steem</font>
           </span>
-          <span className="count revenue">{dashboardStats.delegation}</span>
+          <span className="count revenue"><font color="white">{dashboardStats.delegation}</font></span>
         </div>
       </div>
 
