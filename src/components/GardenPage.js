@@ -260,7 +260,7 @@ export const GardenPage = () => {
                       </h2>
                     </div>
                     <div className="p-grid">
-                      <div className="card-blank-sand-3 p-col-12"><font size="4">{seedNames[action.strain]} {action.when} on Plot # {action.id}</font></div>
+                      <div className="card-blank-sand-3 p-col-12"><font size="4" color="#DFB17B">{seedNames[action.strain]} {action.when} on Plot # {action.id}</font></div>
                     
                     </div>
                   </li>

@@ -49,7 +49,7 @@ export default function Inventory({user}) {
         </div>
       </div>
       <div className="p-col-2" />
-      <div className="card-blank-brown p-col-4 p-grid">
+      <div className="card-blank-brown p-col-4">
         <h3>
         <center>
           <u><font color="#DFB17B" size="5">Available Seeds</font></u>
