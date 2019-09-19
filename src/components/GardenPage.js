@@ -108,7 +108,7 @@ export const GardenPage = () => {
 
   if (!username) {
     return (
-      <div className="card-blank-green">
+      <div className="card-blank-sand-3">
         <div className="p-grid">
         <div className="p-col-3" />
           <div className="p-col-6">
