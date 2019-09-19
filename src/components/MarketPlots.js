@@ -43,54 +43,22 @@ export const MarketPlots = () => {
       <div className="p-fluid">
         <div className="p-grid">
           <div className="p-col-12">
-            <div className="card-blank-green card-w-title">
-              <h1><a href="/login"><b><u>Please sign in to see your garden</u></b></a></h1>
+            <div className="card-blank-sand-3 card-w-title">
+              <h1><a href="/login"><font color="DFB17B"><b><u>Please sign in to see your garden</u></b></font></a></h1>
             </div>
           </div>
         </div>
       </div>
     );
   }
-
-  const images = [
-    {
-      original: "https://i.imgur.com/F3G7OJ1.png",
-      thumbnail: "https://i.imgur.com/F3G7OJ1l.png"
-    },
-    {
-      original: "https://i.imgur.com/mEQ9DuD.png",
-      thumbnail: "https://i.imgur.com/mEQ9DuDl.png"
-    },
-    {
-      original: "https://i.imgur.com/sp1WVnQ.png",
-      thumbnail: "https://i.imgur.com/sp1WVnQl.png"
-    },
-    {
-      original: "https://i.imgur.com/HFcvuGs.png",
-      thumbnail: "https://i.imgur.com/HFcvuGst.png"
-    },
-    {
-      original: "https://i.imgur.com/46VcHyk.png",
-      thumbnail: "https://i.imgur.com/46VcHykh.png"
-    },
-    {
-      original: "https://i.imgur.com/IomdkMf.png",
-      thumbnail: "https://i.imgur.com/IomdkMfl.png"
-    }
-  ];
   return (
     <div className="p-fluid">
       <div className="p-grid">
         <div className="p-col-12 card-blank-sand-3">
           <center><h1><b>Welcome To Our Leasing Services</b></h1></center>
           <br/>
-
-        {/*<div className="card card-w-title">
-            <center>
-              <ImageGallery items={images} />
-            </center>
-          </div>*/}
-          <div className="card-blank-sand-3 card-w-title">
+          <div className="p-col-12 card-blank-sand-3 card-w-title">
+          <div className="p-col-3" />
             <div className="p-grid p-col-6">
             <hr/>
               <h3><center>
@@ -103,6 +71,7 @@ export const MarketPlots = () => {
               </h3>
               <hr/>
             </div>
+            <div className="p-col-3" />
             <br/>
             <br/>
             <br/>
