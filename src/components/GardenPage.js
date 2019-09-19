@@ -141,7 +141,7 @@ export const GardenPage = () => {
                   <center>
                   <Button
                     variant="contained" 
-                    color="primary"
+                    color="secondary"
                     onClick={() => setWaterModal(!waterModal)}
                   ><span>Water</span></Button>
                   </center>
@@ -149,40 +149,56 @@ export const GardenPage = () => {
                   <center>
                   <Button
                   variant="contained"
-                  color="primary"
+                  color="secondary"
                     onClick={() => setPlantSeedModal(!plantSeedModal)}
                   ><span>Plant</span>
                   </Button>
                   </center>
+                  <br/>
+                  <center>
+                  <Button
+                  variant="contained"
+                  color="primary"
+                  ><span>Feed Nutrients<font color="#002A12"> (Coming Soon)</font></span>
+                  </Button>
+                  </center>
       </div>
       <div className="p-col-4">
-      <center><h2><b><u><font color="#FFC897"></font></u></b></h2></center><br/>
+      <center><h2><b><u><font color="#FFC897">Extra Maintenance</font></u></b></h2></center><br/>
                   <center>
                   <Button
                     label="Check PH"
                     icon="pi pi-external-link"
-                  />
+                    variant="contained" 
+                    color="primary"
+                  ><span>Check Soil PH<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>
                   <br/>
                   <center>
                   <Button
                     label="Flush"
                     icon="pi pi-external-link"
-                  />
+                    variant="contained" 
+                    color="primary"
+                  ><span>Flush Soil<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>
                   <br/>
                   <center>
                         <Button
                           label="Fix PH"
                           icon="pi pi-external-link"
-                        />
+                          variant="contained" 
+                          color="primary"
+                        ><span>Fix Soil PH<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>
                   <br/>
                   <center>
                         <Button
                           label="Dry Soil"
                           icon="pi pi-external-link"
-                        />
+                          variant="contained" 
+                          color="primary"
+                        ><span>Dry out Soil<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>	
       </div>
       <div className="p-col-4">
@@ -190,7 +206,7 @@ export const GardenPage = () => {
                   <center>
                   <Button
                     variant="contained" 
-                    color="primary"
+                    color="secondary"
                     onClick={() => setHarvestModal(!harvestModal)}
                   ><span>Harvest</span></Button>
                   </center>
@@ -199,21 +215,27 @@ export const GardenPage = () => {
                   <Button
                     label="Trim"
                     icon="pi pi-external-link"
-                  />
+                    variant="contained" 
+                    color="primary"
+                  ><span>Trim<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>
                   <br/>
                   <center>
-                        <Button
-                          label="Hang Dry"
-                          icon="pi pi-external-link"
-                        />
+                  <Button
+                    label="Hang Dry"
+                    icon="pi pi-external-link"
+                    variant="contained" 
+                    color="primary"
+                  ><span>Hang Dry<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>
                   <br/>
                   <center>
                         <Button
                           label="Pollinate"
                           icon="pi pi-external-link"
-                        />
+                          variant="contained" 
+                          color="primary"
+                        ><span>Pollinate<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>	
       </div>
     </div>        
@@ -242,10 +264,10 @@ export const GardenPage = () => {
             </b>
           </h1>
         </div>
-<div className="card-blank-black-3 card-w-title">
-<div className="p-col-12 p-lg-12"><center>
+<div className="p-grid card-blank-black-3 card-w-title">
+<div className="p-lg-3" />
+<div className="p-col-6 p-lg-6"><center>
             <Panel
-              header=""
               className="activity-log"
             >
               <ul className="card-blank-blue activity-list">
