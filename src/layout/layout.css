@@ -572,11 +572,11 @@ h2 {
     -webkit-border-radius: 3px;
     border-radius: 3px; }
     .dashboard .summary .count.visitors {
-      background-color: #2F7F52; }
+      background-color: #20d077; }
     .dashboard .summary .count.purchases {
-      background-color: #2F7F52; }
+      background-color: #f9c851; }
     .dashboard .summary .count.revenue {
-      background-color: #2F7F52; }
+      background-color: #007be5; }
 
 .dashboard .highlight-box {
   height: 100px; }

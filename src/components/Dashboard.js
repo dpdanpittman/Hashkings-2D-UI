@@ -47,7 +47,7 @@ export const Dashboard = () => {
           <span className="detail">
             <font color="DFB17B">Total number of Farmers</font>
           </span>
-          <span className="count visitors">{dashboardStats.gardeners}</span>
+          <span className="count visit">{dashboardStats.gardeners}</span>
         </div>
       </div>
       <div className="p-col-12 p-lg-4 bg-black">
@@ -58,7 +58,7 @@ export const Dashboard = () => {
           <span className="detail">
             <font color="DFB17B">Number of farms</font>
           </span>
-          <span className="count purchases">{dashboardStats.gardens}</span>
+          <span className="count purchase">{dashboardStats.gardens}</span>
         </div>
       </div>
       <div className="p-col-12 p-lg-4 bg-black">
@@ -69,7 +69,7 @@ export const Dashboard = () => {
           <span className="detail">
             <font color="DFB17B">Total Delegated Steem</font>
           </span>
-          <span className="count revenue"><font color="white">{dashboardStats.delegation}</font></span>
+          <span className="count rev"><font color="white">{dashboardStats.delegation}</font></span>
         </div>
       </div>
 
