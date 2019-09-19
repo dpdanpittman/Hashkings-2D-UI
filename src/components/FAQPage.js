@@ -4,9 +4,9 @@ import {withRouter} from "react-router-dom";
 export const FAQPage = () => {
 
     return (
-      <div className="card-blank-green">
+      <div className="card-blank-sand-3">
         <div className="p-fluid">
-          <div className="p-col-12"><font color="black">
+          <div className="p-col-12"><font color="#FFC897">
 			<h3><b>Hashkings is an independently developed game and decentralized application (dApp) running on the STEEM blockchain. 
 			The project officially started in October 2018 on the Ethereum blockchain but migrated to STEEM in January 2019 in an effort 
 			to expand into a growing new platform.</b></h3>

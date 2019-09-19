@@ -2,10 +2,10 @@ import React from "react";
 import BuySeed from "./BuySeed";
 
 export const MarketSupplies = () => (
-  <div className="p-fluid bgimg">
+  <div className="p-fluid card-blank-sand-3">
     <div className="p-grid">      
       <div className="p-col-4">
-        <div className="card-blank-blue card-w-title">
+        <div className="card-blank-sand-3 card-w-title">
           <h1>
             <font color="#FFC897">Nutrients</font>
           </h1>
@@ -22,7 +22,7 @@ export const MarketSupplies = () => (
         </div>
       </div>
       <div className="p-col-4">
-        <div className="card-blank-blue card-w-title">
+        <div className="card-blank-sand-3 card-w-title">
           <h1>
             <font color="#FFC897">Soil and other Mediums</font>
           </h1>
@@ -39,7 +39,7 @@ export const MarketSupplies = () => (
         </div>
       </div>
       <div className="p-col-4">
-        <div className="card-blank-blue card-w-title">
+        <div className="card-blank-sand-3 card-w-title">
           <h1><font color="#FFC897">Tools</font></h1>
           <h2>
             <b>500 KFQ</b>

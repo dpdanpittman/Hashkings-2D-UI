@@ -74,7 +74,7 @@ export default function GiftSeed() {
     <>
       <Growl ref={growl} />
       <div className="p-col-12 p-md-4">
-        <h1 className="section-heading"><font color="black">Send Below</font></h1>
+        <h1 className="section-heading"><font color="#FFC897">Send Below</font></h1>
 
         <InputText
           className="form-input"

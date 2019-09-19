@@ -2,11 +2,11 @@ import React from "react";
 import BuySeed from "./BuySeed";
 
 export const MarketSeeds = () => (
-  <div className="card-blank-green p-fluid bgimg">
+  <div className="card-blank-sand-3 p-fluid">
     <div className="p-grid">
 	<div className="p-col-2" />
       <div className="p-col-8">
-        <div className="card-blank-blue card-w-title bgimg-seeds-2">
+        <div className="card-blank-green-2 card-w-title">
           <h1>
             <font color="#FFC897">Welcome to the Hashkings Dispensary</font>
           </h1>
@@ -37,7 +37,7 @@ export const MarketSeeds = () => (
       
       <div className="p-col-3" />
       <div className="p-col-6">
-        <div className="card-blank-dark-green card-w-title bgimg-seeds">
+        <div className="card-blank-dark-sand-3 card-w-title">
           <center>
           <h1>
             <font color="#08636B"><b><u>Top-Shelf Seeds - 3 STEEM</u></b></font>
@@ -55,7 +55,7 @@ export const MarketSeeds = () => (
       <div className="p-col-3" />
       <div className="p-col-3" />
       <div className="p-col-6">
-        <div className="card-blank-dark-green card-w-title bgimg-seeds">
+        <div className="card-blank-dark-sand-3 card-w-title">
           <center>
           <h1>
           <font color="#08636B"><b><u>Premium Seeds - 1.5 STEEM</u></b></font>
@@ -73,7 +73,7 @@ export const MarketSeeds = () => (
       <div className="p-col-3" />
       <div className="p-col-3" />
       <div className="p-col-6">
-        <div className="card-blank-dark-green card-w-title bgimg-seeds">
+        <div className="card-blank-dark-sand-3 card-w-title">
           <center>
           <h1><font color="#08636B"><b><u>Basic Seeds - 0.75 STEEM</u></b></font></h1>
           </center>
