@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect, useRef} from "react";
+import React, {useContext, useState, useEffect,} from "react";
 import Button from '@material-ui/core/Button';
 import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
@@ -295,6 +295,8 @@ export const GardenPage = () => {
           </div>
         </div>
 
+        <br/>
+        <br/>
         <h1><font color="#DFB17B"><b><u>Progress of Active Farms</u></b></font></h1>
         <h3><font color="#DFB17B"><b>8 Stages with 14 Substages (1 substage is ~1 day)</b></font></h3>
         <br/>

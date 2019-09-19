@@ -1,5 +1,4 @@
 import React from "react";
-import BuySeed from "./BuySeed";
 
 export const MarketSupplies = () => (
   <div className="p-fluid card-blank-sand-3">

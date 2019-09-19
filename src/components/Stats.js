@@ -1,11 +1,10 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { Button } from "primereact/button";
-import { HashkingsAPI, seedNames } from "../service/HashkingsAPI";
+import { HashkingsAPI } from "../service/HashkingsAPI";
 import { StateContext } from "../App";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Checkbox } from "primereact/checkbox";
-import { ProgressBar } from "primereact/progressbar";
 
 export default function() {
   const { username } = useContext(StateContext);

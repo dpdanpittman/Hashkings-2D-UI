@@ -1,5 +1,4 @@
 import React, {useContext, useState, useEffect} from "react";
-import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import {HashkingsAPI} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
