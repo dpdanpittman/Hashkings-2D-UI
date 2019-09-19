@@ -75,7 +75,7 @@ export const Dashboard = () => {
 
       {username && (
         <>
-          <div className="p-col-12 p-lg-12">
+          <div className="p-col-12 p-lg-12 card-blank-green-1">
             <DataTable
              value={dashboardStats.leaderboard}
              responsive={true}
@@ -83,8 +83,8 @@ export const Dashboard = () => {
              header="Top Farmers"
              autoLayout={true}
             >
-            <Column field="position" header="Position" />
-            <Column field="username" header="Farmer" />
+            <Column field="position" header="Position" sortable={true} />
+            <Column field="username" header="Farmer" sortable={true} />
             <Column field="xp" header="XP" sortable={true} />
             </DataTable>
           </div>

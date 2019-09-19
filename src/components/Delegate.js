@@ -61,8 +61,10 @@ export default function Delegate({username, delegation, updateDelegation}) {
 
   return (
     <div>
+      <center>
       <hr/>
       <br/>
+      <font size="5"><u><b>Plot Delegation</b></u></font>
       <p><b><font color="DFB17B">{`You have delegated enough Steem Power for ${totalPlots} plot${
         totalPlots !== 1 ? "s" : ""
       } and have ${
@@ -78,6 +80,8 @@ export default function Delegate({username, delegation, updateDelegation}) {
           onClick={handleSubmit}
         />
       </div>
+      </center>
+      <br/>
     </div>
   );
 }

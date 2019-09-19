@@ -81,22 +81,31 @@ export const MarketPlots = () => {
   return (
     <div className="p-fluid">
       <div className="p-grid">
-        <div className="p-col-12">
-          <div className="card card-w-title">
+        <div className="p-col-12 card-blank-sand-3">
+          <center><h1><b>Welcome To Our Leasing Services</b></h1></center>
+          <br/>
+
+        {/*<div className="card card-w-title">
             <center>
               <ImageGallery items={images} />
             </center>
-          </div>
+          </div>*/}
           <div className="card-blank-sand-3 card-w-title">
-            <div className="p-grid">
-              <h3>
+            <div className="p-grid p-col-6">
+            <hr/>
+              <h3><center>
                 <font color="#C50215">IMPORTANT!</font>
                 <font color="DFB17B">
                   {" "}
                   Each plot requires a 20 SP delegation.
                 </font>
+                </center>
               </h3>
+              <hr/>
             </div>
+            <br/>
+            <br/>
+            <br/>
             {/* <div className="p-col-12 p-md-2">Gardens</div> */}
             <Delegate
               username={username}

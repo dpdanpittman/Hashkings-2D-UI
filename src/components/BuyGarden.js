@@ -72,20 +72,22 @@ export default function BuyGarden({
 
   return (
     <>
+    <center>
       <label htmlFor="seed">
+        <hr/>
         <br/>
         <br/>
-        <font color="DFB17B">
-          <b>Purchase plot of land to for your farm</b>
+        <font color="DFB17B" size="5">
+          <u><b>Lease a plot of land for your farm</b></u>
         </font>
       </label>
       <br />
       <p>
         <b>
           <font color="DFB17B">
-            You can purchase at most {delegation.available} garden
-            {delegation.available === 1 ? "" : "s"} based on the amount of Steem
-            Power you have delegated
+            You can lease at most {delegation.available} plot(s)
+            {delegation.available === 1 ? "" : "s"} based on the amount of STEEM
+            Power you have delegated.
           </font>
         </b>
       </p>
@@ -110,16 +112,17 @@ export default function BuyGarden({
           onChange={e => {
             setGarden(e.value);
           }}
-          placeholder="Choose a garden..."
+          placeholder="Choose a region..."
         />
       </div>
       <div className="p-col-12 p-md-4">
         <Button
           disabled={isSubmitting}
-          label={isSubmitting ? "Purchasing" : "Purchase"}
+          label={isSubmitting ? "Purchasing" : "Pay Lease"}
           onClick={handleSubmit}
         />
       </div>
+      </center>
     </>
   );
 }
