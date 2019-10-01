@@ -1,4 +1,5 @@
 import React, {useContext, useState, useEffect,} from "react";
+import Button from '@material-ui/core/Button';
 import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import PlantModal from "./PlantModal";
@@ -10,10 +11,6 @@ import { DataTable } from "primereact/datatable";
 import { ProgressBar } from "primereact/progressbar";
 import { Column } from "primereact/column";
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
-//import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -27,7 +24,6 @@ const useStyles = makeStyles(theme => ({
 export const GardenPage = () => {
   const {username} = useContext(StateContext);
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
 
   const [dashboardStats, setDashboardStats] = useState({
     gardeners: 0,
@@ -121,18 +117,6 @@ export const GardenPage = () => {
     }
   }, [username]);
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
-  };
-
   if (!username) {
     return (
       <div className="card-blank-sand-3">
@@ -153,24 +137,6 @@ export const GardenPage = () => {
   } else {
     return (
       <div className="card-blank-green-1">
-      <Snackbar
-        anchorOrigin={{
-          vertical: 'center',
-          horizontal: 'Center',
-        }}
-        open={open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        ContentProps={{
-          'aria-describedby': 'message-id',
-        }}
-        message={<span id="message-id">Coming Soon</span>}
-        action={[
-          <Button key="undo" color="secondary" size="small" onClick={handleClose}>
-            Close
-          </Button>,
-        ]}
-      />
         <div className="p-col-12">
           <h1>
             <b>
@@ -195,7 +161,7 @@ export const GardenPage = () => {
                   <Button
                   variant="contained"
                   color="secondary"
-                  onClick={() => setPlantSeedModal(!plantSeedModal)}
+                    onClick={() => setPlantSeedModal(!plantSeedModal)}
                   ><span>Plant</span>
                   </Button>
                   </center>
@@ -204,8 +170,8 @@ export const GardenPage = () => {
                   <Button
                   variant="contained"
                   color="primary"
-                  onClick={handleClick}
-                  ><span>Feed Nutrients</span>
+                  disabled className={classes.button}
+                  ><span>Feed Nutrients<font color="#002A12"> (Coming Soon)</font></span>
                   </Button>
                   </center>
       </div>
@@ -217,8 +183,7 @@ export const GardenPage = () => {
                     icon="pi pi-external-link"
                     variant="contained" 
                     color="primary"
-                    onClick={handleClick}
-                  ><span>Check Soil PH</span></Button>
+                  ><span>Check Soil PH<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>
                   <br/>
                   <center>
@@ -227,8 +192,7 @@ export const GardenPage = () => {
                     icon="pi pi-external-link"
                     variant="contained" 
                     color="primary"
-                    onClick={handleClick}
-                  ><span>Flush Soil</span></Button>
+                  ><span>Flush Soil<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>
                   <br/>
                   <center>
@@ -237,8 +201,7 @@ export const GardenPage = () => {
                           icon="pi pi-external-link"
                           variant="contained" 
                           color="primary"
-                          onClick={handleClick}
-                        ><span>Fix Soil PH</span></Button>
+                        ><span>Fix Soil PH<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>
                   <br/>
                   <center>
@@ -247,8 +210,7 @@ export const GardenPage = () => {
                           icon="pi pi-external-link"
                           variant="contained" 
                           color="primary"
-                          onClick={handleClick}
-                        ><span>Dry out Soil</span></Button>
+                        ><span>Dry out Soil<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>	
       </div>
       <div className="p-col-4">
@@ -267,8 +229,7 @@ export const GardenPage = () => {
                     icon="pi pi-external-link"
                     variant="contained" 
                     color="primary"
-                    onClick={handleClick}
-                  ><span>Trim</span></Button>
+                  ><span>Trim<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>
                   <br/>
                   <center>
@@ -277,8 +238,7 @@ export const GardenPage = () => {
                     icon="pi pi-external-link"
                     variant="contained" 
                     color="primary"
-                    onClick={handleClick}
-                  ><span>Hang Dry</span></Button>
+                  ><span>Hang Dry<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>
                   <br/>
                   <center>
@@ -287,8 +247,7 @@ export const GardenPage = () => {
                           icon="pi pi-external-link"
                           variant="contained" 
                           color="primary"
-                          onClick={handleClick}
-                        ><span>Pollinate</span></Button>
+                        ><span>Pollinate<font color="#002A12"> (Coming Soon)</font></span></Button>
                   </center>	
       </div>
     </div>        
