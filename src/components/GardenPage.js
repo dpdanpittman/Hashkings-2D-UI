@@ -362,7 +362,7 @@ export const GardenPage = () => {
                   </div>
       <div className="card-blank-black">
         <div className="p-col-12">
-        <div className="card-blank-sand-3 card-w-title">
+        <div className="card-blank-sand-3">
         <h1>
             <b>
               <u><font color="#DFB17B">Inventory</font></u>
@@ -380,7 +380,7 @@ export const GardenPage = () => {
             </b>
           </h1>
         </div>
-<div className="p-grid card-blank-black-3 card-w-title">
+<div className="p-grid card-w-title">
 <div className="p-lg-3" />
 <div className="p-col-6 p-lg-6"><center>
             <Panel

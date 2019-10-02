@@ -1,11 +1,18 @@
 import React from "react";
 import {gardenNames, seedNames} from "../service/HashkingsAPI";
-import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Badge from '@material-ui/core/Badge';
 import SvgIcon from '@material-ui/core/SvgIcon';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography';
 import _ from "lodash";
 
 function FarmIcon(props) {
@@ -106,6 +113,13 @@ const useStyles = makeStyles(theme => ({
   padding: {
     padding: theme.spacing(0, 2),
   },
+  card: {
+    maxWidth: 345,
+    backgroundColor: "#2E5B71",
+  },
+  media: {
+    height: 140,
+  },
 }));
 
 export default function Inventory({user}) {
@@ -114,8 +128,19 @@ export default function Inventory({user}) {
     <div className={classes.flex}>
     <Grid container spacing={3}>
       <Grid item xs>
-        <Paper className={classes.paper}>
-        <h3><u><font color="#DFB17B" size="5">Active Farms</font></u></h3>
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          image="https://i.imgur.com/vAUGcFV.png"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Active Plots
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            This is a list of your current active plots. These need to be cared 
+            for on a daily basis.
+          </Typography>
           {_.uniqBy(user.activeGardens, garden => garden.id[0])
             .map(garden => ({
               id: garden.id[0],
@@ -129,10 +154,19 @@ export default function Inventory({user}) {
                   <FarmIcon  />
                 </Badge>
                     {gardenNames[garden.id]}
-                {garden.count !== 1 ? " Plots" : ""}
+                {garden.count !== 1 ? "" : ""}
               </p></b>
             ))}
-        </Paper>
+        </CardContent>
+      <CardActions>
+        <Button size="small" color="#000000">
+          Buy Seeds
+        </Button>
+        <Button size="small" color="#000000">
+          Get More Plots
+        </Button>
+      </CardActions>
+    </Card>
         </Grid>
         <Grid item xs>
         <Paper className={classes.paper}>
