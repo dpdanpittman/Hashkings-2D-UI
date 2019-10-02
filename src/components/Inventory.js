@@ -160,7 +160,7 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       <CardActions>
-        <Button size="small" color="#000000" href="/market/MarketSupplies">
+        <Button size="small" color="#000000" variant="contained" color="link" href="/market/MarketSupplies">
           Purchase Supplies
         </Button>
       </CardActions>
@@ -198,10 +198,10 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       <CardActions>
-        <Button size="small" color="#000000" href="/market/seedbank">
+        <Button size="small" color="#000000" variant="contained" color="link" href="/market/seedbank">
           Buy Seeds
         </Button>
-        <Button size="small" color="#000000" href="/gifting">
+        <Button size="small" color="#000000" variant="contained" color="link" href="/gifting">
           Gift Seeds
         </Button>
       </CardActions>
@@ -254,7 +254,7 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       <CardActions>
-        <Button size="small" color="#000000" href="/market/farmplots">
+        <Button size="small" color="#000000" variant="contained" color="link" href="/market/farmplots">
           Lease More Plots
         </Button>
       </CardActions>
