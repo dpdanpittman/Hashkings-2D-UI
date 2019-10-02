@@ -128,6 +128,7 @@ export default function Inventory({user}) {
     <div className={classes.flex}>
     <Grid container spacing={3}>
       <Grid item xs>
+
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -159,45 +160,26 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       <CardActions>
-        <Button size="small" color="#000000">
-          Buy Seeds
-        </Button>
-        <Button size="small" color="#000000">
-          Get More Plots
+        <Button size="small" color="#000000" href="/market/MarketSupplies">
+          Purchase Supplies
         </Button>
       </CardActions>
     </Card>
+
         </Grid>
-        <Grid item xs>
-        <Paper className={classes.paper}>
-          <center>
-        <h3>
-          <u><font color="#DFB17B" size="5">Available Plots</font></u></h3>
-          {_.uniqBy(user.availableGardens, garden => garden[0])
-            .map(garden => ({
-              id: garden[0],
-              count: user.availableGardens.filter(
-                agarden => agarden[0] === garden[0]
-              ).length
-            }))
-            .map(garden => (
-              <p key={garden.id}>
-                <Badge className={classes.margin} badgeContent={garden.count} color="primary">
-                  <FarmIcon  />
-                </Badge>
-                 {gardenNames[garden.id]}
-                {garden.count !== 1 ? "s" : ""}
-              </p>
-                      
-            ))}
-            </center>
-            </Paper>
-            </Grid>
             <Grid item xs>
-            <Paper className={classes.paper}>
-        <h3>
-        <center>
-          <u><font color="#DFB17B" size="5">Available Seeds</font></u>
+            <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          image="https://d3atagt0rnqk7k.cloudfront.net/wp-content/uploads/2016/04/29195549/cannabis-seeds-101-all-you-need-to-know-and-more.jpg"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Available Seeds
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            This is a list of your current available seeds. Plant them to get started!
+          </Typography>
           {_.uniqBy(user.availableSeeds, seed => seed.strain)
             .map(seed => ({
               strain: seed.strain,
@@ -214,10 +196,72 @@ export default function Inventory({user}) {
                 {seed.count !== 1 ? "s" : ""}
               </p>
             ))}
-            </center>
-        </h3>
-        </Paper></Grid>
+        </CardContent>
+      <CardActions>
+        <Button size="small" color="#000000" href="/market/seedbank">
+          Buy Seeds
+        </Button>
+        <Button size="small" color="#000000" href="/gifting">
+          Gift Seeds
+        </Button>
+      </CardActions>
+    </Card>
+          {_.uniqBy(user.availableSeeds, seed => seed.strain)
+            .map(seed => ({
+              strain: seed.strain,
+              count: user.availableSeeds.filter(
+                aseed => aseed.strain === seed.strain
+              ).length
+            }))
+            .map(seed => (
+              <p key={seed.strain}>
+                <Badge className={classes.margin} badgeContent={seed.count} color="primary">
+                  <SeedIcon  />
+                </Badge>
+                 {seedNames[seed.strain]} Seed
+                {seed.count !== 1 ? "s" : ""}
+              </p>
+            ))}
+           </Grid>
+           <Grid item xs>
+        <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          image="https://i.imgur.com/x1eOPYj.png"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Available Plots
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            This is a list of your current available plots and are ready to be planted on.
+          </Typography>
+          {_.uniqBy(user.availableGardens, garden => garden[0])
+            .map(garden => ({
+              id: garden[0],
+              count: user.availableGardens.filter(
+                agarden => agarden[0] === garden[0]
+              ).length
+            }))
+            .map(garden => (
+              <b><p key={garden.id}>
+                <Badge className={classes.margin} badgeContent={garden.count} color="primary">
+                  <FarmIcon  />
+                </Badge>
+                 {gardenNames[garden.id]}
+                {garden.count !== 1 ? "s" : ""}
+              </p></b> 
+            ))}
+        </CardContent>
+      <CardActions>
+        <Button size="small" color="#000000" href="/market/farmplots">
+          Lease More Plots
+        </Button>
+      </CardActions>
+    </Card>
+    </Grid>
         </Grid>
+        
     </div>
   );
 }
