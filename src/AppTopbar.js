@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {AppInlineProfile} from "./AppInlineProfile";
 
 export class AppTopbar extends Component {
 
@@ -18,6 +19,9 @@ export class AppTopbar extends Component {
 					<button className="p-link layout-menu-button" onClick={this.props.onToggleMenu}>
                     <span className="pi pi-bars" />
                     </button>
+                </div>
+                <div className="layout-topbar-icons button">
+                <AppInlineProfile />
                 </div>
             </div>
         );

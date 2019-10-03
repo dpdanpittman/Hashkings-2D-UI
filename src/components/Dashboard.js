@@ -4,6 +4,7 @@ import {StateContext} from "../App";
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
 import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import { red } from '@material-ui/core/colors';
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';
@@ -12,6 +13,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button'
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
 import Typography from '@material-ui/core/Typography';
 import _ from "lodash";
 
@@ -54,6 +58,11 @@ export const Dashboard = ({user}) => {
     },
     input: {
       display: 'none',
+    },
+    modal: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     root: {
       '& > svg': {
@@ -109,9 +118,20 @@ export const Dashboard = ({user}) => {
   }));
   
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className="p-grid p-fluid dashboard card-blank-black">
+      <div className={classes.flex}>
+      <Paper className={classes.paper}>
       <Grid container spacing={3}>
       <Grid item xs>
       <Card className={classes.card}>
@@ -168,6 +188,8 @@ export const Dashboard = ({user}) => {
       </Card>
     </Grid>
     </Grid>
+    </Paper>
+    </div>
       {username && (
         <>
         <div className="p-col-12 p-lg-12 card-blank-green-1">

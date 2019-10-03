@@ -274,8 +274,9 @@ class App extends Component {
                     alt="Logo"
                     src="/assets/layout/images/hashkingsbanner.png"
                   />
-                </div>
-                <AppInlineProfile />
+                  <br/>
+                  <br/>
+                </div>                
                 <AppMenu
                   model={this.menu}
                   onMenuItemClick={this.onMenuItemClick}

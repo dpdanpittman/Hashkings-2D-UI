@@ -43,7 +43,7 @@ a {
             button {
                 position: relative;
                 color: $topbarItemColor;
-                margin-left: 20px;
+                margin-left: 25px;
                 display: inline-block;
                 text-decoration: none;
                 @include transition(color $transitionDuration);
