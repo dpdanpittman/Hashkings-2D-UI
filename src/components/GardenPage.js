@@ -22,7 +22,7 @@ import Paper from '@material-ui/core/Paper';
 
 function WaterIcon(props) {
   return (
-    <SvgIcon viewBox="0 0 64 64" {...props}>
+    <SvgIcon viewBox="0 0 64 64" htmlColor="#2C4770" {...props}>
       <path d="m33.586 32-2-2h-10.666c.047.328.08.66.08 1s-.033.672-.08 1z"/>
       <path d="m15 26.101v9.799c2.279-.465 4-2.484 4-4.899s-1.721-4.436-4-4.9z"/>
       <path d="m29.586 28-1.586-1.586-1.586 1.586z"/>
@@ -41,7 +41,7 @@ function WaterIcon(props) {
 
 function GerminateIcon(props) {
   return (
-    <SvgIcon viewBox="0 0 64 64" {...props}>
+    <SvgIcon viewBox="0 0 64 64" htmlColor="#A3711A" {...props}>
       <path d="m30 51h33v2h-33z"/>
       <path d="m1 51h3v2h-3z"/>
       <path d="m17 63c-7.72 0-14-6.28-14-14h2c0 6.617 5.383 12 12 12s12-5.383 12-12h2c0 7.72-6.28 14-14 14z"/>
@@ -70,7 +70,7 @@ function GerminateIcon(props) {
 
   function HarvestIcon(props) {
     return (
-      <SvgIcon viewBox="0 0 45.702 45.703" {...props}>
+      <SvgIcon viewBox="0 0 45.702 45.703" htmlColor="#60AA9E" {...props}>
         <circle cx="31.636" cy="9.971" r="4.423"/>
       <path d="M42.694,33.609h-2.243c0.935-0.762,1.342-2.041,0.973-3.232l-4.147-13.383c-0.491-1.587-2.178-2.477-3.764-1.985
 			c-0.496,0.154-0.887,0.462-1.262,0.77c-0.084,0.069-9.72,8.311-9.826,8.452l-1.157-1.647c0.173-0.024,0.388-0.075,0.664-0.167
@@ -119,7 +119,7 @@ const useStyles = makeStyles(theme => ({
   },
   iconHover: {
     '&:hover': {
-      color: red[800],
+      color: "red[800]",
     },
   },
   fab: {
@@ -145,7 +145,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#2E5B71",
+    backgroundColor: "#217E6E",
   },
   divider: {
     margin: theme.spacing(2, 0),
@@ -154,7 +154,7 @@ const useStyles = makeStyles(theme => ({
 
 const theme = createMuiTheme({
   palette: {
-    primary: { 500: '#17386C' }, // custom color in hex 
+    primary: { 500: '#00211B' }, // custom color in hex 
   },
 });
 
@@ -361,8 +361,9 @@ export const GardenPage = () => {
                   </div>
                   </div>
       <div className="card-blank-black">
+      <div className="card-blank-sand-3">
         <div className="p-col-12">
-        <div className="card-blank-sand-3">
+        
         <h1>
             <b>
               <u><font color="#DFB17B">Inventory</font></u>
@@ -372,20 +373,15 @@ export const GardenPage = () => {
         </div>
       </div>
     </div>
-
-<div className="p-col-12">
-          <h1>
-            <b>
-              <u><font color="#DFB17B">Recent Activity</font></u>
-            </b>
-          </h1>
-        </div>
-<div className="p-grid card-w-title">
-<div className="p-lg-3" />
-<div className="p-col-6 p-lg-6"><center>
-            <Panel
-              className="activity-log"
-            >
+    <div className="card-blank-green-2">
+      <div className="p-col-12">
+        <h1><b><u><font color="#DFB17B">Recent Activity</font></u></b></h1>
+      </div>
+        <div className="p-grid card-w-title">
+          <div className="p-lg-3" />
+          <div className="p-col-12 p-lg-12">
+            <center>
+            <Panel className="activity-log">
               <ul className="card-blank-blue activity-list">
                 {dashboardStats.activity.map(action => (
                   <li key={action.block}>
@@ -398,8 +394,9 @@ export const GardenPage = () => {
                       </h2>
                     </div>
                     <div className="p-grid">
-                      <div className="card-blank-sand-3 p-col-12"><font size="4" color="#DFB17B">{seedNames[action.strain]} {action.when} on Plot # {action.id}</font></div>
-                    
+                      <div className="card-blank-sand-3 p-col-12">
+                        <font size="4" color="#DFB17B">{seedNames[action.strain]} {action.when} on Plot # {action.id}</font>
+                      </div>
                     </div>
                   </li>
                 ))}
@@ -407,12 +404,13 @@ export const GardenPage = () => {
                   <p>No recent activity</p>
                 )}
               </ul>
-            </Panel></center>
+            </Panel>
+            </center>
           </div>
         </div>
-
+        </div>
         <br/>
-        <br/>
+        <div className="card-blank-green-2">
         <h1><font color="#DFB17B"><b><u>Progress of Active Farms</u></b></font></h1>
         <h3><font color="#DFB17B"><b>8 Stages with 14 Substages (1 substage is ~1 day)</b></font></h3>
         <br/>
@@ -467,7 +465,7 @@ export const GardenPage = () => {
             </div>
           </div>
           <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
-
+          </div>
         <PlantModal
           isOpen={plantSeedModal}
           toggleModal={() => setPlantSeedModal(!plantSeedModal)}

@@ -7,7 +7,6 @@ import Paper from '@material-ui/core/Paper';
 import Badge from '@material-ui/core/Badge';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -115,7 +114,7 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     maxWidth: 345,
-    backgroundColor: "#2E5B71",
+    backgroundColor: "#217E6E",
   },
   media: {
     height: 140,
@@ -159,16 +158,15 @@ export default function Inventory({user}) {
               </p></b>
             ))}
         </CardContent>
-      <CardActions>
-        <Button size="small" color="#000000" variant="contained" color="link" href="/market/MarketSupplies">
+        <CardActions>
+          <Button size="small" color="#000000" variant="contained" color="link" href="/market/MarketSupplies">
           Purchase Supplies
-        </Button>
-      </CardActions>
-    </Card>
-
-        </Grid>
-            <Grid item xs>
-            <Card className={classes.card}>
+          </Button>
+        </CardActions>
+      </Card>
+    </Grid>
+    <Grid item xs>
+      <Card className={classes.card}>
         <CardMedia
           className={classes.media}
           image="https://d3atagt0rnqk7k.cloudfront.net/wp-content/uploads/2016/04/29195549/cannabis-seeds-101-all-you-need-to-know-and-more.jpg"
@@ -197,34 +195,36 @@ export default function Inventory({user}) {
               </p>
             ))}
         </CardContent>
-      <CardActions>
-        <Button size="small" color="#000000" variant="contained" color="link" href="/market/seedbank">
+        <CardActions>
+          <Button size="small" color="#000000" variant="contained" color="link" href="/market/seedbank">
           Buy Seeds
-        </Button>
-        <Button size="small" color="#000000" variant="contained" color="link" href="/gifting">
+          </Button>
+          <Button size="small" color="#000000" variant="contained" color="link" href="/gifting">
           Gift Seeds
-        </Button>
-      </CardActions>
-    </Card>
-          {_.uniqBy(user.availableSeeds, seed => seed.strain)
-            .map(seed => ({
-              strain: seed.strain,
-              count: user.availableSeeds.filter(
-                aseed => aseed.strain === seed.strain
-              ).length
-            }))
-            .map(seed => (
-              <p key={seed.strain}>
-                <Badge className={classes.margin} badgeContent={seed.count} color="primary">
-                  <SeedIcon  />
-                </Badge>
-                 {seedNames[seed.strain]} Seed
-                {seed.count !== 1 ? "s" : ""}
-              </p>
-            ))}
-           </Grid>
-           <Grid item xs>
-        <Card className={classes.card}>
+          </Button>
+        </CardActions>
+      </Card>
+      {_.uniqBy(user.availableSeeds, seed => seed.strain)
+        .map(seed => ({
+          strain: seed.strain,
+          count: user.availableSeeds.filter(
+            aseed => aseed.strain === seed.strain
+            ).length
+          }))
+          .map(seed => (
+          <p key={seed.strain}>
+            <Badge className={classes.margin} badgeContent={seed.count} color="primary">
+              <SeedIcon  />
+            </Badge>
+            {seedNames[seed.strain]} Seed
+            {seed.count !== 1 ? "s" : ""}
+          </p>
+          )
+        )
+      }
+    </Grid>
+    <Grid item xs>
+      <Card className={classes.card}>
         <CardMedia
           className={classes.media}
           image="https://i.imgur.com/x1eOPYj.png"
@@ -253,15 +253,14 @@ export default function Inventory({user}) {
               </p></b> 
             ))}
         </CardContent>
-      <CardActions>
-        <Button size="small" color="#000000" variant="contained" color="link" href="/market/farmplots">
+        <CardActions>
+          <Button size="small" color="#000000" variant="contained" color="link" href="/market/farmplots">
           Lease More Plots
-        </Button>
-      </CardActions>
-    </Card>
+         </Button>
+        </CardActions>
+      </Card>
     </Grid>
-        </Grid>
-        
+    </Grid>
     </div>
   );
 }
