@@ -1,9 +1,8 @@
 import React from "react";
-import {gardenNames, seedNames} from "../service/HashkingsAPI";
+import { gardenNames, seedNames } from "../service/HashkingsAPI";
 import { makeStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Badge from '@material-ui/core/Badge';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import Card from '@material-ui/core/Card';
@@ -127,7 +126,6 @@ export default function Inventory({user}) {
     <div className={classes.flex}>
     <Grid container spacing={3}>
       <Grid item xs>
-
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
