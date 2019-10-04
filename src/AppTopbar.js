@@ -15,6 +15,11 @@ export class AppTopbar extends Component {
     render() {
         return (
             <div className="layout-topbar clearfix">
+                <div className="layout-topbar-icons">
+					<button className="p-link layout-menu-button" onClick={this.props.onToggleMenu}>
+                    <span className="pi pi-bars" />
+                    </button>
+                </div>
                 <div className="layout-topbar-icons button">
                 <AppInlineProfile />
                 </div>
