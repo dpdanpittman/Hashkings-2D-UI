@@ -86,7 +86,7 @@ class App extends Component {
     this.menuClick = true;
 
     if (this.isDesktop()) {
-      if (this.state.layoutMode === "overlay") {
+      if (this.state.layoutMode === "static") {
         this.setState({
           overlayMenuActive: !this.state.overlayMenuActive
         });

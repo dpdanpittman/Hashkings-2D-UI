@@ -24,7 +24,7 @@ export const AppInlineProfile = () => {
   const {username} = useContext(StateContext);
 
   const handleDelete = () => {
-    alert('Logout Under Construction. Please clear your browser cookies to logout completely!');
+    alert('');
   };
 
   if (!username) {
@@ -33,7 +33,7 @@ export const AppInlineProfile = () => {
       <Chip
         icon={<LockOpen />}
         color="primary"
-        label= "Login"
+        label= "Not logged in"
         onClick={handleClick}
       />
       <br/>
@@ -46,7 +46,7 @@ export const AppInlineProfile = () => {
         icon={<FaceIcon />}
         label= {username}
         color="primary"
-        onDelete={handleDelete}
+        // onDelete={handleDelete}
       />
       <br/>
     </div>
