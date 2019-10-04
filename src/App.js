@@ -27,12 +27,13 @@ import Stats from "./components/Stats";
 import Gifting from "./components/Gifting";
 import ReactGA from 'react-ga';
 
-export const StateContext = React.createContext();
+const trackingID ="UA-111263990-4"
 
 function initializeReactGA() {
-  ReactGA.initialize('UA-111263990-4');
-  ReactGA.pageview('/homepage');
+  ReactGA.initialize(trackingID);
 }
+
+export const StateContext = React.createContext();
 
 class App extends Component {
   constructor() {
@@ -122,11 +123,6 @@ class App extends Component {
 
   createMenu() {
     this.menu = [
-      {
-        label: "Leaderboard",
-        icon: "pi pi-fw pi-home",
-        to: "/leaderboard"
-      },
       {
         label: "Ganja Farm",
         icon: "pi pi-fw pi-globe",
@@ -292,7 +288,7 @@ class App extends Component {
           </div>
           <div className="layout-main">
             <Route path="/login" component={LoginPage} />
-            <Route path="/" exact component={WelcomePage} />
+            <Route path="/" exact component={GardenPage} />
             <Route path="/garden/:username" component={UserGarden} />
             <Route exact path="/farm" component={GardenPage} />
             <Route path="/market/farmplots" component={MarketPlots} />
