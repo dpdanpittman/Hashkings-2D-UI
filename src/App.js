@@ -28,7 +28,9 @@ import Gifting from "./components/Gifting";
 import ReactGA from 'react-ga';
 
 const trackingID ="UA-111263990-4"
+const trackingID_2 = "UA-111263990-1"
 
+ReactGA.initialize(trackingID_2);
 ReactGA.initialize(trackingID);
 ReactGA.pageview(window.location.pathname + window.location.search);
 
