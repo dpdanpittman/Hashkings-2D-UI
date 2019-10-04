@@ -31,6 +31,7 @@ const trackingID ="UA-111263990-4"
 
 function initializeReactGA() {
   ReactGA.initialize(trackingID);
+  ReactGA.pageview(window.location.pathname + window.location.search);
 }
 
 export const StateContext = React.createContext();
