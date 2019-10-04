@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import {StateContext} from "./App";
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
-import VpnKey from '@material-ui/icons/VpnKey';
+import LockOpen from '@material-ui/icons/LockOpen';
 import FaceIcon from '@material-ui/icons/Face';
 
 const useStyles = makeStyles(theme => ({
@@ -31,9 +31,9 @@ export const AppInlineProfile = () => {
     return (
       <div className="profile">
       <Chip
-        icon={<VpnKey />}
-        label= "Login"
+        icon={<LockOpen />}
         color="primary"
+        label= "Login"
         onClick={handleClick}
       />
       <br/>
@@ -47,7 +47,6 @@ export const AppInlineProfile = () => {
         label= {username}
         color="primary"
         onDelete={handleDelete}
-        username = ""
       />
       <br/>
     </div>
