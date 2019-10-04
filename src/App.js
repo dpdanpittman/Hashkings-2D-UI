@@ -25,8 +25,14 @@ import WelcomePage from "./components/WelcomePage";
 import FAQPage from "./components/FAQPage";
 import Stats from "./components/Stats";
 import Gifting from "./components/Gifting";
+import ReactGA from 'react-ga';
 
 export const StateContext = React.createContext();
+
+function initializeReactGA() {
+  ReactGA.initialize('UA-111263990-4');
+  ReactGA.pageview('/homepage');
+}
 
 class App extends Component {
   constructor() {
