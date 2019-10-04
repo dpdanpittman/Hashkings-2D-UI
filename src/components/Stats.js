@@ -5,6 +5,7 @@ import { StateContext } from "../App";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Checkbox } from "primereact/checkbox";
+import { Redirect } from 'react-router';
 
 export default function() {
   const { username } = useContext(StateContext);
@@ -121,18 +122,7 @@ export default function() {
 
   if (!username) {
     return (
-      <div className="card-blank-green">
-        <div className="p-fluid">
-          <div className="p-col-12">
-            <h1>
-              <a href="/login">
-              <b>
-                <u>Please sign in to see your Farm</u>
-              </b></a>
-            </h1>
-          </div>
-        </div>
-      </div>
+    <Redirect to='/login'/>
     );
   } else {
     return (
