@@ -4,6 +4,7 @@ import {HashkingsAPI} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import Delegate from "./Delegate";
 import BuyGarden from "./BuyGarden";
+import { Redirect } from 'react-router';
 
 export const MarketPlots = () => {
   const {username} = useContext(StateContext);
@@ -39,15 +40,7 @@ export const MarketPlots = () => {
 
   if (!username) {
     return (
-      <div className="p-fluid">
-        <div className="p-grid">
-          <div className="p-col-12">
-            <div className="card-blank-sand-3 card-w-title">
-              <h1><a href="/login"><font color="DFB17B"><b><u>Please sign in to see your garden</u></b></font></a></h1>
-            </div>
-          </div>
-        </div>
-      </div>
+    <Redirect to='/login'/>
     );
   }
   return (

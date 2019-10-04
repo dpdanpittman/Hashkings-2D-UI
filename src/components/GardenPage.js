@@ -1,4 +1,5 @@
-import React, {useContext, useState, useEffect,} from "react";
+import React, {useContext, useState, useEffect} from "react";
+import { Redirect } from 'react-router';
 import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import PlantModal from "./PlantModal";
@@ -285,20 +286,7 @@ export const GardenPage = () => {
 
   if (!username) {
     return (
-      <div className="card-blank-sand-3">
-        <div className="p-grid">
-        <div className="p-col-3" />
-          <div className="p-col-6">
-            <center><h1>
-              <a href="/login">
-              <b>
-                <u>Please sign in to see your Farm</u>
-              </b></a>
-            </h1></center>
-            </div>
-        </div>
-        <div className="p-col-3" />
-      </div>
+      <Redirect to='/login'/>
     );
   } else {
     return (

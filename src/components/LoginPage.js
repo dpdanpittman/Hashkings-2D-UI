@@ -111,9 +111,7 @@ export const LoginPage = ({history}) => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in with <a href="https://addons.mozilla.org/en-US/firefox/addon/steem-keychain/">
-            SteemKeychain
-            </a>
+          Sign in
         </Typography>
         <form className={classes.form} noValidate>
           <TextField

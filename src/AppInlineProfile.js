@@ -1,4 +1,4 @@
-import React, {useContext, Component} from "react";
+import React, {useContext, useState} from "react";
 import {StateContext} from "./App";
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
@@ -20,12 +20,12 @@ const handleClick = () => {
   window.location = '/login';
 };
 
-const handleDelete = () => {
-  alert('Logout Under Construction. Please clear your browser cookies to logout completely!');
-};
-
 export const AppInlineProfile = () => {
   const {username} = useContext(StateContext);
+
+  const handleDelete = () => {
+    alert('Logout Under Construction. Please clear your browser cookies to logout completely!');
+  };
 
   if (!username) {
     return (
@@ -47,6 +47,7 @@ export const AppInlineProfile = () => {
         label= {username}
         color="primary"
         onDelete={handleDelete}
+        username = ""
       />
       <br/>
     </div>
