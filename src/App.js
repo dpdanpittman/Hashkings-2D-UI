@@ -272,7 +272,7 @@ class App extends Component {
             >
               <div className="layout-sidebar-scroll-content">
                 <div className="layout-logo">
-                  <img
+                <img
                     alt="Logo"
                     src="/assets/layout/images/hashkingsbanner.png"
                   />
@@ -288,7 +288,7 @@ class App extends Component {
           </div>
           <div className="layout-main">
             <Route path="/login" component={LoginPage} />
-            <Route path="/" exact component={GardenPage} />
+            <Route path="/" exact component={WelcomePage} />
             <Route path="/garden/:username" component={UserGarden} />
             <Route exact path="/farm" component={GardenPage} />
             <Route path="/market/farmplots" component={MarketPlots} />
@@ -298,6 +298,7 @@ class App extends Component {
             <Route path="/faq" component={FAQPage} />
             <Route path="/stats" component={Stats} />
             <Route path="/gifting" component={Gifting} />
+            <Route path="/welcome" component={WelcomePage} />
             <Route path="/market/MarketSupplies" component={MarketSupplies} />
           </div>
           <div className="layout-mask" />

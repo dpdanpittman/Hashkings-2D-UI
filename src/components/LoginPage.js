@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     height: '80vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/user/grav/1600x900)',
+    backgroundImage: 'url(https://source.unsplash.com/user/exxteban/1600x900)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -76,7 +76,7 @@ export const LoginPage = ({history}) => {
         .then(res => {
           login(res.name);
           localStorage.setItem("sc_token", token);
-          history.push("/");
+          history.push("/welcome");
         })
         .catch(e => {
           console.log(e);
