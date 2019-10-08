@@ -150,7 +150,15 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#217E6E",
+    backgroundColor: "#294A0B",
+  },
+  paperBlue: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#154A4A",
   },
   paperExtended: {
     padding: theme.spacing(1),
@@ -158,14 +166,22 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#011925",
+    backgroundColor: "#532C0C",
+  },
+  paperBrown: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#532C0C",
   },
   divider: {
     margin: theme.spacing(2, 0),
   },
   card: {
     maxWidth: 345,
-    backgroundColor: "#217E6E",
+    backgroundColor: "#154A4A",
   },
   media: {
     height: 140,
@@ -284,11 +300,7 @@ export const GardenPage = () => {
     setOpen(false);
   };
 
-  if (!username) {
-    return (
-      <Redirect to='/login'/>
-    );
-  } else {
+  if (username) {
     return (
       <div className="card-blank-green-1">
       <Snackbar
@@ -371,126 +383,16 @@ export const GardenPage = () => {
     </Paper>
     </div>
 
-         <div className="card-blank-green-2">
-           <div>
-           <h1>
-                  <b>
-                    <u><font color="#DFB17B">Farming</font></u>
-                  </b>
-                </h1>
-           </div>
+         <div className={classes.flex}>
            <div className={classes.flex}>
-              <Grid container spacing={3}>
-                <Grid item xs>
-                  <Paper className={classes.paper}>
+           <Paper className={classes.paper}>
                 <ThemeProvider theme={theme}>
-                  <Tooltip title="Plant Seeds" placement="left-start">
-                  <Fab
-                    variant="contained" 
-                    color="primary"
-                    onClick={() => setPlantSeedModal(!plantSeedModal)}
-                    className={classes.button}
-                  ><GerminateIcon />
-                  </Fab>
-                  </Tooltip>
+                <Typography gutterBottom variant="h1" component="h1">
+            <u><b>Progress</b></u>
+          </Typography>
                   </ThemeProvider>
                   </Paper>
-                </Grid>
-                <Grid item xs>
                   <Paper className={classes.paper}>
-                <ThemeProvider theme={theme}>
-                  <Tooltip title="Water Crops" placement="left-start">
-                  <Fab
-                    variant="contained" 
-                    color="primary"
-                    onClick={() => setWaterModal(!waterModal)}
-                    className={classes.button}
-                  ><WaterIcon />
-                  </Fab>
-                  </Tooltip>
-                  </ThemeProvider>
-                  </Paper>
-                </Grid>
-                <Grid item xs>
-                <Paper className={classes.paper}>            
-                  <ThemeProvider theme={theme}>
-                  <Tooltip title="Harvest" placement="left-start">
-                  <Fab
-                    variant="contained" 
-                    color="primary"
-                    onClick={() => setHarvestModal(!harvestModal)}
-                    className={classes.button}
-                  ><HarvestIcon />
-                  </Fab>
-                  </Tooltip>
-                  </ThemeProvider>
-                  </Paper>
-                  </Grid>
-                  </Grid>
-                  </div>
-                  </div>
-      <div className="card-blank-black">
-      <div className="card-blank-sand-3">
-        <div className="p-col-12">
-        
-        <h1>
-            <b>
-              <u><font color="#DFB17B">Inventory</font></u>
-            </b>
-          </h1>
-          <Inventory user={user} />
-        </div>
-      </div>
-    </div>
-    <div className="card-blank-green-2">
-      <div className="p-col-12">
-        <h1><b><u><font color="#DFB17B">Recent Activity</font></u></b></h1>
-      </div>
-        <div className="p-grid card-w-title">
-          <div className="p-lg-3" />
-          <div className="p-col-12 p-lg-12">
-            <center>
-            <Panel className="activity-log">
-              <ul className="card-blank-blue activity-list">
-                {dashboardStats.activity.map(action => (
-                  <li key={action.block}>
-                    <div className="card-blank count">
-                      <h2>
-                      <b><u><font size="6">
-                      You {action.type.charAt(0).toUpperCase() +
-                        action.type.slice(1)}
-                      </font></u></b>
-                      </h2>
-                    </div>
-                    <div className="p-grid">
-                      <div className="card-blank-sand-3 p-col-12">
-                        <font size="4" color="#DFB17B">{seedNames[action.strain]} {action.when} on Plot # {action.id}</font>
-                      </div>
-                    </div>
-                  </li>
-                ))}
-                {dashboardStats.activity.length === 0 && (
-                  <p>No recent activity</p>
-                )}
-              </ul>
-            </Panel>
-            </center>
-          </div>
-        </div>
-        </div>
-        <br/>
-        <div className="card-blank-green-2">
-        <h1><font color="#DFB17B"><b><u>Progress of Active Farms</u></b></font></h1>
-        <h3><font color="#DFB17B"><b>8 Stages with 14 Substages (1 substage is ~1 day)</b></font></h3>
-        <br/>
-        <p><font color="#DFB17B">Go from seed to harvest in 8 stages where each Stage has 14 substages and determine
-           the age of your cannabis.The progress bars below show you how 
-           far along your plants are.</font><br/><br/>
-           <font color="#DFB17B"><u>Once your plot reaches stage 8 you may use the harvest button</u></font>
-        </p>
-
-          <div className="p-col-12">
-            <div className="card-blank-sand-3 card-w-title">
               <DataTable
                 value={gardens}
                 loading={loading}
@@ -531,10 +433,99 @@ export const GardenPage = () => {
                   }}
                 />
               </DataTable>
-            </div>
+            </Paper>
+              <Grid container spacing={12}>
+              <Grid item xs={4}>
+                <Grid item xs={11}>
+                  <Paper className={classes.paperBrown}>
+                <ThemeProvider theme={theme}>
+                <Typography gutterBottom variant="h5" component="h1">
+            <u><b>Farming</b></u>
+          </Typography>
+                  </ThemeProvider>
+                  </Paper>
+                </Grid>
+                <Grid item xs={11}>
+                  <Paper className={classes.paperBrown}>
+                <ThemeProvider theme={theme}>
+                  <Tooltip title="Plant Seeds" placement="left-start">
+                  <Fab
+                    variant="contained" 
+                    color="primary"
+                    onClick={() => setPlantSeedModal(!plantSeedModal)}
+                    className={classes.button}
+                  ><GerminateIcon />
+                  </Fab>
+                  </Tooltip>
+                  </ThemeProvider>
+                  </Paper>
+                </Grid>
+                <Grid item xs={11}>
+                  <Paper className={classes.paperBrown}>
+                <ThemeProvider theme={theme}>
+                  <Tooltip title="Water Crops" placement="left-start">
+                  <Fab
+                    variant="contained" 
+                    color="primary"
+                    onClick={() => setWaterModal(!waterModal)}
+                    className={classes.button}
+                  ><WaterIcon />
+                  </Fab>
+                  </Tooltip>
+                  </ThemeProvider>
+                  </Paper>
+                </Grid>
+                <Grid item xs={11}>
+                <Paper className={classes.paperBrown}>            
+                  <ThemeProvider theme={theme}>
+                  <Tooltip title="Harvest" placement="left-start">
+                  <Fab
+                    variant="contained" 
+                    color="primary"
+                    onClick={() => setHarvestModal(!harvestModal)}
+                    className={classes.button}
+                  ><HarvestIcon />
+                  </Fab>
+                  </Tooltip>
+                  </ThemeProvider>
+                  </Paper>
+                  </Grid>
+                  </Grid>
+                  <Grid item xs={8}>
+                  <Inventory user={user} />
+                  </Grid>
+                  </Grid><br/>
+                  </div>
+                  
+          <div className="p-col-12 p-lg-12">
+            <center>
+            <Panel className="activity-log">
+              <ul className="card-blank-blue activity-list">
+                {dashboardStats.activity.map(action => (
+                  <li key={action.block}>
+                    <div className="card-blank count">
+                      <h2>
+                      <b><u><font size="6">
+                      You {action.type.charAt(0).toUpperCase() +
+                        action.type.slice(1)}
+                      </font></u></b>
+                      </h2>
+                    </div>
+                    <div className="p-grid">
+                      <div className="card-blank-sand-3 p-col-12">
+                        <font size="4" color="#DFB17B">{seedNames[action.strain]} {action.when} on Plot # {action.id}</font>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+                {dashboardStats.activity.length === 0 && (
+                  <p>No recent activity</p>
+                )}
+              </ul>
+            </Panel>
+            </center>
           </div>
-          <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
-          </div>
+                  </div>
         <PlantModal
           isOpen={plantSeedModal}
           toggleModal={() => setPlantSeedModal(!plantSeedModal)}
@@ -557,6 +548,10 @@ export const GardenPage = () => {
           headBlockNum={headBlockNum}
         />   
       </div>
+    );
+  } else {
+    return (
+    <Redirect to='/login'/>
     );
   }
 };

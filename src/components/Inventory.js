@@ -1,6 +1,6 @@
 import React from "react";
 import { gardenNames, seedNames } from "../service/HashkingsAPI";
-import { makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';
@@ -10,6 +10,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button'
+import Paper from '@material-ui/core/Paper';
+import { ThemeProvider } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import _ from "lodash";
 
@@ -93,6 +95,7 @@ const useStyles = makeStyles(theme => ({
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',
     gridGap: theme.spacing(3),
+    marginTop: theme.spacing(1)
   },
   paper: {
     padding: theme.spacing(1),
@@ -113,18 +116,50 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     maxWidth: 345,
-    backgroundColor: "#217E6E",
+    backgroundColor: "#073232",
   },
   media: {
     height: 140,
   },
+  paper: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#073232",
+  },
+  paperFarming: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#073232",
+  },
 }));
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { 500: '#00211B' }, // custom color in hex 
+  },
+});
 
 export default function Inventory({user}) {
   const classes = useStyles();
+  
   return (
-    <div className={classes.flex}>
+  <div className={classes.flex}>
     <Grid container spacing={3}>
+      <Grid item xs={12}>
+        <Paper className={classes.paperFarming}>
+          <ThemeProvider theme={theme}>
+            <Typography gutterBottom variant="h5" component="h1">
+              <b>Inventory</b>
+            </Typography>
+          </ThemeProvider>
+        </Paper>
+      </Grid>
       <Grid item xs>
       <Card className={classes.card}>
         <CardMedia
@@ -197,8 +232,8 @@ export default function Inventory({user}) {
           <Button size="small" color="#000000" variant="contained" color="link" href="/market/seedbank">
           Buy Seeds
           </Button>
-          <Button size="small" color="#000000" variant="contained" color="link" href="/gifting">
-          Gift Seeds
+          <Button size="small" color="#000000" variant="contained" color="link" href="/market/farmplots">
+          Lease a Plot  
           </Button>
         </CardActions>
       </Card>
