@@ -28,12 +28,10 @@ import Gifting from "./components/Gifting";
 import ReactGA from 'react-ga';
 
 const trackingID ="UA-111263990-4"
-const trackingID_2 = "UA-111263990-1"
 
-ReactGA.initialize(trackingID_2);
-ReactGA.initialize(trackingID);
-ReactGA.pageview(window.location.pathname + window.location.search);
-
+function initializeReactGA() {
+  ReactGA.initialize(trackingID);
+}
 
 export const StateContext = React.createContext();
 
@@ -159,11 +157,6 @@ class App extends Component {
             label: "Supplies",
             icon: "pi pi-fw pi-circle-off",
             to: "/market/MarketSupplies"
-          },
-          {
-            label: "Gift Seeds",
-            icon: "pi pi-fw pi-file",
-            to: "/gifting"
           },
           {
             label: "Maps (Coming Soon)",
@@ -299,7 +292,6 @@ class App extends Component {
             <Route path="/callback" component={SCCallback} />
             <Route path="/faq" component={FAQPage} />
             <Route path="/stats" component={Stats} />
-            <Route path="/gifting" component={Gifting} />
             <Route path="/welcome" component={WelcomePage} />
             <Route path="/market/MarketSupplies" component={MarketSupplies} />
           </div>

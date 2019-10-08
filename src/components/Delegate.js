@@ -61,15 +61,14 @@ export default function Delegate({username, delegation, updateDelegation}) {
 
   return (
     <div>
-      <center>
-      <hr/>
-      <br/>
-      <font size="5"><u><b>Plot Delegation</b></u></font>
-      <p><b><font color="DFB17B">{`You have delegated enough Steem Power for ${totalPlots} plot${
-        totalPlots !== 1 ? "s" : ""
-      } and have ${
-        delegation.available
-      } available. Choose the number of additional plots you'd like to lease`}</font></b></p>
+      
+      {`Total Delegation: ${totalPlots} plot${
+        totalPlots !== 1 ? "s" : ""}`}
+        <br/><br/>
+       {`Plots Available: ${
+        delegation.available} `}
+        <br/><br/>
+        {`Please choose the number of additional plots you would like to lease`}
       <div className="p-col-12 p-md-4">
         <Spinner value={amount} onChange={e => setAmount(e.value)} min={1} />
       </div>
@@ -80,7 +79,6 @@ export default function Delegate({username, delegation, updateDelegation}) {
           onClick={handleSubmit}
         />
       </div>
-      </center>
       <br/>
     </div>
   );

@@ -179,6 +179,14 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1),
     backgroundColor: "#532C0C",
   },
+  paperBlack: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#000000",
+  },
   paperBrown: {
     padding: theme.spacing(1),
     textAlign: 'center',
@@ -206,6 +214,9 @@ const useStyles = makeStyles(theme => ({
 const theme = createMuiTheme({
   palette: {
     primary: { 500: '#00211B' }, // custom color in hex 
+  },
+  expansion: {
+    backgroundColor: "#154A4A",
   },
 });
 
@@ -338,7 +349,7 @@ export const GardenPage = () => {
       />
 
 <div className={classes.flex}>
-      <Paper className={classes.paperExtended}>
+      <Paper className={classes.paperBlack}>
       <Grid container spacing={3}>
       <Grid item xs>
       <Card className={classes.card}>
@@ -403,10 +414,10 @@ export const GardenPage = () => {
            <Paper className={classes.paper}>
            <ThemeProvider theme={theme}>
                 <Typography gutterBottom variant="h1" component="h1">
-            <b>Progress and Activity Log</b>
+            <b>Grow Journal</b>
           </Typography>
                   </ThemeProvider>
-           <ExpansionPanel >
+           <ExpansionPanel className={classes.expansion}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"

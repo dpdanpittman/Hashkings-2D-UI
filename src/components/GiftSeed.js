@@ -5,8 +5,25 @@ import {seedNames, HashkingsAPI} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import {InputText} from "primereact/inputtext";
 import {Growl} from "primereact/growl";
+import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+  },
+}));
 
 export default function GiftSeed() {
+  const classes = useStyles();
   const {username} = useContext(StateContext);
   const [seed, setSeed] = useState();
   const [to, setTo] = useState("");
@@ -73,48 +90,57 @@ export default function GiftSeed() {
   return (
     <>
       <Growl ref={growl} />
-      <div className="p-col-12 p-md-4">
-        <h1 className="section-heading"><font color="#FFC897">Send Below</font></h1>
-
-        <InputText
-          className="form-input"
-          value={to}
-          onChange={e => setTo(e.target.value.trim())}
-          placeholder="STEEM user to send to"
-        />
-        <Dropdown
-          className="form-input"
-          disabled={isSubmitting || !username}
-          optionLabel="name"
-          value={seed}
-          id="name"
-          options={userSeeds.map(seed => ({
-            ...seed,
-            name: `${seedNames[seed.strain]} - ${seed.xp} XP`
-          }))}
-          style={{width: "100%"}}
-          onChange={e => {
-            setSeed(e.value);
-          }}
-          placeholder="Choose a seed..."
-        />
-        {validatedTo && (
-          <div>
-            <h2>{validatedTo}</h2>
-            <img
-              alt="avatar"
-              src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
-            />
-          </div>
-        )}
-      </div>
-
+      <div className="p-col-12">
+      <ExpansionPanel>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className={classes.heading}>Gift Seeds</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+<InputText
+  className="form-input"
+  value={to}
+  onChange={e => setTo(e.target.value.trim())}
+  placeholder="STEEM user to send to"
+/><br/>
+<Dropdown
+  className="form-input"
+  disabled={isSubmitting || !username}
+  optionLabel="name"
+  value={seed}
+  id="name"
+  options={userSeeds.map(seed => ({
+    ...seed,
+    name: `${seedNames[seed.strain]} - ${seed.xp} XP`
+  }))}
+  style={{width: "100%"}}
+  onChange={e => {
+    setSeed(e.value);
+  }}
+  placeholder="Choose a seed..."
+/>
+<br/>
+{validatedTo && (
+  <div>
+    <h2>{validatedTo}</h2>
+    <img
+      alt="avatar"
+      src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
+    />
+  </div>
+)}
       <div className="p-col-12 p-md-4">
         <Button
           disabled={isSubmitting || !username || !validatedTo | !seed}
           label={buttonLabel}
           onClick={handleSubmit}
         />
+      </div>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
       </div>
     </>
   );

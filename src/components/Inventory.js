@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
+import GiftSeed from "./GiftSeed";
 import _ from "lodash";
 
 function FarmIcon(props) {
@@ -159,6 +160,11 @@ export default function Inventory({user}) {
             </Typography>
           </ThemeProvider>
         </Paper>
+        <Paper className={classes.paperFarming}>
+          <ThemeProvider theme={theme}>
+            <GiftSeed />
+          </ThemeProvider>
+        </Paper>
       </Grid>
       <Grid item xs>
       <Card className={classes.card}>
@@ -191,11 +197,6 @@ export default function Inventory({user}) {
               </p></b>
             ))}
         </CardContent>
-        <CardActions>
-          <Button size="small" color="#000000" variant="contained" color="link" href="/market/MarketSupplies">
-          Purchase Supplies
-          </Button>
-        </CardActions>
       </Card>
     </Grid>
     <Grid item xs>
@@ -228,14 +229,6 @@ export default function Inventory({user}) {
               </p>
             ))}
         </CardContent>
-        <CardActions>
-          <Button size="small" color="#000000" variant="contained" color="link" href="/market/seedbank">
-          Buy Seeds
-          </Button>
-          <Button size="small" color="#000000" variant="contained" color="link" href="/market/farmplots">
-          Lease a Plot  
-          </Button>
-        </CardActions>
       </Card>
       {_.uniqBy(user.availableSeeds, seed => seed.strain)
         .map(seed => ({
@@ -286,11 +279,6 @@ export default function Inventory({user}) {
               </p></b> 
             ))}
         </CardContent>
-        <CardActions>
-          <Button size="small" color="#000000" variant="contained" color="link" href="/market/farmplots">
-          Lease More Plots
-         </Button>
-        </CardActions>
       </Card>
     </Grid>
     </Grid>

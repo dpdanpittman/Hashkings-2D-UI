@@ -72,26 +72,13 @@ export default function BuyGarden({
 
   return (
     <>
-    <center>
-      <label htmlFor="seed">
-        <hr/>
-        <br/>
-        <br/>
-        <font color="DFB17B" size="5">
-          <u><b>Lease a plot of land for your farm</b></u>
-        </font>
-      </label>
-      <br />
       <p>
         <b>
-          <font color="DFB17B">
-            You can lease at most {delegation.available} plot(s)
-            {delegation.available === 1 ? "" : "s"} based on the amount of STEEM
-            Power you have delegated.
-          </font>
+            Plot leases Available: {delegation.available}
+            {delegation.available === 1 ? "" : ""}
         </b>
       </p>
-      <div className="p-col-12 p-md-4">
+      <div className="p-col-12 p-md-12">
         <Dropdown
           optionLabel="name"
           value={garden}
@@ -122,7 +109,6 @@ export default function BuyGarden({
           onClick={handleSubmit}
         />
       </div>
-      </center>
     </>
   );
 }

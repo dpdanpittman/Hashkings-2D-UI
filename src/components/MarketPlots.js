@@ -5,11 +5,133 @@ import {StateContext} from "../App";
 import Delegate from "./Delegate";
 import BuyGarden from "./BuyGarden";
 import { Redirect } from 'react-router';
+import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Collapse from '@material-ui/core/Collapse';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import { red } from '@material-ui/core/colors';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+
+const useStyles = makeStyles(theme => ({
+  card: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
+  root: {
+    '& > svg': {
+      margin: theme.spacing(2),
+    },
+  },
+  iconHover: {
+    '&:hover': {
+      color: "red[800]",
+    },
+  },
+  fab: {
+    margin: theme.spacing(1),
+  },
+  extendedIcon: {
+    marginRight: theme.spacing(1),
+  },
+  extendPaper: {
+    color: red[800]
+  },
+  flex: {
+    flexGrow: 1,
+  },
+  container: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(12, 1fr)',
+    gridGap: theme.spacing(3),
+  },
+  paper: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#294A0B",
+  },
+  paperBlue: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#154A4A",
+  },
+  paperExtended: {
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#000000",
+  },
+  paperBrown: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#532C0C",
+  },
+  divider: {
+    margin: theme.spacing(2, 0),
+  },
+  card: {
+    maxWidth: 345,
+    backgroundColor: "#154A4A",
+  },
+  media: {
+    height: 140,
+  },
+}));
 
 export const MarketPlots = () => {
+  const classes = useStyles();
   const {username} = useContext(StateContext);
   const [delegation, setDelegation] = useState({used: 0, available: 0});
   const [landSupply, setLandSupply] = useState();
+
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
   const hashkingsApi = new HashkingsAPI();
 
@@ -44,35 +166,108 @@ export const MarketPlots = () => {
     );
   }
   return (
-    <div className="p-fluid">
-      <div className="p-grid">
-        <div className="p-col-12 card-blank-sand-3">
-          <center><h1><b>Welcome To Our Leasing Services</b></h1></center>
-          <br/>
-          <div className="p-col-12 card-blank-sand-3 card-w-title">
-          <div className="p-col-3" />
-            <div className="p-grid p-col-6">
-            <hr/>
-              <h3><center>
-                <font color="#C50215">IMPORTANT!</font>
-                <font color="DFB17B">
-                  {" "}
-                  Each plot requires a 20 SP delegation.
-                </font>
-                </center>
-              </h3>
-              <hr/>
-            </div>
-            <div className="p-col-3" />
-            <br/>
-            <br/>
-            <br/>
-            {/* <div className="p-col-12 p-md-2">Gardens</div> */}
-            <Delegate
+    <Paper className={classes.paperExtended}>
+      <div className={classes.flex}>
+      <Grid container spacing={1}>
+        <Grid item xs={6}>
+    <Card className={classes.card}>
+    <CardHeader
+      avatar={
+        <Avatar aria-label="recipe" className={classes.avatar}>
+          P
+        </Avatar>
+      }
+      action={
+        <IconButton aria-label="settings">
+          <MoreVertIcon />
+        </IconButton>
+      }
+      title="Plot Delegation"
+    />
+    <CardMedia
+      className={classes.media}
+      image="https://i.imgur.com/ZohrL4N.png"
+      title="Mexico"
+    />
+    <CardContent>
+      <Typography variant="body2" color="textSecondary" component="p">
+        Each plot lease requires a 20 SP delegation and does not expire.
+      </Typography>
+      <br/>
+      <Typography variant="body2" color="textSecondary" component="p">
+        Please click expand to delegate.
+      </Typography>
+    </CardContent>
+    <CardActions disableSpacing>
+      <IconButton
+        className={clsx(classes.expand, {
+          [classes.expandOpen]: expanded,
+        })}
+        onClick={handleExpandClick}
+        aria-expanded={expanded}
+        aria-label="show more"
+      >
+        <ExpandMoreIcon />
+      </IconButton>
+    </CardActions>
+    <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <CardContent>
+        <Typography paragraph>Delegate:</Typography>
+        <Delegate
               username={username}
               delegation={delegation}
               updateDelegation={updateDelegation}
             />
+      </CardContent>
+    </Collapse>
+  </Card>
+  </Grid>
+  <Grid item xs={6}>
+  <Card className={classes.card}>
+    <CardHeader
+      avatar={
+        <Avatar aria-label="recipe" className={classes.avatar}>
+          L
+        </Avatar>
+      }
+      action={
+        <IconButton aria-label="settings">
+          <MoreVertIcon />
+        </IconButton>
+      }
+      title="Leasing"
+    />
+    <CardMedia
+      className={classes.media}
+      image="https://i.imgur.com/aDDEpiF.png"
+      title="Afghanistan"
+    />
+    <CardContent>
+    <Typography variant="body2" color="textSecondary" component="p">
+        Claim your leased plots
+      </Typography>
+      <br /><br />
+      <Typography variant="body2" color="textSecondary" component="p">
+        Please click expand.
+      </Typography>
+    </CardContent>
+    <CardActions disableSpacing>
+      <IconButton
+        className={clsx(classes.expand, {
+          [classes.expandOpen]: expanded,
+        })}
+        onClick={handleExpandClick}
+        aria-expanded={expanded}
+        aria-label="show more"
+      >
+        <ExpandMoreIcon />
+      </IconButton>
+    </CardActions>
+    <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <CardContent>
+        <Typography paragraph>Lease Plots:</Typography>
+            {/* <div className="p-col-12 p-md-2">Gardens</div> */}
+
             {delegation.available > 0 && (
               <BuyGarden
                 username={username}
@@ -85,14 +280,17 @@ export const MarketPlots = () => {
               <p>
                 <font color="DFB17B">
                   <b>
-                    Please delegate more Steem Power above to purchase a garden
+                    Please delegate more Steem Power above to lease a plot
                   </b>
                 </font>
               </p>
             )}
-          </div>
-        </div>
-      </div>
-    </div>
+      </CardContent>
+    </Collapse>
+  </Card>
+  </Grid>
+  </Grid>
+  </div>
+  </Paper>
   );
 };

@@ -78,7 +78,7 @@ export default function WaterModal({
     if (option) {
       return <span>{`${option.id} `}</span>;
     } else {
-      return <span>Choose some farms...</span>;
+      return <span>Choose your plots...</span>;
     }
   };
 
@@ -88,7 +88,7 @@ export default function WaterModal({
         header="Water your Plots"
         visible={isOpen}
         modal={true}
-        style={{width: "50vw", maxWidth: 500}}
+        style={{width: "50vw", maxWidth: 200}}
         onHide={() => toggleModal("waterModal")}
         closeOnEscape={true}
         dismissableMask={true}

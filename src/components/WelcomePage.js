@@ -1,25 +1,22 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-import ImageGallery from "react-image-gallery";
+import Container from '@material-ui/core/Container';
 
 export const WelcomePage = () => {
 
-const images = [
-    {
-      original: "https://i.imgur.com/jTxih7O.png"
-    }
-  ];
-
     return (
+      <Container fixed>
       <div className="card-blank">
+        
         <div className="p-fluid">
         <center>
           <div className="p-col-12">
-          <ImageGallery items={images} />
+          <img src="https://i.imgur.com/jTxih7O.png" class="rounded" />
           </div>
         </center>
         </div>
-	  </div>
+        
+	  </div></Container>
     );
 };
 
