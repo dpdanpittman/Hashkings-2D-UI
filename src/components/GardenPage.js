@@ -6,7 +6,9 @@ import PlantModal from "./PlantModal";
 import WaterModal from "./WaterModal";
 import HarvestModal from "./HarvestModal";
 import Inventory from "./Inventory";
-import {Panel} from "primereact/panel";
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import { DataTable } from "primereact/datatable";
 import { ProgressBar } from "primereact/progressbar";
 import { Column } from "primereact/column";
@@ -24,6 +26,12 @@ import Typography from '@material-ui/core/Typography';
 import { ThemeProvider } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 function WaterIcon(props) {
   return (
@@ -122,6 +130,9 @@ const useStyles = makeStyles(theme => ({
       margin: theme.spacing(2),
     },
   },
+  rootAgain: {
+    width: '100%',
+  },
   iconHover: {
     '&:hover': {
       color: "red[800]",
@@ -185,6 +196,10 @@ const useStyles = makeStyles(theme => ({
   },
   media: {
     height: 140,
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
   },
 }));
 
@@ -386,18 +401,25 @@ export const GardenPage = () => {
          <div className={classes.flex}>
            <div className={classes.flex}>
            <Paper className={classes.paper}>
-                <ThemeProvider theme={theme}>
+           <ThemeProvider theme={theme}>
                 <Typography gutterBottom variant="h1" component="h1">
-            <u><b>Progress</b></u>
+            <b>Progress and Activity Log</b>
           </Typography>
                   </ThemeProvider>
-                  </Paper>
-                  <Paper className={classes.paper}>
-              <DataTable
+           <ExpansionPanel >
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography className={classes.heading}>Progress</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+        <DataTable
                 value={gardens}
                 loading={loading}
                 responsive={true}
-                emptyMessage="No active farms"
+                emptyMessage="No active plots"
               >
                 <Column field="id" header="Plot #" sortable={true} />
                 <Column
@@ -433,14 +455,55 @@ export const GardenPage = () => {
                   }}
                 />
               </DataTable>
-            </Paper>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <br/>
+          <ExpansionPanel>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className={classes.heading}>Recent Activity</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+        <Paper className={classes.rootAgain}>
+      <Table className={classes.table}>
+        <TableHead>
+          <TableRow>
+            <TableCell>Action</TableCell>
+            <TableCell align="right">Region</TableCell>
+            <TableCell align="right">Time</TableCell>
+            <TableCell align="right">Plot ID</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+        {dashboardStats.activity.map(action => (
+            <TableRow key={action.block}>
+              <TableCell component="th" scope="row">
+              {action.type.charAt(0).toUpperCase() +
+                        action.type.slice(1)}
+              </TableCell>
+              <TableCell align="right">{seedNames[action.strain]}</TableCell>
+              <TableCell align="right">{action.when}</TableCell>
+              <TableCell align="right">{action.id}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </Paper>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+
+      </Paper>
+
               <Grid container spacing={12}>
               <Grid item xs={4}>
                 <Grid item xs={11}>
                   <Paper className={classes.paperBrown}>
                 <ThemeProvider theme={theme}>
                 <Typography gutterBottom variant="h5" component="h1">
-            <u><b>Farming</b></u>
+            <b>Farming</b>
           </Typography>
                   </ThemeProvider>
                   </Paper>
@@ -496,35 +559,6 @@ export const GardenPage = () => {
                   </Grid>
                   </Grid><br/>
                   </div>
-                  
-          <div className="p-col-12 p-lg-12">
-            <center>
-            <Panel className="activity-log">
-              <ul className="card-blank-blue activity-list">
-                {dashboardStats.activity.map(action => (
-                  <li key={action.block}>
-                    <div className="card-blank count">
-                      <h2>
-                      <b><u><font size="6">
-                      You {action.type.charAt(0).toUpperCase() +
-                        action.type.slice(1)}
-                      </font></u></b>
-                      </h2>
-                    </div>
-                    <div className="p-grid">
-                      <div className="card-blank-sand-3 p-col-12">
-                        <font size="4" color="#DFB17B">{seedNames[action.strain]} {action.when} on Plot # {action.id}</font>
-                      </div>
-                    </div>
-                  </li>
-                ))}
-                {dashboardStats.activity.length === 0 && (
-                  <p>No recent activity</p>
-                )}
-              </ul>
-            </Panel>
-            </center>
-          </div>
                   </div>
         <PlantModal
           isOpen={plantSeedModal}
