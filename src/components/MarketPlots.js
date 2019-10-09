@@ -17,8 +17,7 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+import Divider from '@material-ui/core/Divider';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Grid from '@material-ui/core/Grid';
@@ -193,11 +192,8 @@ export const MarketPlots = () => {
       <Typography variant="body2" color="textSecondary" component="p">
         Each plot lease requires a 20 SP delegation and does not expire.
       </Typography>
-      <br/>
-      <Typography variant="body2" color="textSecondary" component="p">
-        Please click expand to delegate.
-      </Typography>
     </CardContent>
+    <hr/>
     <CardActions disableSpacing>
       <IconButton
         className={clsx(classes.expand, {
@@ -212,12 +208,15 @@ export const MarketPlots = () => {
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
+      <Divider variant="middle" />
+      <br/>
         <Typography paragraph>Delegate:</Typography>
         <Delegate
               username={username}
               delegation={delegation}
               updateDelegation={updateDelegation}
             />
+      <Divider variant="middle" />
       </CardContent>
     </Collapse>
   </Card>
@@ -244,13 +243,10 @@ export const MarketPlots = () => {
     />
     <CardContent>
     <Typography variant="body2" color="textSecondary" component="p">
-        Claim your leased plots
-      </Typography>
-      <br /><br />
-      <Typography variant="body2" color="textSecondary" component="p">
-        Please click expand.
+        Once you have delegated enough SP you may claim your leased plots for 0.5 STEEM each.
       </Typography>
     </CardContent>
+    <hr/>
     <CardActions disableSpacing>
       <IconButton
         className={clsx(classes.expand, {
@@ -265,6 +261,8 @@ export const MarketPlots = () => {
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
+      <Divider variant="middle" />
+      <br/>
         <Typography paragraph>Lease Plots:</Typography>
             {/* <div className="p-col-12 p-md-2">Gardens</div> */}
 
@@ -285,6 +283,7 @@ export const MarketPlots = () => {
                 </font>
               </p>
             )}
+      <Divider variant="middle" />
       </CardContent>
     </Collapse>
   </Card>

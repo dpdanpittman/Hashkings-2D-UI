@@ -5,7 +5,7 @@ import {seedNames, HashkingsAPI} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import {InputText} from "primereact/inputtext";
 import {Growl} from "primereact/growl";
-import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -105,7 +105,20 @@ export default function GiftSeed() {
   value={to}
   onChange={e => setTo(e.target.value.trim())}
   placeholder="STEEM user to send to"
-/><br/>
+/>
+</ExpansionPanelDetails>
+<ExpansionPanelDetails>
+{validatedTo && (
+  <div>
+    <h2>{validatedTo}</h2>
+    <img
+      alt="avatar"
+      src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
+    />
+  </div>
+)}
+</ExpansionPanelDetails>
+<ExpansionPanelDetails>
 <Dropdown
   className="form-input"
   disabled={isSubmitting || !username}
@@ -122,23 +135,13 @@ export default function GiftSeed() {
   }}
   placeholder="Choose a seed..."
 />
-<br/>
-{validatedTo && (
-  <div>
-    <h2>{validatedTo}</h2>
-    <img
-      alt="avatar"
-      src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
-    />
-  </div>
-)}
-      <div className="p-col-12 p-md-4">
+</ExpansionPanelDetails>
+<ExpansionPanelDetails>
         <Button
           disabled={isSubmitting || !username || !validatedTo | !seed}
           label={buttonLabel}
           onClick={handleSubmit}
         />
-      </div>
         </ExpansionPanelDetails>
       </ExpansionPanel>
       </div>

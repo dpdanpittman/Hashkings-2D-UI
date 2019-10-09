@@ -185,7 +185,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#000000",
+    backgroundColor: "#000000"
   },
   paperBrown: {
     padding: theme.spacing(1),
@@ -348,8 +348,8 @@ export const GardenPage = () => {
         ]}
       />
 
-<div className={classes.flex}>
-      <Paper className={classes.paperBlack}>
+      <div className={classes.flex}>
+      
       <Grid container spacing={3}>
       <Grid item xs>
       <Card className={classes.card}>
@@ -360,7 +360,7 @@ export const GardenPage = () => {
         <CardContent>
           <center>
           <Typography gutterBottom variant="h5" component="h1">
-            <u><b>Farmers</b></u>
+            <u><b><font color="DFB17B">Farmers</font></b></u>
           </Typography>
           <Typography variant="h5" color="textSecondary" component="h2">
           <b>{dashboardStats.gardeners}</b>
@@ -378,7 +378,7 @@ export const GardenPage = () => {
         <CardContent>
           <center>
           <Typography gutterBottom variant="h5" component="h1">
-            <u><b>Farms</b></u>
+            <u><b><font color="DFB17B">Farms</font></b></u>
           </Typography>
           <Typography variant="h5" color="textSecondary" component="h2">
           <b>{dashboardStats.gardens}</b>
@@ -396,7 +396,7 @@ export const GardenPage = () => {
         <CardContent>
           <center>
           <Typography gutterBottom variant="h5" component="h1">
-            <u><b>Economy</b></u>
+            <u><b><font color="DFB17B">Economy</font></b></u>
           </Typography>
           <Typography variant="h5" color="textSecondary" component="h2">
           <b>{dashboardStats.delegation} SP</b>
@@ -406,15 +406,14 @@ export const GardenPage = () => {
       </Card>
     </Grid>
     </Grid>
-    </Paper>
     </div>
-
+    <br/>
          <div className={classes.flex}>
            <div className={classes.flex}>
            <Paper className={classes.paper}>
            <ThemeProvider theme={theme}>
                 <Typography gutterBottom variant="h1" component="h1">
-            <b>Grow Journal</b>
+            <b><font color="DFB17B">Grow Journal</font></b>
           </Typography>
                   </ThemeProvider>
            <ExpansionPanel className={classes.expansion}>
@@ -514,7 +513,7 @@ export const GardenPage = () => {
                   <Paper className={classes.paperBrown}>
                 <ThemeProvider theme={theme}>
                 <Typography gutterBottom variant="h5" component="h1">
-            <b>Farming</b>
+            <b><font color="DFB17B">Actions</font></b>
           </Typography>
                   </ThemeProvider>
                   </Paper>

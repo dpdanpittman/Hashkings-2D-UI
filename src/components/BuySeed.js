@@ -70,7 +70,7 @@ export default function BuySeed({type}) {
 
   return (
     <>
-      <div className="p-col-12 p-md-4">
+      <div className="p-col-12 p-md-12">
         <Dropdown
           disabled={isSubmitting || !username}
           optionLabel="name"
@@ -87,7 +87,7 @@ export default function BuySeed({type}) {
           placeholder="Choose a seed..."
         />
       </div>
-      <div className="p-col-12 p-md-4">
+      <div className="p-col-12 p-md-12">
         <Button
           disabled={isSubmitting || !username}
           label={buttonLabel}

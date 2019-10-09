@@ -156,7 +156,7 @@ export default function Inventory({user}) {
         <Paper className={classes.paperFarming}>
           <ThemeProvider theme={theme}>
             <Typography gutterBottom variant="h5" component="h1">
-              <b>Inventory</b>
+              <b><font color="DFB17B">Inventory</font></b>
             </Typography>
           </ThemeProvider>
         </Paper>
@@ -174,11 +174,11 @@ export default function Inventory({user}) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Active Plots
+          <font color="DFB17B">Active Plots</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            This is a list of your current active plots. These need to be cared 
-            for on a daily basis.
+          <font color="DFB17B">This is a list of your current active plots. These need to be cared 
+            for on a daily basis.</font>
           </Typography>
           {_.uniqBy(user.activeGardens, garden => garden.id[0])
             .map(garden => ({
@@ -207,10 +207,10 @@ export default function Inventory({user}) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Available Seeds
+          <font color="DFB17B">Available Seeds</font>
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            This is a list of your current available seeds. Plant them to get started!
+          <Typography variant="body2" component="p">
+          <font color="DFB17B">This is a list of your current available seeds. Plant them to get started!</font>
           </Typography>
           {_.uniqBy(user.availableSeeds, seed => seed.strain)
             .map(seed => ({
@@ -257,10 +257,10 @@ export default function Inventory({user}) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Available Plots
+          <font color="DFB17B">Available Plots</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            This is a list of your current available plots and are ready to be planted on.
+          <font color="DFB17B">This is a list of your current available plots and are ready to be planted on.</font>
           </Typography>
           {_.uniqBy(user.availableGardens, garden => garden[0])
             .map(garden => ({

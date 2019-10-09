@@ -61,7 +61,7 @@ export default function Delegate({username, delegation, updateDelegation}) {
 
   return (
     <div>
-      
+      <b>
       {`Total Delegation: ${totalPlots} plot${
         totalPlots !== 1 ? "s" : ""}`}
         <br/><br/>
@@ -80,6 +80,7 @@ export default function Delegate({username, delegation, updateDelegation}) {
         />
       </div>
       <br/>
+      </b>
     </div>
   );
 }
