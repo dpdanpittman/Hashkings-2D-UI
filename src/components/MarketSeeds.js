@@ -111,7 +111,7 @@ export const MarketSeeds = () => {
   
   const classes = useStyles();
   
-  if (!username) {
+  if (username) {
   return(
   <div className="card-blank-sand-3 p-fluid">
     <Grid container spacing={3}>
