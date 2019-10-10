@@ -5,7 +5,7 @@ import {StateContext} from "../App";
 import Delegate from "./Delegate";
 import BuyGarden from "./BuyGarden";
 import { Redirect } from 'react-router';
-import { makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -22,6 +22,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import { ThemeProvider } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -118,7 +119,18 @@ const useStyles = makeStyles(theme => ({
   media: {
     height: 140,
   },
+  paperExtended: { 
+    color: theme.palette.text.secondary,
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#000000",
+  },
 }));
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { 500: '#00211B' }, // custom color in hex 
+  },
+});
 
 export const MarketPlots = () => {
   const classes = useStyles();
@@ -165,10 +177,23 @@ export const MarketPlots = () => {
     );
   }
   return (
-    <Paper className={classes.paperExtended}>
+    <Paper className={classes.paperExtended}>  
+    <div className={classes.flex}>
+      <Paper className={classes.paperExtended}> 
+    <ThemeProvider theme={theme}>
+      <center>
+      <Typography gutterBottom variant="h4" component="h1">
+        <b><font color="#DFB17B">Leasing</font></b>
+      </Typography>
+      </center>
+    </ThemeProvider>
+    </Paper>
+    </div>
+    <Paper className={classes.paperExtended}> 
       <div className={classes.flex}>
       <Grid container spacing={1}>
-        <Grid item xs={6}>
+      <Grid item xs={2}></Grid>
+        <Grid item xs={4}>
     <Card className={classes.card}>
     <CardHeader
       avatar={
@@ -221,7 +246,7 @@ export const MarketPlots = () => {
     </Collapse>
   </Card>
   </Grid>
-  <Grid item xs={6}>
+  <Grid item xs={4}>
   <Card className={classes.card}>
     <CardHeader
       avatar={
@@ -290,6 +315,7 @@ export const MarketPlots = () => {
   </Grid>
   </Grid>
   </div>
+  </Paper>
   </Paper>
   );
 };

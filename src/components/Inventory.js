@@ -230,24 +230,6 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       </Card>
-      {_.uniqBy(user.availableSeeds, seed => seed.strain)
-        .map(seed => ({
-          strain: seed.strain,
-          count: user.availableSeeds.filter(
-            aseed => aseed.strain === seed.strain
-            ).length
-          }))
-          .map(seed => (
-          <p key={seed.strain}>
-            <Badge className={classes.margin} badgeContent={seed.count} color="primary">
-              <SeedIcon  />
-            </Badge>
-            {seedNames[seed.strain]} Seed
-            {seed.count !== 1 ? "s" : ""}
-          </p>
-          )
-        )
-      }
     </Grid>
     <Grid item xs>
       <Card className={classes.card}>

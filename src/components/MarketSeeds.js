@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext, useState, useEffect} from "react";
 import BuySeed from "./BuySeed";
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -8,9 +8,11 @@ import { ThemeProvider } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { Redirect } from 'react-router';
+import {StateContext} from "../App";
 
 export const MarketSeeds = () => {
-  
+  const {username} = useContext(StateContext);
   const useStyles = makeStyles(theme => ({
     button: {
       margin: theme.spacing(1),
@@ -109,11 +111,12 @@ export const MarketSeeds = () => {
   
   const classes = useStyles();
   
+  if (!username) {
   return(
   <div className="card-blank-sand-3 p-fluid">
     <Grid container spacing={3}>
       <Grid item xs={12}>
-        <Paper className={classes.paperBlack}>
+        <Paper className={classes.paperBlack}>   
           <ThemeProvider theme={theme}>
             <Typography gutterBottom variant="h5" component="h1">
               <b><font color="#DFB17B">Purchase Seeds</font></b>
@@ -121,10 +124,6 @@ export const MarketSeeds = () => {
           </ThemeProvider>
         </Paper>
         <Paper className={classes.paperFarming}>
-          <ThemeProvider theme={theme}>
-
-        
-          </ThemeProvider>
         </Paper>
       </Grid>
       <Grid item xs>
@@ -135,10 +134,14 @@ export const MarketSeeds = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Rare Seeds
+          <font color="DFB17B">Rare Seeds</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            These are our rare seeds with special traits.
+          <font color="DFB17B">These are our rare seeds with special traits.</font>
+          </Typography>
+          <br/>
+          <Typography variant="body2" color="textSecondary" component="p">
+          <font color="DFB17B"><b>Price: 3 STEEM</b></font>
           </Typography>
               <label htmlFor="multiselect" />
             <BuySeed type="t" />
@@ -153,10 +156,14 @@ export const MarketSeeds = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Common Seeds
+          <font color="DFB17B">Common Seeds</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Common seeds are the most common type but come with special traits.
+          <font color="DFB17B">Common seeds are the most common type but come with special traits.</font>
+          </Typography>
+          <br/>
+          <Typography variant="body2" color="textSecondary" component="p">
+          <font color="DFB17B"><b>Price: 1.5 STEEM</b></font>
           </Typography>
           <BuySeed type="m" />
         </CardContent>
@@ -170,10 +177,14 @@ export const MarketSeeds = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            General Seeds
+          <font color="DFB17B">General Seeds</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            These are the most common kind of seed with no extra traits associated.
+          <font color="DFB17B">These are the most common kind of seed with no extra traits associated.</font>
+          </Typography>
+          <br/>
+          <Typography variant="body2" color="textSecondary" component="p">
+          <font color="DFB17B"><b>Price: 0.75 STEEM</b></font>
           </Typography>
           <BuySeed type="r" />
         </CardContent>
@@ -182,4 +193,9 @@ export const MarketSeeds = () => {
     </Grid>
   </div>
   )
+} else {
+  return (
+  <Redirect to='/login'/>
+  );
+}
 };
