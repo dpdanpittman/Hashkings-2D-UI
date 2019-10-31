@@ -283,7 +283,7 @@ class App extends Component {
           </div>
           <div className="layout-main">
             <Route path="/login" component={LoginPage} />
-            <Route path="/" exact component={WelcomePage} />
+            <Route path="/" exact component={GardenPage} />
             <Route path="/garden/:username" component={UserGarden} />
             <Route exact path="/farm" component={GardenPage} />
             <Route path="/market/farmplots" component={MarketPlots} />
