@@ -95,7 +95,8 @@ export default function HarvestModal({
           <p>Sorry, you don't have any active plots.</p>
         ) : (
           <>
-            <label htmlFor="garden"><b>Choose a plot or plots then click harvest</b></label>
+            <label htmlFor="garden"><b>Choose a plot or plots then click harvest.  Your seeds will be available
+              24 hours after harvest!</b></label>
 			<br/><br/>
 			  <Button
               disabled={isSubmitting}
