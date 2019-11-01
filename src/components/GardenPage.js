@@ -440,12 +440,12 @@ export const GardenPage = () => {
                 />
                 <Column
                   field="stage"
-                  header="Stage out of 8"
+                  header="Stage out of 4"
                   sortable={true}
                   body={({ stage }) => {
                     return (
                       <ProgressBar
-                        value={Math.floor((stage / 8) * 100)}
+                        value={Math.floor((stage / 4) * 100)}
                         showValue={false}
                       />
                     );
