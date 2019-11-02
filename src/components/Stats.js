@@ -6,8 +6,28 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Checkbox } from "primereact/checkbox";
 import { Redirect } from 'react-router';
+import { makeStyles } from '@material-ui/core/styles';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+  },
+  card: {
+    backgroundColor: "#154A4A",
+  },
+}));
 
 export default function() {
+  const classes = useStyles();
   const { username } = useContext(StateContext);
   const payoutsTable = useRef(null);
   const landPurchasesTable = useRef(null);
@@ -127,26 +147,33 @@ export default function() {
   } else {
     return (
       <div className="card-blank-sand-3 bg-black">
-        <div className="p-fluid">
           <div className="p-col-12">
             <br />
             <center><h1>
-              <b><font color="DFB17B"><u>Past Payouts, Seed and Plot Purchases</u></font></b>
-            </h1></center>
+              <b><font color="DFB17B"><u>Payouts and Purchases</u></font></b>
+            </h1>
+            <p>Since {oldestDate}{" "}</p>
+            </center>
           </div>
           <br/>
           <br/>
-          <div className="p-col-12 bg-black">
-            <div className="card-blank-sand-3 card-w-title">
-              <h1 className="section-heading"><font color="DFB17B">
-                Payouts (since {oldestDate}){" "}
-                <Button
+         
+            <div className={classes.heading}>
+              <ExpansionPanel>
+                <ExpansionPanelSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                >
+                  <Typography className={classes.heading}>Payouts</Typography>
+                  </ExpansionPanelSummary>
+                  <Button
                   className="export-stats"
                   disabled={loading}
                   label="Export as CSV"
                   onClick={() => payoutsTable.current.exportCSV()}
-                /></font>
-              </h1>
+                />
+                  <ExpansionPanelDetails>
               <DataTable
                 value={recentPayouts}
                 loading={loading}
@@ -177,16 +204,24 @@ export default function() {
                   body={blockTemplate}
                 />
               </DataTable>
+              </ExpansionPanelDetails>
+      </ExpansionPanel>
               <br/><br/><br/>
-              <h1 className="section-heading"><font color="DFB17B">
-                Land purchases (since {oldestDate})
+              <ExpansionPanel>
+                <ExpansionPanelSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                >
+                  <Typography className={classes.heading}>Plot Purchase</Typography>
+                  </ExpansionPanelSummary>
                 <Button
                   className="export-stats"
                   disabled={loading}
                   label="Export as CSV"
                   onClick={() => landPurchasesTable.current.exportCSV()}
-                /></font>
-              </h1>
+                />
+             <ExpansionPanelDetails>
               <DataTable
                 value={recentLandPurchases}
                 loading={loading}
@@ -204,16 +239,24 @@ export default function() {
                   body={blockTemplate}
                 />
               </DataTable>
+              </ExpansionPanelDetails>
+              </ExpansionPanel>
               <br/><br/><br/>
-              <h1 className="section-heading"><font color="DFB17B">
-                Seed purchases (since {oldestDate})
+              <ExpansionPanel>
+                <ExpansionPanelSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                >
+                  <Typography className={classes.heading}>Plot Purchase</Typography>
+                  </ExpansionPanelSummary>
                 <Button
                   className="export-stats"
                   disabled={loading}
                   label="Export as CSV"
                   onClick={() => seedPurchasesTable.current.exportCSV()}
-                /></font>
-              </h1>
+                />
+                <ExpansionPanelDetails>
               <DataTable
                 value={recentSeedPurchases}
                 loading={loading}
@@ -232,6 +275,8 @@ export default function() {
                   body={blockTemplate}
                 />
               </DataTable>
+              </ExpansionPanelDetails>
+             </ExpansionPanel>
               <div id="fetch-all-history">
                 <Checkbox
                   inputId="fetchAll"
@@ -257,8 +302,7 @@ export default function() {
                 onClick={fetchMore}
               />
             </div>
-          </div>
-        </div>
+         
       </div>
     );
   }

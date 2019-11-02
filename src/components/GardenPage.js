@@ -362,8 +362,8 @@ export const GardenPage = () => {
           <Typography gutterBottom variant="h5" component="h1">
             <u><b><font color="DFB17B">Farmers</font></b></u>
           </Typography>
-          <Typography variant="h5" color="textSecondary" component="h2">
-          <b>{dashboardStats.gardeners}</b>
+          <Typography variant="h5" component="h2">
+          <b><font color="B28D43">{dashboardStats.gardeners}</font></b>
           </Typography>
           </center>
         </CardContent>
@@ -381,7 +381,7 @@ export const GardenPage = () => {
             <u><b><font color="DFB17B">Farms</font></b></u>
           </Typography>
           <Typography variant="h5" color="textSecondary" component="h2">
-          <b>{dashboardStats.gardens}</b>
+          <b><font color="B28D43">{dashboardStats.gardens}</font></b>
           </Typography>
           </center>
         </CardContent>
@@ -399,7 +399,7 @@ export const GardenPage = () => {
             <u><b><font color="DFB17B">Economy</font></b></u>
           </Typography>
           <Typography variant="h5" color="textSecondary" component="h2">
-          <b>{dashboardStats.delegation} SP</b>
+          <b><font color="B28D43">{dashboardStats.delegation} SP</font></b>
           </Typography>
           </center>
         </CardContent>
@@ -440,26 +440,26 @@ export const GardenPage = () => {
                 />
                 <Column
                   field="stage"
-                  header="Stage out of 4"
+                  header="Stage"
                   sortable={true}
                   body={({ stage }) => {
                     return (
                       <ProgressBar
                         value={Math.floor((stage / 4) * 100)}
-                        showValue={false}
+                        showValue={true}
                       />
                     );
                   }}
                 />
                 <Column
                   field="substage"
-                  header="Substage out of 14"
+                  header="Substage"
                   sortable={true}
                   body={({ substage }) => {
                     return (
                       <ProgressBar
                         value={Math.floor((substage / 14) * 100)}
-                        showValue={false}
+                        showValue={true}
                       />
                     );
                   }}

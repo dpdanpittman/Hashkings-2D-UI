@@ -174,12 +174,9 @@ export default function Inventory({user}) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B">Active Plots</font>
+          <center><font color="DFB17B">Active Plots</font></center>
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B">This is a list of your current active plots. These need to be cared 
-            for on a daily basis.</font>
-          </Typography>
+          <hr/>
           {_.uniqBy(user.activeGardens, garden => garden.id[0])
             .map(garden => ({
               id: garden.id[0],
@@ -188,13 +185,13 @@ export default function Inventory({user}) {
               ).length
             }))
             .map(garden => (
-              <b><p key={garden.id}>
+              <b><font color="B28D43"><p key={garden.id}>
                 <Badge className={classes.margin} badgeContent={garden.count} color="primary">
                   <FarmIcon  />
                 </Badge>
                     {gardenNames[garden.id]}
                 {garden.count !== 1 ? "" : ""}
-              </p></b>
+              </p></font></b>
             ))}
         </CardContent>
       </Card>
@@ -207,11 +204,9 @@ export default function Inventory({user}) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B">Available Seeds</font>
+          <font color="DFB17B">Seeds</font>
           </Typography>
-          <Typography variant="body2" component="p">
-          <font color="DFB17B">This is a list of your current available seeds. Plant them to get started!</font>
-          </Typography>
+          <hr/>
           {_.uniqBy(user.availableSeeds, seed => seed.strain)
             .map(seed => ({
               strain: seed.strain,
@@ -220,12 +215,12 @@ export default function Inventory({user}) {
               ).length
             }))
             .map(seed => (
-              <p key={seed.strain}>
+              <p key={seed.strain}><font color="B28D43">
                 <Badge className={classes.margin} badgeContent={seed.count} color="primary">
                   <SeedIcon  />
                 </Badge>
                  {seedNames[seed.strain]} Seed
-                {seed.count !== 1 ? "s" : ""}
+                {seed.count !== 1 ? "s" : ""}</font>
               </p>
             ))}
         </CardContent>
@@ -239,11 +234,9 @@ export default function Inventory({user}) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B">Available Plots</font>
+          <font color="DFB17B">Plots</font>
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B">This is a list of your current available plots and are ready to be planted on.</font>
-          </Typography>
+          <hr/>
           {_.uniqBy(user.availableGardens, garden => garden[0])
             .map(garden => ({
               id: garden[0],
@@ -252,12 +245,12 @@ export default function Inventory({user}) {
               ).length
             }))
             .map(garden => (
-              <b><p key={garden.id}>
+              <b><p key={garden.id}><font color="B28D43">
                 <Badge className={classes.margin} badgeContent={garden.count} color="primary">
                   <FarmIcon  />
                 </Badge>
                  {gardenNames[garden.id]}
-                {garden.count !== 1 ? "s" : ""}
+                {garden.count !== 1 ? "s" : ""}</font>
               </p></b> 
             ))}
         </CardContent>
