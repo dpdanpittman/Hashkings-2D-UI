@@ -219,7 +219,7 @@ export default function Inventory({user}) {
                 <Badge className={classes.margin} badgeContent={seed.count} color="primary">
                   <SeedIcon  />
                 </Badge>
-                 {seedNames[seed.strain]} Seed
+                 {seedNames[seed.strain]}
                 {seed.count !== 1 ? "s" : ""}</font>
               </p>
             ))}
