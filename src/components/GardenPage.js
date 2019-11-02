@@ -202,6 +202,9 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 345,
     backgroundColor: "#154A4A",
   },
+  table: {
+    backgroundColor: "#532C0C",
+  },
   media: {
     height: 140,
   },
@@ -216,7 +219,7 @@ const theme = createMuiTheme({
     primary: { 500: '#00211B' }, // custom color in hex 
   },
   expansion: {
-    backgroundColor: "#154A4A",
+    backgroundColor: "#DFB17B",
   },
 });
 
@@ -445,7 +448,7 @@ export const GardenPage = () => {
                   body={({ stage }) => {
                     return (
                       <ProgressBar
-                        value={Math.floor((stage / 4) * 100)}
+                        value={Math.floor((stage / 5) * 100)}
                         showValue={true}
                       />
                     );
