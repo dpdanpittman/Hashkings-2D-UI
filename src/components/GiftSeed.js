@@ -20,6 +20,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
   },
+  background: {
+    backgroundColor: "#DFB17B"
+  }
 }));
 
 export default function GiftSeed() {
@@ -91,7 +94,7 @@ export default function GiftSeed() {
     <>
       <Growl ref={growl} />
       <div className="p-col-12">
-      <ExpansionPanel>
+      <ExpansionPanel className={classes.background}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"

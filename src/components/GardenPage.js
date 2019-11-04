@@ -203,10 +203,13 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#154A4A",
   },
   table: {
-    backgroundColor: "#532C0C",
+    backgroundColor: "#4A8686",
   },
   media: {
     height: 140,
+  },
+  expansion: {
+    backgroundColor: "#DFB17B",
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -217,9 +220,6 @@ const useStyles = makeStyles(theme => ({
 const theme = createMuiTheme({
   palette: {
     primary: { 500: '#00211B' }, // custom color in hex 
-  },
-  expansion: {
-    backgroundColor: "#DFB17B",
   },
 });
 
@@ -425,9 +425,9 @@ export const GardenPage = () => {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes.heading}>Progress</Typography>
+        <Typography className={classes.heading}>Progress</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
+        <ExpansionPanelDetails className={classes.expansion}>
         <DataTable
                 value={gardens}
                 loading={loading}
@@ -469,9 +469,12 @@ export const GardenPage = () => {
                 />
               </DataTable>
         </ExpansionPanelDetails>
+        <Typography><font color="red">
+        Please allow 24 hours for your harvested plots to reset</font></Typography>
+        <br/>
       </ExpansionPanel>
       <br/>
-          <ExpansionPanel>
+          <ExpansionPanel className={classes.expansion}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -479,9 +482,9 @@ export const GardenPage = () => {
         >
           <Typography className={classes.heading}>Recent Activity</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
+        <ExpansionPanelDetails  className={classes.expansion}>
         <Paper className={classes.rootAgain}>
-      <Table className={classes.table}>
+      <Table className={classes.expansion}>
         <TableHead>
           <TableRow>
             <TableCell>Action</TableCell>
