@@ -12,6 +12,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,6 +24,25 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     backgroundColor: "#154A4A",
+  },
+  extension: {
+    backgroundColor: "#095938",
+  },
+  paper: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#154A4A",
+  },
+  paperBlack: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#000000",
   },
 }));
 
@@ -146,26 +166,25 @@ export default function() {
     );
   } else {
     return (
-      <div className="card-blank-sand-3 bg-black">
-          <div className="p-col-12">
+      <Paper className={classes.paperBlack}>
+          <Paper className={classes.paper}>
             <br />
             <center><h1>
               <b><font color="DFB17B"><u>Payouts and Purchases</u></font></b>
             </h1>
-            <p>Since {oldestDate}{" "}</p>
+            <p><font color="DFB17B">Since {oldestDate}{" "}</font></p>
             </center>
-          </div>
+          </Paper>
           <br/>
-          <br/>
-         
             <div className={classes.heading}>
-              <ExpansionPanel>
+            <Paper className={classes.paper}>
+              <ExpansionPanel className={classes.extension}>
                 <ExpansionPanelSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                  <Typography className={classes.heading}>Payouts</Typography>
+                  <Typography className={classes.heading}><font color="DFB17B">Payouts</font></Typography>
                   </ExpansionPanelSummary>
                   <Button
                   className="export-stats"
@@ -206,14 +225,16 @@ export default function() {
               </DataTable>
               </ExpansionPanelDetails>
       </ExpansionPanel>
-              <br/><br/><br/>
-              <ExpansionPanel>
+      </Paper>
+              <br/>
+              <Paper className={classes.paper}>
+              <ExpansionPanel className={classes.extension}>
                 <ExpansionPanelSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                  <Typography className={classes.heading}>Plot Purchase</Typography>
+                  <Typography className={classes.heading}><font color="DFB17B">Plot Purchases</font></Typography>
                   </ExpansionPanelSummary>
                 <Button
                   className="export-stats"
@@ -241,14 +262,16 @@ export default function() {
               </DataTable>
               </ExpansionPanelDetails>
               </ExpansionPanel>
-              <br/><br/><br/>
-              <ExpansionPanel>
+              </Paper>
+              <br/>
+              <Paper className={classes.paper}>
+              <ExpansionPanel className={classes.extension}>
                 <ExpansionPanelSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 >
-                  <Typography className={classes.heading}>Plot Purchase</Typography>
+                  <Typography className={classes.heading}><font color="DFB17B">Seed Purchases</font></Typography>
                   </ExpansionPanelSummary>
                 <Button
                   className="export-stats"
@@ -277,6 +300,7 @@ export default function() {
               </DataTable>
               </ExpansionPanelDetails>
              </ExpansionPanel>
+             </Paper>
               <div id="fetch-all-history">
                 <Checkbox
                   inputId="fetchAll"
@@ -303,7 +327,7 @@ export default function() {
               />
             </div>
          
-      </div>
+      </Paper>
     );
   }
 }

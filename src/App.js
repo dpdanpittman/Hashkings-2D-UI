@@ -152,16 +152,16 @@ class App extends Component {
             label: "Seeds",
             icon: "pi pi-fw pi-circle-off",
             to: "/market/seedbank"
-          },
+          }
           /*{
             label: "Supplies",
             icon: "pi pi-fw pi-circle-off",
             to: "/market/MarketSupplies"
-          },*/
+          },
           {
             label: "Maps (Coming Soon)",
             icon: "pi pi-fw pi-circle-off"
-          }
+          }*/
         ]
       },
       {

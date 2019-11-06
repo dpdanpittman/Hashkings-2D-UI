@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import {withRouter} from "react-router-dom";
 import {StateContext} from "../App";
 import useSteemKeychain from "../hooks/useSteemKeychain";
@@ -13,6 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { HashkingsAPI } from "../service/HashkingsAPI";
 
 function Copyright() {
   return (
@@ -45,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -57,6 +58,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const LoginPage = ({history}) => {
+  const hashkingsApi = new HashkingsAPI();
   const [username, setUsername] = useState("");
   const {steemConnectAPI, login} = useContext(StateContext);
   const [loggingIn, setLoggingIn] = useState(false);
@@ -72,7 +74,7 @@ export const LoginPage = ({history}) => {
         .then(res => {
           login(res.name);
           localStorage.setItem("sc_token", token);
-          history.push("/welcome");
+          history.push("/farm");
         })
         .catch(e => {
           console.log(e);
@@ -84,6 +86,17 @@ export const LoginPage = ({history}) => {
       setLoggingIn(false);
     }
   };
+  const [validatedTo, setValidatedTo] = useState();
+
+  useEffect(() => {
+    hashkingsApi.steemUserExists(username).then(username => {
+      if (username && username === username) {
+        setValidatedTo(username);
+      } else {
+        setValidatedTo();
+      }
+    });
+  }, [username]);
 
   const Login = () => {
     setLoggingIn(true);
@@ -96,7 +109,7 @@ export const LoginPage = ({history}) => {
     : "SteemConnect";
 
     const classes = useStyles();
-  
+
     return (
     <Grid container component="main" className={classes.root}>
     <CssBaseline />
@@ -104,12 +117,20 @@ export const LoginPage = ({history}) => {
     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+        {validatedTo && (
+        <div>
+          <h2>{validatedTo}</h2>
+          <img
+          alt="STEEM Avatar"
+          src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
+          />
+          </div>
+          )}
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} validate>
           <TextField
             variant="outlined"
             margin="normal"

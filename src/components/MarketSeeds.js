@@ -77,7 +77,7 @@ export const MarketSeeds = () => {
       color: theme.palette.text.secondary,
       whiteSpace: 'nowrap',
       marginBottom: theme.spacing(1),
-      backgroundColor: "#000000"
+      backgroundColor: "#154A4A"
     },
     paperBrown: {
       padding: theme.spacing(1),

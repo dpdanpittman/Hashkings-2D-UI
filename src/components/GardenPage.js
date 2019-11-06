@@ -161,7 +161,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#294A0B",
+    backgroundColor: "#095938",
   },
   paperBlue: {
     padding: theme.spacing(1),
@@ -209,7 +209,7 @@ const useStyles = makeStyles(theme => ({
     height: 140,
   },
   expansion: {
-    backgroundColor: "#DFB17B",
+    backgroundColor: "#154A4A",
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -425,7 +425,7 @@ export const GardenPage = () => {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-        <Typography className={classes.heading}>Progress</Typography>
+        <Typography className={classes.heading}><font color="DFB17B">Progress</font></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.expansion}>
         <DataTable
@@ -480,9 +480,9 @@ export const GardenPage = () => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>Recent Activity</Typography>
+          <Typography className={classes.heading}><font color="DFB17B">Recent Activity</font></Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails  className={classes.expansion}>
+        <ExpansionPanelDetails className={classes.expansion}>
         <Paper className={classes.rootAgain}>
       <Table className={classes.expansion}>
         <TableHead>
