@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import classNames from "classnames";
 import {AppTopbar} from "./AppTopbar";
 import {AppMenu} from "./AppMenu";
-import {AppInlineProfile} from "./AppInlineProfile";
 import {Route} from "react-router-dom";
 import {Dashboard} from "./components/Dashboard";
 import LoginPage from "./components/LoginPage";
@@ -24,7 +23,6 @@ import UserGarden from "./components/UserGarden";
 import WelcomePage from "./components/WelcomePage";
 import FAQPage from "./components/FAQPage";
 import Stats from "./components/Stats";
-import Gifting from "./components/Gifting";
 import ReactGA from 'react-ga';
 
 const trackingID ="UA-111263990-4"
@@ -255,7 +253,6 @@ class App extends Component {
       <StateContext.Provider value={this.state.localState}>
         <div className={wrapperClass} onClick={this.onWrapperClick}>
           <AppTopbar onToggleMenu={this.onToggleMenu} />
-
           <div
             ref={el => (this.sidebar = el)}
             className={sidebarClassName}
@@ -294,8 +291,8 @@ class App extends Component {
             <Route path="/stats" component={Stats} />
             <Route path="/welcome" component={WelcomePage} />
             <Route path="/market/MarketSupplies" component={MarketSupplies} />
-          </div>
-          <div className="layout-mask" />
+          </div>   
+          <div className="layout-mask"></div>
         </div>
       </StateContext.Provider>
     );
