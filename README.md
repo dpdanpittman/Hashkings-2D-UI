@@ -35,19 +35,31 @@
 </div>
 
 ## Table of Contents
+- [Install](#installation)
 - [Features](#features)
 - [Screenshot](#screenshot)
 - [Support](#support)
 - [Contributors](#contributors)
-- [See Also](#see-also)
-- [FAQ](#faq)
+
 
 ## Features
-- __Blockchain:__ immutable record, ipfs and non-fungible tokens on STEEM
-- __React.js:__ our frontend is written with the react framework
-- __custom api:__ unique requests to the STEEM Blockchain 
-- __minimal requirements:__ easy to use with [STEEM Keychain](https://chrome.google.com/webstore/detail/steem-keychain/lkcjlnjfpbikmcmbachjpdbijejflpcm?hl=en)
-- __isomorphic:__ renders seamlessly in both Node and browsers
+- __Blockchain:__ 
+- __React.js:__ 
+- __custom api:__ 
+- __minimal requirements:__ 
+npm
+[HashkingsAPI](https://github.com/disregardfiat/hashkings)
+and [STEEM Keychain](https://chrome.google.com/webstore/detail/steem-keychain/lkcjlnjfpbikmcmbachjpdbijejflpcm?hl=en)
+
+
+## Install
+```git clone https://github.com/dpdanpittman/Hashkings-2D-UI.git```
+
+```cd Hashkings-2D-UI```
+
+```npm install```
+
+```npm run start:dev```
 
 ## Screenshots
 <p align="center">
