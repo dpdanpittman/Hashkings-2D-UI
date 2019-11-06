@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     height: '80vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/user/exxteban/1600x900)',
+    backgroundImage: 'url(https://source.unsplash.com/user/kimzy/1600x900)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
