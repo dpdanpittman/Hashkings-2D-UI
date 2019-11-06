@@ -79,6 +79,10 @@ export const MarketSeeds = () => {
       marginBottom: theme.spacing(1),
       backgroundColor: "#154A4A"
     },
+    paperBlacky: {
+      padding: theme.spacing(1),
+      backgroundColor: "#000000",
+    },
     paperBrown: {
       padding: theme.spacing(1),
       textAlign: 'center',
@@ -113,17 +117,15 @@ export const MarketSeeds = () => {
   
   if (username) {
   return(
-  <div className="card-blank-sand-3 p-fluid">
+    <Paper className={classes.paperBlacky}>
     <Grid container spacing={3}>
       <Grid item xs={12}>
         <Paper className={classes.paperBlack}>   
           <ThemeProvider theme={theme}>
             <Typography gutterBottom variant="h5" component="h1">
-              <b><font color="#DFB17B">Purchase Seeds</font></b>
+              <b><font color="#DFB17B"><u>Purchase Seeds</u></font></b>
             </Typography>
           </ThemeProvider>
-        </Paper>
-        <Paper className={classes.paperFarming}>
         </Paper>
       </Grid>
       <Grid item xs>
@@ -191,7 +193,7 @@ export const MarketSeeds = () => {
       </Card>
     </Grid>
     </Grid>
-  </div>
+  </Paper>
   )
 } else {
   return (

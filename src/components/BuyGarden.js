@@ -73,9 +73,9 @@ export default function BuyGarden({
   return (
     <>
       <p>
-        <b>
+        <b><font color="DFB17B">
             Plot leases Available: {delegation.available}
-            {delegation.available === 1 ? "" : ""}
+            {delegation.available === 1 ? "" : ""}</font>
         </b>
       </p>
       <div className="p-col-12 p-md-12">

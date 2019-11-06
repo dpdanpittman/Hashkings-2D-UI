@@ -90,7 +90,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
+    whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#154A4A",
   },
@@ -99,7 +99,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     color: theme.palette.text.secondary,
     marginBottom: theme.spacing(1),
-    backgroundColor: "#000000",
+    backgroundColor: "#154A4A",
   },
   paperBrown: {
     padding: theme.spacing(1),
@@ -114,7 +114,7 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     maxWidth: 345,
-    backgroundColor: "#154A4A",
+    backgroundColor: "#095938",
   },
   media: {
     height: 140,
@@ -177,27 +177,23 @@ export const MarketPlots = () => {
     );
   }
   return (
-    <Paper className={classes.paperExtended}>  
-    <div className={classes.flex}>
-      <Paper className={classes.paperExtended}> 
-    <ThemeProvider theme={theme}>
+    <Paper className={classes.paperExtended}> 
+      <Paper className={classes.paperBlue}> 
+      <ThemeProvider theme={theme}>
       <center>
       <Typography gutterBottom variant="h4" component="h1">
-        <b><font color="#DFB17B">Leasing</font></b>
+        <b><font color="#DFB17B"><u>Leasing</u></font></b>
       </Typography>
       </center>
     </ThemeProvider>
     </Paper>
-    </div>
-    <Paper className={classes.paperExtended}> 
-      <div className={classes.flex}>
+    <Paper className={classes.paperBlue}> 
       <Grid container spacing={1}>
-      <Grid item xs={2}></Grid>
         <Grid item xs={4}>
     <Card className={classes.card}>
     <CardHeader
       avatar={
-        <Avatar aria-label="recipe" className={classes.avatar}>
+        <Avatar aria-label="delegation" className={classes.avatar}>
           P
         </Avatar>
       }
@@ -214,8 +210,8 @@ export const MarketPlots = () => {
       title="Mexico"
     />
     <CardContent>
-      <Typography variant="body2" color="textSecondary" component="p">
-        Each plot lease requires a 20 SP delegation and does not expire.
+      <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B">
+        Each plot lease requires a 20 SP delegation and does not expire.</font>
       </Typography>
     </CardContent>
     <hr/>
@@ -235,7 +231,7 @@ export const MarketPlots = () => {
       <CardContent>
       <Divider variant="middle" />
       <br/>
-        <Typography paragraph>Delegate:</Typography>
+        <Typography paragraph><font color="DFB17B">Delegate:</font></Typography>
         <Delegate
               username={username}
               delegation={delegation}
@@ -246,11 +242,22 @@ export const MarketPlots = () => {
     </Collapse>
   </Card>
   </Grid>
+
+  <Grid item xs={4}>
+  <Card className={classes.card}>
+    <CardMedia
+      className={classes.media}
+      image="https://i.imgur.com/TLlmPMi.png"
+      title="Hashkings"
+    />
+  </Card>
+  </Grid>
+
   <Grid item xs={4}>
   <Card className={classes.card}>
     <CardHeader
       avatar={
-        <Avatar aria-label="recipe" className={classes.avatar}>
+        <Avatar aria-label="leasing" className={classes.avatar}>
           L
         </Avatar>
       }
@@ -267,8 +274,8 @@ export const MarketPlots = () => {
       title="Afghanistan"
     />
     <CardContent>
-    <Typography variant="body2" color="textSecondary" component="p">
-        Once you have delegated enough SP you may claim your leased plots for 0.5 STEEM each.
+    <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B">
+        Once you have delegated enough SP you may claim your leased plots for 0.5 STEEM each.</font>
       </Typography>
     </CardContent>
     <hr/>
@@ -288,9 +295,7 @@ export const MarketPlots = () => {
       <CardContent>
       <Divider variant="middle" />
       <br/>
-        <Typography paragraph>Lease Plots:</Typography>
-            {/* <div className="p-col-12 p-md-2">Gardens</div> */}
-
+        <Typography paragraph><font color="DFB17B">Lease Plots:</font></Typography>
             {delegation.available > 0 && (
               <BuyGarden
                 username={username}
@@ -314,7 +319,6 @@ export const MarketPlots = () => {
   </Card>
   </Grid>
   </Grid>
-  </div>
   </Paper>
   </Paper>
   );

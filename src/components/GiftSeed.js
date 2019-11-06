@@ -88,7 +88,7 @@ export default function GiftSeed() {
 
   let buttonLabel = "Gift";
   if (isSubmitting) buttonLabel = "Gifting";
-  if (!username) buttonLabel = "Login to gift";
+  if (!username) buttonLabel = "Login to gift seeds";
 
   return (
     <>

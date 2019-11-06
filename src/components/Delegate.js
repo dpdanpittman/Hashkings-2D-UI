@@ -61,14 +61,14 @@ export default function Delegate({username, delegation, updateDelegation}) {
 
   return (
     <div>
-      <b>
+      <b><font color="DFB17B">
       {`Total Delegation: ${totalPlots} plot${
         totalPlots !== 1 ? "s" : ""}`}
         <br/><br/>
        {`Plots Available: ${
         delegation.available} `}
         <br/><br/>
-        {`Please choose the number of additional plots you would like to lease`}
+        {`Please choose the number of additional plots you would like to lease`}</font>
       <div className="p-col-12 p-md-4">
         <Spinner value={amount} onChange={e => setAmount(e.value)} min={1} />
       </div>
