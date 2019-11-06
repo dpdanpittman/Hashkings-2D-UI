@@ -21,7 +21,8 @@ const useStyles = makeStyles(theme => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   background: {
-    backgroundColor: "#DFB17B"
+    backgroundImage: 'url(https://en.seedfinder.eu/pics/01seeds/Cannabis_Family_Seeds/Cannabis_Family_Seeds_-_Dark_Horse.png)',
+    backgroundColor: "#DFB17B",
   }
 }));
 
@@ -100,7 +101,7 @@ export default function GiftSeed() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>Gift Seeds</Typography>
+          <Typography className={classes.heading}><font color="DFB17B">Gift Seeds</font></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
 <InputText
