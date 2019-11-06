@@ -1,8 +1,8 @@
-<h1 align="center">HashKings</h1>
+<h1 align="center">HashKings Beta</h1>
 <div align="center">
 <a href="https://travis-ci.org/dpdanpittman/Hashkings-2D-UI">
 <img border="0" alt="buildpassed" src="https://travis-ci.org/dpdanpittman/Hashkings-2D-UI.svg?branch=master"></a><br/>
-  <strong>In-game Crypto Staking</strong>
+  <strong></strong>
 </div>
 <div align="center">
   STEEM Blockchain Gaming | Grow Virtual Cannabis! 
@@ -87,4 +87,7 @@ and focused on improving the state of the web.
 [MIT](https://tldrlegal.com/license/mit-license)
 
 ## Community Support
-We need your help! Hashkings is independently funded and developed so your contributions are welcome. The development team is working dilligently day and night to create this dApp from the ground up. Please contact Dan if you are willing to help bring this project to the next level.
+We need your help! Hashkings is independently funded and developed so your contributions are welcome. The development team is working dilligently to create this dApp.
+
+STEEM - @qwoyn
+TRON - TVpaFcV6KGQH6fLzm9zXeBG1m1mfRPRNrv
