@@ -136,10 +136,10 @@ export const MarketSeeds = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B">Rare Seeds</font>
+          <font color="DFB17B">Genesis Seeds</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B">These are our rare seeds with special traits.</font>
+          <font color="DFB17B">These seeds are the first round of seeds. These seeds are extremely rare and are used to make beta seeds.</font>
           </Typography>
           <br/>
           <Typography variant="body2" color="textSecondary" component="p">
@@ -158,16 +158,16 @@ export const MarketSeeds = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B">Common Seeds</font>
+          <font color="DFB17B">Beta Seeds</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B">Common seeds are the most common type but come with special traits.</font>
+          <font color="DFB17B">This is the second round of seeds, acquired through growing a genesis seed into a mature plant and harvesting.</font>
           </Typography>
           <br/>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B"><b>Price: 1.5 STEEM</b></font>
+          <font color="DFB17B"><b><i>Only Available through trade. Please visit the <a href="https://discord.gg/hWJed7s">Discord Server</a></i></b></font>
           </Typography>
-          <BuySeed type="m" />
+          {/*<BuySeed type="m" />*/}
         </CardContent>
       </Card>
     </Grid>
@@ -179,16 +179,17 @@ export const MarketSeeds = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B">General Seeds</font>
+          <font color="DFB17B">HK Seeds</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B">These are the most common kind of seed with no extra traits associated.</font>
+          <font color="DFB17B">These are the full version seeds not yet available. They will contain the genetic code which make up the traits, terps and sex of the cannabis strain you are growing. 
+          These seeds will be also broken down in to Sativa, Indica and Ruderalis.</font>
           </Typography>
           <br/>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B"><b>Price: 0.75 STEEM</b></font>
+          <font color="DFB17B"><b>Price: TBD</b></font>
           </Typography>
-          <BuySeed type="r" />
+          {/*<BuySeed type="r" />*/}
         </CardContent>
       </Card>
     </Grid>
