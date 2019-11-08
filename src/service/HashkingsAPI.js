@@ -8,6 +8,12 @@ export class HashkingsAPI {
     return axios.get(this.baseUrl + suffix).then(res => res.data);
   }
 
+  getTrending() {
+    return this.getSteemAPI("get_discussions_by_trending", [
+      { tag: "cannabis", limit: 10 }
+    ]);
+  }
+
   getUser(username) {
     return this.get(`u/${username}`);
   }
