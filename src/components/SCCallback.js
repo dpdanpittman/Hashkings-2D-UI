@@ -18,7 +18,7 @@ const SCCallback = ({history}) => {
         .then(res => {
           login(res.name);
           localStorage.setItem("sc_token", accessToken);
-          history.push("/");
+          history.push("/farm");
         })
         .catch(e => {
           console.log(e);

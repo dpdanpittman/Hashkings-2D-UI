@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import { Redirect } from 'react-router';
-import {HashkingsAPI, seedNames} from "../service/HashkingsAPI";
+import { HashkingsAPI, seedNames } from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import PlantModal from "./PlantModal";
 import WaterModal from "./WaterModal";
