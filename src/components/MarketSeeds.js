@@ -139,7 +139,7 @@ export const MarketSeeds = () => {
           <font color="DFB17B">Genesis Seeds</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B">These seeds are the first round of seeds. These seeds are extremely rare and are used to make beta seeds.</font>
+          <font color="DFB17B">These seeds are the first round of seeds, are extremely rare and are used to make beta seeds.</font>
           </Typography>
           <br/>
           <Typography variant="body2" color="textSecondary" component="p">
