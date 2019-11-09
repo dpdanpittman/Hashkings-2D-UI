@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   background: {
-    backgroundImage: 'url(https://en.seedfinder.eu/pics/01seeds/Cannabis_Family_Seeds/Cannabis_Family_Seeds_-_Dark_Horse.png)',
+    backgroundImage: 'url(https://i.imgur.com/ET4nTp7.jpg)',
     backgroundColor: "#DFB17B",
   }
 }));
