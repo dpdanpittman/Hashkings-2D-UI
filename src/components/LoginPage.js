@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    label: 'Twizted Monkey Coupon'
+    alt: 'Twizted Monkey Coupon',
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -113,7 +113,7 @@ export const LoginPage = ({history}) => {
 
     return (
     <Grid container component="main" className={classes.root}>
-    <CssBaseline />
+    {/*<CssBaseline />*/}
     <Grid item xs={false} sm={4} md={7} className={classes.image} />
     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
       <div className={classes.paper}>
