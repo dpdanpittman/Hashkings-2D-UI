@@ -26,10 +26,8 @@ import ReactGA from 'react-ga';
 
 const trackingID ="UA-111263990-4"
 
-function initializeReactGA() {
-  ReactGA.initialize(trackingID);
-  ReactGA.pageview('/login');
-}
+ReactGA.initialize(trackingID);
+ReactGA.pageview('/login');
 
 export const StateContext = React.createContext();
 
