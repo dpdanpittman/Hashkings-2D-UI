@@ -11,7 +11,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
-import GiftSeed from "./GiftSeed";
+//import GiftSeed from "./GiftSeed";
 import _ from "lodash";
 
 function FarmIcon(props) {
@@ -141,6 +141,7 @@ export default function Inventory({user}) {
   
   return (
   <div className={classes.flex}>
+    
     <Grid container spacing={3}>
       <Grid item xs={12}>
         <Paper className={classes.paperFarming}>
@@ -148,11 +149,6 @@ export default function Inventory({user}) {
             <Typography gutterBottom variant="h5" component="h1">
               <b><font color="DFB17B">Inventory</font></b>
             </Typography>
-          </ThemeProvider>
-        </Paper>
-        <Paper className={classes.paperFarming}>
-          <ThemeProvider theme={theme}>
-            <GiftSeed />
           </ThemeProvider>
         </Paper>
       </Grid>
@@ -245,6 +241,7 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       </Card>
+      
     </Grid>
     </Grid>
     </div>

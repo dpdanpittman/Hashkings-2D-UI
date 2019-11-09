@@ -32,6 +32,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import GiftSeed from "./GiftSeed";
+import Divider from '@material-ui/core/Divider';
 
 function WaterIcon(props) {
   return (
@@ -194,6 +196,22 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#532C0C",
+  },
+  paperDarkBlue: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#030D22",
+  },
+  paperDivider: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#949494",
   },
   divider: {
     margin: theme.spacing(2, 0),
@@ -411,6 +429,7 @@ export const GardenPage = () => {
     </Grid>
     </div>
     <br/>
+    <Divider />
          <div className={classes.flex}>
            <div className={classes.flex}>
            <Paper className={classes.paper}>
@@ -510,17 +529,43 @@ export const GardenPage = () => {
     </Paper>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-
       </Paper>
-
+      <Grid container spacing={12}>
+      <Grid item xs={12}>
+      <Paper className={classes.paperDivider}></Paper>
+      </Grid>
+      </Grid>
+      <Grid container spacing={12}>
+      <Grid item xs={12}>
+                  <Paper className={classes.paperDarkBlue}>
+                <ThemeProvider theme={theme}>
+                <Typography gutterBottom variant="h5" component="h1">
+                  <b><font color="DFB17B">Trading</font></b>
+                  </Typography>
+                  </ThemeProvider>
+                  </Paper>
+                </Grid>
+                <Grid item xs={3}></Grid>
+                <Grid item xs={6}>
+                <Paper className={classes.paperDarkBlue}>
+                <GiftSeed />
+                </Paper>
+                </Grid>
+                <Grid item xs={3}></Grid>
+              </Grid>
+              <Grid container spacing={12}>
+      <Grid item xs={12}>
+      <Paper className={classes.paperDivider}></Paper>
+      </Grid>
+      </Grid>
               <Grid container spacing={12}>
               <Grid item xs={4}>
                 <Grid item xs={11}>
                   <Paper className={classes.paperBrown}>
                 <ThemeProvider theme={theme}>
                 <Typography gutterBottom variant="h5" component="h1">
-            <b><font color="DFB17B">Actions</font></b>
-          </Typography>
+                  <b><font color="DFB17B">Actions</font></b>
+                  </Typography>
                   </ThemeProvider>
                   </Paper>
                 </Grid>

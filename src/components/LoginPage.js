@@ -33,10 +33,11 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     // backgroundImage: 'url(https://source.unsplash.com/user/kimzy/1600x900)',
-    backgroundImage: 'url(https://i.imgur.com/XKC0U0e.png)',
+    backgroundImage: 'url(https://i.imgur.com/vZ7ShWv.png)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+    label: 'Twizted Monkey Coupon'
   },
   paper: {
     margin: theme.spacing(8, 4),
