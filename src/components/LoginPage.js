@@ -116,6 +116,12 @@ export const LoginPage = ({history}) => {
     {/*<CssBaseline />*/}
     <Grid item xs={false} sm={4} md={7} className={classes.image} />
     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+    <div className={classes.paper}><center>
+      <img
+          alt="Hashkings Banner"
+          src={`https://i.imgur.com/jvJLKua.png`}
+          />></center>
+          </div>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
         {validatedTo && (
@@ -128,8 +134,8 @@ export const LoginPage = ({history}) => {
           </div>
           )}
         </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
+        <Typography component="h6" variant="h6">
+          Please Sign in
         </Typography>
         <form className={classes.form} validate>
           <TextField
