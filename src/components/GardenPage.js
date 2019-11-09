@@ -384,13 +384,7 @@ export const GardenPage = () => {
       <Grid container spacing={3}>
       <Grid item xs>
       <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image="https://i.imgur.com/ZI9lEAQ.jpg"
-        />
-        <CardContent>
-          <center>
-          <HtmlTooltip
+      <HtmlTooltip
                   title={
                     <React.Fragment>
                       <Typography color="primary"><u>Total Number of Active Farmers</u></Typography>
@@ -398,10 +392,16 @@ export const GardenPage = () => {
                     </React.Fragment>
                   }
                   >
+        <CardMedia
+          className={classes.media}
+          image="https://i.imgur.com/ZI9lEAQ.jpg"
+        /></HtmlTooltip>
+        <CardContent>
+          <center>
           <Typography gutterBottom variant="h5" component="h1">
             <u><b><font color="DFB17B">Farmers</font></b></u>
           </Typography>
-          </HtmlTooltip>
+          
           <Typography variant="h5" component="h2">
           <b><font color="B28D43">{dashboardStats.gardeners}</font></b>
           </Typography>
@@ -411,13 +411,7 @@ export const GardenPage = () => {
     </Grid>
     <Grid item xs>
       <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image="https://www.usnews.com/dims4/USNEWS/ae50a20/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fcom-usnews-beam-media.s3.amazonaws.com%2F25%2Fb1%2F8a19e6c940ddb4674c711f9e42c9%2F181204-hemp-editorial.jpg"
-        />
-        <CardContent>
-          <center>
-          <HtmlTooltip
+      <HtmlTooltip
                   title={
                     <React.Fragment>
                       <Typography color="primary"><u>Total Number of Farms</u></Typography>
@@ -425,10 +419,17 @@ export const GardenPage = () => {
                     </React.Fragment>
                   }
                   >
+        <CardMedia
+          className={classes.media}
+          image="https://www.usnews.com/dims4/USNEWS/ae50a20/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fcom-usnews-beam-media.s3.amazonaws.com%2F25%2Fb1%2F8a19e6c940ddb4674c711f9e42c9%2F181204-hemp-editorial.jpg"
+        /></HtmlTooltip>
+        <CardContent>
+          <center>
+
           <Typography gutterBottom variant="h5" component="h1">
             <u><b><font color="DFB17B">Farms</font></b></u>
           </Typography>
-          </HtmlTooltip>
+          
           <Typography variant="h5" color="textSecondary" component="h2">
           <b><font color="B28D43">{dashboardStats.gardens}</font></b>
           </Typography>
@@ -438,13 +439,7 @@ export const GardenPage = () => {
     </Grid>
     <Grid item xs>
       <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image="https://www.moneycrashers.com/wp-content/uploads/2019/04/gross-domestic-product-definition-1068x713.jpg"
-        />
-        <CardContent>
-          <center>
-          <HtmlTooltip
+      <HtmlTooltip
                   title={
                     <React.Fragment>
                       <Typography color="primary"><u>Total Steem Power Delegated</u></Typography>
@@ -452,10 +447,18 @@ export const GardenPage = () => {
                     </React.Fragment>
                   }
                   >
+        <CardMedia
+          className={classes.media}
+          image="https://www.moneycrashers.com/wp-content/uploads/2019/04/gross-domestic-product-definition-1068x713.jpg"
+        />
+                  </HtmlTooltip>
+        <CardContent>
+          <center>
+
           <Typography gutterBottom variant="h5" component="h1">
             <u><b><font color="DFB17B">Economy</font></b></u>
           </Typography>
-          </HtmlTooltip>
+
           <Typography variant="h5" color="textSecondary" component="h2">
           <b><font color="B28D43">{dashboardStats.delegation} SP</font></b>
           </Typography>
@@ -549,7 +552,7 @@ export const GardenPage = () => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.expansion}>
         <Paper className={classes.rootAgain}>
-      <Table className={classes.expansion}>
+      <Table >
         <TableHead>
           <TableRow>
             <TableCell>Action</TableCell>

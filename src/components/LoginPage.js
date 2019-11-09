@@ -4,7 +4,7 @@ import {StateContext} from "../App";
 import useSteemKeychain from "../hooks/useSteemKeychain";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-//import CssBaseline from '@material-ui/core/CssBaseline';
+// import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: '#ffffff'
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -120,7 +120,7 @@ export const LoginPage = ({history}) => {
       <img
           alt="Hashkings Banner"
           src={`https://i.imgur.com/jvJLKua.png`}
-          />></center>
+          /></center>
           </div>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -134,9 +134,6 @@ export const LoginPage = ({history}) => {
           </div>
           )}
         </Avatar>
-        <Typography component="h6" variant="h6">
-          Please Sign in
-        </Typography>
         <form className={classes.form} validate>
           <TextField
             variant="outlined"

@@ -131,9 +131,9 @@ class App extends Component {
             to: "/farm"
           },
           {
-            label: "Stats",
+            label: "Accounting",
             icon: "pi pi-fw pi-file",
-            to: "/stats"
+            to: "/accounting"
           },
         ]
       },
@@ -288,7 +288,7 @@ class App extends Component {
             <Route path="/market/seedbank" component={MarketSeeds} />
             <Route path="/callback" component={SCCallback} />
             <Route path="/faq" component={FAQPage} />
-            <Route path="/stats" component={Stats} />
+            <Route path="/accounting" component={Stats} />
             <Route path="/market/MarketSupplies" component={MarketSupplies} />
           </div>   
           <div className="layout-mask"></div>
