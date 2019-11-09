@@ -12,7 +12,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import { DataTable } from "primereact/datatable";
 import { ProgressBar } from "primereact/progressbar";
 import { Column } from "primereact/column";
-import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -241,6 +241,16 @@ const theme = createMuiTheme({
   },
 });
 
+const HtmlTooltip = withStyles(theme => ({
+  tooltip: {
+    backgroundColor: '#f5f5f9',
+    color: 'rgba(0, 0, 0, 0.87)',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}))(Tooltip);
+
 export const GardenPage = () => {
   const {username} = useContext(StateContext);
   const classes = useStyles();
@@ -380,9 +390,18 @@ export const GardenPage = () => {
         />
         <CardContent>
           <center>
+          <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Total Number of Active Farmers</u></Typography>
+                      <em><a href="/market/seedbank">{"This is your community!"}</a></em> <b>{"Say hi to them in the Hashkings Discord"}</b>
+                    </React.Fragment>
+                  }
+                  >
           <Typography gutterBottom variant="h5" component="h1">
             <u><b><font color="DFB17B">Farmers</font></b></u>
           </Typography>
+          </HtmlTooltip>
           <Typography variant="h5" component="h2">
           <b><font color="B28D43">{dashboardStats.gardeners}</font></b>
           </Typography>
@@ -398,9 +417,18 @@ export const GardenPage = () => {
         />
         <CardContent>
           <center>
+          <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Total Number of Farms</u></Typography>
+                      <em><a href="/market/seedbank">{"These are plots which are already occupied!"}</a></em> <b>{"Is one of them yours?"}</b>
+                    </React.Fragment>
+                  }
+                  >
           <Typography gutterBottom variant="h5" component="h1">
             <u><b><font color="DFB17B">Farms</font></b></u>
           </Typography>
+          </HtmlTooltip>
           <Typography variant="h5" color="textSecondary" component="h2">
           <b><font color="B28D43">{dashboardStats.gardens}</font></b>
           </Typography>
@@ -416,9 +444,18 @@ export const GardenPage = () => {
         />
         <CardContent>
           <center>
+          <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Total Steem Power Delegated</u></Typography>
+                      <em><a href="/market/seedbank">{"This is our total Economy"}</a></em> <b>{"This number is based on total SP delegated and STEEM powered up from Seed Sales"}</b>
+                    </React.Fragment>
+                  }
+                  >
           <Typography gutterBottom variant="h5" component="h1">
             <u><b><font color="DFB17B">Economy</font></b></u>
           </Typography>
+          </HtmlTooltip>
           <Typography variant="h5" color="textSecondary" component="h2">
           <b><font color="B28D43">{dashboardStats.delegation} SP</font></b>
           </Typography>
@@ -434,9 +471,18 @@ export const GardenPage = () => {
            <div className={classes.flex}>
            <Paper className={classes.paper}>
            <ThemeProvider theme={theme}>
+           <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Progress and Activity</u></Typography>
+                      <em><a href="/market/seedbank">{"Expand the Categories below!"}</a></em> <b>{"This is where you will keep track of the progress of your plants!"}</b>
+                    </React.Fragment>
+                  }
+                  >
                 <Typography gutterBottom variant="h1" component="h1">
             <b><font color="DFB17B">Grow Journal</font></b>
           </Typography>
+          </HtmlTooltip>
                   </ThemeProvider>
            <ExpansionPanel className={classes.expansion}>
         <ExpansionPanelSummary
@@ -539,9 +585,18 @@ export const GardenPage = () => {
       <Grid item xs={12}>
                   <Paper className={classes.paperDarkBlue}>
                 <ThemeProvider theme={theme}>
+                <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Trading Floor</u></Typography>
+                      <em><a href="/market/seedbank">{"Do you have extra seeds?"}</a></em> <b>{"Click Gift Seeds to get started"}</b>
+                    </React.Fragment>
+                  }
+                  >
                 <Typography gutterBottom variant="h5" component="h1">
                   <b><font color="DFB17B">Trading</font></b>
                   </Typography>
+                  </HtmlTooltip>
                   </ThemeProvider>
                   </Paper>
                 </Grid>
@@ -563,16 +618,32 @@ export const GardenPage = () => {
                 <Grid item xs={11}>
                   <Paper className={classes.paperBrown}>
                 <ThemeProvider theme={theme}>
+                <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Plant, Water and Harvest </u></Typography>
+                      <em><a href="/market/seedbank">{"This is where you perform your main tasks."}</a></em> <b>{"Don't forget to check the progress!"}</b>
+                    </React.Fragment>
+                  }
+                  >
                 <Typography gutterBottom variant="h5" component="h1">
                   <b><font color="DFB17B">Actions</font></b>
                   </Typography>
+                  </HtmlTooltip>
                   </ThemeProvider>
                   </Paper>
                 </Grid>
                 <Grid item xs={11}>
                   <Paper className={classes.paperBrown}>
                 <ThemeProvider theme={theme}>
-                  <Tooltip title="Plant Seeds" placement="left-start">
+                  <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Planting</u></Typography>
+                      <em><a href="/market/seedbank">{"Did you get seeds?"}</a></em> <b>{"plant some Crops!"}</b>
+                    </React.Fragment>
+                  }
+                  >
                   <Fab
                     variant="contained" 
                     color="primary"
@@ -580,14 +651,21 @@ export const GardenPage = () => {
                     className={classes.button}
                   ><GerminateIcon />
                   </Fab>
-                  </Tooltip>
+      </HtmlTooltip>
                   </ThemeProvider>
                   </Paper>
                 </Grid>
                 <Grid item xs={11}>
                   <Paper className={classes.paperBrown}>
                 <ThemeProvider theme={theme}>
-                  <Tooltip title="Water Crops" placement="left-start">
+                <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Water</u></Typography>
+                      <em><a href="/market/seedbank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
+                    </React.Fragment>
+                  }
+                  >
                   <Fab
                     variant="contained" 
                     color="primary"
@@ -595,14 +673,21 @@ export const GardenPage = () => {
                     className={classes.button}
                   ><WaterIcon />
                   </Fab>
-                  </Tooltip>
+                  </HtmlTooltip>
                   </ThemeProvider>
                   </Paper>
                 </Grid>
                 <Grid item xs={11}>
                 <Paper className={classes.paperBrown}>            
                   <ThemeProvider theme={theme}>
-                  <Tooltip title="Harvest" placement="left-start">
+                  <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Harvest</u></Typography>
+                      <em><a href="/market/seedbank">{"Are those buds nice and ripe?"}</a></em> <b>{"Harvest when they are ready."}</b>
+                    </React.Fragment>
+                  }
+                  >
                   <Fab
                     variant="contained" 
                     color="primary"
@@ -610,7 +695,7 @@ export const GardenPage = () => {
                     className={classes.button}
                   ><HarvestIcon />
                   </Fab>
-                  </Tooltip>
+                  </HtmlTooltip>
                   </ThemeProvider>
                   </Paper>
                   </Grid>

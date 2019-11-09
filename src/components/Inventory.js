@@ -1,6 +1,6 @@
 import React from "react";
 import { gardenNames, seedNames } from "../service/HashkingsAPI";
-import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';
@@ -13,6 +13,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 //import GiftSeed from "./GiftSeed";
 import _ from "lodash";
+import Tooltip from '@material-ui/core/Tooltip';
 
 function FarmIcon(props) {
   return (
@@ -136,6 +137,16 @@ const theme = createMuiTheme({
   },
 });
 
+const HtmlTooltip = withStyles(theme => ({
+  tooltip: {
+    backgroundColor: '#f5f5f9',
+    color: 'rgba(0, 0, 0, 0.87)',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}))(Tooltip);
+
 export default function Inventory({user}) {
   const classes = useStyles();
   
@@ -146,9 +157,18 @@ export default function Inventory({user}) {
       <Grid item xs={12}>
         <Paper className={classes.paperFarming}>
           <ThemeProvider theme={theme}>
+          <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Seeds and Plots</u></Typography>
+                      <em><a href="/market/seedbank">{"Find your Plots and Seeds here"}</a></em> <b>{"Do you have extra Seeds?  Plant them or trade them above!"}</b>
+                    </React.Fragment>
+                  }
+                  >
             <Typography gutterBottom variant="h5" component="h1">
               <b><font color="DFB17B">Inventory</font></b>
             </Typography>
+            </HtmlTooltip>
           </ThemeProvider>
         </Paper>
       </Grid>
