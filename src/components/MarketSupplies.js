@@ -21,7 +21,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import _ from "lodash";
+// import _ from "lodash";
 
 export const MarketSupplies = () => {
   const {username} = useContext(StateContext);
@@ -88,7 +88,7 @@ export const MarketSupplies = () => {
     }));
   
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  // const [setOpen] = React.useState(false);
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -96,13 +96,7 @@ export const MarketSupplies = () => {
     setExpanded(!expanded);
   };
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <div className={classes.flex}>

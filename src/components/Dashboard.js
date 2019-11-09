@@ -11,7 +11,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import _ from "lodash";
+// import _ from "lodash";
 
 export const Dashboard = ({user}) => {
   const {username} = useContext(StateContext);
@@ -114,13 +114,13 @@ export const Dashboard = ({user}) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => {
+  /*const handleOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
-  };
+  };*/
 
   return (
     <div className="p-grid p-fluid dashboard card-blank-black">

@@ -1,20 +1,8 @@
-import React, {useContext, useState} from "react";
-import {StateContext} from "./App";
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useContext } from "react";
+import { StateContext } from "./App";
 import Chip from '@material-ui/core/Chip';
 import LockOpen from '@material-ui/icons/LockOpen';
 import FaceIcon from '@material-ui/icons/Face';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    '& > *': {
-      margin: theme.spacing(0.5),
-    },
-  },
-}));
 
 const handleClick = () => {
   window.location = '/login';
@@ -23,9 +11,9 @@ const handleClick = () => {
 export const AppInlineProfile = () => {
   const {username} = useContext(StateContext);
 
-  const handleDelete = () => {
+  /*const handleDelete = () => {
     alert('');
-  };
+  };*/
 
   if (!username) {
     return (

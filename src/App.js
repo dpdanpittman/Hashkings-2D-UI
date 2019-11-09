@@ -20,7 +20,6 @@ import "./App.scss";
 import steemConnectAPI from "./service/SteemConnectAPI";
 import SCCallback from "./components/SCCallback";
 import UserGarden from "./components/UserGarden";
-import WelcomePage from "./components/WelcomePage";
 import FAQPage from "./components/FAQPage";
 import Stats from "./components/Stats";
 import ReactGA from 'react-ga';
@@ -289,7 +288,6 @@ class App extends Component {
             <Route path="/callback" component={SCCallback} />
             <Route path="/faq" component={FAQPage} />
             <Route path="/stats" component={Stats} />
-            <Route path="/welcome" component={WelcomePage} />
             <Route path="/market/MarketSupplies" component={MarketSupplies} />
           </div>   
           <div className="layout-mask"></div>

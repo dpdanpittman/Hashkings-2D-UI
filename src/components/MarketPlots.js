@@ -25,9 +25,6 @@ import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
-  card: {
-    maxWidth: 345,
-  },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -99,7 +96,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     color: theme.palette.text.secondary,
     marginBottom: theme.spacing(1),
-    backgroundColor: "#154A4A",
+    backgroundColor: "#000000",
   },
   paperBrown: {
     padding: theme.spacing(1),
@@ -115,14 +112,6 @@ const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
     backgroundColor: "#095938",
-  },
-  media: {
-    height: 140,
-  },
-  paperExtended: { 
-    color: theme.palette.text.secondary,
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#000000",
   },
 }));
 
