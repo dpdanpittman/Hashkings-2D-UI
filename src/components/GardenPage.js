@@ -243,7 +243,7 @@ const theme = createMuiTheme({
 
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
-    backgroundColor: '#f5f5f9',
+    backgroundColor: '#ffffff',
     color: 'rgba(0, 0, 0, 0.87)',
     maxWidth: 220,
     fontSize: theme.typography.pxToRem(12),
@@ -383,7 +383,6 @@ export const GardenPage = () => {
       
       <Grid container spacing={3}>
       <Grid item xs>
-      <Card className={classes.card}>
       <HtmlTooltip
                   title={
                     <React.Fragment>
@@ -391,11 +390,13 @@ export const GardenPage = () => {
                       <em><a href="/market/seedbank">{"This is your community!"}</a></em> <b>{"Say hi to them in the Hashkings Discord"}</b>
                     </React.Fragment>
                   }
+                  placement="bottom-start"
                   >
+      <Card className={classes.card}>
         <CardMedia
           className={classes.media}
           image="https://i.imgur.com/ZI9lEAQ.jpg"
-        /></HtmlTooltip>
+        />
         <CardContent>
           <center>
           <Typography gutterBottom variant="h5" component="h1">
@@ -408,21 +409,23 @@ export const GardenPage = () => {
           </center>
         </CardContent>
       </Card>
+      </HtmlTooltip>
     </Grid>
     <Grid item xs>
-      <Card className={classes.card}>
-      <HtmlTooltip
+    <HtmlTooltip
                   title={
                     <React.Fragment>
                       <Typography color="primary"><u>Total Number of Farms</u></Typography>
                       <em><a href="/market/seedbank">{"These are plots which are already occupied!"}</a></em> <b>{"Is one of them yours?"}</b>
                     </React.Fragment>
                   }
+                  placement="bottom"
                   >
+      <Card className={classes.card}>
         <CardMedia
           className={classes.media}
           image="https://www.usnews.com/dims4/USNEWS/ae50a20/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fcom-usnews-beam-media.s3.amazonaws.com%2F25%2Fb1%2F8a19e6c940ddb4674c711f9e42c9%2F181204-hemp-editorial.jpg"
-        /></HtmlTooltip>
+        />
         <CardContent>
           <center>
 
@@ -436,22 +439,23 @@ export const GardenPage = () => {
           </center>
         </CardContent>
       </Card>
+      </HtmlTooltip>
     </Grid>
     <Grid item xs>
-      <Card className={classes.card}>
-      <HtmlTooltip
+    <HtmlTooltip
                   title={
                     <React.Fragment>
                       <Typography color="primary"><u>Total Steem Power Delegated</u></Typography>
                       <em><a href="/market/seedbank">{"This is our total Economy"}</a></em> <b>{"This number is based on total SP delegated and STEEM powered up from Seed Sales"}</b>
                     </React.Fragment>
                   }
+                  placement="bottom-end"
                   >
+      <Card className={classes.card}>
         <CardMedia
           className={classes.media}
           image="https://www.moneycrashers.com/wp-content/uploads/2019/04/gross-domestic-product-definition-1068x713.jpg"
         />
-                  </HtmlTooltip>
         <CardContent>
           <center>
 
@@ -465,6 +469,7 @@ export const GardenPage = () => {
           </center>
         </CardContent>
       </Card>
+      </HtmlTooltip>
     </Grid>
     </Grid>
     </div>
@@ -474,19 +479,19 @@ export const GardenPage = () => {
            <div className={classes.flex}>
            <Paper className={classes.paper}>
            <ThemeProvider theme={theme}>
-           <HtmlTooltip
-                  title={
-                    <React.Fragment>
-                      <Typography color="primary"><u>Progress and Activity</u></Typography>
-                      <em><a href="/market/seedbank">{"Expand the Categories below!"}</a></em> <b>{"This is where you will keep track of the progress of your plants!"}</b>
-                    </React.Fragment>
-                  }
-                  >
                 <Typography gutterBottom variant="h1" component="h1">
             <b><font color="DFB17B">Grow Journal</font></b>
           </Typography>
-          </HtmlTooltip>
                   </ThemeProvider>
+                  <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Plot Progress</u></Typography>
+                      <em><a href="/market/seedbank">{"Find out how far along your plants are."}</a></em> <b>{"Is it time to Harvest?  Once stage reaches 100 percent it is!"}</b>
+                    </React.Fragment>
+                  }
+                  placement="right"
+                  >
            <ExpansionPanel className={classes.expansion}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
@@ -541,7 +546,17 @@ export const GardenPage = () => {
         Please allow 24 hours for your harvested plots to reset</font></Typography>
         <br/>
       </ExpansionPanel>
+      </HtmlTooltip>
       <br/>
+      <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Recent Waterings and Plantings</u></Typography>
+                      <em><a href="/market/seedbank">{"Keep track of when you last watered!"}</a></em> <b>{"You need to water every plot once every 24 hours.  Don't overwater!"}</b>
+                    </React.Fragment>
+                  }
+                  placement="right"
+                  >
           <ExpansionPanel className={classes.expansion}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
@@ -578,6 +593,7 @@ export const GardenPage = () => {
     </Paper>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      </HtmlTooltip>
       </Paper>
       <Grid container spacing={12}>
       <Grid item xs={12}>
@@ -595,6 +611,7 @@ export const GardenPage = () => {
                       <em><a href="/market/seedbank">{"Do you have extra seeds?"}</a></em> <b>{"Click Gift Seeds to get started"}</b>
                     </React.Fragment>
                   }
+                  placement="top"
                   >
                 <Typography gutterBottom variant="h5" component="h1">
                   <b><font color="DFB17B">Trading</font></b>
@@ -628,6 +645,7 @@ export const GardenPage = () => {
                       <em><a href="/market/seedbank">{"This is where you perform your main tasks."}</a></em> <b>{"Don't forget to check the progress!"}</b>
                     </React.Fragment>
                   }
+                  placement="top"
                   >
                 <Typography gutterBottom variant="h5" component="h1">
                   <b><font color="DFB17B">Actions</font></b>
@@ -646,6 +664,7 @@ export const GardenPage = () => {
                       <em><a href="/market/seedbank">{"Did you get seeds?"}</a></em> <b>{"plant some Crops!"}</b>
                     </React.Fragment>
                   }
+                  placement="left"
                   >
                   <Fab
                     variant="contained" 
@@ -668,6 +687,7 @@ export const GardenPage = () => {
                       <em><a href="/market/seedbank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
                     </React.Fragment>
                   }
+                  placement="right"
                   >
                   <Fab
                     variant="contained" 
@@ -690,6 +710,7 @@ export const GardenPage = () => {
                       <em><a href="/market/seedbank">{"Are those buds nice and ripe?"}</a></em> <b>{"Harvest when they are ready."}</b>
                     </React.Fragment>
                   }
+                  placement="top"
                   >
                   <Fab
                     variant="contained" 

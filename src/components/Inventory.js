@@ -11,7 +11,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
-//import GiftSeed from "./GiftSeed";
 import _ from "lodash";
 import Tooltip from '@material-ui/core/Tooltip';
 
@@ -157,22 +156,21 @@ export default function Inventory({user}) {
       <Grid item xs={12}>
         <Paper className={classes.paperFarming}>
           <ThemeProvider theme={theme}>
-          <HtmlTooltip
-                  title={
-                    <React.Fragment>
-                      <Typography color="primary"><u>Seeds and Plots</u></Typography>
-                      <em><a href="/market/seedbank">{"Find your Plots and Seeds here"}</a></em> <b>{"Do you have extra Seeds?  Plant them or trade them above!"}</b>
-                    </React.Fragment>
-                  }
-                  >
             <Typography gutterBottom variant="h5" component="h1">
               <b><font color="DFB17B">Inventory</font></b>
             </Typography>
-            </HtmlTooltip>
           </ThemeProvider>
         </Paper>
       </Grid>
       <Grid item xs>
+      <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Active Plots</u></Typography>
+                      <em><a href="/market/seedbank">{"Farm plots which are currently earning"}</a></em> <b>{"Do you need another Plot?  Visit the Market!"}</b>
+                    </React.Fragment>
+                  }
+                  >
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -201,8 +199,17 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       </Card>
+      </HtmlTooltip>
     </Grid>
     <Grid item xs>
+    <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Available Seeds</u></Typography>
+                      <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
+                    </React.Fragment>
+                  }
+                  >
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -231,8 +238,17 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       </Card>
+      </HtmlTooltip>
     </Grid>
     <Grid item xs>
+    <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Available Plots</u></Typography>
+                      <em><a href="/market/seedbank">{"These plots are ready to go!"}</a></em> <b>{"Do you have extra Seeds?  These plots are available to be farmed."}</b>
+                    </React.Fragment>
+                  }
+                  >
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -261,7 +277,7 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       </Card>
-      
+      </HtmlTooltip>
     </Grid>
     </Grid>
     </div>

@@ -5,12 +5,13 @@ import {seedNames, HashkingsAPI} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import {InputText} from "primereact/inputtext";
 import {Growl} from "primereact/growl";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,6 +26,16 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#DFB17B",
   }
 }));
+
+const HtmlTooltip = withStyles(theme => ({
+  tooltip: {
+    backgroundColor: '#f5f5f9',
+    color: 'rgba(0, 0, 0, 0.87)',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}))(Tooltip);
 
 export default function GiftSeed() {
   const classes = useStyles();
@@ -95,6 +106,15 @@ export default function GiftSeed() {
     <>
       <Growl ref={growl} />
       <div className="p-col-12">
+      <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="primary"><u>Seeds and Plots</u></Typography>
+                      <em><a href="/market/seedbank">{"Find your Plots and Seeds here"}</a></em> <b>{"Do you have extra Seeds?  Plant them or trade them above!"}</b>
+                    </React.Fragment>
+                  }
+                  placement="left"
+                  >
       <ExpansionPanel className={classes.background}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
@@ -148,6 +168,7 @@ export default function GiftSeed() {
         />
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      </HtmlTooltip>
       </div>
     </>
   );
