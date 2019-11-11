@@ -90,4 +90,5 @@ and focused on improving the state of the web.
 We need your help! Hashkings is independently funded and developed so your contributions are welcome. The development team is working dilligently to create this dApp.
 
 STEEM - @qwoyn
+<br/>
 TRON - TVpaFcV6KGQH6fLzm9zXeBG1m1mfRPRNrv
