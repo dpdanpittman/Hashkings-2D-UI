@@ -357,7 +357,7 @@ export const GardenPage = () => {
 
     setOpen(false);
   };
-
+  
   if (username) {
     return (
       <div className="card-blank-green-1">
@@ -672,8 +672,8 @@ export const GardenPage = () => {
                     className={classes.button}
                   ><GerminateIcon />
                   </Fab>
-      </HtmlTooltip>
-                  </ThemeProvider>
+                  </HtmlTooltip>
+                </ThemeProvider>
                   </Paper>
                 </Grid>
                 <Grid item xs={11}>
@@ -724,6 +724,13 @@ export const GardenPage = () => {
                   </ThemeProvider>
                   </Paper>
                   </Grid>
+                  
+                  {/*<Grid item xs={11}>
+                  
+                <ThemeProvider theme={theme}>
+                <img src="https://media.giphy.com/media/GXHR881M1wZ32/giphy.gif" class="rounded" />
+                  </ThemeProvider>
+                </Grid>*/}
                   </Grid>
                   <Grid item xs={8}>
                   <Inventory user={user} />

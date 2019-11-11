@@ -113,7 +113,7 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     maxWidth: 345,
-    backgroundColor: "#095938",
+    backgroundColor: "#000000",
   },
 }));
 
@@ -198,7 +198,7 @@ export const MarketPlots = () => {
                       <em><a href="/market/seedbank">{"Get your farm plots here"}</a></em> <b>{"Each Plot requires a 20 STEEM Power delegation"}</b>
                     </React.Fragment>
                   }
-                  placement="bottom-start"
+                  placement="right"
                   TransitionComponent={Zoom}
                   >
     <Card className={classes.card}>
@@ -208,12 +208,6 @@ export const MarketPlots = () => {
           P
         </Avatar>
       }
-      action={
-        <IconButton aria-label="settings">
-          <MoreVertIcon />
-        </IconButton>
-      }
-      title="Plot Delegation"
     />
     <CardMedia
       className={classes.media}
@@ -222,7 +216,7 @@ export const MarketPlots = () => {
     />
     <CardContent>
       <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B">
-        Click the Expand Icon to Delegate</font>
+      Plot Delegation</font>
       </Typography>
     </CardContent>
     <hr/>
@@ -235,7 +229,9 @@ export const MarketPlots = () => {
         aria-expanded={expanded}
         aria-label="show more"
       >
-        <ExpandMoreIcon />
+        <ExpandMoreIcon 
+        color="error"
+        />
       </IconButton>
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -266,6 +262,16 @@ export const MarketPlots = () => {
   </Grid>
 
   <Grid item xs={4}>
+  <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="error"><u>Leasing</u></Typography>
+                      <em><a href="/market/seedbank">{"Claim your leased plots for 0.5 STEEM each."}</a></em><b>{" In order to claim your plots we require a small fee. Pay with STEEM below"}</b>
+                    </React.Fragment>
+                  }
+                  placement="left"
+                  TransitionComponent={Zoom}
+                  >
   <Card className={classes.card}>
     <CardHeader
       avatar={
@@ -273,12 +279,6 @@ export const MarketPlots = () => {
           L
         </Avatar>
       }
-      action={
-        <IconButton aria-label="settings">
-          <MoreVertIcon />
-        </IconButton>
-      }
-      title="Leasing"
     />
     <CardMedia
       className={classes.media}
@@ -287,7 +287,7 @@ export const MarketPlots = () => {
     />
     <CardContent>
     <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B">
-        Once you have delegated enough SP you may claim your leased plots for 0.5 STEEM each.</font>
+        Leasing</font>
       </Typography>
     </CardContent>
     <hr/>
@@ -300,7 +300,9 @@ export const MarketPlots = () => {
         aria-expanded={expanded}
         aria-label="show more"
       >
-        <ExpandMoreIcon />
+        <ExpandMoreIcon 
+        color="error"
+        />
       </IconButton>
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -329,6 +331,7 @@ export const MarketPlots = () => {
       </CardContent>
     </Collapse>
   </Card>
+  </HtmlTooltip>
   </Grid>
   </Grid>
   </Paper>
