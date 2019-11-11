@@ -38,6 +38,9 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     alt: 'Twizted Monkey Coupon',
+    /*command: () => {
+      window.open('https://www.twiztedmonkey.com', '_blank');
+    }*/
   },
   paper: {
     margin: theme.spacing(8, 4),

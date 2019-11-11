@@ -5,7 +5,7 @@ import {StateContext} from "../App";
 import Delegate from "./Delegate";
 import BuyGarden from "./BuyGarden";
 import { Redirect } from 'react-router';
-import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -23,6 +23,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/styles';
+import Tooltip from '@material-ui/core/Tooltip';
+import Zoom from '@material-ui/core/Zoom';
 
 const useStyles = makeStyles(theme => ({
   media: {
@@ -115,6 +117,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const HtmlTooltip = withStyles(theme => ({
+  tooltip: {
+    backgroundColor: "#000000",
+    color: '#DFB17B',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}))(Tooltip);
+
 const theme = createMuiTheme({
   palette: {
     primary: { 500: '#00211B' }, // custom color in hex 
@@ -179,6 +191,16 @@ export const MarketPlots = () => {
     <Paper className={classes.paperBlue}> 
       <Grid container spacing={1}>
         <Grid item xs={4}>
+        <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="error"><u>Delegate for a plot</u></Typography>
+                      <em><a href="/market/seedbank">{"Get your farm plots here"}</a></em> <b>{"Each Plot requires a 20 STEEM Power delegation"}</b>
+                    </React.Fragment>
+                  }
+                  placement="bottom-start"
+                  TransitionComponent={Zoom}
+                  >
     <Card className={classes.card}>
     <CardHeader
       avatar={
@@ -200,7 +222,7 @@ export const MarketPlots = () => {
     />
     <CardContent>
       <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B">
-        Each plot lease requires a 20 SP delegation and does not expire.</font>
+        Click the Expand Icon to Delegate</font>
       </Typography>
     </CardContent>
     <hr/>
@@ -230,6 +252,7 @@ export const MarketPlots = () => {
       </CardContent>
     </Collapse>
   </Card>
+  </HtmlTooltip>
   </Grid>
 
   <Grid item xs={4}>
