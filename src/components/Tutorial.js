@@ -7,6 +7,10 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { MarketPlots } from './MarketTutorial.js';
 import { MarketPlotsTwo } from './MarketTutorialTwo.js';
+import { MarketSeeds } from './MarketSeedsTutorial.js';
+import { PlantingTutorial } from './PlantingTutorial.js';
+import { WateringTutorial } from './WateringTutorial.js';
+import { TutorialWelcome } from './TutorialWelcome.js';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,23 +26,23 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ['Delegate', 'Pay Lease', 'Buy Seed', 'Plant Seed', 'Water', 'Visit Farm'];
+  return ['Welcome', 'Delegate', 'Pay Lease', 'Buy Seed', 'Plant Seed', 'Water'];
 }
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return (<MarketPlots />);
+      return (<TutorialWelcome />);
     case 1:
-      return (<MarketPlotsTwo />);
+      return (<MarketPlots />);
     case 2:
-      return 'Purchase a seed';
+      return (<MarketPlotsTwo />);
     case 3:
-      return 'Plant your seed';
+      return (<MarketSeeds />);
     case 4:
-      return 'Water your plot';
+      return (<PlantingTutorial />);
     case 5:
-      return 'Great Job! now its time to Visit your Farm';
+      return (<WateringTutorial />);
     default:
       return 'Not sure where you are going.';
   }
@@ -73,7 +77,7 @@ export default function Tutorial() {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>All steps completed, Please click Ganja Farm in the Menu</Typography>
+            <Typography className={classes.instructions}>Great Job! now its time to Visit your Farm. Click Ganja Farm in the menu! Happy Farming!!</Typography>
             <Button onClick={handleReset}>Reset</Button>
           </div>
         ) : (

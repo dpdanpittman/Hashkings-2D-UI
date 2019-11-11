@@ -187,11 +187,11 @@ class App extends Component {
           window.open('https://discord.gg/Zq29TWe', '_blank');
         }
       },
-      {
+      /*{
         label: "Tutorial",
         icon: "pi pi-fw pi-circle-off",
         to: "/tutorial"
-      },
+      },*/
       {
         label: "FAQ",
         icon: "pi pi-fw pi-circle-off",

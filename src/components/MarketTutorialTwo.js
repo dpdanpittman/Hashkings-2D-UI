@@ -203,13 +203,7 @@ export const MarketPlotsTwo = () => {
                   TransitionComponent={Zoom}
                   >
   <Card className={classes.card}>
-    <CardHeader
-      avatar={
-        <Avatar aria-label="leasing" className={classes.avatar}>
-          L
-        </Avatar>
-      }
-    />
+    <CardHeader />
     <CardMedia
       className={classes.media}
       image="https://i.imgur.com/aDDEpiF.png"
