@@ -10,6 +10,10 @@ const handleClick = () => {
   window.location = '/login';
 };
 
+const handleTutorial = () => {
+  window.location = '/tutorial';
+};
+
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
     backgroundColor: '#f5f5f9',
@@ -44,7 +48,13 @@ export const AppInlineProfile = () => {
   } else {
   return (
     <div className="profile">
-      <Tooltip title="Signed In" placement="left">
+      <Tooltip title="Start Tutorial" placement="left">
+      <Chip
+        label= "New to Hashkings?"
+        onClick={handleTutorial}
+      />
+      </Tooltip>
+      <Tooltip title="Signed In" placement="bottom">
       <Chip
         icon={<FaceIcon />}
         label= {username}
@@ -52,7 +62,6 @@ export const AppInlineProfile = () => {
         // onDelete={handleDelete}
       />
       </Tooltip>
-      <br/>
     </div>
   );
   }

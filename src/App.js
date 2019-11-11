@@ -21,6 +21,7 @@ import steemConnectAPI from "./service/SteemConnectAPI";
 import SCCallback from "./components/SCCallback";
 import UserGarden from "./components/UserGarden";
 import FAQPage from "./components/FAQPage";
+import Tutorial from "./components/Tutorial";
 import Stats from "./components/Stats";
 import ReactGA from 'react-ga';
 
@@ -179,17 +180,22 @@ class App extends Component {
         }
       },
       {
-        label: "FAQ",
-        icon: "pi pi-fw pi-circle-off",
-        to: "/faq"
-      },
-      {
         label: "Chat on Discord",
         icon: "pi pi-fw pi-globe",
         command: () => {
           /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
           window.open('https://discord.gg/Zq29TWe', '_blank');
         }
+      },
+      {
+        label: "Tutorial",
+        icon: "pi pi-fw pi-circle-off",
+        to: "/tutorial"
+      },
+      {
+        label: "FAQ",
+        icon: "pi pi-fw pi-circle-off",
+        to: "/faq"
       }
     ];
   }
@@ -289,6 +295,7 @@ class App extends Component {
             <Route path="/callback" component={SCCallback} />
             <Route path="/faq" component={FAQPage} />
             <Route path="/accounting" component={Stats} />
+            <Route path="/tutorial" component={Tutorial} />
             <Route path="/market/MarketSupplies" component={MarketSupplies} />
           </div>   
           <div className="layout-mask"></div>
