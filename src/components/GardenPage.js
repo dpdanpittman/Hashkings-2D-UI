@@ -16,6 +16,7 @@ import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import Tooltip from '@material-ui/core/Tooltip';
+import Zoom from '@material-ui/core/Zoom';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { red } from '@material-ui/core/colors';
 import CardContent from '@material-ui/core/CardContent';
@@ -243,8 +244,8 @@ const theme = createMuiTheme({
 
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
-    backgroundColor: '#ffffff',
-    color: 'rgba(0, 0, 0, 0.87)',
+    backgroundColor: "#000000",
+    color: '#DFB17B',
     maxWidth: 220,
     fontSize: theme.typography.pxToRem(12),
     border: '1px solid #dadde9',
@@ -386,11 +387,12 @@ export const GardenPage = () => {
       <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Total Number of Active Farmers</u></Typography>
+                      <Typography color="error"><u>Total Number of Active Farmers</u></Typography>
                       <em><a href="/market/seedbank">{"This is your community!"}</a></em> <b>{"Say hi to them in the Hashkings Discord"}</b>
                     </React.Fragment>
                   }
                   placement="bottom-start"
+                  TransitionComponent={Zoom}
                   >
       <Card className={classes.card}>
         <CardMedia
@@ -415,11 +417,12 @@ export const GardenPage = () => {
     <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Total Number of Farms</u></Typography>
+                      <Typography color="error"><u>Total Number of Farms</u></Typography>
                       <em><a href="/market/seedbank">{"These are plots which are already occupied!"}</a></em> <b>{"Is one of them yours?"}</b>
                     </React.Fragment>
                   }
                   placement="bottom"
+                  TransitionComponent={Zoom}
                   >
       <Card className={classes.card}>
         <CardMedia
@@ -445,11 +448,12 @@ export const GardenPage = () => {
     <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Total Steem Power Delegated</u></Typography>
+                      <Typography color="error"><u>Total Steem Power Delegated</u></Typography>
                       <em><a href="/market/seedbank">{"This is our total Economy"}</a></em> <b>{"This number is based on total SP delegated and STEEM powered up from Seed Sales"}</b>
                     </React.Fragment>
                   }
                   placement="bottom-end"
+                  TransitionComponent={Zoom}
                   >
       <Card className={classes.card}>
         <CardMedia
@@ -486,11 +490,12 @@ export const GardenPage = () => {
                   <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Plot Progress</u></Typography>
+                      <Typography color="error"><u>Plot Progress</u></Typography>
                       <em><a href="/market/seedbank">{"Find out how far along your plants are."}</a></em> <b>{"Is it time to Harvest?  Once stage reaches 100 percent it is!"}</b>
                     </React.Fragment>
                   }
-                  placement="right"
+                  placement="left-start"
+                  TransitionComponent={Zoom}
                   >
            <ExpansionPanel className={classes.expansion}>
         <ExpansionPanelSummary
@@ -551,11 +556,12 @@ export const GardenPage = () => {
       <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Recent Waterings and Plantings</u></Typography>
+                      <Typography color="error"><u>Recent Waterings and Plantings</u></Typography>
                       <em><a href="/market/seedbank">{"Keep track of when you last watered!"}</a></em> <b>{"You need to water every plot once every 24 hours.  Don't overwater!"}</b>
                     </React.Fragment>
                   }
-                  placement="right"
+                  placement="left"
+                  TransitionComponent={Zoom}
                   >
           <ExpansionPanel className={classes.expansion}>
         <ExpansionPanelSummary
@@ -604,19 +610,9 @@ export const GardenPage = () => {
       <Grid item xs={12}>
                   <Paper className={classes.paperDarkBlue}>
                 <ThemeProvider theme={theme}>
-                <HtmlTooltip
-                  title={
-                    <React.Fragment>
-                      <Typography color="primary"><u>Trading Floor</u></Typography>
-                      <em><a href="/market/seedbank">{"Do you have extra seeds?"}</a></em> <b>{"Click Gift Seeds to get started"}</b>
-                    </React.Fragment>
-                  }
-                  placement="top"
-                  >
                 <Typography gutterBottom variant="h5" component="h1">
                   <b><font color="DFB17B">Trading</font></b>
                   </Typography>
-                  </HtmlTooltip>
                   </ThemeProvider>
                   </Paper>
                 </Grid>
@@ -641,11 +637,12 @@ export const GardenPage = () => {
                 <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Plant, Water and Harvest </u></Typography>
+                      <Typography color="error"><u>Plant, Water and Harvest </u></Typography>
                       <em><a href="/market/seedbank">{"This is where you perform your main tasks."}</a></em> <b>{"Don't forget to check the progress!"}</b>
                     </React.Fragment>
                   }
                   placement="top"
+                  TransitionComponent={Zoom}
                   >
                 <Typography gutterBottom variant="h5" component="h1">
                   <b><font color="DFB17B">Actions</font></b>
@@ -660,11 +657,12 @@ export const GardenPage = () => {
                   <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Planting</u></Typography>
+                      <Typography color="error"><u>Planting</u></Typography>
                       <em><a href="/market/seedbank">{"Did you get seeds?"}</a></em> <b>{"plant some Crops!"}</b>
                     </React.Fragment>
                   }
                   placement="left"
+                  TransitionComponent={Zoom}
                   >
                   <Fab
                     variant="contained" 
@@ -683,11 +681,12 @@ export const GardenPage = () => {
                 <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Water</u></Typography>
+                      <Typography color="error"><u>Water</u></Typography>
                       <em><a href="/market/seedbank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
                     </React.Fragment>
                   }
                   placement="right"
+                  TransitionComponent={Zoom}
                   >
                   <Fab
                     variant="contained" 
@@ -706,11 +705,12 @@ export const GardenPage = () => {
                   <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Harvest</u></Typography>
+                      <Typography color="error"><u>Harvest</u></Typography>
                       <em><a href="/market/seedbank">{"Are those buds nice and ripe?"}</a></em> <b>{"Harvest when they are ready."}</b>
                     </React.Fragment>
                   }
                   placement="top"
+                  TransitionComponent={Zoom}
                   >
                   <Fab
                     variant="contained" 

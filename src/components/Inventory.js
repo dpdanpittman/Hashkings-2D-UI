@@ -13,6 +13,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import _ from "lodash";
 import Tooltip from '@material-ui/core/Tooltip';
+import Zoom from '@material-ui/core/Zoom';
 
 function FarmIcon(props) {
   return (
@@ -138,8 +139,8 @@ const theme = createMuiTheme({
 
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
-    backgroundColor: '#f5f5f9',
-    color: 'rgba(0, 0, 0, 0.87)',
+    backgroundColor: '#000000',
+    color: '#DFB17B',
     maxWidth: 220,
     fontSize: theme.typography.pxToRem(12),
     border: '1px solid #dadde9',
@@ -166,10 +167,11 @@ export default function Inventory({user}) {
       <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Active Plots</u></Typography>
+                      <Typography color="error"><u>Active Plots</u></Typography>
                       <em><a href="/market/seedbank">{"Farm plots which are currently earning"}</a></em> <b>{"Do you need another Plot?  Visit the Market!"}</b>
                     </React.Fragment>
                   }
+                  TransitionComponent={Zoom}
                   >
       <Card className={classes.card}>
         <CardMedia
@@ -205,10 +207,11 @@ export default function Inventory({user}) {
     <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Available Seeds</u></Typography>
+                      <Typography color="error"><u>Available Seeds</u></Typography>
                       <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
                     </React.Fragment>
                   }
+                  TransitionComponent={Zoom}
                   >
       <Card className={classes.card}>
         <CardMedia
@@ -244,10 +247,11 @@ export default function Inventory({user}) {
     <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Available Plots</u></Typography>
+                      <Typography color="error"><u>Available Plots</u></Typography>
                       <em><a href="/market/seedbank">{"These plots are ready to go!"}</a></em> <b>{"Do you have extra Seeds?  These plots are available to be farmed."}</b>
                     </React.Fragment>
                   }
+                  TransitionComponent={Zoom}
                   >
       <Card className={classes.card}>
         <CardMedia
@@ -268,7 +272,7 @@ export default function Inventory({user}) {
             }))
             .map(garden => (
               <b><p key={garden.id}><font color="B28D43">
-                <Badge className={classes.margin} badgeContent={garden.count} color="primary">
+                <Badge className={classes.margin} badgeContent={garden.count} color="error">
                   <FarmIcon  />
                 </Badge>
                  {gardenNames[garden.id]}

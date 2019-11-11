@@ -12,6 +12,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Tooltip from '@material-ui/core/Tooltip';
+import Zoom from '@material-ui/core/Zoom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,8 +30,8 @@ const useStyles = makeStyles(theme => ({
 
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
-    backgroundColor: '#f5f5f9',
-    color: 'rgba(0, 0, 0, 0.87)',
+    backgroundColor: '#000000',
+    color: '#DFB17B',
     maxWidth: 220,
     fontSize: theme.typography.pxToRem(12),
     border: '1px solid #dadde9',
@@ -109,11 +110,12 @@ export default function GiftSeed() {
       <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="primary"><u>Seeds and Plots</u></Typography>
-                      <em><a href="/market/seedbank">{"Find your Plots and Seeds here"}</a></em> <b>{"Do you have extra Seeds?  Plant them or trade them above!"}</b>
+                      <Typography color="error"><u>Trading Floor</u></Typography>
+                      <em><a href="/market/seedbank">{"Do you have extra seeds?"}</a></em> <b>{"Click Gift Seeds to get started"}</b>
                     </React.Fragment>
                   }
-                  placement="left"
+                  placement="top"
+                  TransitionComponent={Zoom}
                   >
       <ExpansionPanel className={classes.background}>
         <ExpansionPanelSummary
