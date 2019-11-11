@@ -11,6 +11,7 @@ import { MarketSeeds } from './MarketSeedsTutorial.js';
 import { PlantingTutorial } from './PlantingTutorial.js';
 import { WateringTutorial } from './WateringTutorial.js';
 import { TutorialWelcome } from './TutorialWelcome.js';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,8 +22,27 @@ const useStyles = makeStyles(theme => ({
   },
   instructions: {
     marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(1),   
   },
+  paperBlue: {
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'wrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#154A4A"
+  },
+  paperBlack: {
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'wrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#000000"
+  },
+  backgroundExtend: {
+    backgroundColor:"#154A4A"
+  }
 }));
 
 function getSteps() {
@@ -67,29 +87,32 @@ export default function Tutorial() {
 
   return (
     <div className={classes.root}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+        <Paper className={classes.paperBlack}><font color="#DFB17B">
+      <Stepper activeStep={activeStep} alternativeLabel className={classes.backgroundExtend}>
         {steps.map(label => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
           </Step>
         ))}
-      </Stepper>
+      </Stepper></font>
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>Great Job! now its time to Visit your Farm. Click Ganja Farm in the menu! Happy Farming!!</Typography>
-            <Button onClick={handleReset}>Reset</Button>
+            <Typography className={classes.instructions}><font color="DFB17B">Great Job! now its time to Visit your Farm. Click Ganja Farm in the menu! Happy Farming!!</font></Typography>
+            <Button onClick={handleReset}><font color="#ffffff">Reset</font></Button>
           </div>
         ) : (
           <div>
+              <font color="#DFB17B">
             <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+            </font>
             <div>
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
                 className={classes.backButton}
               >
-                Back
+                <font color="#ffffff">Back</font>
               </Button>
               <Button variant="contained" color="secondary" onClick={handleNext}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
@@ -98,6 +121,7 @@ export default function Tutorial() {
           </div>
         )}
       </div>
+      </Paper>
     </div>
   );
 }
