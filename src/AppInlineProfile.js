@@ -34,7 +34,7 @@ export const AppInlineProfile = () => {
       <Chip
         icon={<LockOpen />}
         color="primary"
-        label= "Not logged in"
+        label= "Not signed in"
         onClick={handleClick}
       />
       </Tooltip>
