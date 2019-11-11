@@ -168,7 +168,7 @@ export default function GiftSeed() {
           label={buttonLabel}
           onClick={handleSubmit}
         />
-        </ExpansionPanelDetails>
+      </ExpansionPanelDetails>
       </ExpansionPanel>
       </HtmlTooltip>
       </div>

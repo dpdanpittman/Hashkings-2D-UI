@@ -613,6 +613,7 @@ export const GardenPage = () => {
                 <Typography gutterBottom variant="h5" component="h1">
                   <b><font color="DFB17B">Trading</font></b>
                   </Typography>
+                  <Typography color="error">Important!  Users must have signed in to hashkings at least once to receive their seeds</Typography>
                   </ThemeProvider>
                   </Paper>
                 </Grid>
