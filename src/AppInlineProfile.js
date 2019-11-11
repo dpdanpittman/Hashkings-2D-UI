@@ -44,7 +44,7 @@ export const AppInlineProfile = () => {
   } else {
   return (
     <div className="profile">
-      <Tooltip title="Logged In" placement="left">
+      <Tooltip title="Signed In" placement="left">
       <Chip
         icon={<FaceIcon />}
         label= {username}
