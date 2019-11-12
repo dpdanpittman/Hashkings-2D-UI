@@ -38,7 +38,7 @@ function initializeReactGA() {
 }
 
 export const StateContext = React.createContext();
-ReactGA.ga('send', 'pageview', '/login');
+ReactGA.ga('send', 'pageview', '/login', '/farm', 'tutorial');
 class App extends Component {
   constructor() {
     const accessToken = localStorage.getItem("sc_token");
