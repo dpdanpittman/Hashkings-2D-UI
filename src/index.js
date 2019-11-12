@@ -5,11 +5,25 @@ import App from "./App";
 //import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from "@material-ui/core/CssBaseline";
+
+const theme = createMuiTheme({
+  palette: {
+    background: {
+      default: "#000000"
+    }
+  }
+});
 
 ReactDOM.render(
   <BrowserRouter>
     <ScrollToTop>
+    <MuiThemeProvider theme={theme}>
+    <CssBaseline>
       <App />
+      </CssBaseline>
+      </MuiThemeProvider>
     </ScrollToTop>
   </BrowserRouter>,
   document.getElementById("root")
