@@ -27,6 +27,11 @@ import ReactGA from 'react-ga';
 
 const trackingID ="UA-111263990-4"
 
+ReactGA.initialize('UA-111263990-4', {
+  debug: true,
+  titleCase: false,
+});
+
 function initializeReactGA() {
   ReactGA.initialize(trackingID);
   ReactGA.pageview('/login');
