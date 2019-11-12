@@ -35,6 +35,7 @@ import TableRow from '@material-ui/core/TableRow';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import GiftSeed from "./GiftSeed";
 import Divider from '@material-ui/core/Divider';
+import CustomizedDialogs from './DialogPage';
 
 function WaterIcon(props) {
   return (
@@ -357,10 +358,11 @@ export const GardenPage = () => {
 
     setOpen(false);
   };
-  
+
   if (username) {
     return (
       <div className="card-blank-green-1">
+      <CustomizedDialogs />
       <Snackbar
         anchorOrigin={{
           vertical: 'center',
@@ -532,7 +534,7 @@ export const GardenPage = () => {
                     );
                   }}
                 />
-                <Column
+                {/*<Column
                   field="substage"
                   header="Substage"
                   sortable={true}
@@ -544,7 +546,7 @@ export const GardenPage = () => {
                       />
                     );
                   }}
-                />
+                />*/}
               </DataTable>
         </ExpansionPanelDetails>
         <Typography><font color="red">
@@ -758,7 +760,7 @@ export const GardenPage = () => {
           activeGardens={user.activeGardens}
           username={username}
           headBlockNum={headBlockNum}
-        />   
+        />
       </div>
     );
   } else {
