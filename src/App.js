@@ -24,6 +24,7 @@ import FAQPage from "./components/FAQPage";
 import Tutorial from "./components/Tutorial";
 import Stats from "./components/Stats";
 import ReactGA from 'react-ga';
+import Trending from './components/Trending';
 
 const trackingID ="UA-111263990-4"
 
@@ -169,6 +170,11 @@ class App extends Component {
         ]
       },
       {
+        label: "Trending Posts",
+        icon: "pi pi-fw pi-circle-off",
+        to: "/trending"
+      },
+      {
         label: "Hashkings Curation Trail",
         icon: "pi pi-fw pi-file",
         command: () => {
@@ -302,6 +308,7 @@ class App extends Component {
             <Route path="/accounting" component={Stats} />
             <Route path="/tutorial" component={Tutorial} />
             <Route path="/market/MarketSupplies" component={MarketSupplies} />
+            <Route path="/trending" component={Trending} />
           </div>   
           <div className="layout-mask"></div>
         </div>

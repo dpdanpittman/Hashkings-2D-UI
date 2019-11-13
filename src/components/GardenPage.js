@@ -36,6 +36,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import GiftSeed from "./GiftSeed";
 import Divider from '@material-ui/core/Divider';
 import CustomizedDialogs from './DialogPage';
+import Trending from './Trending';
 
 function WaterIcon(props) {
   return (
@@ -203,7 +204,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
+    whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#030D22",
   },
@@ -381,9 +382,8 @@ export const GardenPage = () => {
           </Button>,
         ]}
       />
-
-      <div className={classes.flex}>
       
+      <div className={classes.flex}>
       <Grid container spacing={3}>
       <Grid item xs>
       <HtmlTooltip
