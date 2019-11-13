@@ -104,7 +104,7 @@ export default function RecipeReviewCard() {
         <a href={"https://www.steempeak.com/@" + post.author + "/" + post.permlink}>
         
         <GridListTile key={post.post_id} cols={post.title ? 2 : 1} rows={post.title ? 2 : 1}>
-          <img src="https://i.imgur.com/Qe3hUKI.png" alt="Hashkings Logo" />
+          <img src="https://i.imgur.com/plwe4uc.png" alt="Hashkings Logo" />
           <GridListTileBar
             title={post.title}
             titlePosition="top"

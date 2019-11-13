@@ -28,13 +28,6 @@ const DialogContent = withStyles(theme => ({
   },
 }))(MuiDialogContent);
 
-const DialogActions = withStyles(theme => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(1),
-  },
-}))(MuiDialogActions);
-
 export default function PostDialog() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
