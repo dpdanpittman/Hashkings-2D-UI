@@ -36,7 +36,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import GiftSeed from "./GiftSeed";
 import Divider from '@material-ui/core/Divider';
 import CustomizedDialogs from './DialogPage';
-import Trending from './Trending';
 
 function WaterIcon(props) {
   return (
