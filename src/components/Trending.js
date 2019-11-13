@@ -25,6 +25,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import image from './welcome.png';
+import PostDialog from './PostDialog.js';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -35,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     color: theme.palette.text.secondary,
     whiteSpace: 'wrap',
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(3),
     backgroundColor: "#095938",
   },
   post: {
@@ -47,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#095938",
   },
   media: {
-    height: 0,
+    height: 'auto',
     paddingTop: '56.25%', // 16:9
   },
   expand: {
@@ -92,6 +93,9 @@ const useStyles = makeStyles(theme => ({
   icon: {
     color: 'white',
   },
+  text: {
+    color: 'white',
+  }
 }));
 
 export default function RecipeReviewCard() {
@@ -108,15 +112,17 @@ export default function RecipeReviewCard() {
     hashkingsAPI.getTrending().then(setTrending);
   }, []);
 
-  if (!trending) return <p className={classes.text}>Loading...</p>;
+  if (!trending) return <p className={classes.text}><h1>Loading...</h1></p>;
 
   return (
     <div className={classes.root}>
+      <PostDialog/>
     <GridList cellHeight={200} spacing={1} className={classes.gridList}>
       {trending.map(post => (
         <a href={"https://www.steempeak.com/@" + post.author + "/" + post.permlink}>
+        
         <GridListTile key={post.post_id} cols={post.title ? 2 : 1} rows={post.title ? 2 : 1}>
-          <img src="https://i.imgur.com/Qe3hUKI.png" alt={post.title} />
+          <img src="https://i.imgur.com/Qe3hUKI.png" alt="Hashkings Logo" />
           <GridListTileBar
             title={post.title}
             titlePosition="top"
@@ -127,9 +133,9 @@ export default function RecipeReviewCard() {
               </IconButton>
             }
             actionPosition="left"
-            className={classes.titleBar}
           />
         </GridListTile>
+        
         </a>
       ))}
     </GridList>
