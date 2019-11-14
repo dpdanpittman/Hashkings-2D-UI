@@ -4,15 +4,11 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
-import { ThemeProvider } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
-import { Redirect } from 'react-router';
-import {StateContext} from "../../App";
+import { makeStyles } from '@material-ui/core/styles';
 
 export const MarketSeeds = () => {
-  const {username} = useContext(StateContext);
   const useStyles = makeStyles(theme => ({
     button: {
       margin: theme.spacing(1),
@@ -106,12 +102,6 @@ export const MarketSeeds = () => {
       fontWeight: theme.typography.fontWeightRegular,
     },
   }));
-  
-  const theme = createMuiTheme({
-    palette: {
-      primary: { 500: '#00211B' }, // custom color in hex 
-    },
-  });
   
   const classes = useStyles();
 

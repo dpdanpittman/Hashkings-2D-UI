@@ -7,10 +7,10 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
-import PostDialog from './PostDialog.js';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
+import ShareIcon from '@material-ui/icons/Share';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -136,15 +136,14 @@ export default function RecipeReviewCard() {
               actionIcon={<HtmlTooltip
                 title={
                   <React.Fragment>
-                    <Typography color="error"><u>Recent Waterings and Plantings</u></Typography>
-                    <em><a href="/market/seedbank">{"Keep track of when you last watered!"}</a></em> <b>{"You need to water every plot once every 24 hours.  Don't overwater!"}</b>
-                  </React.Fragment>
+                    <Typography color="error"><u>Coming Soon!</u></Typography>
+                    </React.Fragment>
                 }
-                placement="left"
+                placement="Right"
                 TransitionComponent={Zoom}
                 >
                 <IconButton aria-label={`star ${post.net_votes}`} className={classes.icon}>
-                  <FavoriteIcon /><Typography paragraph>{post.vote_history}</Typography>
+                  <FavoriteIcon /><ShareIcon />
                 </IconButton>
                 </HtmlTooltip>
               }
