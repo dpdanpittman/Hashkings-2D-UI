@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
@@ -10,10 +10,10 @@ import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
-import ShareIcon from '@material-ui/icons/Share';
 import SkeletonPage from './SkeletonPage.js';
 import Avatar from '@material-ui/core/Avatar';
- 
+import {StateContext} from "../App";
+
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
@@ -100,26 +100,10 @@ const HtmlTooltip = withStyles(theme => ({
 }))(Tooltip);
 
 export default function RecipeReviewCard() {
-  const hashkingsApi = new HashkingsAPI();
   const classes = useStyles();
+  const {username} = useContext(StateContext);
   const [trending, setTrending] = useState();
-  const [expanded, setExpanded] = React.useState(false);
-  const [username, setUsername] = useState("");
-  const [validatedTo, setValidatedTo] = useState();
-
-  useEffect(() => {
-    hashkingsApi.steemUserExists(username).then(username => {
-      if (username) {
-        setValidatedTo(username);
-      } else {
-        setValidatedTo();
-      }
-    });
-  }, [username]);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const {steemConnectAPI} = useContext(StateContext);
 
   useEffect(() => {
     const hashkingsAPI = new HashkingsAPI();
@@ -133,11 +117,15 @@ export default function RecipeReviewCard() {
     <GridList cellHeight={250} spacing={1} className={classes.gridList}>
       {trending.map(post => {
         const images = JSON.parse(post.json_metadata).image;
-        {/*console.dir(post);*/}
+        const voting = () => {
+          const weight = 420;
+          console.dir(username);
+          steemConnectAPI.vote([username], post.author, post.permlink, weight);
+        };
         return (
           <GridListTile key={post.post_id} cols={post.title ? 2 : 1} rows={post.title ? 2 : 1}>
             <img src={images && images.length > 0 ? images[0] : "https://i.imgur.com/plwe4uc.png"} alt="Hashkings Logo" />
-            <a href={"https://www.steempeak.com/@" + post.author + "/" + post.permlink} target="_blank">
+            <a href={"https://www.steempeak.com/@" + post.author + "/" + post.permlink} target="_blank" rel="noopener noreferrer">
             <GridListTileBar
               title={post.title}
               titlePosition="top"
@@ -158,6 +146,7 @@ export default function RecipeReviewCard() {
             <GridListTileBar
               title={"Potential Payout: " + post.pending_payout_value}
               titlePosition="bottom"
+              
               actionIcon={
                 <HtmlTooltip
                 title={
@@ -168,12 +157,13 @@ export default function RecipeReviewCard() {
                 placement="top"
                 TransitionComponent={Zoom}
                 >
-                <IconButton aria-label={`star ${post.net_votes}`} className={classes.icon}>
+                <IconButton aria-label={`star ${post.net_votes}`} className={classes.icon} onClick={voting}>
                   {post.active_votes.length}<FavoriteIcon />
                 </IconButton>
                 </HtmlTooltip>
               }
               actionPosition="left"
+              
             />
           </GridListTile>)
       } )}
