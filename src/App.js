@@ -311,7 +311,7 @@ class App extends Component {
             <Route path="/trending" component={Trending} />
           </div>   
           <div className="layout-mask"></div>
-        </div>
+        </div> 
       </StateContext.Provider>
     );
   }

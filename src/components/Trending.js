@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import { HashkingsAPI } from "../service/HashkingsAPI";
@@ -9,6 +9,8 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import PostDialog from './PostDialog.js';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import Tooltip from '@material-ui/core/Tooltip';
+import Zoom from '@material-ui/core/Zoom';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -81,6 +83,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const HtmlTooltip = withStyles(theme => ({
+  tooltip: {
+    backgroundColor: "#000000",
+    color: '#DFB17B',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}))(Tooltip);
+
 export default function RecipeReviewCard() {
   const classes = useStyles();
   const [trending, setTrending] = useState();
@@ -103,6 +115,7 @@ export default function RecipeReviewCard() {
     <GridList cellHeight={400} spacing={1} className={classes.gridList}>
       {trending.map(post => {
         const images = JSON.parse(post.json_metadata).image;
+        console.dir(post);
         return (
           <GridListTile key={post.post_id} cols={post.title ? 2 : 1} rows={post.title ? 2 : 1}>
             <img src={images && images.length > 0 ? images[0] : "https://i.imgur.com/plwe4uc.png"} alt="Hashkings Logo" />
@@ -110,7 +123,7 @@ export default function RecipeReviewCard() {
             <GridListTileBar
               title={post.title}
               titlePosition="top"
-              subtitle={post.category}
+              subtitle={"Category: " + post.category}
               actionIcon={
                 <IconButton aria-label={`star ${post.net_votes}`} className={classes.icon}>
                   <Typography paragraph>{post.author}</Typography>
@@ -121,10 +134,20 @@ export default function RecipeReviewCard() {
             </a>
             <GridListTileBar
               titlePosition="bottom"
-              actionIcon={
+              actionIcon={<HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="error"><u>Recent Waterings and Plantings</u></Typography>
+                    <em><a href="/market/seedbank">{"Keep track of when you last watered!"}</a></em> <b>{"You need to water every plot once every 24 hours.  Don't overwater!"}</b>
+                  </React.Fragment>
+                }
+                placement="left"
+                TransitionComponent={Zoom}
+                >
                 <IconButton aria-label={`star ${post.net_votes}`} className={classes.icon}>
-                  <FavoriteIcon />
+                  <FavoriteIcon /><Typography paragraph>{post.vote_history}</Typography>
                 </IconButton>
+                </HtmlTooltip>
               }
               actionPosition="left"
             />
