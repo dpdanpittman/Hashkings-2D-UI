@@ -111,7 +111,6 @@ export default function RecipeReviewCard() {
 
   return (
     <div className={classes.root}>
-      <PostDialog/>
     <GridList cellHeight={400} spacing={1} className={classes.gridList}>
       {trending.map(post => {
         const images = JSON.parse(post.json_metadata).image;
