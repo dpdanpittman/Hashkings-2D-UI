@@ -8,6 +8,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import PostDialog from './PostDialog.js';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -100,26 +101,35 @@ export default function RecipeReviewCard() {
     <div className={classes.root}>
       <PostDialog/>
     <GridList cellHeight={400} spacing={1} className={classes.gridList}>
-      {trending.map(post => (
-        <a href={"https://www.steempeak.com/@" + post.author + "/" + post.permlink}>
-        
-        <GridListTile key={post.post_id} cols={post.title ? 2 : 1} rows={post.title ? 2 : 1}>
-          <img src="https://i.imgur.com/plwe4uc.png" alt="Hashkings Logo" />
-          <GridListTileBar
-            title={post.title}
-            titlePosition="top"
-            subtitle={post.category}
-            actionIcon={
-              <IconButton aria-label={`star ${post.net_votes}`} className={classes.icon}>
-                <Typography paragraph>{post.author}</Typography>
-              </IconButton>
-            }
-            actionPosition="left"
-          />
-        </GridListTile>
-        
-        </a>
-      ))}
+      {trending.map(post => {
+        const images = JSON.parse(post.json_metadata).image;
+        return (
+          <GridListTile key={post.post_id} cols={post.title ? 2 : 1} rows={post.title ? 2 : 1}>
+            <img src={images && images.length > 0 ? images[0] : "https://i.imgur.com/plwe4uc.png"} alt="Hashkings Logo" />
+            <a href={"https://www.steempeak.com/@" + post.author + "/" + post.permlink} target="_blank">
+            <GridListTileBar
+              title={post.title}
+              titlePosition="top"
+              subtitle={post.category}
+              actionIcon={
+                <IconButton aria-label={`star ${post.net_votes}`} className={classes.icon}>
+                  <Typography paragraph>{post.author}</Typography>
+                </IconButton>
+              }
+              actionPosition="left"
+            />
+            </a>
+            <GridListTileBar
+              titlePosition="bottom"
+              actionIcon={
+                <IconButton aria-label={`star ${post.net_votes}`} className={classes.icon}>
+                  <FavoriteIcon />
+                </IconButton>
+              }
+              actionPosition="left"
+            />
+          </GridListTile>)
+      } )}
     </GridList>
   </div>
   );
