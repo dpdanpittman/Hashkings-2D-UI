@@ -145,7 +145,7 @@ export default function RecipeReviewCard() {
             />
             </a>
             <GridListTileBar
-              title={"Potential Payout: " + post.pending_payout_value}
+              title={"Pending Payout: " + post.pending_payout_value}
               titlePosition="bottom"
               
               actionIcon={

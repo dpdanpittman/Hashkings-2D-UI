@@ -32,8 +32,9 @@ const useStyles = makeStyles(theme => ({
     height: '80vh',
   },
   image: {
-    // backgroundImage: 'url(https://source.unsplash.com/user/kimzy/1600x900)',
-    backgroundImage: 'url(https://i.imgur.com/vZ7ShWv.png)',
+    // backgroundImage: 'url(https://source.unsplash.com/user/kimzy/1600x900)', main carousel
+    // backgroundImage: 'url(https://i.imgur.com/vZ7ShWv.png)', twiztedmonkey
+    backgroundImage: 'url(https://i.imgur.com/GkgOq4F.png)', // shirt sale
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
