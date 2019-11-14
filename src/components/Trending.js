@@ -156,12 +156,13 @@ export default function RecipeReviewCard() {
             />
             </a>
             <GridListTileBar
+              title={"Potential Payout: " + post.pending_payout_value}
               titlePosition="bottom"
               actionIcon={
                 <HtmlTooltip
                 title={
                 <React.Fragment>
-                  <Typography color="error"><u>Coming Soon!</u></Typography>
+                  <Typography color="error">Upvotes Coming Soon!</Typography>
                 </React.Fragment>
                 }
                 placement="top"
