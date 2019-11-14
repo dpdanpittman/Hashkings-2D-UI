@@ -11,7 +11,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import ShareIcon from '@material-ui/icons/Share';
-
+import SkeletonPage from './SkeletonPage.js';
+import Avatar from '@material-ui/core/Avatar';
+ 
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
@@ -80,6 +82,10 @@ const useStyles = makeStyles(theme => ({
   },
   text: {
     color: 'white',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: '#ffffff'
   }
 }));
 
@@ -94,9 +100,22 @@ const HtmlTooltip = withStyles(theme => ({
 }))(Tooltip);
 
 export default function RecipeReviewCard() {
+  const hashkingsApi = new HashkingsAPI();
   const classes = useStyles();
   const [trending, setTrending] = useState();
   const [expanded, setExpanded] = React.useState(false);
+  const [username, setUsername] = useState("");
+  const [validatedTo, setValidatedTo] = useState();
+
+  useEffect(() => {
+    hashkingsApi.steemUserExists(username).then(username => {
+      if (username) {
+        setValidatedTo(username);
+      } else {
+        setValidatedTo();
+      }
+    });
+  }, [username]);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -107,14 +126,14 @@ export default function RecipeReviewCard() {
     hashkingsAPI.getTrending().then(setTrending);
   }, []);
 
-  if (!trending) return <p className={classes.text}><h1>Loading...</h1></p>;
+  if (!trending) return <SkeletonPage />;
 
   return (
     <div className={classes.root}>
-    <GridList cellHeight={400} spacing={1} className={classes.gridList}>
+    <GridList cellHeight={250} spacing={1} className={classes.gridList}>
       {trending.map(post => {
         const images = JSON.parse(post.json_metadata).image;
-        console.dir(post);
+        {/*console.dir(post);*/}
         return (
           <GridListTile key={post.post_id} cols={post.title ? 2 : 1} rows={post.title ? 2 : 1}>
             <img src={images && images.length > 0 ? images[0] : "https://i.imgur.com/plwe4uc.png"} alt="Hashkings Logo" />
@@ -122,10 +141,15 @@ export default function RecipeReviewCard() {
             <GridListTileBar
               title={post.title}
               titlePosition="top"
-              subtitle={"Category: " + post.category}
+              subtitle={post.author}
               actionIcon={
                 <IconButton aria-label={`star ${post.net_votes}`} className={classes.icon}>
-                  <Typography paragraph>{post.author}</Typography>
+                <Avatar className={classes.avatar}>
+               <img
+               alt="STEEM Avatar"
+               src={`https://steemitimages.com/u/${post.author}/avatar/small`}
+               />
+               </Avatar>
                 </IconButton>
               }
               actionPosition="left"
@@ -133,17 +157,18 @@ export default function RecipeReviewCard() {
             </a>
             <GridListTileBar
               titlePosition="bottom"
-              actionIcon={<HtmlTooltip
+              actionIcon={
+                <HtmlTooltip
                 title={
-                  <React.Fragment>
-                    <Typography color="error"><u>Coming Soon!</u></Typography>
-                    </React.Fragment>
+                <React.Fragment>
+                  <Typography color="error"><u>Coming Soon!</u></Typography>
+                </React.Fragment>
                 }
-                placement="Right"
+                placement="top"
                 TransitionComponent={Zoom}
                 >
                 <IconButton aria-label={`star ${post.net_votes}`} className={classes.icon}>
-                  <FavoriteIcon /><ShareIcon />
+                  {post.active_votes.length}<FavoriteIcon />
                 </IconButton>
                 </HtmlTooltip>
               }

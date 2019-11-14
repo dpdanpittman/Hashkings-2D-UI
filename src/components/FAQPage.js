@@ -114,21 +114,6 @@ export const FAQPage = () => {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel expanded={expanded === 'panel4'} onChange={handleChange('panel4')} className={classes.background}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel4bh-content"
-          id="panel4bh-header"
-        >
-          <Typography className={classes.heading}><b>What kind of features will be added in the future?</b></Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails className={classes.text}>
-          <Typography>
-		  A graphical inventory and map of planted/available plots, improved dashboard, 
-		  limited edition seeds, grow shop and grow guides.
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
 	  <ExpansionPanel expanded={expanded === 'panel5'} onChange={handleChange('panel5')} className={classes.background}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
@@ -139,8 +124,8 @@ export const FAQPage = () => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-		  First head over to "Marketplace" and click "Garden Plots" to lease your first plot of land. 
-		  You can lease one or more up to six. Then click "Seeds" under the "Marketplace" menu and purchase your first seeds
+		      Head on over to the<a href="/tutorial">
+          tutorial</a> by following the lin or click "New to Hashkings?" in the top right hand corner. 
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -154,7 +139,7 @@ export const FAQPage = () => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-			Go to "Ganja Farm" and click "Garden". There you will find the Water you Garden function.
+			Go to "Ganja Farm" and click "Farming". There you will find the Watering function.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -193,12 +178,13 @@ export const FAQPage = () => {
           aria-controls="panel9bh-content"
           id="panel9bh-header"
         >
-          <Typography className={classes.heading}><b>What is the difference between types of seeds and what does experience do?</b></Typography>
+          <Typography className={classes.heading}><b>What are the differences between seeds?</b></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-			This is a special feature which will include our very own kief token which will be used to purchase items from the
-			grow shop.
+            Please visit 
+          <a href="https://steempeak.com/hashkings/@hashkings/hashkings-seeds-small-overview">
+            Our Seeds overview</a> on steempeak to learn more.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
