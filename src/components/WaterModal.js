@@ -6,7 +6,6 @@ import {MultiSelect} from "primereact/multiselect";
 import {StateContext} from "../App";
 import {format as formatTimeAgo} from "timeago.js";
 
-
 export default function WaterModal({
   isOpen,
   toggleModal,
