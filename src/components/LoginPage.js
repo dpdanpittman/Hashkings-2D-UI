@@ -39,6 +39,7 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     alt: 'Twizted Monkey Coupon',
+    width: '100%',
     /*command: () => {
       window.open('https://www.twiztedmonkey.com', '_blank');
     }*/
@@ -59,6 +60,9 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+  button: {
+    margin: theme.spacing(1),
   },
 }));
 
@@ -120,7 +124,11 @@ export const LoginPage = ({history}) => {
     {/*<CssBaseline 
     color="#000000"
     />*/}
-    <Grid item xs={false} sm={4} md={7} className={classes.image} />
+    <Grid item xs={false} sm={4} md={7} className={classes.image}>
+    <a href="https://www.bonfire.com/hashkings-community-shirts/" target="_blank" align="right">
+        <h1><b>Click here to visit our shop!</b></h1>
+    </a>
+    </Grid>
     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
     <div className={classes.paper}><center>
       <img
