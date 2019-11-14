@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import BuySeed from "./BuySeed";
+import BuySeed from "../BuySeed";
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import { Redirect } from 'react-router';
-import {StateContext} from "../App";
+import {StateContext} from "../../App";
 
 export const MarketSeeds = () => {
   const {username} = useContext(StateContext);

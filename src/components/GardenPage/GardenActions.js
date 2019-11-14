@@ -1,12 +1,12 @@
 import React, {useContext, useState, useEffect} from "react";
 import {withRouter} from "react-router-dom";
 import { Redirect } from 'react-router';
-import { HashkingsAPI, seedNames } from "../service/HashkingsAPI";
-import {StateContext} from "../App";
-import PlantModal from "./PlantModal";
-import WaterModal from "./WaterModal";
-import HarvestModal from "./HarvestModal";
-import Inventory from "./Inventory";
+import { HashkingsAPI, seedNames } from "../../service/HashkingsAPI";
+import {StateContext} from "../../App";
+import PlantModal from "../PlantModal";
+import WaterModal from "../WaterModal";
+import HarvestModal from "../HarvestModal";
+import Inventory from "../Inventory";
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -34,9 +34,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import GiftSeed from "./GiftSeed";
+import GiftSeed from "../GiftSeed";
 import Divider from '@material-ui/core/Divider';
-import CustomizedDialogs from './DialogPage';
+import CustomizedDialogs from '../DialogPage';
 
 function WaterIcon(props) {
   return (
@@ -127,71 +127,6 @@ const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
   },
-  input: {
-    display: 'none',
-  },
-  root: {
-    '& > svg': {
-      margin: theme.spacing(2),
-    },
-  },
-  rootAgain: {
-    width: '100%',
-  },
-  iconHover: {
-    '&:hover': {
-      color: "red[800]",
-    },
-  },
-  fab: {
-    margin: theme.spacing(1),
-  },
-  extendedIcon: {
-    marginRight: theme.spacing(1),
-  },
-  extendPaper: {
-    color: red[800]
-  },
-  flex: {
-    flexGrow: 1,
-  },
-  container: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12, 1fr)',
-    gridGap: theme.spacing(3),
-  },
-  paper: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#095938",
-  },
-  paperBlue: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#154A4A",
-  },
-  paperExtended: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#532C0C",
-  },
-  paperBlack: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#000000"
-  },
   paperBrown: {
     padding: theme.spacing(1),
     textAlign: 'center',
@@ -199,42 +134,6 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#532C0C",
-  },
-  paperDarkBlue: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'wrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#030D22",
-  },
-  paperDivider: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#949494",
-  },
-  divider: {
-    margin: theme.spacing(2, 0),
-  },
-  card: {
-    maxWidth: 345,
-    backgroundColor: "#154A4A",
-  },
-  table: {
-    backgroundColor: "#4A8686",
-  },
-  media: {
-    height: 140,
-  },
-  expansion: {
-    backgroundColor: "#154A4A",
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
   },
 }));
 
@@ -254,10 +153,9 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
-export const HashkingsTemplate = () => {
+export const GardenActions = () => {
     const {username} = useContext(StateContext);
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
   
     const [dashboardStats, setDashboardStats] = useState({
       gardeners: 0,
@@ -347,152 +245,146 @@ export const HashkingsTemplate = () => {
         });
       }
     }, [username]);
-  
-  /*const handleClick = () => {
-      setOpen(true);
-    };*/
-  
-    const handleClose = (event, reason) => {
-      if (reason === 'clickaway') {
-        return;
-      }
-  
-      setOpen(false);
-    };
 
-if (username) {
-   return (
-    <div className={classes.flex}>
-      <div className={classes.flex}>
-      <Paper className={classes.paper}>
-           <ThemeProvider theme={theme}>
-                <Typography gutterBottom variant="h1" component="h1">
-            <b><font color="DFB17B">Grow Journal</font></b>
-          </Typography>
-                  </ThemeProvider>
-                  <HtmlTooltip
-                  title={
-                    <React.Fragment>
-                      <Typography color="error"><u>Plot Progress</u></Typography>
-                      <em><a href="/market/seedbank">{"Find out how far along your plants are."}</a></em> <b>{"Is it time to Harvest?  Once stage reaches 100 percent it is!"}</b>
-                    </React.Fragment>
-                  }
-                  placement="left-start"
-                  TransitionComponent={Zoom}
-                  >
-           <ExpansionPanel className={classes.expansion}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-        <Typography className={classes.heading}><font color="DFB17B">Progress</font></Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails className={classes.expansion}>
-        <DataTable
-                value={gardens}
-                loading={loading}
-                responsive={true}
-                emptyMessage="No active plots"
+  if (username) {
+      return (
+        <div className={classes.flex}>
+          <Grid container spacing={12}>
+          <Grid item xs={4}>
+            <Grid item xs={11}>
+              <Paper className={classes.paperBrown}>
+            <ThemeProvider theme={theme}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error"><u>Plant, Water and Harvest </u></Typography>
+                  <em><a href="/market/seedbank">{"This is where you perform your main tasks."}</a></em> <b>{"Don't forget to check the progress!"}</b>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
               >
-                <Column field="id" header="Plot #" sortable={true} />
-                <Column
-                  field="strain"
-                  header="Strain"
-                  sortable={true}
-                  body={({ strain }) => seedNames[strain]}
-                />
-                <Column
-                  field="stage"
-                  header="Stage"
-                  sortable={true}
-                  body={({ stage }) => {
-                    return (
-                      <ProgressBar
-                        value={Math.floor((stage / 5) * 100)}
-                        showValue={true}
-                      />
-                    );
-                  }}
-                />
-                {/*<Column
-                  field="substage"
-                  header="Substage"
-                  sortable={true}
-                  body={({ substage }) => {
-                    return (
-                      <ProgressBar
-                        value={Math.floor((substage / 14) * 100)}
-                        showValue={true}
-                      />
-                    );
-                  }}
-                />*/}
-              </DataTable>
-        </ExpansionPanelDetails>
-        <Typography><font color="red">
-        Please allow 24 hours for your harvested plots to reset</font></Typography>
-        <br/>
-      </ExpansionPanel>
-      </HtmlTooltip>
-      <br/>
-      <HtmlTooltip
-                  title={
-                    <React.Fragment>
-                      <Typography color="error"><u>Recent Waterings and Plantings</u></Typography>
-                      <em><a href="/market/seedbank">{"Keep track of when you last watered!"}</a></em> <b>{"You need to water every plot once every 24 hours.  Don't overwater!"}</b>
-                    </React.Fragment>
+              <Typography gutterBottom variant="h5" component="h1">
+                <b><font color="DFB17B">Actions</font></b>
+                </Typography>
+                </HtmlTooltip>
+                </ThemeProvider>
+                </Paper>
+              </Grid>
+              <Grid item xs={11}>
+                <Paper className={classes.paperBrown}>
+              <ThemeProvider theme={theme}>
+                <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="error"><u>Planting</u></Typography>
+                    <em><a href="/market/seedbank">{"Did you get seeds?"}</a></em> <b>{"plant some Crops!"}</b>
+                  </React.Fragment>
+                }
+                placement="left"
+                TransitionComponent={Zoom}
+                >
+                <Fab
+                  variant="contained" 
+                  color="primary"
+                  onClick={() => setPlantSeedModal(!plantSeedModal)}
+                  className={classes.button}
+                ><GerminateIcon />
+                </Fab>
+                </HtmlTooltip>
+              </ThemeProvider>
+                </Paper>
+              </Grid>
+              <Grid item xs={11}>
+                <Paper className={classes.paperBrown}>
+              <ThemeProvider theme={theme}>
+              <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="error"><u>Water</u></Typography>
+                    <em><a href="/market/seedbank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
+                  </React.Fragment>
                   }
-                  placement="left"
+                  placement="right"
                   TransitionComponent={Zoom}
                   >
-          <ExpansionPanel className={classes.expansion}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography className={classes.heading}><font color="DFB17B">Recent Activity</font></Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails className={classes.expansion}>
-        <Paper className={classes.rootAgain}>
-      <Table >
-        <TableHead>
-          <TableRow>
-            <TableCell>Action</TableCell>
-            <TableCell align="right">Region</TableCell>
-            <TableCell align="right">Time</TableCell>
-            <TableCell align="right">Plot ID</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-        {dashboardStats.activity.map(action => (
-            <TableRow key={action.block}>
-              <TableCell component="th" scope="row">
-              {action.type.charAt(0).toUpperCase() +
-                        action.type.slice(1)}
-              </TableCell>
-              <TableCell align="right">{seedNames[action.strain]}</TableCell>
-              <TableCell align="right">{action.when}</TableCell>
-              <TableCell align="right">{action.id}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Paper>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      </HtmlTooltip>
-      </Paper>
-      </div>
-    </div>
-      )
-
-  } else {
-    return (
-    <Redirect to='/login'/>
-    );
+                  <Fab
+                    variant="contained" 
+                    color="primary"
+                    onClick={() => setWaterModal(!waterModal)}
+                    className={classes.button}
+                  ><WaterIcon />
+                  </Fab>
+                  </HtmlTooltip>
+                  </ThemeProvider>
+                  </Paper>
+                  </Grid>
+                  <Grid item xs={11}>
+                  <Paper className={classes.paperBrown}>            
+                    <ThemeProvider theme={theme}>
+                    <HtmlTooltip
+                        title={
+                          <React.Fragment>
+                            <Typography color="error"><u>Harvest</u></Typography>
+                            <em><a href="/market/seedbank">{"Are those buds nice and ripe?"}</a></em> <b>{"Harvest when they are ready."}</b>
+                          </React.Fragment>
+                        }
+                        placement="top"
+                        TransitionComponent={Zoom}
+                        >
+                        <Fab
+                          variant="contained" 
+                          color="primary"
+                          onClick={() => setHarvestModal(!harvestModal)}
+                          className={classes.button}
+                        ><HarvestIcon />
+                        </Fab>
+                        </HtmlTooltip>
+                        </ThemeProvider>
+                        </Paper>
+                        </Grid>
+                  
+                        {/*
+                        <Grid item xs={11}>
+                        <ThemeProvider theme={theme}>
+                        <img src="https://media.giphy.com/media/GXHR881M1wZ32/giphy.gif" class="rounded" />
+                        </ThemeProvider>
+                        </Grid>
+                        */}
+                      </Grid>
+                        <Grid item xs={8}>
+                          <Inventory user={user} />
+                        </Grid>
+                      </Grid>
+                      <br/>
+                      <PlantModal
+                        isOpen={plantSeedModal}
+                        toggleModal={() => setPlantSeedModal(!plantSeedModal)}
+                        availableGardens={user.availableGardens}
+                        availableSeeds={user.availableSeeds}
+                        username={username}
+                      />
+                      <WaterModal
+                        isOpen={waterModal}
+                        toggleModal={() => setWaterModal(!waterModal)}
+                        activeGardens={user.activeGardens}
+                        username={username}
+                        headBlockNum={headBlockNum}
+                      />
+                      <HarvestModal
+                        isOpen={harvestModal}
+                        toggleModal={() => setHarvestModal(!harvestModal)}
+                        activeGardens={user.activeGardens}
+                        username={username}
+                        headBlockNum={headBlockNum}
+                      />
+                    </div>
+                  )
+          } else {
+              return (
+              <Redirect to='/login'/>
+              );
   }
 };
 
-export default withRouter(HashkingsTemplate);
+export default withRouter(GardenActions);

@@ -1,12 +1,12 @@
 import React, {useContext, useState, useEffect} from "react";
-import { Redirect } from 'react-router';
-import { HashkingsAPI, seedNames } from "../service/HashkingsAPI";
-import {StateContext} from "../App";
 import {withRouter} from "react-router-dom";
-import PlantModal from "./PlantModal";
-import WaterModal from "./WaterModal";
-import HarvestModal from "./HarvestModal";
-import Inventory from "./Inventory";
+import { Redirect } from 'react-router';
+import { HashkingsAPI, seedNames } from "../../service/HashkingsAPI";
+import {StateContext} from "../../App";
+import PlantModal from "../PlantModal";
+import WaterModal from "../WaterModal";
+import HarvestModal from "../HarvestModal";
+import Inventory from "../Inventory";
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -34,9 +34,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import GiftSeed from "./GiftSeed";
+import GiftSeed from "../GiftSeed";
 import Divider from '@material-ui/core/Divider';
-import CustomizedDialogs from './DialogPage';
+import CustomizedDialogs from '../DialogPage';
 
 function WaterIcon(props) {
   return (
@@ -254,7 +254,7 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
-export const EconomyDashboard = () => {
+export const HashkingsTemplate = () => {
     const {username} = useContext(StateContext);
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
@@ -361,103 +361,133 @@ export const EconomyDashboard = () => {
     };
 
 if (username) {
-      return (
-        <div className="card-blank-green-1">        
-          <div className={classes.flex}>
-            <Grid container spacing={3}>
-              <Grid item xs>
-                <HtmlTooltip
-                  title={
-                  <React.Fragment>
-                  <Typography color="error"><u>Total Number of Active Farmers</u></Typography>
-                  <em><a href="/market/seedbank">{"This is your community!"}</a></em> <b>{"Say hi to them in the Hashkings Discord"}</b>
-                  </React.Fragment>
-                  }
-                  placement="bottom-start"
-                  TransitionComponent={Zoom}
-                >
-                  <Card className={classes.card}>
-                    <CardMedia
-                      className={classes.media}
-                      image="https://i.imgur.com/ZI9lEAQ.jpg"
-                    />
-                    <CardContent>
-                      <center>
-                      <Typography gutterBottom variant="h5" component="h1">
-                        <u><b><font color="DFB17B">Farmers</font></b></u>
-                      </Typography>
-                      <Typography variant="h5" component="h2">
-                      <b><font color="B28D43">{dashboardStats.gardeners}</font></b>
-                      </Typography>
-                      </center>
-                    </CardContent>
-                  </Card>
-                  </HtmlTooltip>
-                </Grid>
-                <Grid item xs>
+   return (
+    <div className={classes.flex}>
+      <div className={classes.flex}>
+      <Paper className={classes.paper}>
+           <ThemeProvider theme={theme}>
+                <Typography gutterBottom variant="h1" component="h1">
+            <b><font color="DFB17B">Grow Journal</font></b>
+          </Typography>
+                  </ThemeProvider>
                   <HtmlTooltip
-                    title={
+                  title={
                     <React.Fragment>
-                      <Typography color="error"><u>Total Number of Farms</u></Typography>
-                      <em><a href="/market/seedbank">{"These are plots which are already occupied!"}</a></em> <b>{"Is one of them yours?"}</b>
+                      <Typography color="error"><u>Plot Progress</u></Typography>
+                      <em><a href="/market/seedbank">{"Find out how far along your plants are."}</a></em> <b>{"Is it time to Harvest?  Once stage reaches 100 percent it is!"}</b>
                     </React.Fragment>
-                    }
-                    placement="bottom"
-                    TransitionComponent={Zoom}
-                    >
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.media}
-                    image="https://www.usnews.com/dims4/USNEWS/ae50a20/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fcom-usnews-beam-media.s3.amazonaws.com%2F25%2Fb1%2F8a19e6c940ddb4674c711f9e42c9%2F181204-hemp-editorial.jpg"
-                  />
-                  <CardContent>
-                    <center>
-          
-                    <Typography gutterBottom variant="h5" component="h1">
-                      <u><b><font color="DFB17B">Farms</font></b></u>
-                    </Typography>
-                    
-                    <Typography variant="h5" color="textSecondary" component="h2">
-                    <b><font color="B28D43">{dashboardStats.gardens}</font></b>
-                    </Typography>
-                    </center>
-                  </CardContent>
-                </Card>
-              </HtmlTooltip>
-            </Grid>
-          <Grid item xs>
-            <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error"><u>Total Steem Power Delegated</u></Typography>
-                  <em><a href="/market/seedbank">{"This is our total Economy"}</a></em> <b>{"This number is based on total SP delegated and STEEM powered up from Seed Sales"}</b>
-                </React.Fragment>
-              }
-              placement="bottom-end"
-              TransitionComponent={Zoom}
+                  }
+                  placement="left-start"
+                  TransitionComponent={Zoom}
+                  >
+           <ExpansionPanel className={classes.expansion}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+        <Typography className={classes.heading}><font color="DFB17B">Progress</font></Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails className={classes.expansion}>
+        <DataTable
+                value={gardens}
+                loading={loading}
+                responsive={true}
+                emptyMessage="No active plots"
               >
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.media}
-                    image="https://www.moneycrashers.com/wp-content/uploads/2019/04/gross-domestic-product-definition-1068x713.jpg"
-                  />
-                  <CardContent>
-                    <center>
-                      <Typography gutterBottom variant="h5" component="h1">
-                        <u><b><font color="DFB17B">Economy</font></b></u>
-                      </Typography>
-                      <Typography variant="h5" color="textSecondary" component="h2">
-                      <b><font color="B28D43">{dashboardStats.delegation} SP</font></b>
-                      </Typography>
-                    </center>
-                  </CardContent>
-                </Card>
-        </HtmlTooltip>
-        </Grid>
-      </Grid>
+                <Column field="id" header="Plot #" sortable={true} />
+                <Column
+                  field="strain"
+                  header="Strain"
+                  sortable={true}
+                  body={({ strain }) => seedNames[strain]}
+                />
+                <Column
+                  field="stage"
+                  header="Stage"
+                  sortable={true}
+                  body={({ stage }) => {
+                    return (
+                      <ProgressBar
+                        value={Math.floor((stage / 5) * 100)}
+                        showValue={true}
+                      />
+                    );
+                  }}
+                />
+                {/*<Column
+                  field="substage"
+                  header="Substage"
+                  sortable={true}
+                  body={({ substage }) => {
+                    return (
+                      <ProgressBar
+                        value={Math.floor((substage / 14) * 100)}
+                        showValue={true}
+                      />
+                    );
+                  }}
+                />*/}
+              </DataTable>
+        </ExpansionPanelDetails>
+        <Typography><font color="red">
+        Please allow 24 hours for your harvested plots to reset</font></Typography>
+        <br/>
+      </ExpansionPanel>
+      </HtmlTooltip>
+      <br/>
+      <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="error"><u>Recent Waterings and Plantings</u></Typography>
+                      <em><a href="/market/seedbank">{"Keep track of when you last watered!"}</a></em> <b>{"You need to water every plot once every 24 hours.  Don't overwater!"}</b>
+                    </React.Fragment>
+                  }
+                  placement="left"
+                  TransitionComponent={Zoom}
+                  >
+          <ExpansionPanel className={classes.expansion}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className={classes.heading}><font color="DFB17B">Recent Activity</font></Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails className={classes.expansion}>
+        <Paper className={classes.rootAgain}>
+      <Table >
+        <TableHead>
+          <TableRow>
+            <TableCell>Action</TableCell>
+            <TableCell align="right">Region</TableCell>
+            <TableCell align="right">Time</TableCell>
+            <TableCell align="right">Plot ID</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+        {dashboardStats.activity.map(action => (
+            <TableRow key={action.block}>
+              <TableCell component="th" scope="row">
+              {action.type.charAt(0).toUpperCase() +
+                        action.type.slice(1)}
+              </TableCell>
+              <TableCell align="right">{seedNames[action.strain]}</TableCell>
+              <TableCell align="right">{action.when}</TableCell>
+              <TableCell align="right">{action.id}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </Paper>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      </HtmlTooltip>
+      </Paper>
       </div>
-      </div>
-    );
+    </div>
+      )
+
   } else {
     return (
     <Redirect to='/login'/>
@@ -465,4 +495,4 @@ if (username) {
   }
 };
 
-export default withRouter(EconomyDashboard);
+export default withRouter(HashkingsTemplate);

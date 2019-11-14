@@ -1,42 +1,17 @@
 import React, {useContext, useState, useEffect} from "react";
 import {withRouter} from "react-router-dom";
 import { Redirect } from 'react-router';
-import { HashkingsAPI, seedNames } from "../service/HashkingsAPI";
-import {StateContext} from "../App";
-import PlantModal from "./PlantModal";
-import WaterModal from "./WaterModal";
-import HarvestModal from "./HarvestModal";
-import Inventory from "./Inventory";
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import { DataTable } from "primereact/datatable";
-import { ProgressBar } from "primereact/progressbar";
-import { Column } from "primereact/column";
+import { HashkingsAPI, seedNames } from "../../service/HashkingsAPI";
+import {StateContext} from "../../App";
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Snackbar from '@material-ui/core/Snackbar';
 import Tooltip from '@material-ui/core/Tooltip';
-import Zoom from '@material-ui/core/Zoom';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { red } from '@material-ui/core/colors';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Fab from '@material-ui/core/Fab';
-import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import { ThemeProvider } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import GiftSeed from "./GiftSeed";
-import Divider from '@material-ui/core/Divider';
-import CustomizedDialogs from './DialogPage';
+import GiftSeed from "../GiftSeed";
 
 function WaterIcon(props) {
   return (
@@ -254,7 +229,7 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
-export const GardenActions = () => {
+export const Trading = () => {
     const {username} = useContext(StateContext);
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
@@ -363,136 +338,34 @@ export const GardenActions = () => {
 if (username) {
       return (
         <div className={classes.flex}>
-              <Grid container spacing={12}>
-              <Grid item xs={4}>
-                <Grid item xs={11}>
-                  <Paper className={classes.paperBrown}>
+          <Grid container spacing={12}>
+      <Grid item xs={12}>
+                  <Paper className={classes.paperDarkBlue}>
                 <ThemeProvider theme={theme}>
-                <HtmlTooltip
-                  title={
-                    <React.Fragment>
-                      <Typography color="error"><u>Plant, Water and Harvest </u></Typography>
-                      <em><a href="/market/seedbank">{"This is where you perform your main tasks."}</a></em> <b>{"Don't forget to check the progress!"}</b>
-                    </React.Fragment>
-                  }
-                  placement="top"
-                  TransitionComponent={Zoom}
-                  >
                 <Typography gutterBottom variant="h5" component="h1">
-                  <b><font color="DFB17B">Actions</font></b>
+                  <b><font color="DFB17B">Trading</font></b>
                   </Typography>
-                  </HtmlTooltip>
+                  <Typography color="error">Important!  Users must have signed in to hashkings at least once to receive their seeds</Typography>
                   </ThemeProvider>
                   </Paper>
                 </Grid>
-                <Grid item xs={11}>
-                  <Paper className={classes.paperBrown}>
-                <ThemeProvider theme={theme}>
-                  <HtmlTooltip
-                  title={
-                    <React.Fragment>
-                      <Typography color="error"><u>Planting</u></Typography>
-                      <em><a href="/market/seedbank">{"Did you get seeds?"}</a></em> <b>{"plant some Crops!"}</b>
-                    </React.Fragment>
-                  }
-                  placement="left"
-                  TransitionComponent={Zoom}
-                  >
-                  <Fab
-                    variant="contained" 
-                    color="primary"
-                    onClick={() => setPlantSeedModal(!plantSeedModal)}
-                    className={classes.button}
-                  ><GerminateIcon />
-                  </Fab>
-                  </HtmlTooltip>
-                </ThemeProvider>
-                  </Paper>
+                <Grid item xs={3}></Grid>
+                <Grid item xs={6}>
+                <Paper className={classes.paperDarkBlue}>
+                <GiftSeed />
+                </Paper>
                 </Grid>
-                <Grid item xs={11}>
-                  <Paper className={classes.paperBrown}>
-                <ThemeProvider theme={theme}>
-                <HtmlTooltip
-                  title={
-                    <React.Fragment>
-                      <Typography color="error"><u>Water</u></Typography>
-                      <em><a href="/market/seedbank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
-                    </React.Fragment>
-                  }
-                  placement="right"
-                  TransitionComponent={Zoom}
-                  >
-                  <Fab
-                    variant="contained" 
-                    color="primary"
-                    onClick={() => setWaterModal(!waterModal)}
-                    className={classes.button}
-                  ><WaterIcon />
-                  </Fab>
-                  </HtmlTooltip>
-                  </ThemeProvider>
-                  </Paper>
-                </Grid>
-                <Grid item xs={11}>
-                <Paper className={classes.paperBrown}>            
-                  <ThemeProvider theme={theme}>
-                  <HtmlTooltip
-                  title={
-                    <React.Fragment>
-                      <Typography color="error"><u>Harvest</u></Typography>
-                      <em><a href="/market/seedbank">{"Are those buds nice and ripe?"}</a></em> <b>{"Harvest when they are ready."}</b>
-                    </React.Fragment>
-                  }
-                  placement="top"
-                  TransitionComponent={Zoom}
-                  >
-                  <Fab
-                    variant="contained" 
-                    color="primary"
-                    onClick={() => setHarvestModal(!harvestModal)}
-                    className={classes.button}
-                  ><HarvestIcon />
-                  </Fab>
-                  </HtmlTooltip>
-                  </ThemeProvider>
-                  </Paper>
-                  </Grid>
-                  
-                  {/*<Grid item xs={11}>
-                  
-                <ThemeProvider theme={theme}>
-                <img src="https://media.giphy.com/media/GXHR881M1wZ32/giphy.gif" class="rounded" />
-                  </ThemeProvider>
-                </Grid>*/}
-                  </Grid>
-                  <Grid item xs={8}>
-                  <Inventory user={user} />
-                  </Grid>
-                  </Grid><br/>
-               
-        <PlantModal
-          isOpen={plantSeedModal}
-          toggleModal={() => setPlantSeedModal(!plantSeedModal)}
-          availableGardens={user.availableGardens}
-          availableSeeds={user.availableSeeds}
-          username={username}
-        />
-        <WaterModal
-          isOpen={waterModal}
-          toggleModal={() => setWaterModal(!waterModal)}
-          activeGardens={user.activeGardens}
-          username={username}
-          headBlockNum={headBlockNum}
-        />
-        <HarvestModal
-          isOpen={harvestModal}
-          toggleModal={() => setHarvestModal(!harvestModal)}
-          activeGardens={user.activeGardens}
-          username={username}
-          headBlockNum={headBlockNum}
-        />
+                <Grid item xs={3}></Grid>
+              </Grid>
+              <Grid container spacing={12}>
+      <Grid item xs={12}>
+      <Paper className={classes.paperDivider}></Paper>
+      </Grid>
+      </Grid>
         </div>
         )
+
+
   } else {
     return (
     <Redirect to='/login'/>
@@ -500,4 +373,4 @@ if (username) {
   }
 };
 
-export default withRouter(GardenActions);
+export default withRouter(Trading);

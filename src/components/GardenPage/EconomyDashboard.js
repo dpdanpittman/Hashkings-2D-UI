@@ -1,12 +1,12 @@
 import React, {useContext, useState, useEffect} from "react";
-import {withRouter} from "react-router-dom";
 import { Redirect } from 'react-router';
-import { HashkingsAPI, seedNames } from "../service/HashkingsAPI";
-import {StateContext} from "../App";
-import PlantModal from "./PlantModal";
-import WaterModal from "./WaterModal";
-import HarvestModal from "./HarvestModal";
-import Inventory from "./Inventory";
+import { HashkingsAPI, seedNames } from "../../service/HashkingsAPI";
+import {StateContext} from "../../App";
+import {withRouter} from "react-router-dom";
+import PlantModal from "../PlantModal";
+import WaterModal from "../WaterModal";
+import HarvestModal from "../HarvestModal";
+import Inventory from "../Inventory";
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -34,9 +34,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import GiftSeed from "./GiftSeed";
+import GiftSeed from "../GiftSeed";
 import Divider from '@material-ui/core/Divider';
-import CustomizedDialogs from './DialogPage';
+import CustomizedDialogs from '../DialogPage';
 
 function WaterIcon(props) {
   return (
@@ -254,7 +254,7 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
-export const Trading = () => {
+export const EconomyDashboard = () => {
     const {username} = useContext(StateContext);
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
@@ -362,35 +362,102 @@ export const Trading = () => {
 
 if (username) {
       return (
-        <div className={classes.flex}>
-          <Grid container spacing={12}>
-      <Grid item xs={12}>
-                  <Paper className={classes.paperDarkBlue}>
-                <ThemeProvider theme={theme}>
-                <Typography gutterBottom variant="h5" component="h1">
-                  <b><font color="DFB17B">Trading</font></b>
-                  </Typography>
-                  <Typography color="error">Important!  Users must have signed in to hashkings at least once to receive their seeds</Typography>
-                  </ThemeProvider>
-                  </Paper>
+        <div className="card-blank-green-1">        
+          <div className={classes.flex}>
+            <Grid container spacing={3}>
+              <Grid item xs>
+                <HtmlTooltip
+                  title={
+                  <React.Fragment>
+                  <Typography color="error"><u>Total Number of Active Farmers</u></Typography>
+                  <em><a href="/market/seedbank">{"This is your community!"}</a></em> <b>{"Say hi to them in the Hashkings Discord"}</b>
+                  </React.Fragment>
+                  }
+                  placement="bottom-start"
+                  TransitionComponent={Zoom}
+                >
+                  <Card className={classes.card}>
+                    <CardMedia
+                      className={classes.media}
+                      image="https://i.imgur.com/ZI9lEAQ.jpg"
+                    />
+                    <CardContent>
+                      <center>
+                      <Typography gutterBottom variant="h5" component="h1">
+                        <u><b><font color="DFB17B">Farmers</font></b></u>
+                      </Typography>
+                      <Typography variant="h5" component="h2">
+                      <b><font color="B28D43">{dashboardStats.gardeners}</font></b>
+                      </Typography>
+                      </center>
+                    </CardContent>
+                  </Card>
+                  </HtmlTooltip>
                 </Grid>
-                <Grid item xs={3}></Grid>
-                <Grid item xs={6}>
-                <Paper className={classes.paperDarkBlue}>
-                <GiftSeed />
-                </Paper>
-                </Grid>
-                <Grid item xs={3}></Grid>
-              </Grid>
-              <Grid container spacing={12}>
-      <Grid item xs={12}>
-      <Paper className={classes.paperDivider}></Paper>
+                <Grid item xs>
+                  <HtmlTooltip
+                    title={
+                    <React.Fragment>
+                      <Typography color="error"><u>Total Number of Farms</u></Typography>
+                      <em><a href="/market/seedbank">{"These are plots which are already occupied!"}</a></em> <b>{"Is one of them yours?"}</b>
+                    </React.Fragment>
+                    }
+                    placement="bottom"
+                    TransitionComponent={Zoom}
+                    >
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.media}
+                    image="https://www.usnews.com/dims4/USNEWS/ae50a20/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fcom-usnews-beam-media.s3.amazonaws.com%2F25%2Fb1%2F8a19e6c940ddb4674c711f9e42c9%2F181204-hemp-editorial.jpg"
+                  />
+                  <CardContent>
+                    <center>
+          
+                    <Typography gutterBottom variant="h5" component="h1">
+                      <u><b><font color="DFB17B">Farms</font></b></u>
+                    </Typography>
+                    
+                    <Typography variant="h5" color="textSecondary" component="h2">
+                    <b><font color="B28D43">{dashboardStats.gardens}</font></b>
+                    </Typography>
+                    </center>
+                  </CardContent>
+                </Card>
+              </HtmlTooltip>
+            </Grid>
+          <Grid item xs>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error"><u>Total Steem Power Delegated</u></Typography>
+                  <em><a href="/market/seedbank">{"This is our total Economy"}</a></em> <b>{"This number is based on total SP delegated and STEEM powered up from Seed Sales"}</b>
+                </React.Fragment>
+              }
+              placement="bottom-end"
+              TransitionComponent={Zoom}
+              >
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.media}
+                    image="https://www.moneycrashers.com/wp-content/uploads/2019/04/gross-domestic-product-definition-1068x713.jpg"
+                  />
+                  <CardContent>
+                    <center>
+                      <Typography gutterBottom variant="h5" component="h1">
+                        <u><b><font color="DFB17B">Economy</font></b></u>
+                      </Typography>
+                      <Typography variant="h5" color="textSecondary" component="h2">
+                      <b><font color="B28D43">{dashboardStats.delegation} SP</font></b>
+                      </Typography>
+                    </center>
+                  </CardContent>
+                </Card>
+        </HtmlTooltip>
+        </Grid>
       </Grid>
-      </Grid>
-        </div>
-        )
-
-
+      </div>
+      </div>
+    );
   } else {
     return (
     <Redirect to='/login'/>
@@ -398,4 +465,4 @@ if (username) {
   }
 };
 
-export default withRouter(Trading);
+export default withRouter(EconomyDashboard);
