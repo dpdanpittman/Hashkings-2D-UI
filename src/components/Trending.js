@@ -13,6 +13,7 @@ import Zoom from '@material-ui/core/Zoom';
 import SkeletonPage from './SkeletonPage.js';
 import Avatar from '@material-ui/core/Avatar';
 import {StateContext} from "../App";
+import ShareIcon from '@material-ui/icons/Share';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -151,7 +152,7 @@ export default function RecipeReviewCard() {
                 <HtmlTooltip
                 title={
                 <React.Fragment>
-                  <Typography color="error">Upvotes Coming Soon!</Typography>
+                  <Typography color="error">Custom Upvote Weight Coming Soon! (Currently set at 4.2%)</Typography>
                 </React.Fragment>
                 }
                 placement="top"
