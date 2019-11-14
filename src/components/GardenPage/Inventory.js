@@ -1,5 +1,5 @@
 import React from "react";
-import { gardenNames, seedNames } from "../service/HashkingsAPI";
+import { gardenNames, seedNames } from "../../service/HashkingsAPI";
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 import Grid from '@material-ui/core/Grid';

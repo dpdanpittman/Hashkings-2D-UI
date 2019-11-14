@@ -6,7 +6,7 @@ import {StateContext} from "../../App";
 import PlantModal from "../PlantModal";
 import WaterModal from "../WaterModal";
 import HarvestModal from "../HarvestModal";
-import Inventory from "../Inventory";
+import Inventory from "./Inventory";
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';

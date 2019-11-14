@@ -3,7 +3,6 @@ import classNames from "classnames";
 import {AppTopbar} from "./AppTopbar";
 import {AppMenu} from "./AppMenu";
 import {Route} from "react-router-dom";
-import {Dashboard} from "./components/Dashboard";
 import LoginPage from "./components/LoginPage";
 import {GardenPage} from "./components/GardenPage";
 import {MarketPlots} from "./components/MarketPlots";
@@ -301,7 +300,6 @@ class App extends Component {
             <Route path="/garden/:username" component={UserGarden} />
             <Route exact path="/farm" component={GardenPage} />
             <Route path="/market/farmplots" component={MarketPlots} />
-            <Route path="/leaderboard" component={Dashboard} />
             <Route path="/market/seedbank" component={MarketSeeds} />
             <Route path="/callback" component={SCCallback} />
             <Route path="/faq" component={FAQPage} />
