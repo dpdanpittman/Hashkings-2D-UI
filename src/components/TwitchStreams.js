@@ -1,6 +1,5 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-import Container from '@material-ui/core/Container';
 import { TwitchStream } from 'react-twitch-stream';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
@@ -28,16 +27,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
- 
   const tileData = [
-    {
-      title: 'lirik',
-      channel: 'lirik',
-    },
     {
       title: 'Dr DisRespect',
       channel: 'drdisrespect',
+    },
+    {
+      title: 'lirik',
+      channel: 'lirik',
     },
     {
       title: 'shroud',

@@ -131,7 +131,7 @@ class App extends Component {
     this.menu = [
       {
         label: "Ganja Farm",
-        icon: "pi pi-fw pi-globe",
+        icon: "pi pi-fw pi-file",
         items: [
           {
             label: "Farming",
@@ -147,7 +147,7 @@ class App extends Component {
       },
       {
         label: "Market",
-        icon: "pi pi-fw pi-file",
+        icon: "pi pi-fw pi-shopping-cart",
         items: [
           {
             label: "Farm Plots",
@@ -158,7 +158,15 @@ class App extends Component {
             label: "Seeds",
             icon: "pi pi-fw pi-circle-off",
             to: "/market/seedbank"
-          }
+          },
+          {
+            label: "Get KFQ",
+            icon: "pi pi-fw pi-circle-off",
+            command: () => {
+              /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
+              window.open('https://steem-engine.com/?p=market&t=KFQ', '_blank');
+            }
+          },
           /*{
             label: "Supplies",
             icon: "pi pi-fw pi-circle-off",
@@ -171,42 +179,40 @@ class App extends Component {
         ]
       },
       {
-        label: "Trending Posts",
-        icon: "pi pi-fw pi-circle-off",
-        to: "/trending"
-      },
-      {
-        label: "Twitch Streams",
-        icon: "pi pi-fw pi-circle-off",
-        to: "/streams"
-      },
-      {
-        label: "Hashkings Curation Trail",
-        icon: "pi pi-fw pi-file",
-        command: () => {
-          /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
-          window.open('https://steempeak.com/@hashkings/introducing-hashkings-curation-trail', '_blank');
-        }
-      },
-      {
-        label: "Get KFQ on Steem-Engine",
-        icon: "pi pi-fw pi-file",
-        command: () => {
-          /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
-          window.open('https://steem-engine.com/?p=market&t=KFQ', '_blank');
-        }
-      },
-      {
-        label: "Chat on Discord",
+        label: "Social",
         icon: "pi pi-fw pi-globe",
-        command: () => {
-          /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
-          window.open('https://discord.gg/Zq29TWe', '_blank');
-        }
+        items: [
+          {
+            label: "Trending Posts",
+            icon: "pi pi-fw pi-globe",
+            to: "/trending"
+          },
+          {
+            label: "Twitch Streams",
+            icon: "pi pi-fw pi-globe",
+            to: "/streams"
+          },
+          {
+            label: "Hashkings Curation Trail",
+            icon: "pi pi-fw pi-file",
+            command: () => {
+              /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
+              window.open('https://steempeak.com/@hashkings/introducing-hashkings-curation-trail', '_blank');
+            }
+          },
+          {
+            label: "Chat on Discord",
+            icon: "pi pi-fw pi-globe",
+            command: () => {
+              /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
+              window.open('https://discord.gg/Zq29TWe', '_blank');
+            }
+          },
+        ]
       },
       {
         label: "FAQ",
-        icon: "pi pi-fw pi-circle-off",
+        icon: "pi pi-fw pi-circle-on",
         to: "/faq"
       }
     ];
