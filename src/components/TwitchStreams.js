@@ -54,7 +54,7 @@ export const TwitchStreams = () => {
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
+      <GridList cellHeight={320} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
           <ListSubheader component="div"><font color="#B28D43"><b><h1>Our Favorite Twitch TwitchStreams</h1></b></font></ListSubheader>
         </GridListTile>
