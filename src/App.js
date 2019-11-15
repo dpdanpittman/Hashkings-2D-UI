@@ -9,6 +9,7 @@ import {MarketPlots} from "./components/MarketPlots";
 import {MarketSeeds} from "./components/MarketSeeds";
 import {MarketSupplies} from "./components/MarketSupplies";
 import {ScrollPanel} from "primereact/components/scrollpanel/ScrollPanel";
+import TwitchStreams from './components/TwitchStreams.js';
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
@@ -175,6 +176,11 @@ class App extends Component {
         to: "/trending"
       },
       {
+        label: "Twitch Streams",
+        icon: "pi pi-fw pi-circle-off",
+        to: "/streams"
+      },
+      {
         label: "Hashkings Curation Trail",
         icon: "pi pi-fw pi-file",
         command: () => {
@@ -198,11 +204,6 @@ class App extends Component {
           window.open('https://discord.gg/Zq29TWe', '_blank');
         }
       },
-      /*{
-        label: "Tutorial",
-        icon: "pi pi-fw pi-circle-off",
-        to: "/tutorial"
-      },*/
       {
         label: "FAQ",
         icon: "pi pi-fw pi-circle-off",
@@ -308,6 +309,7 @@ class App extends Component {
             <Route path="/tutorial" component={Tutorial} />
             <Route path="/market/MarketSupplies" component={MarketSupplies} />
             <Route path="/trending" component={Trending} />
+            <Route path="/streams" component={TwitchStreams} />
           </div>   
           <div className="layout-mask"></div>
         </div> 

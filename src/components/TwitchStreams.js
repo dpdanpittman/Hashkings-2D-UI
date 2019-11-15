@@ -1,0 +1,78 @@
+import React from "react";
+import {withRouter} from "react-router-dom";
+import Container from '@material-ui/core/Container';
+import { TwitchStream } from 'react-twitch-stream';
+import { makeStyles } from '@material-ui/core/styles';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import IconButton from '@material-ui/core/IconButton';
+import InfoIcon from '@material-ui/icons/Info';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+  },
+  gridList: {
+    width: 1200,
+    height: 450,
+    backgroundColor: '#154A4A',
+  },
+  icon: {
+    color: 'rgba(255, 255, 255, 0.54)',
+  },
+}));
+
+
+ 
+  const tileData = [
+    {
+      title: 'lirik',
+      channel: 'lirik',
+    },
+    {
+      title: 'Dr DisRespect',
+      channel: 'drdisrespect',
+    },
+    {
+      title: 'shroud',
+      channel: 'shroud',
+    },
+    {
+      title: 'timthetatman',
+      channel: 'timthetatman',
+    },
+  ];
+ 
+export const TwitchStreams = () => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <GridList cellHeight={180} className={classes.gridList}>
+        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+          <ListSubheader component="div"><font color="#B28D43"><b><h1>Our Favorite Twitch TwitchStreams</h1></b></font></ListSubheader>
+        </GridListTile>
+        {tileData.map(tile => (
+          <GridListTile key={tile.img}>
+            <TwitchStream channelName={tile.channel} allowFullScreen autoPlay muted/>
+            <GridListTileBar
+              actionIcon={
+                <IconButton aria-label={`info about ${tile.channel}`} className={classes.icon} onClick={window.open('https://www.twitch.tv/' + tile.channel, '_blank')}>
+                  <InfoIcon />
+                </IconButton>
+              }
+            />
+          </GridListTile>
+        ))}
+      </GridList>
+    </div>
+  );
+};
+
+export default withRouter(TwitchStreams);
