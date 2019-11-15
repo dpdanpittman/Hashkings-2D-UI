@@ -14,7 +14,7 @@ export const GardenPage = () => {
   if (username) {
     return (
       <div className="card-blank-green-1">
-      <CustomizedDialogs />
+     
       <EconomyDashboard />
       <Divider />
       <GrowJournal />
