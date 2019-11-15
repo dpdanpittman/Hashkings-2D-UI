@@ -211,7 +211,7 @@ class App extends Component {
         ]
       },
       {
-        label: "FAQ",
+        label: "About",
         icon: "pi pi-fw pi-circle-on",
         to: "/faq"
       }
