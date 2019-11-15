@@ -14,30 +14,31 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import "fullcalendar/dist/fullcalendar.css";
-import "./layout/layout.css";
-import "./App.scss";
-import steemConnectAPI from "./service/SteemConnectAPI";
-import SCCallback from "./components/SCCallback";
-import UserGarden from "./components/UserGarden";
-import FAQPage from "./components/FAQPage";
-import Tutorial from "./components/Tutorial";
-import Stats from "./components/Stats";
-import ReactGA from 'react-ga';
-import Trending from './components/Trending';
+import "./layout/layout.css";//                                     .
+import "./App.scss";//                                              M
+import steemConnectAPI from "./service/SteemConnectAPI";//         dM     
+import SCCallback from "./components/SCCallback";//                MMr
+import UserGarden from "./components/UserGarden";//               4MMML
+import FAQPage from "./components/FAQPage";//                     MMMMM.                xf     
+import Tutorial from "./components/Tutorial";//   .              "MMMMM               .MM-     
+import Stats from "./components/Stats";//          Mh..          +MMMMMM            .MMMM                                   
+import ReactGA from 'react-ga';//                  .MMM.         .MMMMML.          MMMMMh      
+import Trending from './components/Trending';//     )MMMh.        MMMMMM         MMMMMMM       
+//                                                   3MMMMx.     'MMMMMMf      xnMMMMMM"       
+const trackingID ="UA-111263990-4"//                 '*MMMMM      MMMMMM.     nMMMMMMP"        
+//                                                     *MMMMMx    "MMMMM\    .MMMMMMM=         
+ReactGA.initialize('UA-111263990-4', {//                *MMMMMh   "MMMMM"   JMMMMMMP           
+  debug: true,//                                          MMMMMM   3MMMM.  dMMMMMM            .
+  titleCase: false,//                                      MMMMMM  "MMMM  .MMMMM(        .nnMP"
+});//                                          =..          *MMMMx  MMM"  dMMMM"    .nnMMMMM*  
+//                                               "MMn...     'MMMMr 'MM   MMM"   .nMMMMMMM*"   
+function initializeReactGA() {//                  "4MMMMnn..   *MMM  MM  MMP"  .dMMMMMMM""     
+  ReactGA.initialize(trackingID);//                 ^MMMMMMMMx.  *ML "M .M*  .MMMMMM**"        
+  ReactGA.pageview('/login');//                        *PMMMMMMhn. *x > M  .MMMM**""           
+}//                                                        ""**MMMMhx/.h/ .=*"                  
+//                                                                  .3P"%....                   
+export const StateContext = React.createContext();//              nP"     "*MMnx       DaFreakyG
 
-const trackingID ="UA-111263990-4"
-
-ReactGA.initialize('UA-111263990-4', {
-  debug: true,
-  titleCase: false,
-});
-
-function initializeReactGA() {
-  ReactGA.initialize(trackingID);
-  ReactGA.pageview('/login');
-}
-
-export const StateContext = React.createContext();
 ReactGA.ga('send', 'pageview', '/login');
 class App extends Component {
   constructor() {
