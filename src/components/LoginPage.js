@@ -125,17 +125,19 @@ export const LoginPage = ({history}) => {
     color="#000000"
     />*/}
     <Grid item xs={false} sm={4} md={7} className={classes.image}>
-    <a href="https://www.bonfire.com/hashkings-community-shirts/" target="_blank" align="right">
-        <h1><b>Click here to visit our shop!</b></h1>
-    </a>
     </Grid>
     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-    <div className={classes.paper}><center>
+    <div className={classes.paper}>
+      <center>
+      <a href="https://www.bonfire.com/hashkings-community-shirts/" target="_blank" align="right">
+        <h1><b>Click here to visit our shop!</b></h1>
+      </a>
       <img
-          alt="Hashkings Banner"
-          src={`https://i.imgur.com/jvJLKua.png`}
-          /></center>
-          </div>
+        alt="Hashkings Banner"
+        src={`https://i.imgur.com/jvJLKua.png`}
+        />
+      </center>
+    </div>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
         {validatedTo && (
