@@ -1,10 +1,8 @@
 import React, {useContext, useState, useEffect} from "react";
 import "react-image-gallery/styles/css/image-gallery.css";
-import {HashkingsAPI} from "../../service/HashkingsAPI";
-import {StateContext} from "../../App";
-import Delegate from "../Delegate";
-import BuyGarden from "../BuyGarden";
-import { Redirect } from 'react-router';
+import {HashkingsAPI} from "../service/HashkingsAPI";
+import {StateContext} from "../App";
+import BuyGarden from "./BuyGarden";
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -13,16 +11,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import Divider from '@material-ui/core/Divider';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { ThemeProvider } from '@material-ui/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 
@@ -133,7 +128,7 @@ const theme = createMuiTheme({
   },
 });
 
-export const MarketPlots = () => {
+export const MarketPlotsTwo = () => {
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [delegation, setDelegation] = useState({used: 0, available: 0});
@@ -176,27 +171,42 @@ export const MarketPlots = () => {
     <Paper className={classes.paperExtended}> 
     <Paper className={classes.paperBlue}> 
       <Grid container spacing={1}>
-        <Grid item xs={4}>
-        <HtmlTooltip
+      <Grid item xs={8}>
+      <Paper className={classes.paper}>
+      <Typography paragraph>
+        <font color="DFB17B">In order to start growing on your plot you will need to a pay a one time leasing fee of 0.5 STEEM.
+        </font>
+      </Typography>
+      <Typography paragraph>
+        <font color="DFB17B">The leasing fee pays for development of Hashkings and ensures the continued success of this project.</font>
+      </Typography>
+      <Typography paragraph>
+        <font color="red">Click next when you are finished!</font>
+      </Typography>
+      </Paper>    
+  </Grid>
+
+  <Grid item xs={4}>
+  <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="error"><u>Delegate for a plot</u></Typography>
-                      <em><a href="/market/seedbank">{"Get your farm plots here"}</a></em> <b>{"Each Plot requires a 20 STEEM Power delegation"}</b>
+                      <Typography color="error"><u>Leasing</u></Typography>
+                      <em><a href="/market/seedbank">{"Claim your leased plots for 0.5 STEEM each."}</a></em><b>{" In order to claim your plots we require a small fee. Pay with STEEM below"}</b>
                     </React.Fragment>
                   }
-                  placement="right"
+                  placement="left"
                   TransitionComponent={Zoom}
                   >
-    <Card className={classes.card}>
+  <Card className={classes.card}>
     <CardHeader />
     <CardMedia
       className={classes.media}
-      image="https://i.imgur.com/ZohrL4N.png"
-      title="Mexico"
+      image="https://i.imgur.com/aDDEpiF.png"
+      title="Afghanistan"
     />
     <CardContent>
-      <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B">
-      Plot Delegation</font>
+    <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B">
+        Leasing</font>
       </Typography>
     </CardContent>
     <hr/>
@@ -218,31 +228,29 @@ export const MarketPlots = () => {
       <CardContent>
       <Divider variant="middle" />
       <br/>
-        <Delegate
-              username={username}
-              delegation={delegation}
-              updateDelegation={updateDelegation}
-            />
+        <Typography paragraph><font color="DFB17B">Lease Plots:</font></Typography>
+            {delegation.available > 0 && (
+              <BuyGarden
+                username={username}
+                delegation={delegation}
+                updateDelegation={updateDelegation}
+                landSupply={landSupply}
+              />
+            )}
+            {delegation.available === 0 && (
+              <p>
+                <font color="DFB17B">
+                  <b>
+                    Please delegate more Steem Power above to lease a plot
+                  </b>
+                </font>
+              </p>
+            )}
       <Divider variant="middle" />
       </CardContent>
     </Collapse>
   </Card>
   </HtmlTooltip>
-  </Grid>
-  <Grid item xs={8}>
-      <Paper className={classes.paper}>
-      <Typography paragraph>
-        <font color="DFB17B">Here is where you get yourself some land to grow on.  Each time you
-        would like to get a plot you will need to delegate 20 STEEM Power.  Learn more about delegation <a href="https://steempeak.com/steemit/@katerinaramm/what-is-steem-power-delegation">here</a>
-        </font>
-      </Typography>
-      <Typography paragraph>
-        <font color="DFB17B">Please expand the Delegation Card and choose the number of plots you would like click Delegate and verify the transaction.</font>
-      </Typography>
-      <Typography paragraph>
-        <font color="red">Click next when you are finished!</font>
-      </Typography>
-      </Paper>    
   </Grid>
   </Grid>
   </Paper>

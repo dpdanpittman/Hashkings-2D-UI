@@ -5,12 +5,12 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { MarketPlots } from './Tutorial/MarketTutorial.js';
-import { MarketPlotsTwo } from './Tutorial/MarketTutorialTwo.js';
-import { MarketSeeds } from './Tutorial/MarketSeedsTutorial.js';
-import { PlantingTutorial } from './Tutorial/PlantingTutorial.js';
+import { MarketPlots } from './MarketTutorial.js';
+import { MarketPlotsTwo } from './MarketTutorialTwo.js';
+import { MarketSeeds } from './MarketSeedsTutorial.js';
+import { PlantingTutorial } from './PlantingTutorial.js';
 import { WateringTutorial } from './WateringTutorial.js';
-import { TutorialWelcome } from './Tutorial/TutorialWelcome.js';
+import { TutorialWelcome } from './TutorialWelcome.js';
 import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles(theme => ({

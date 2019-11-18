@@ -46,7 +46,7 @@
     "react-transition-group": "^2.5.1",
     "react-twitch-stream": "^1.0.4",
     "reactstrap": "^8.0.0",
-    "steemconnect": "^3.0.0-beta.2",
+    "steemconnect": "^3.0.4",
     "sweetalert2": "^8.8.5",
     "timeago.js": "^4.0.0-beta.2",
     "upgrade": "^1.1.0"

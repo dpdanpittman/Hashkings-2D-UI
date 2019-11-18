@@ -53,8 +53,8 @@ export default function Delegate({username, delegation, updateDelegation}) {
           vesting_shares: `${amountStr} ${unit}`
         },
         process.env.REACT_APP_URL
-          ? `${process.env.REACT_APP_URL}/market/gardenplots`
-          : "http://localhost:3000/market/gardenplots"
+          ? `${process.env.REACT_APP_URL}/market/farmplots`
+          : "http://localhost:3000/market/farmplots"
       );
     }
   };

@@ -4,13 +4,13 @@ import { ThemeProvider } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
-import {StateContext} from "../../App";
+import {StateContext} from "../App";
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import SvgIcon from '@material-ui/core/SvgIcon';
-import PlantModal from "../PlantModal";
-import { HashkingsAPI, seedNames } from "../../service/HashkingsAPI";
+import PlantModal from "./PlantModal";
+import { HashkingsAPI, seedNames } from "../service/HashkingsAPI";
 
 function GerminateIcon(props) {
     return (
