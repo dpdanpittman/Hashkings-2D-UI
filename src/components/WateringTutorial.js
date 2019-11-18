@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Typography from '@material-ui/core/Typography';
 import { ThemeProvider } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
@@ -33,6 +33,22 @@ function WaterIcon(props) {
 
 export const WateringTutorial = () => {
   const {username} = useContext(StateContext);
+  const hashkingsApi = new HashkingsAPI();
+  const [dashboardStats, setDashboardStats] = useState({
+    gardeners: 0,
+    gardens: 0,
+    availableSeeds: 0,
+    activeGardens: 0,
+    availableGardens: 0,
+    activity: [],
+    delegation: 0,
+    leaderboard: []
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [setNoMoreHistory] = useState(false);  
+  const [gardens, setGardens] = useState([]);
+
   const useStyles = makeStyles(theme => ({
     button: {
       margin: theme.spacing(1),
@@ -152,6 +168,66 @@ export const WateringTutorial = () => {
     headBlockNum: undefined
   });
   const [headBlockNum, setHeadBlockNum] = useState(0);
+
+  useEffect(() => {
+    if (username) {
+      hashkingsApi.getUserGarden(username).then(garden => {
+        const {headBlockNum, ...user} = garden;
+        setUser(user);
+        setHeadBlockNum(headBlockNum);
+      });
+    }
+  }, [username]);
+
+  useEffect(() => {
+    hashkingsApi
+      .getDashboardStats(username)
+      .then(stats => {
+        if (username) {
+          setDashboardStats(stats);
+        } else {
+          setDashboardStats({
+            ...dashboardStats,
+            ...stats
+          });
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }, [username]);
+
+  useEffect(() => {
+    if (username) {
+      setLoading(true);
+      hashkingsApi.getDGPO().then(dgpo => {
+        const spv =
+          parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) /
+          parseFloat(dgpo.total_vesting_shares.split(" ")[0]);
+        Promise.all([
+          hashkingsApi
+            .getAccountHistory(spv, username, false)
+            .then(
+              ({
+                stop,
+                date
+              }) => {
+
+                if (stop) {
+                  setNoMoreHistory(true);
+                }
+
+                if (date) {
+                }
+              }
+            ),
+          hashkingsApi.getUserGarden(username).then(garden => {
+            setGardens(garden.activeGardens);
+          })
+        ]).then(() => setLoading(false));
+      });
+    }
+  }, [username]);
 
   return(
     <Paper className={classes.paperBlacky}>

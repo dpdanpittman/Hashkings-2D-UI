@@ -51,9 +51,6 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
   container: {
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',

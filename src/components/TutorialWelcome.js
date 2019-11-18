@@ -124,13 +124,13 @@ export const TutorialWelcome = () => {
 
   const classes = useStyles();
   const [waterModal, setWaterModal] = useState(false);
-  const [user, setUser] = useState({
+  const [user] = useState({
     availableSeeds: [],
     activeGardens: [],
     availableGardens: [],
     headBlockNum: undefined
   });
-  const [headBlockNum, setHeadBlockNum] = useState(0);
+  const [headBlockNum] = useState(0);
 
   return(
     <Paper className={classes.paperBlacky}>

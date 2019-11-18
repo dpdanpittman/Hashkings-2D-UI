@@ -122,12 +122,6 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { 500: '#00211B' }, // custom color in hex 
-  },
-});
-
 export const MarketPlotsTwo = () => {
   const classes = useStyles();
   const {username} = useContext(StateContext);

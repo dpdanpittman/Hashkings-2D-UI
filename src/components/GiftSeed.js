@@ -39,6 +39,7 @@ const HtmlTooltip = withStyles(theme => ({
 }))(Tooltip);
 
 export default function GiftSeed() {
+  const hashkingsApi = new HashkingsAPI();
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [seed, setSeed] = useState();
@@ -49,7 +50,6 @@ export default function GiftSeed() {
   const growl = useRef(null);
 
   const [userSeeds, setUserSeeds] = useState([]);
-  const hashkingsApi = new HashkingsAPI();
 
   useEffect(() => {
     hashkingsApi.getUserGarden(username).then(garden => {
