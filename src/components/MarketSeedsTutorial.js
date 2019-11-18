@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import BuySeed from "./BuySeed";
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';

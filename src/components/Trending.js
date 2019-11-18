@@ -13,7 +13,6 @@ import Zoom from '@material-ui/core/Zoom';
 import SkeletonPage from './SkeletonPage.js';
 import Avatar from '@material-ui/core/Avatar';
 import {StateContext} from "../App";
-import ShareIcon from '@material-ui/icons/Share';
 
 const useStyles = makeStyles(theme => ({
   card: {

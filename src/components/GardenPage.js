@@ -6,7 +6,7 @@ import EconomyDashboard from './GardenPage/EconomyDashboard'
 import GardenActions from './GardenPage/GardenActions.js';
 import GrowJournal from './GardenPage/GrowJournal';
 import Trading from './GardenPage/Trading';
-import DumbDivider from './DumbDivider.js';
+//import DumbDivider from './DumbDivider.js';
  
 export const GardenPage = () => {
   const {username} = useContext(StateContext);
@@ -16,7 +16,7 @@ export const GardenPage = () => {
       <EconomyDashboard />
       <Divider />
       <GrowJournal />
-      <DumbDivider />
+      {/*<DumbDivider />*/}
       <Trading />
       <GardenActions />
       </div>

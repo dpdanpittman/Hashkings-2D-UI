@@ -179,9 +179,11 @@ export const LoginPage = ({history}) => {
               </Link>
             </Grid>
           </Grid>
+          <center>
           <Box mt={5}>
             <Copyright />
           </Box>
+          </center>
         </form>
       </div>
     </Grid>
