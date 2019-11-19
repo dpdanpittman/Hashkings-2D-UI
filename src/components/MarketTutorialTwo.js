@@ -3,7 +3,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import {HashkingsAPI} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import BuyGarden from "./BuyGarden";
-import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';

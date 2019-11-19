@@ -235,9 +235,6 @@ export const MarketPlots = () => {
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
-      <Divider variant="middle" />
-      <br/>
-        <Typography paragraph><font color="DFB17B">Delegate:</font></Typography>
         <Delegate
               username={username}
               delegation={delegation}
