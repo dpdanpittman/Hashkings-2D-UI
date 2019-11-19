@@ -150,7 +150,6 @@ export default function Delegate({username, delegation, updateDelegation}) {
       <br/>
       </b>
       </Paper>
-
     </div>
   );
 }

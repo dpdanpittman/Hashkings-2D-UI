@@ -4,6 +4,64 @@ import {Dropdown} from "primereact/dropdown";
 import {gardenNames} from "../service/HashkingsAPI";
 import useSteemKeychain from "../hooks/useSteemKeychain";
 import {sign} from "steemconnect";
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+
+const useStyles = makeStyles(theme => ({
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
+  root: {
+    '& > svg': {
+      margin: theme.spacing(2),
+    },
+  },
+  extendedIcon: {
+    marginRight: theme.spacing(1),
+  },
+  flex: {
+    flexGrow: 1,
+  },
+  container: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(12, 1fr)',
+    gridGap: theme.spacing(3),
+  },
+  paper: {
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'wrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#294A0B",
+  },
+  divider: {
+    margin: theme.spacing(2, 0),
+  },
+  card: {
+    maxWidth: 345,
+    backgroundColor: "#000000",
+  },
+}));
 
 export default function BuyGarden({
   username,
@@ -15,6 +73,8 @@ export default function BuyGarden({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const hasSteemKeychain = useSteemKeychain();
 
+  const classes = useStyles();
+  
   const handleSubmit = async e => {
     e.preventDefault();
     if (garden) {
@@ -72,10 +132,11 @@ export default function BuyGarden({
 
   return (
     <>
+    <Paper className={classes.paper}>
       <p>
-        <b><font color="DFB17B">
+        <b><font color="DFB17B"><Typography paragraph>
             Plot leases Available: {delegation.available}
-            {delegation.available === 1 ? "" : ""}</font>
+            {delegation.available === 1 ? "" : ""}</Typography></font>
         </b>
       </p>
       <div className="p-col-12 p-md-12">
@@ -109,6 +170,7 @@ export default function BuyGarden({
           onClick={handleSubmit}
         />
       </div>
+      </Paper>
     </>
   );
 }
