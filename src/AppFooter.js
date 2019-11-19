@@ -23,8 +23,6 @@ export class AppFooter extends Component {
                         only readable from the client (your browser) on this site. 
                         </span>
                 </CookieConsent>
-                    <span className="footer-text" style={{'marginRight': '5px'}}>Hashkings</span>
-                    <span className="footer-text" style={{'marginLeft': '5px'}}>All rights reserved, 2019</span>
             </div>
         );
     }
