@@ -124,16 +124,16 @@ export default function Delegate({username, delegation, updateDelegation}) {
       <Paper className={classes.paper}>
       <font color="DFB17B"><Typography paragraph>You have delegated enough SP for:</Typography></font>
       <b><font color="DFB17B">
-      {`${totalPlots} plot${
-        totalPlots !== 1 ? "s" : ""}`}
+      {`(${totalPlots} plot${
+        totalPlots !== 1 ? "s" : ""})`}
         <br/><br/><Divider variant="middle" /><br/>
         <font color="DFB17B"><Typography paragraph>You can lease:</Typography></font>
-       {`${delegation.available} plot${
-          delegation.available !== 1 ? "s" : ""}`}
+       {`(${delegation.available} plot${
+          delegation.available !== 1 ? "s" : ""})`}
           <br/><br/><Divider variant="middle" /><br/>
         <font color="DFB17B"><Typography paragraph>Total Leased Plots: </Typography></font>
-       {`${delegation.used} plot${
-          delegation.used !== 1 ? "s" : ""}`}
+       {`(${delegation.used} plot${
+          delegation.used !== 1 ? "s" : ""})`}
         <br/><br/><Divider variant="middle" /><br/>
         {`Please choose the number of additional plots you would like.`}
           </font>
