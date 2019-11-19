@@ -233,7 +233,7 @@ export const MarketPlots = () => {
     <CardHeader
       avatar={
         <Avatar aria-label="delegation" className={classes.avatar}>
-          <img src="https://media.giphy.com/media/26tnjyj8XnB83tfA4/giphy.gif" />
+          <img src="https://media.giphy.com/media/26gsnOb6H9AiTNIli/giphy.gif" />
         </Avatar>
       }
     />

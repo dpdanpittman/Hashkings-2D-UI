@@ -135,8 +135,8 @@ export default function BuyGarden({
     <Paper className={classes.paper}>
       <p>
         <b><font color="DFB17B"><Typography paragraph>
-            Plot leases Available: {delegation.available}
-            {delegation.available === 1 ? "" : ""}</Typography></font>
+            Plot leases Available: <br/><br/><b>({delegation.available} Plots)</b>
+            {delegation.available === 1 ? "s" : ""}</Typography></font>
         </b>
       </p>
       <div className="p-col-12 p-md-12">

@@ -53,7 +53,7 @@ export const TwitchStreams = () => {
     <div className={classes.root}>
       <GridList cellHeight={320} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div"><font color="#B28D43"><b><h1>Our Favorite Twitch TwitchStreams</h1></b></font></ListSubheader>
+          <ListSubheader component="div"><font color="#B28D43"><b><h1>Top Twitch Streams</h1></b></font></ListSubheader>
         </GridListTile>
         {tileData.map(tile => (
           <GridListTile key={tile.img}>
