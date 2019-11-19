@@ -7,7 +7,7 @@ import {BrowserRouter} from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
-//import { AppFooter } from "./AppFooter";
+import { AppFooter } from "./AppFooter";
 
 const theme = createMuiTheme({
   palette: {
@@ -23,6 +23,7 @@ ReactDOM.render(
     <MuiThemeProvider theme={theme}>
     <CssBaseline>
       <App />
+      <AppFooter />
       </CssBaseline>
       </MuiThemeProvider>
     </ScrollToTop>
