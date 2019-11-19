@@ -21,10 +21,9 @@ ReactDOM.render(
   <BrowserRouter>
     <ScrollToTop>
     <MuiThemeProvider theme={theme}>
-    <CssBaseline>
+    <CssBaseline />
       <App />
       <AppFooter />
-      </CssBaseline>
       </MuiThemeProvider>
     </ScrollToTop>
   </BrowserRouter>,

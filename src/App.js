@@ -54,8 +54,8 @@ class App extends Component {
     this.state = {
       layoutMode: "static",
       layoutColorMode: "dark",
-      staticMenuInactive: false,
-      overlayMenuActive: false,
+      staticMenuInactive: true,
+      overlayMenuActive: true,
       mobileMenuActive: false,
       localState: {
         username: "",
@@ -81,7 +81,7 @@ class App extends Component {
   onWrapperClick(event) {
     if (!this.menuClick) {
       this.setState({
-        overlayMenuActive: true,
+        overlayMenuActive: false,
         mobileMenuActive: false
       });
     }
@@ -93,7 +93,7 @@ class App extends Component {
     this.menuClick = true;
 
     if (this.isDesktop()) {
-      if (this.state.layoutMode === "static") {
+      if (this.state.layoutMode === "overlay") {
         this.setState({
           overlayMenuActive: !this.state.overlayMenuActive
         });

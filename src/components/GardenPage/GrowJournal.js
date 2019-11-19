@@ -7,12 +7,12 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import { DataTable } from "primereact/datatable";
-import { ProgressBar } from "primereact/progressbar";
+//import { ProgressBar } from "primereact/progressbar";
 import { Column } from "primereact/column";
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import Slider from '@material-ui/core/Slider';
 import { red } from '@material-ui/core/colors';
 import Typography from '@material-ui/core/Typography';
 import { ThemeProvider } from '@material-ui/styles';
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   input: {
     display: 'none',
   },
-  root: {
+  rootNAN: {
     '& > svg': {
       margin: theme.spacing(2),
     },
@@ -84,6 +84,13 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#532C0C",
+  },
+  root: {
+    width: '100%',
+    backgroundColor: '#DFB17B',
+  },
+  margin: {
+    height: theme.spacing(3),
   },
   paperBlack: {
     padding: theme.spacing(1),
@@ -138,6 +145,43 @@ const useStyles = makeStyles(theme => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
 }));
+
+const marks = [
+  {
+    value: 0,
+    label: 'Seedling',
+    img: 'https://i.imgur.com/plwe4ucs.png',
+  },
+  {
+    value: 20,
+    label: 'Veg',
+  },
+  {
+    value: 40,
+    label: '',
+  },
+  {
+    value: 60,
+    label: 'Flower',
+  },
+  {
+    value: 80,
+    label: '',
+  },
+  {
+    value: 100,
+    label: 'Harvest',
+  },
+
+];
+
+function valuetext(value) {
+  return `${value}`;
+}
+
+function valueLabelFormat(value) {
+  return marks.findIndex(mark => mark.value === value) + 1;
+}
 
 const theme = createMuiTheme({
   palette: {
@@ -292,36 +336,51 @@ if (username) {
                 value={gardens}
                 loading={loading}
                 responsive={true}
-                emptyMessage="No active plots"
+                emptyMessage="Please visit our Market to lease a plot"
+                
               >
-                <Column field="id" header="Plot #" sortable={true} />
+                <Column field="id" header="Plot #" sortable={false} style={{width:'20%', backgroundColor:"#DFB17B", color:'#000000'}} />
                 <Column
                   field="strain"
                   header="Strain"
-                  sortable={true}
+                  sortable={false}
                   body={({ strain }) => seedNames[strain]}
+                  style={{width:'20%', backgroundColor:"#DFB17B", color:'#000000'}}
                 />
                 <Column
                   field="stage"
                   header="Stage"
-                  sortable={true}
+                  sortable={false}
+                  style={{backgroundColor:"#DFB17B", color:'#000000'}}
                   body={({ stage }) => {
                     return (
-                      <ProgressBar
-                        value={Math.floor((stage / 5) * 100)}
-                        showValue={true}
-                      />
+                      <div className={classes.root}>
+                    <Slider
+                      defaultValue={Math.floor((stage / 6) * 100)}
+                      valueLabelFormat={valueLabelFormat}
+                      getAriaValueText={valuetext}
+                      aria-labelledby="discrete-slider-restrict"
+                      step={null}
+                      valueLabelDisplay="auto"
+                      marks={marks}
+                      disabled={true}
+                      color='primary'
+                      max={110}
+                      min={-5}
+                      style={{color:'#000000'}}
+                    />
+                    </div>
                     );
                   }}
                 />
                 {/*<Column
                   field="substage"
                   header="Substage"
-                  sortable={true}
+                  sortable={false}
                   body={({ substage }) => {
                     return (
                       <ProgressBar
-                        value={Math.floor((substage / 14) * 100)}
+                        value={Math.floor((substage / 100) * 100)}
                         showValue={true}
                       />
                     );
