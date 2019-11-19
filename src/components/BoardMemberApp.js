@@ -15,7 +15,7 @@ export const BoardMemberApp = () => {
           </div>
         </center>
         </div>
-        
+
 	  </div></Container>
     );
 };
