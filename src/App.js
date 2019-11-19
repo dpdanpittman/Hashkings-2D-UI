@@ -10,6 +10,7 @@ import {MarketSeeds} from "./components/MarketSeeds";
 import {MarketSupplies} from "./components/MarketSupplies";
 import {ScrollPanel} from "primereact/components/scrollpanel/ScrollPanel";
 import TwitchStreams from './components/TwitchStreams.js';
+import { BoardMemberApp } from "./components/BoardMemberApp";
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
@@ -211,6 +212,11 @@ class App extends Component {
         ]
       },
       {
+        label: "Board Members",
+        icon: "pi pi-fw pi-circle-on",
+        to: "/board"
+      },
+      {
         label: "About",
         icon: "pi pi-fw pi-circle-on",
         to: "/faq"
@@ -316,6 +322,7 @@ class App extends Component {
             <Route path="/market/MarketSupplies" component={MarketSupplies} />
             <Route path="/trending" component={Trending} />
             <Route path="/streams" component={TwitchStreams} />
+            <Route path="/board" component={BoardMemberApp} />
           </div>   
           <div className="layout-mask"></div>
         </div> 
