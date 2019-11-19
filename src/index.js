@@ -23,7 +23,6 @@ ReactDOM.render(
     <MuiThemeProvider theme={theme}>
     <CssBaseline>
       <App />
-      <AppFooter />
       </CssBaseline>
       </MuiThemeProvider>
     </ScrollToTop>
