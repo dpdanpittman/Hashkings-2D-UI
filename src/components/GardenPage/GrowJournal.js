@@ -25,41 +25,11 @@ import TableRow from '@material-ui/core/TableRow';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
-  rootNAN: {
-    '& > svg': {
-      margin: theme.spacing(2),
-    },
-  },
   rootAgain: {
     width: '100%',
   },
-  iconHover: {
-    '&:hover': {
-      color: "red[800]",
-    },
-  },
-  fab: {
-    margin: theme.spacing(1),
-  },
-  extendedIcon: {
-    marginRight: theme.spacing(1),
-  },
-  extendPaper: {
-    color: red[800]
-  },
   flex: {
     flexGrow: 1,
-  },
-  container: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12, 1fr)',
-    gridGap: theme.spacing(3),
   },
   paper: {
     padding: theme.spacing(1),
@@ -69,63 +39,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1),
     backgroundColor: "#095938",
   },
-  paperBlue: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#154A4A",
-  },
-  paperExtended: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#532C0C",
-  },
   root: {
     width: '100%',
     backgroundColor: '#DFB17B',
-  },
-  margin: {
-    height: theme.spacing(3),
-  },
-  paperBlack: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#000000"
-  },
-  paperBrown: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#532C0C",
-  },
-  paperDarkBlue: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'wrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#030D22",
-  },
-  paperDivider: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#949494",
-  },
-  divider: {
-    margin: theme.spacing(2, 0),
   },
   card: {
     maxWidth: 345,
@@ -133,9 +49,6 @@ const useStyles = makeStyles(theme => ({
   },
   table: {
     backgroundColor: "#4A8686",
-  },
-  media: {
-    height: 140,
   },
   expansion: {
     backgroundColor: "#154A4A",
@@ -290,13 +203,13 @@ export const HashkingsTemplate = () => {
       setOpen(true);
     };*/
   
-    const handleClose = (event, reason) => {
+    {/*const handleClose = (event, reason) => {
       if (reason === 'clickaway') {
         return;
       }
   
       setOpen(false);
-    };
+    };*/}
 
 if (username) {
    return (
@@ -344,7 +257,7 @@ if (username) {
                 />
                 <Column
                   field="stage"
-                  header={"Growth Stage"}
+                  header="Growth Stage"
                   sortable={false}
                   style={{backgroundColor:"#DFB17B", color:'#000000'}}
                   body={({ stage }) => {
