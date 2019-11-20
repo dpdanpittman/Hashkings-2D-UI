@@ -148,17 +148,12 @@ const useStyles = makeStyles(theme => ({
 
 const marks = [
   {
-    value: 0,
+    value: 15,
     label: 'Seedling',
-    img: 'https://i.imgur.com/plwe4ucs.png',
   },
   {
-    value: 20,
+    value: 35,
     label: 'Veg',
-  },
-  {
-    value: 40,
-    label: '',
   },
   {
     value: 60,
@@ -349,7 +344,7 @@ if (username) {
                 />
                 <Column
                   field="stage"
-                  header="Stage"
+                  header={"Growth Stage"}
                   sortable={false}
                   style={{backgroundColor:"#DFB17B", color:'#000000'}}
                   body={({ stage }) => {
