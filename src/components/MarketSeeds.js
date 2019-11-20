@@ -123,7 +123,7 @@ export const MarketSeeds = () => {
         <Paper className={classes.paperBlack}>   
           <ThemeProvider theme={theme}>
             <Typography gutterBottom variant="h5" component="h1">
-              <b><font color="#DFB17B"><u>Purchase Seeds</u></font></b>
+              <b><font color="#DFB17B"><u>Welcome to the Seedbank</u></font></b>
             </Typography>
           </ThemeProvider>
         </Paper>

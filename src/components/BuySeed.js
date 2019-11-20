@@ -1,16 +1,29 @@
 import React, {useContext, useState} from "react";
-import {Button} from "primereact/button";
+import Button from '@material-ui/core/Button';
 import {Dropdown} from "primereact/dropdown";
 import {seedNames, seedTypes} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import {sign} from "steemconnect";
 import useSteemKeychain from "../hooks/useSteemKeychain";
+//import Menu from '@material-ui/core/Menu';
+//import MenuItem from '@material-ui/core/MenuItem';
+//import Fade from '@material-ui/core/Fade';
 
 export default function BuySeed({type}) {
   const {username} = useContext(StateContext);
+  //const [anchorEl, setAnchorEl] = React.useState(null);
+  //const open = Boolean(anchorEl);
   const [seed, setSeed] = useState();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const hasSteemKeychain = useSteemKeychain();
+
+  /*const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };*/
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -66,7 +79,7 @@ export default function BuySeed({type}) {
 
   let buttonLabel = "Purchase";
   if (isSubmitting) buttonLabel = "Purchasing";
-  if (!username) buttonLabel = "Login to purchase";
+  if (!username) buttonLabel = "Please Sign in";
 
   return (
     <>
@@ -85,6 +98,7 @@ export default function BuySeed({type}) {
             setSeed(e.value);
           }}
           placeholder="Choose a seed..."
+
         />
       </div>
       <div className="p-col-12 p-md-12">
@@ -94,6 +108,24 @@ export default function BuySeed({type}) {
           onClick={handleSubmit}
         />
       </div>
+      {/*<div className="p-col-12 p-md-12">
+      <Button aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick} >
+        Purchase
+      </Button>
+      <Menu
+        id="fade-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={Fade}
+      >
+        <MenuItem onClick={handleSubmit}>{Object.keys(seedNames).map(key => ({
+            id: key,
+            name: seedNames[key]
+          }))}</MenuItem>
+      </Menu>
+    </div>*/}
     </>
   );
 }
