@@ -225,7 +225,7 @@ if (username) {
                   title={
                     <React.Fragment>
                       <Typography color="error"><u>Plot Progress</u></Typography>
-                      <em><a href="/market/seedbank">{"Find out how far along your plants are."}</a></em> <b>{"Is it time to Harvest?  Once stage reaches 100 percent it is!"}</b>
+                      <em><a href="/market/seedbank">{"Find out how far along your plants are."}</a></em> <b>{"Is it time to Harvest?"}</b>
                     </React.Fragment>
                   }
                   placement="left-start"
@@ -235,7 +235,7 @@ if (username) {
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
-          id="panel2a-header"
+          id="panel2a-header" 
         >
         <Typography className={classes.heading}><font color="DFB17B">Progress</font></Typography>
         </ExpansionPanelSummary>
