@@ -71,7 +71,6 @@ export const LoginPage = ({history}) => {
   const [username, setUsername] = useState("");
   const {steemConnectAPI, login} = useContext(StateContext);
   const [loggingIn, setLoggingIn] = useState(false);
-
   const hasSteemKeychain = useSteemKeychain();
 
   const keychainLoggedIn = (_, token) => {
