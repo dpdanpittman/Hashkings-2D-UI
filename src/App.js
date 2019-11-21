@@ -305,6 +305,28 @@ class App extends Component {
                   model={this.menu}
                   onMenuItemClick={this.onMenuItemClick}
                 />
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <center>
+                <font color="#ffffff"><b><u>We Support</u></b></font>
+                </center>
+                <br/>
+                <a href="https://www.steempeak.com/@hashkings">
+                <img
+                    alt="Steempeak Logo"
+                    src="https://i.imgur.com/Zx6h5XB.png"
+                  />
+                </a>
+                <br/>
+                {/*<center>
+                <a href="https://www.twiztedmonkey.com">
+                <img
+                    alt="TwiztedMonkey Logo"
+                    src="https://i.imgur.com/svUK6yg.png"
+                  />
+                </a>
+                </center>*/}  
               </div>
             </ScrollPanel>
           </div>
@@ -322,8 +344,8 @@ class App extends Component {
             <Route path="/market/MarketSupplies" component={MarketSupplies} />
             <Route path="/trending" component={Trending} />
             <Route path="/streams" component={TwitchStreams} />
-            <Route path="/board" component={BoardMemberApp} />
-          </div>   
+            <Route path="/board" component={BoardMemberApp} />  
+          </div>
           <div className="layout-mask"></div>
         </div> 
       </StateContext.Provider>
