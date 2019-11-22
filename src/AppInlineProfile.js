@@ -27,9 +27,9 @@ const HtmlTooltip = withStyles(theme => ({
 export const AppInlineProfile = () => {
   const {username} = useContext(StateContext);
 
-  /*const handleDelete = () => {
-    alert('');
-  };*/
+  const handleDelete = () => {
+    alert('Need to sign out? Please clear your cache to sign out completely.');
+  };
 
   if (!username) {
     return (
@@ -59,7 +59,7 @@ export const AppInlineProfile = () => {
         icon={<FaceIcon />}
         label= {username}
         color="primary"
-        // onDelete={handleDelete}
+        onDelete={handleDelete}
       />
       </Tooltip>
     </div>
