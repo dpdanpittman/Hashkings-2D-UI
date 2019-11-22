@@ -5,6 +5,7 @@ import LockOpen from '@material-ui/icons/LockOpen';
 import FaceIcon from '@material-ui/icons/Face';
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles } from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
 
 const handleClick = () => {
   window.location = '/login';
@@ -13,6 +14,11 @@ const handleClick = () => {
 const handleTutorial = () => {
   window.location = '/tutorial';
 };
+const handleApparel = () => {
+  //window.location = 'https://www.bonfire.com/hashkings-community-shirts/';
+  window.open('https://www.bonfire.com/hashkings-community-shirts/', '_blank');
+};
+
 
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
@@ -34,6 +40,12 @@ export const AppInlineProfile = () => {
   if (!username) {
     return (
       <div className="profile">
+      <Tooltip title="Visit Bonfire.com" placement="left">
+      <Chip
+        label= "Hashkings Hoodies!"
+        onClick={handleApparel}
+      />
+      </Tooltip>
         <Tooltip title="Please Sign In to Begin" placement="left">
       <Chip
         icon={<LockOpen />}
@@ -47,7 +59,14 @@ export const AppInlineProfile = () => {
     );
   } else {
   return (
-    <div className="profile">
+    <div className="profile">     
+    <Tooltip title="Visit Bonfire.com" placement="left">
+    <Chip
+      label= "Hashkings Hoodies!"
+      onClick={handleApparel}
+      color="primary"
+    />
+    </Tooltip>
       <Tooltip title="Start Tutorial" placement="left">
       <Chip
         label= "New to Hashkings?"

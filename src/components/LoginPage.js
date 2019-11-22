@@ -134,9 +134,6 @@ export const LoginPage = ({history}) => {
         />
       </center>
       <br/>
-      <a href="https://www.bonfire.com/hashkings-community-shirts/" target="_blank" align="right">
-        <h1><b>Click here for hoodies!</b></h1>
-      </a>
     </div>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
