@@ -32,13 +32,13 @@ const useStyles = makeStyles(theme => ({
     height: '80vh',
   },
   image: {
-    // backgroundImage: 'url(https://source.unsplash.com/user/kimzy/1600x900)', // main carousel
+    backgroundImage: 'url(https://source.unsplash.com/user/kimzy/1600x900)', // main carousel
     // backgroundImage: 'url(https://i.imgur.com/vZ7ShWv.png)', // twiztedmonkey
-    backgroundImage: 'url(https://i.imgur.com/GkgOq4F.png)', // shirt sale
+    // backgroundImage: 'url(https://i.imgur.com/GkgOq4F.png)', // shirt sale
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    alt: 'Twizted Monkey Coupon',
+    alt: 'https://source.unsplash.com/user/kimzy/1600x900',
     width: '100%',
     /*command: () => {
       window.open('https://www.twiztedmonkey.com', '_blank');
@@ -128,14 +128,15 @@ export const LoginPage = ({history}) => {
     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
     <div className={classes.paper}>
       <center>
-      <a href="https://www.bonfire.com/hashkings-community-shirts/" target="_blank" align="right">
-        <h1><b>Click here to visit our shop!</b></h1>
-      </a>
       <img
         alt="Hashkings Banner"
         src={`https://i.imgur.com/jvJLKua.png`}
         />
       </center>
+      <br/>
+      <a href="https://www.bonfire.com/hashkings-community-shirts/" target="_blank" align="right">
+        <h1><b>Click here for hoodies!</b></h1>
+      </a>
     </div>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
