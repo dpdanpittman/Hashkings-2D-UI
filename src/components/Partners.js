@@ -1,9 +1,7 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-import Container from '@material-ui/core/Container';
-import LoginPage from "./components/LoginPage";
 import Paper from '@material-ui/core/Paper';
-import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   paper: {

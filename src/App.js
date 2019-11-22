@@ -3,7 +3,7 @@ import classNames from "classnames";
 import {AppTopbar} from "./AppTopbar";
 import {AppMenu} from "./AppMenu";
 import {Route} from "react-router-dom";
-import {Partners} from "./Partners";
+import {Partners} from "./components/Partners";
 import {LoginPage} from "./components/LoginPage";
 import {GardenPage} from "./components/GardenPage";
 import {MarketPlots} from "./components/MarketPlots";
@@ -291,7 +291,7 @@ class App extends Component {
           >
             <ScrollPanel
               ref={el => (this.layoutMenuScroller = el)}
-              style={{height: "110%"}}
+              style={{height: "100%"}}
             >
               <div className="layout-sidebar-scroll-content">
                 <div className="layout-logo">
