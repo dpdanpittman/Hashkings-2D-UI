@@ -21,7 +21,9 @@ export const Partners = () => {
         <center>
         <Paper className={classes.paper}>
                 <center>
-                <font color="#ffffff"><b><u>We Proudly Support:</u></b></font>
+                  <h1>
+                <font color="#DFB17B"><b><u>We Proudly Support:</u></b></font>
+                </h1>
                 <br/>
                 <br/>
                 <a href="https://www.steempeak.com/@hashkings">
@@ -30,7 +32,8 @@ export const Partners = () => {
                     src="https://i.imgur.com/Zx6h5XB.png"
                   />
                 </a>
-                <br/><br/>
+                <br/>
+                <br/>
                 <a href="https://www.steempeak.com/@canna-curate">
                 <img
                     alt="Canna-Curate Logo"
