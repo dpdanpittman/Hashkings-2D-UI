@@ -98,15 +98,14 @@ export default function BuySeed({type}) {
             setSeed(e.value);
           }}
           placeholder="Choose a seed..."
-
-        />
-      </div>
-      <div className="p-col-12 p-md-12">
+        />     
+        <br/>   
         <Button
-          disabled={isSubmitting || !username}
-          label={buttonLabel}
-          onClick={handleSubmit}
-        />
+        disabled={isSubmitting || !username}
+        label='Purchase'
+        onClick={handleSubmit}
+      ><font color="#ffffff">Purchase</font>
+      </Button>
       </div>
       {/*<div className="p-col-12 p-md-12">
       <Button aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick} >

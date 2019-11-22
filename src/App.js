@@ -306,8 +306,8 @@ class App extends Component {
                   onMenuItemClick={this.onMenuItemClick}
                 />
                 <br/><br/>
-                <br/><br/>
-                <br/><br/>
+                
+                
                 <center>
                 <font color="#ffffff"><b><u>We Support</u></b></font>
                 </center>
@@ -318,15 +318,7 @@ class App extends Component {
                     src="https://i.imgur.com/Zx6h5XB.png"
                   />
                 </a>
-                <br/>
-                {/*<center>
-                <a href="https://www.twiztedmonkey.com">
-                <img
-                    alt="TwiztedMonkey Logo"
-                    src="https://i.imgur.com/svUK6yg.png"
-                  />
-                </a>
-                </center>*/}  
+                <br/> 
               </div>
             </ScrollPanel>
           </div>
