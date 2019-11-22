@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import Button from '@material-ui/core/Button';
+import {Button} from "primereact/button";
 import {Dropdown} from "primereact/dropdown";
 import {seedNames, seedTypes} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
@@ -99,13 +99,12 @@ export default function BuySeed({type}) {
           }}
           placeholder="Choose a seed..."
         />     
-        <br/>   
+        <br/><br/>   
         <Button
         disabled={isSubmitting || !username}
-        label='Purchase'
+        label={buttonLabel}
         onClick={handleSubmit}
-      ><font color="#ffffff">Purchase</font>
-      </Button>
+      />
       </div>
       {/*<div className="p-col-12 p-md-12">
       <Button aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick} >

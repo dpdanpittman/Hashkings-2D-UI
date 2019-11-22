@@ -19,14 +19,12 @@ const useStyles = makeStyles(theme => ({
 export const Partners = () => {
   const classes = useStyles();
     return (
-      <Container fixed>
-      <div className="card-blank">
-        <div className="p-fluid">
+        <div>
         <center>
         <Paper className={classes.paper}>
                 <center>
                 <font color="#ffffff"><b><u>We Proudly Support:</u></b></font>
-                </center>
+                <br/>
                 <br/>
                 <a href="https://www.steempeak.com/@hashkings">
                 <img
@@ -34,19 +32,24 @@ export const Partners = () => {
                     src="https://i.imgur.com/Zx6h5XB.png"
                   />
                 </a>
-                <br/> 
+                <br/><br/>
                 <a href="https://www.steempeak.com/@canna-curate">
                 <img
                     alt="Canna-Curate Logo"
-                    src="https://i.imgur.com/nc04iwsm.png?1"
+                    src="https://i.imgur.com/PODmkTet.png"
                   />
                 </a>
                 <br/>
+                <a href="https://www.twiztedmonkey.com/">
+                <img
+                    alt="TwiztedMonkey Logo"
+                    src="https://i.imgur.com/eQlRywXt.jpg"
+                  />
+                </a>
+                </center>
                 </Paper> 
         </center>
-        </div>
-        
-	  </div></Container>
+        </div>  
     );
 };
 

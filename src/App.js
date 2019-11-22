@@ -3,13 +3,14 @@ import classNames from "classnames";
 import {AppTopbar} from "./AppTopbar";
 import {AppMenu} from "./AppMenu";
 import {Route} from "react-router-dom";
-import LoginPage from "./components/LoginPage";
+import {Partners} from "./Partners";
+import {LoginPage} from "./components/LoginPage";
 import {GardenPage} from "./components/GardenPage";
 import {MarketPlots} from "./components/MarketPlots";
 import {MarketSeeds} from "./components/MarketSeeds";
 import {MarketSupplies} from "./components/MarketSupplies";
 import {ScrollPanel} from "primereact/components/scrollpanel/ScrollPanel";
-import TwitchStreams from './components/TwitchStreams.js';
+import {TwitchStreams} from './components/TwitchStreams.js';
 import { BoardMemberApp } from "./components/BoardMemberApp";
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
@@ -40,8 +41,8 @@ function initializeReactGA() {//                  "4MMMMnn..   *MMM  MM  MMP"  .
 }//                                                        ""**MMMMhx/.h/ .=*"                  
 //                                                                  .3P"%....                   
 export const StateContext = React.createContext();//              nP"     "*MMnx       DaFreakyG
-
 ReactGA.ga('send', 'pageview', '/login');
+
 class App extends Component {
   constructor() {
     const accessToken = localStorage.getItem("sc_token");
@@ -305,20 +306,7 @@ class App extends Component {
                   model={this.menu}
                   onMenuItemClick={this.onMenuItemClick}
                 />
-                <br/><br/>
-                
-                
-                <center>
-                <font color="#ffffff"><b><u>We Support</u></b></font>
-                </center>
-                <br/>
-                <a href="https://www.steempeak.com/@hashkings">
-                <img
-                    alt="Steempeak Logo"
-                    src="https://i.imgur.com/Zx6h5XB.png"
-                  />
-                </a>
-                <br/> 
+                <Partners />
               </div>
             </ScrollPanel>
           </div>
