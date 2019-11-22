@@ -291,7 +291,7 @@ class App extends Component {
           >
             <ScrollPanel
               ref={el => (this.layoutMenuScroller = el)}
-              style={{height: "100%"}}
+              style={{height: "120%"}}
             >
               <div className="layout-sidebar-scroll-content">
                 <div className="layout-logo">
