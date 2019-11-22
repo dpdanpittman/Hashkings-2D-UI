@@ -63,7 +63,7 @@ and [STEEM Keychain](https://chrome.google.com/webstore/detail/steem-keychain/lk
 
 ## Screenshots
 <p align="center">
-  <img width="460" height="300" src="https://i.imgur.com/iqNlbxy.png">
+  <img width="460" height="300" src="https://i.imgur.com/jjjChCX.png">
 </p>
 <p align="center">
   <img width="460" height="300" src="https://i.imgur.com/1yBEKJx.png">
