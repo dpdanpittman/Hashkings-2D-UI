@@ -23,7 +23,7 @@ export const Partners = () => {
           <br/><br/>
                 <center>
                   <h1>
-                <font color="#DFB17B"><b><u>We Proudly Support:</u></b></font>
+                <font color="#DFB17B"><b><u>Check out these projects:</u></b></font>
                 </h1>
                 <br/>
                 <br/>
