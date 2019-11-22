@@ -20,6 +20,7 @@ export const Partners = () => {
         <div>
         <center>
         <Paper className={classes.paper}>
+          <br/><br/>
                 <center>
                   <h1>
                 <font color="#DFB17B"><b><u>We Proudly Support:</u></b></font>
