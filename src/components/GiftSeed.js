@@ -21,11 +21,15 @@ const useStyles = makeStyles(theme => ({
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
+    fontFamily: '"Jua", sans-serif',
   },
   background: {
     backgroundImage: 'url(https://i.imgur.com/ET4nTp7.jpg)',
     backgroundColor: "#DFB17B",
-  }
+  },
+  font: {
+    fontFamily: '"Jua", sans-serif',
+  },
 }));
 
 const HtmlTooltip = withStyles(theme => ({

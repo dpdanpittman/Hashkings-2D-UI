@@ -114,6 +114,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1),
     backgroundColor: "#532C0C",
   },
+  font: {
+    fontFamily: '"Jua", sans-serif',
+  },
 }));
 
 const theme = createMuiTheme({
@@ -236,7 +239,7 @@ export const GardenActions = () => {
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error"><u>Plant, Water and Harvest </u></Typography>
+                  <Typography color="error" className={classes.font}><u>Plant, Water and Harvest </u></Typography>
                   <em><a href="/market/seedbank">{"This is where you perform your main tasks."}</a></em> <b>{"Don't forget to check the progress!"}</b>
                 </React.Fragment>
               }
@@ -244,7 +247,7 @@ export const GardenActions = () => {
               TransitionComponent={Zoom}
               >
               <Typography gutterBottom variant="h5" component="h1">
-                <b><font color="DFB17B">Actions</font></b>
+                <b><font color="DFB17B" className={classes.font}>Actions</font></b>
                 </Typography>
                 </HtmlTooltip>
                 </ThemeProvider>
@@ -256,7 +259,7 @@ export const GardenActions = () => {
                 <HtmlTooltip
                 title={
                   <React.Fragment>
-                    <Typography color="error"><u>Planting</u></Typography>
+                    <Typography color="error" className={classes.font}><u>Planting</u></Typography>
                     <em><a href="/market/seedbank">{"Did you get seeds?"}</a></em> <b>{"plant some Crops!"}</b>
                   </React.Fragment>
                 }
@@ -280,7 +283,7 @@ export const GardenActions = () => {
               <HtmlTooltip
                 title={
                   <React.Fragment>
-                    <Typography color="error"><u>Water</u></Typography>
+                    <Typography color="error" className={classes.font}><u>Water</u></Typography>
                     <em><a href="/market/seedbank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
                   </React.Fragment>
                   }
@@ -304,7 +307,7 @@ export const GardenActions = () => {
                     <HtmlTooltip
                         title={
                           <React.Fragment>
-                            <Typography color="error"><u>Harvest</u></Typography>
+                            <Typography color="error" className={classes.font}><u>Harvest</u></Typography>
                             <em><a href="/market/seedbank">{"Are those buds nice and ripe?"}</a></em> <b>{"Harvest when they are ready."}</b>
                           </React.Fragment>
                         }

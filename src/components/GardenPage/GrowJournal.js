@@ -13,7 +13,6 @@ import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import Slider from '@material-ui/core/Slider';
-import { red } from '@material-ui/core/colors';
 import Typography from '@material-ui/core/Typography';
 import { ThemeProvider } from '@material-ui/styles';
 import Paper from '@material-ui/core/Paper';
@@ -38,6 +37,9 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#095938",
+  },
+  font: {
+    fontFamily: '"Jua", sans-serif',
   },
   root: {
     width: '100%',
@@ -218,13 +220,13 @@ if (username) {
       <Paper className={classes.paper}>
            <ThemeProvider theme={theme}>
                 <Typography gutterBottom variant="h1" component="h1">
-            <b><font color="DFB17B">Grow Journal</font></b>
+            <b><font color="DFB17B" className={classes.font}>Grow Journal</font></b>
           </Typography>
                   </ThemeProvider>
                   <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="error"><u>Plot Progress</u></Typography>
+                      <Typography color="error" className={classes.font}><u>Plot Progress</u></Typography>
                       <em><a href="/market/seedbank">{"Find out how far along your plants are."}</a></em> <b>{"Is it time to Harvest?"}</b>
                     </React.Fragment>
                   }
@@ -237,46 +239,47 @@ if (username) {
           aria-controls="panel2a-content"
           id="panel2a-header" 
         >
-        <Typography className={classes.heading}><font color="DFB17B">Progress</font></Typography>
+        <Typography className={classes.heading}><font color="DFB17B" className={classes.font}>Progress</font></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.expansion}>
         <DataTable
                 value={gardens}
                 loading={loading}
                 responsive={true}
-                emptyMessage="Please visit our Market to lease a plot"
-                
+                emptyMessage="Please visit our Market to lease a plot"                
               >
-                <Column field="id" header="Plot #" sortable={false} style={{width:'20%', backgroundColor:"#DFB17B", color:'#000000'}} />
+                <Column field="id" header="Plot #" className={classes.font} sortable={false} style={{width:'20%', backgroundColor:"#DFB17B", color:'#000000'}} />
                 <Column
                   field="strain"
                   header="Strain"
                   sortable={false}
                   body={({ strain }) => seedNames[strain]}
                   style={{width:'20%', backgroundColor:"#DFB17B", color:'#000000'}}
+                  className={classes.font}
                 />
                 <Column
                   field="stage"
                   header="Growth Stage"
                   sortable={false}
                   style={{backgroundColor:"#DFB17B", color:'#000000'}}
+                  className={classes.font}
                   body={({ stage }) => {
                     return (
                       <div className={classes.root}>
-                    <Slider
-                      defaultValue={Math.floor((stage / 6) * 100)}
-                      valueLabelFormat={valueLabelFormat}
-                      getAriaValueText={valuetext}
-                      aria-labelledby="discrete-slider-restrict"
-                      step={null}
-                      valueLabelDisplay="auto"
-                      marks={marks}
-                      disabled={true}
-                      color='primary'
-                      max={110}
-                      min={-5}
-                      style={{color:'#000000'}}
-                    />
+                        <Slider
+                          defaultValue={Math.floor((stage / 6) * 100)}
+                          valueLabelFormat={valueLabelFormat}
+                          getAriaValueText={valuetext}
+                          aria-labelledby="discrete-slider-restrict"
+                          step={null}
+                          valueLabelDisplay="auto"
+                          marks={marks}
+                          disabled={true}
+                          color='primary'
+                          max={110}
+                          min={-5}
+                          style={{color:'#000000'}}
+                        />
                     </div>
                     );
                   }}
@@ -296,7 +299,7 @@ if (username) {
                 />*/}
               </DataTable>
         </ExpansionPanelDetails>
-        <Typography><font color="red">
+        <Typography className={classes.font}><font color="red">
         Please allow 24 hours for your harvested plots to reset</font></Typography>
         <br/>
       </ExpansionPanel>
@@ -305,7 +308,7 @@ if (username) {
       <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="error"><u>Recent Waterings and Plantings</u></Typography>
+                      <Typography color="error" className={classes.font}><u>Recent Waterings and Plantings</u></Typography>
                       <em><a href="/market/seedbank">{"Keep track of when you last watered!"}</a></em> <b>{"You need to water every plot once every 24 hours.  Don't overwater!"}</b>
                     </React.Fragment>
                   }
@@ -318,29 +321,29 @@ if (username) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}><font color="DFB17B">Recent Activity</font></Typography>
+          <Typography className={classes.heading}><font color="DFB17B" className={classes.font}>Recent Activity</font></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.expansion}>
         <Paper className={classes.rootAgain}>
       <Table >
         <TableHead>
-          <TableRow>
-            <TableCell>Action</TableCell>
-            <TableCell align="right">Region</TableCell>
-            <TableCell align="right">Time</TableCell>
-            <TableCell align="right">Plot ID</TableCell>
+          <TableRow style={{backgroundColor:"#DFB17B"}}>
+            <TableCell className={classes.font}>Action</TableCell>
+            <TableCell align="right" className={classes.font}>Region</TableCell>
+            <TableCell align="right" className={classes.font}>Time</TableCell>
+            <TableCell align="right" className={classes.font}>Plot ID</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
         {dashboardStats.activity.map(action => (
-            <TableRow key={action.block}>
-              <TableCell component="th" scope="row">
+            <TableRow key={action.block} style={{backgroundColor:"#DFB17B"}}>
+              <TableCell component="th" scope="row" className={classes.font}>
               {action.type.charAt(0).toUpperCase() +
                         action.type.slice(1)}
               </TableCell>
-              <TableCell align="right">{seedNames[action.strain]}</TableCell>
-              <TableCell align="right">{action.when}</TableCell>
-              <TableCell align="right">{action.id}</TableCell>
+              <TableCell align="right" className={classes.font}>{seedNames[action.strain]}</TableCell>
+              <TableCell align="right" className={classes.font}>{action.when}</TableCell>
+              <TableCell align="right" className={classes.font}>{action.id}</TableCell>
             </TableRow>
           ))}
         </TableBody>

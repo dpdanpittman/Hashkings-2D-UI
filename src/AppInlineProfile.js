@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, {useState, useContext, useEffect} from "react";
 import { StateContext } from "./App";
 import Chip from '@material-ui/core/Chip';
 import LockOpen from '@material-ui/icons/LockOpen';
-import FaceIcon from '@material-ui/icons/Face';
+import Avatar from '@material-ui/core/Avatar';
+//import FaceIcon from '@material-ui/icons/Face';
 import Tooltip from '@material-ui/core/Tooltip';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { HashkingsAPI } from "./HashkingsAPI";
 
 const handleClick = () => {
   window.location = '/login';
@@ -18,7 +20,6 @@ const handleApparel = () => {
   window.open('https://www.bonfire.com/hashkings-community-shirts/');
 };
 
-
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
     backgroundColor: '#f5f5f9',
@@ -29,8 +30,28 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
+const useStyles = makeStyles(theme => ({
+font: {
+  fontFamily: '"Jua", sans-serif',
+},
+}));
+
 export const AppInlineProfile = () => {
+  const hashkingsApi = new HashkingsAPI();
+  const classes = useStyles();
   const {username} = useContext(StateContext);
+  const [validatedTo, setValidatedTo] = useState();
+
+  useEffect(() => {
+    hashkingsApi.steemUserExists(username).then(username => {
+      if (username) {
+        setValidatedTo(username);
+      } else {
+        setValidatedTo();
+      }
+    });
+  }, [username]);
+
 
   const handleDelete = () => {
     alert('Need to sign out? Please clear your cache to sign out completely.');
@@ -39,18 +60,20 @@ export const AppInlineProfile = () => {
   if (!username) {
     return (
       <div className="profile">
-      <Tooltip title="Visit Bonfire.com" placement="left">
-      <Chip
-        label= "Hoodies For Sale!"
-        onClick={handleApparel}
-      />
-      </Tooltip>
         <Tooltip title="Please Sign In to Begin" placement="left">
       <Chip
         icon={<LockOpen />}
         color="primary"
         label= "Not signed in"
         onClick={handleClick}
+        className={classes.font}
+      />
+      </Tooltip>
+      <Tooltip title="Visit Bonfire.com" placement="left">
+      <Chip
+        label= "Hoodies!"
+        onClick={handleApparel}
+        className={classes.font}
       />
       </Tooltip>
       <br/>
@@ -59,25 +82,37 @@ export const AppInlineProfile = () => {
   } else {
   return (
     <div className="profile">     
-      <Tooltip title="Start Tutorial" placement="left">
+      <Tooltip title="Signed In" placement="bottom">
       <Chip
-        label= "New to Hashkings?"
+        icon={<Avatar className={classes.avatar}>
+        {validatedTo && (
+        <div>
+          <img
+          alt="STEEM Avatar"
+          src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
+          />
+          </div>
+          )}
+        </Avatar>}
+        label= {username}
+        color="primary"
+        onDelete={handleDelete}
+        className={classes.font}
+      />
+      </Tooltip>
+      <Tooltip title="Start Live Tutorial" placement="bottom">
+      <Chip
+        label= "Tutorial"
         onClick={handleTutorial}
         color="primary"
+        className={classes.font}
       />
       </Tooltip>
       <Tooltip title="Visit Bonfire.com" placement="bottom">
       <Chip
-        label= "Hoodies For Sale!"
+        label= "Hoodies!"
         onClick={handleApparel}
-      />
-      </Tooltip>
-      <Tooltip title="Signed In" placement="bottom">
-      <Chip
-        icon={<FaceIcon />}
-        label= {username}
-        color="primary"
-        onDelete={handleDelete}
+        className={classes.font}
       />
       </Tooltip>
     </div>

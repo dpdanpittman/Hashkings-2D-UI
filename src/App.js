@@ -50,7 +50,6 @@ class App extends Component {
     if (accessToken) {
       steemConnectAPI.setAccessToken(accessToken);
     }
-
     super();
     this.state = {
       layoutMode: "static",
@@ -157,6 +156,7 @@ class App extends Component {
             to: "/market/farmplots"
           },
           {
+            fontFamily: '"Jua", sans-serif',
             label: "Seeds",
             icon: "pi pi-fw pi-circle-off",
             to: "/market/seedbank"
@@ -188,11 +188,6 @@ class App extends Component {
             label: "Trending Posts",
             icon: "pi pi-fw pi-globe",
             to: "/trending"
-          },
-          {
-            label: "Twitch Streams",
-            icon: "pi pi-fw pi-globe",
-            to: "/streams"
           },
           {
             label: "Hashkings Curation Trail",

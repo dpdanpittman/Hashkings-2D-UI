@@ -126,6 +126,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
   },
+  font: {
+    fontFamily: '"Londrina Solid", cursive',
+  },
 }));
 
 const theme = createMuiTheme({
@@ -259,7 +262,7 @@ if (username) {
                 <HtmlTooltip
                   title={
                   <React.Fragment>
-                  <Typography color="error"><u>Total Number of Active Farmers</u></Typography>
+                  <Typography color="error" className={classes.font}><u>Total Number of Active Farmers</u></Typography>
                   <em><a href="/market/seedbank">{"This is your community!"}</a></em> <b>{"Say hi to them in the Hashkings Discord"}</b>
                   </React.Fragment>
                   }
@@ -273,11 +276,11 @@ if (username) {
                     />
                     <CardContent>
                       <center>
-                      <Typography gutterBottom variant="h5" component="h1">
-                        <u><b><font color="DFB17B">Farmers</font></b></u>
+                      <Typography gutterBottom variant="h5" component="h1" className={classes.font}>
+                        <b><font color="DFB17B">Farmers</font></b>
                       </Typography>
                       <Typography variant="h5" component="h2">
-                      <b><font color="B28D43">{dashboardStats.gardeners}</font></b>
+                      <b><font color="B28D43" className={classes.font}>{dashboardStats.gardeners}</font></b>
                       </Typography>
                       </center>
                     </CardContent>
@@ -288,7 +291,7 @@ if (username) {
                   <HtmlTooltip
                     title={
                     <React.Fragment>
-                      <Typography color="error"><u>Total Number of Farms</u></Typography>
+                      <Typography color="error" className={classes.font}><u>Total Number of Farms</u></Typography>
                       <em><a href="/market/seedbank">{"These are plots which are already occupied!"}</a></em> <b>{"Is one of them yours?"}</b>
                     </React.Fragment>
                     }
@@ -303,12 +306,11 @@ if (username) {
                   <CardContent>
                     <center>
           
-                    <Typography gutterBottom variant="h5" component="h1">
-                      <u><b><font color="DFB17B">Farms</font></b></u>
+                    <Typography gutterBottom variant="h5" component="h1" className={classes.font}>
+                      <b><font color="DFB17B">Farms</font></b>
                     </Typography>
-                    
                     <Typography variant="h5" color="textSecondary" component="h2">
-                    <b><font color="B28D43">{dashboardStats.gardens}</font></b>
+                    <b><font color="B28D43" className={classes.font}>{dashboardStats.gardens}</font></b>
                     </Typography>
                     </center>
                   </CardContent>
@@ -319,7 +321,7 @@ if (username) {
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error"><u>Total Steem Power Delegated</u></Typography>
+                  <Typography color="error" className={classes.font}><u>Total Steem Power Delegated</u></Typography>
                   <em><a href="/market/seedbank">{"This is our total Economy"}</a></em> <b>{"This number is based on total SP delegated and STEEM powered up from Seed Sales"}</b>
                 </React.Fragment>
               }
@@ -334,10 +336,10 @@ if (username) {
                   <CardContent>
                     <center>
                       <Typography gutterBottom variant="h5" component="h1">
-                        <u><b><font color="DFB17B">Economy</font></b></u>
+                        <b><font color="DFB17B" className={classes.font}>Economy (SP)</font></b>
                       </Typography>
                       <Typography variant="h5" color="textSecondary" component="h2">
-                      <b><font color="B28D43">{dashboardStats.delegation} SP</font></b>
+                      <b><font color="B28D43" className={classes.font}>{dashboardStats.delegation}</font></b>
                       </Typography>
                     </center>
                   </CardContent>

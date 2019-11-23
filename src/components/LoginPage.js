@@ -57,12 +57,16 @@ const useStyles = makeStyles(theme => ({
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
+    fontFamily: '"Jua", sans-serif',
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
   button: {
     margin: theme.spacing(1),
+  },
+  font: {
+    fontFamily: '"Jua", sans-serif',
   },
 }));
 
@@ -139,7 +143,6 @@ export const LoginPage = ({history}) => {
         <Avatar className={classes.avatar}>
         {validatedTo && (
         <div>
-          <h2>{validatedTo}</h2>
           <img
           alt="STEEM Avatar"
           src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
@@ -158,6 +161,7 @@ export const LoginPage = ({history}) => {
             value={username}
             autoFocus
             onChange={e => setUsername(e.target.value)}
+            className={classes.font}
           />
           <Button
             fullWidth
@@ -166,18 +170,19 @@ export const LoginPage = ({history}) => {
             className={classes.submit}
             onClick={Login}
             label={`${loginLabelPrefix} ${loginLabelSuffix}`}
+            className={classes.font}
           >
             Sign In
           </Button>
           <Grid container>
             <Grid item>
-              <Link href="https://signup.steemit.com/" variant="body2">
+              <Link href="https://signup.steemit.com/" variant="body2" className={classes.font}>
                 {"Don't have a STEEM account? Sign Up"}
               </Link>
             </Grid>
           </Grid>
           <center>
-          <Box mt={5}>
+          <Box mt={5} className={classes.font}>
             <Copyright />
           </Box>
           </center>

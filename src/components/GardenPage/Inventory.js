@@ -129,6 +129,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1),
     backgroundColor: "#073232",
   },
+  font: {
+    fontFamily: '"Jua", sans-serif',
+  },
 }));
 
 const theme = createMuiTheme({
@@ -158,7 +161,7 @@ export default function Inventory({user}) {
         <Paper className={classes.paperFarming}>
           <ThemeProvider theme={theme}>
             <Typography gutterBottom variant="h5" component="h1">
-              <b><font color="DFB17B">Inventory</font></b>
+              <b><font color="DFB17B" className={classes.font}>Inventory</font></b>
             </Typography>
           </ThemeProvider>
         </Paper>
@@ -167,7 +170,7 @@ export default function Inventory({user}) {
       <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="error"><u>Active Plots</u></Typography>
+                      <Typography color="error" className={classes.font}><u>Active Plots</u></Typography>
                       <em><a href="/market/seedbank">{"Farm plots which are currently earning"}</a></em> <b>{"Do you need another Plot?  Visit the Market!"}</b>
                     </React.Fragment>
                   }
@@ -178,9 +181,9 @@ export default function Inventory({user}) {
           className={classes.media}
           image="https://i.imgur.com/vAUGcFV.png"
         />
-        <CardContent>
+        <CardContent className={classes.font}>
           <Typography gutterBottom variant="h5" component="h2">
-          <center><font color="DFB17B">Active Plots</font></center>
+          <center><font color="DFB17B" className={classes.font}>Active Plots</font></center>
           </Typography>
           <hr/>
           {_.uniqBy(user.activeGardens, garden => garden.id[0])
@@ -191,7 +194,7 @@ export default function Inventory({user}) {
               ).length
             }))
             .map(garden => (
-              <b><font color="B28D43"><p key={garden.id}>
+              <b><font color="B28D43" className={classes.font}><p key={garden.id}>
                 <Badge className={classes.margin} badgeContent={garden.count} color="primary">
                   <FarmIcon  />
                 </Badge>
@@ -207,7 +210,7 @@ export default function Inventory({user}) {
     <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="error"><u>Available Seeds</u></Typography>
+                      <Typography color="error" className={classes.font}><u>Available Seeds</u></Typography>
                       <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
                     </React.Fragment>
                   }
@@ -218,9 +221,9 @@ export default function Inventory({user}) {
           className={classes.media}
           image="https://d3atagt0rnqk7k.cloudfront.net/wp-content/uploads/2016/04/29195549/cannabis-seeds-101-all-you-need-to-know-and-more.jpg"
         />
-        <CardContent>
+        <CardContent className={classes.font}>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B">Seeds</font>
+          <font color="DFB17B" className={classes.font}>Seeds</font>
           </Typography>
           <hr/>
           {_.uniqBy(user.availableSeeds, seed => seed.strain)
@@ -231,7 +234,7 @@ export default function Inventory({user}) {
               ).length
             }))
             .map(seed => (
-              <p key={seed.strain}><font color="B28D43">
+              <p key={seed.strain}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent={seed.count} color="primary">
                   <SeedIcon  />
                 </Badge>
@@ -247,7 +250,7 @@ export default function Inventory({user}) {
     <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="error"><u>Available Plots</u></Typography>
+                      <Typography color="error" className={classes.font}><u>Available Plots</u></Typography>
                       <em><a href="/market/seedbank">{"These plots are ready to go!"}</a></em> <b>{"Do you have extra Seeds?  These plots are available to be farmed."}</b>
                     </React.Fragment>
                   }
@@ -258,9 +261,9 @@ export default function Inventory({user}) {
           className={classes.media}
           image="https://i.imgur.com/x1eOPYj.png"
         />
-        <CardContent>
+        <CardContent className={classes.font}>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B">Plots</font>
+          <font color="DFB17B" className={classes.font}>Plots</font>
           </Typography>
           <hr/>
           {_.uniqBy(user.availableGardens, garden => garden[0])
@@ -271,7 +274,7 @@ export default function Inventory({user}) {
               ).length
             }))
             .map(garden => (
-              <b><p key={garden.id}><font color="B28D43">
+              <b><p key={garden.id}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent={garden.count} color="error">
                   <FarmIcon  />
                 </Badge>
