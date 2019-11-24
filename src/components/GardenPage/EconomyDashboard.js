@@ -12,6 +12,23 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import { fadeInDown } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
+ 
+const styles = {
+  fadeInDown: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(fadeInDown, 'fadeInDown')
+  },
+  fadeInDown1: {
+    animation: 'x 2s',
+    animationName: Radium.keyframes(fadeInDown, 'fadeInDown')
+  },
+  fadeInDown2: {
+    animation: 'x 3s',
+    animationName: Radium.keyframes(fadeInDown, 'fadeInDown')
+  }
+}
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -259,21 +276,24 @@ if (username) {
           <div className={classes.flex}>
             <Grid container spacing={3}>
               <Grid item xs>
-                <HtmlTooltip
-                  title={
-                  <React.Fragment>
-                  <Typography color="error" className={classes.font}><u>Total Number of Active Farmers</u></Typography>
-                  <em><a href="/market/seedbank">{"This is your community!"}</a></em> <b>{"Say hi to them in the Hashkings Discord"}</b>
-                  </React.Fragment>
-                  }
-                  placement="bottom-start"
-                  TransitionComponent={Zoom}
-                >
-                  <Card className={classes.card}>
+                  <StyleRoot>
+                    <div style={styles.fadeInDown}>
+                    <Card className={classes.card}>
+                    <HtmlTooltip
+                    title={
+                    <React.Fragment>
+                    <Typography color="error" className={classes.font}><u>Total Number of Active Farmers</u></Typography>
+                    <em><a href="/market/seedbank">{"This is your community!"}</a></em> <b>{"Say hi to them in the Hashkings Discord"}</b>
+                    </React.Fragment>
+                    }
+                    placement="bottom-start"
+                    TransitionComponent={Zoom}
+                    >
                     <CardMedia
                       className={classes.media}
                       image="https://i.imgur.com/ZI9lEAQ.jpg"
                     />
+                    </HtmlTooltip>
                     <CardContent>
                       <center>
                       <Typography gutterBottom variant="h5" component="h1" className={classes.font}>
@@ -285,27 +305,30 @@ if (username) {
                       </center>
                     </CardContent>
                   </Card>
-                  </HtmlTooltip>
+                  </div>
+                  </StyleRoot>
                 </Grid>
                 <Grid item xs>
-                  <HtmlTooltip
-                    title={
-                    <React.Fragment>
-                      <Typography color="error" className={classes.font}><u>Total Number of Farms</u></Typography>
-                      <em><a href="/market/seedbank">{"These are plots which are already occupied!"}</a></em> <b>{"Is one of them yours?"}</b>
-                    </React.Fragment>
-                    }
-                    placement="bottom"
-                    TransitionComponent={Zoom}
-                    >
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.media}
-                    image="https://www.usnews.com/dims4/USNEWS/ae50a20/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fcom-usnews-beam-media.s3.amazonaws.com%2F25%2Fb1%2F8a19e6c940ddb4674c711f9e42c9%2F181204-hemp-editorial.jpg"
-                  />
+                <StyleRoot>
+                    <div style={styles.fadeInDown1}>
+                    <Card className={classes.card}>
+                    <HtmlTooltip
+                        title={
+                        <React.Fragment>
+                          <Typography color="error" className={classes.font}><u>Total Number of Farms</u></Typography>
+                          <em><a href="/market/seedbank">{"These are plots which are already occupied!"}</a></em> <b>{"Is one of them yours?"}</b>
+                        </React.Fragment>
+                        }
+                        placement="bottom"
+                        TransitionComponent={Zoom}
+                        >
+                      <CardMedia
+                        className={classes.media}
+                        image="https://www.usnews.com/dims4/USNEWS/ae50a20/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fcom-usnews-beam-media.s3.amazonaws.com%2F25%2Fb1%2F8a19e6c940ddb4674c711f9e42c9%2F181204-hemp-editorial.jpg"
+                      />
+                    </HtmlTooltip>
                   <CardContent>
                     <center>
-          
                     <Typography gutterBottom variant="h5" component="h1" className={classes.font}>
                       <b><font color="DFB17B">Farms</font></b>
                     </Typography>
@@ -315,10 +338,14 @@ if (username) {
                     </center>
                   </CardContent>
                 </Card>
-              </HtmlTooltip>
+                </div>
+                </StyleRoot>
             </Grid>
           <Grid item xs>
-            <HtmlTooltip
+          <StyleRoot>
+            <div style={styles.fadeInDown2}>
+                <Card className={classes.card}>
+                <HtmlTooltip
               title={
                 <React.Fragment>
                   <Typography color="error" className={classes.font}><u>Total Steem Power Delegated</u></Typography>
@@ -328,11 +355,11 @@ if (username) {
               placement="bottom-end"
               TransitionComponent={Zoom}
               >
-                <Card className={classes.card}>
                   <CardMedia
                     className={classes.media}
                     image="https://www.moneycrashers.com/wp-content/uploads/2019/04/gross-domestic-product-definition-1068x713.jpg"
                   />
+                  </HtmlTooltip>
                   <CardContent>
                     <center>
                       <Typography gutterBottom variant="h5" component="h1">
@@ -344,7 +371,8 @@ if (username) {
                     </center>
                   </CardContent>
                 </Card>
-        </HtmlTooltip>
+        </div>
+        </StyleRoot>
         </Grid>
       </Grid>
       </div>

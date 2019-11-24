@@ -22,6 +22,15 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { slideInRight } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
+ 
+const styles = {
+  slideInRight: {
+    animation: 'x 3s',
+    animationName: Radium.keyframes(slideInRight, 'slideInRight')
+  }
+}
 
 const useStyles = makeStyles(theme => ({
   rootAgain: {
@@ -217,6 +226,8 @@ if (username) {
    return (
     <div className={classes.flex}>
       <div className={classes.flex}>
+      <StyleRoot>
+      <div style={styles.slideInRight}>
       <Paper className={classes.paper}>
            <ThemeProvider theme={theme}>
                 <Typography gutterBottom variant="h1" component="h1">
@@ -353,6 +364,8 @@ if (username) {
       </ExpansionPanel>
       </HtmlTooltip>
       </Paper>
+      </div>
+      </StyleRoot>
       </div>
     </div>
       )
