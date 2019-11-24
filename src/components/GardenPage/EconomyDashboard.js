@@ -127,8 +127,8 @@ const useStyles = makeStyles(theme => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   font: {
-    fontFamily: '"Londrina Solid", cursive',
-  },
+    fontFamily: '"Jua", sans-serif',
+    },
 }));
 
 const theme = createMuiTheme({
