@@ -144,6 +144,9 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 345,
     backgroundColor: "#000000",
   },
+  font: {
+    fontFamily: '"Jua", sans-serif',
+  },
 }));
 
 const HtmlTooltip = withStyles(theme => ({
@@ -211,7 +214,7 @@ export const MarketPlots = () => {
       <ThemeProvider theme={theme}>
       <center>
       <Typography gutterBottom variant="h4" component="h1">
-        <b><font color="#DFB17B"><u>Leasing</u></font></b>
+        <b><font color="#DFB17B" className={classes.font}><u>Leasing</u></font></b>
       </Typography>
       </center>
     </ThemeProvider>
@@ -243,8 +246,10 @@ export const MarketPlots = () => {
       title="Mexico"
     />
     <CardContent>
-      <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B">
-      Plot Delegation</font>
+      <Typography variant="body2" color="textSecondary" component="p">
+        <font color="DFB17B" className={classes.font}>
+        Plot Delegation
+        </font>
       </Typography>
     </CardContent>
     <hr/>
@@ -290,7 +295,7 @@ export const MarketPlots = () => {
   <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="error"><u>Leasing</u></Typography>
+                      <Typography color="error" className={classes.font}><u>Leasing</u></Typography>
                       <em><a href="/market/seedbank">{"Claim your leased plots for 0.5 STEEM each."}</a></em><b>{" In order to claim your plots we require a small fee. Pay with STEEM below"}</b>
                     </React.Fragment>
                   }
@@ -311,7 +316,7 @@ export const MarketPlots = () => {
       title="Afghanistan"
     />
     <CardContent>
-    <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B">
+    <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B" className={classes.font}>
         Leasing</font>
       </Typography>
     </CardContent>
@@ -342,9 +347,9 @@ export const MarketPlots = () => {
             )}
             {delegation.available === 0 && (
               <p>
-                <font color="DFB17B">
+                <font color="DFB17B" className={classes.font}>
                   <b>
-                    Please delegate more Steem Power above to lease a plot
+                    All Fees Paid. Please delegate more Steem Power to lease a plot.
                   </b>
                 </font>
               </p>

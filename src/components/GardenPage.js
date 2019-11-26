@@ -5,7 +5,6 @@ import Divider from '@material-ui/core/Divider';
 import EconomyDashboard from './GardenPage/EconomyDashboard'
 import GardenActions from './GardenPage/GardenActions.js';
 import GrowJournal from './GardenPage/GrowJournal';
-import Trading from './GardenPage/Trading';
  
 export const GardenPage = () => {
   const {username} = useContext(StateContext);
@@ -16,7 +15,6 @@ export const GardenPage = () => {
       <Divider />
       <GardenActions />
       <GrowJournal />
-      <Trading />
       </div>
     );
   } else {

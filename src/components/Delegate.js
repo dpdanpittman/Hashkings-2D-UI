@@ -60,6 +60,9 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 345,
     backgroundColor: "#000000",
   },
+  font: {
+    fontFamily: '"Jua", sans-serif',
+  },
 }));
 
 export default function Delegate({username, delegation, updateDelegation}) {
@@ -122,16 +125,18 @@ export default function Delegate({username, delegation, updateDelegation}) {
   return (
     <div>
       <Paper className={classes.paper}>
-      <font color="DFB17B"><Typography paragraph>You have delegated enough SP for:</Typography></font>
-      <b><font color="DFB17B">
+      <Typography paragraph>
+      <font color="DFB17B" className={classes.font}>You have delegated enough SP for:</font></Typography>
+      <b><font color="DFB17B" className={classes.font}>
       {`(${totalPlots} plot${
         totalPlots !== 1 ? "s" : ""})`}
         <br/><br/><Divider variant="middle" /><br/>
-        <font color="DFB17B"><Typography paragraph>You can lease:</Typography></font>
+        <Typography paragraph>
+        <font color="DFB17B" className={classes.font}>You can lease:</font></Typography>
        {`(${delegation.available} plot${
           delegation.available !== 1 ? "s" : ""})`}
           <br/><br/><Divider variant="middle" /><br/>
-        <font color="DFB17B"><Typography paragraph>Total Leased Plots: </Typography></font>
+          <Typography paragraph><font color="DFB17B" className={classes.font}>Total Leased Plots: </font></Typography>
        {`(${delegation.used} plot${
           delegation.used !== 1 ? "s" : ""})`}
         <br/><br/><Divider variant="middle" /><br/>
@@ -145,6 +150,7 @@ export default function Delegate({username, delegation, updateDelegation}) {
           disabled={isSubmitting}
           label={isSubmitting ? "Delegating" : "Delegate"}
           onClick={handleSubmit}
+          className={classes.font}
         />
       </div>
       <br/>

@@ -16,9 +16,6 @@ const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
   },
-  font: {
-    fontFamily: '"Jua", sans-serif',
-  },
   input: {
     display: 'none',
   },
@@ -98,7 +95,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#030D22",
+    backgroundColor: "#154A4A",
   },
   paperDivider: {
     padding: theme.spacing(1),
@@ -127,6 +124,9 @@ const useStyles = makeStyles(theme => ({
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
+  },
+  font: {
+    fontFamily: '"Jua", sans-serif',
   },
 }));
 
@@ -256,8 +256,11 @@ if (username) {
       return (
         <div className={classes.flex}>
           <Grid container spacing={12}>
-      <Grid item xs={12}>
-                  <Paper className={classes.paperDarkBlue}>
+          <Grid item xs={12}>
+            <Paper className={classes.paperDivider}></Paper>
+          </Grid>
+            <Grid item xs={12}>
+              <Paper className={classes.paperDarkBlue}>
                 <ThemeProvider theme={theme}>
                 <Typography gutterBottom variant="h5" component="h1">
                   <b><font color="DFB17B" className={classes.font}>Trading</font></b>

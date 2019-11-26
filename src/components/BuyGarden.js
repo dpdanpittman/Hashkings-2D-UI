@@ -61,6 +61,9 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 345,
     backgroundColor: "#000000",
   },
+  font: {
+    fontFamily: '"Jua", sans-serif',
+  },
 }));
 
 export default function BuyGarden({
@@ -134,9 +137,9 @@ export default function BuyGarden({
     <>
     <Paper className={classes.paper}>
       <p>
-        <b><font color="DFB17B"><Typography paragraph>
+        <b><Typography paragraph><font color="DFB17B" className={classes.font}>
             Plot leases Available: <br/><br/><b>({delegation.available} Plots)</b>
-            {delegation.available === 1 ? "s" : ""}</Typography></font>
+            {delegation.available === 1 ? "s" : ""}</font></Typography>
         </b>
       </p>
       <div className="p-col-12 p-md-12">

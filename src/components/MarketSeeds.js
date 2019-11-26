@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import { Redirect } from 'react-router';
 import {StateContext} from "../App";
+import Trading from './GardenPage/Trading';
 
 export const MarketSeeds = () => {
   const {username} = useContext(StateContext);
@@ -105,6 +106,9 @@ export const MarketSeeds = () => {
       fontSize: theme.typography.pxToRem(15),
       fontWeight: theme.typography.fontWeightRegular,
     },
+    font: {
+      fontFamily: '"Jua", sans-serif',
+    },
   }));
   
   const theme = createMuiTheme({
@@ -123,7 +127,7 @@ export const MarketSeeds = () => {
         <Paper className={classes.paperBlack}>   
           <ThemeProvider theme={theme}>
             <Typography gutterBottom variant="h5" component="h1">
-              <b><font color="#DFB17B"><u>Welcome to the Seedbank</u></font></b>
+              <b><font color="#DFB17B" className={classes.font}><u>Welcome to the Seedbank</u></font></b>
             </Typography>
           </ThemeProvider>
         </Paper>
@@ -136,14 +140,14 @@ export const MarketSeeds = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B">Genesis Seeds</font>
+          <font color="DFB17B" className={classes.font}>Genesis Seeds</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B">These seeds are the first round of seeds, are extremely rare and are used to make beta seeds.</font>
+          <font color="DFB17B" className={classes.font}>These seeds are the first round of seeds, are extremely rare and are used to make beta seeds.</font>
           </Typography>
           <br/>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B"><b>Price: 3 STEEM</b></font>
+          <font color="DFB17B" className={classes.font}><b>Price: 3 STEEM</b></font>
           </Typography>
               <label htmlFor="multiselect" />
             <BuySeed type="t" />
@@ -158,14 +162,14 @@ export const MarketSeeds = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B">Beta Seeds</font>
+          <font color="DFB17B" className={classes.font}>Beta Seeds</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B">This is the second round of seeds, acquired through growing a genesis seed into a mature plant and harvesting.</font>
+          <font color="DFB17B" className={classes.font}>This is the second round of seeds, acquired through growing a genesis seed into a mature plant and harvesting.</font>
           </Typography>
           <br/>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B"><b><i>Only Available through trade. Please visit the <a href="https://discord.gg/hWJed7s">Discord Server</a></i></b></font>
+          <font color="DFB17B" className={classes.font}><b><i>Only Available through trade. Please visit the <a href="https://discord.gg/hWJed7s">Discord Server</a></i></b></font>
           </Typography>
           {/*<BuySeed type="m" />*/}
         </CardContent>
@@ -179,20 +183,21 @@ export const MarketSeeds = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B">HK Seeds</font>
+          <font color="DFB17B" className={classes.font}>HK Seeds</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B">These are the full version seeds not yet available. They will contain the genetic code which make up the traits, terps and sex of the cannabis strain you are growing. 
+          <font color="DFB17B" className={classes.font}>These are the full version seeds not yet available. They will contain the genetic code which make up the traits, terps and sex of the cannabis strain you are growing. 
           These seeds will be also broken down in to Sativa, Indica and Ruderalis.</font>
           </Typography>
           <br/>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B"><b>Price: TBD</b></font>
+          <font color="DFB17B" className={classes.font}><b>Price: TBD</b></font>
           </Typography>
           {/*<BuySeed type="r" />*/}
         </CardContent>
       </Card>
     </Grid>
+    <Trading />
     </Grid>
   </Paper>
   )
