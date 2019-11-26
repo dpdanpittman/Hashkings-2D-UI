@@ -7,7 +7,7 @@ import PlantModal from "../PlantModal";
 import WaterModal from "../WaterModal";
 import HarvestModal from "../HarvestModal";
 import Inventory from "./Inventory.js";
-import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, withStyles, fade } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import SvgIcon from '@material-ui/core/SvgIcon';
@@ -16,6 +16,37 @@ import Typography from '@material-ui/core/Typography';
 import { ThemeProvider } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import { slideInLeft } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
+import { fadeIn } from 'react-animations';
+import { slideInRight } from 'react-animations';
+
+const styles = {
+  slideInRight: {
+    animation: 'x 3s',
+    animationName: Radium.keyframes(slideInRight, 'slideInRight')
+  },
+  slideInLeft: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(slideInLeft, 'slideInLeft')
+  },
+  slideInLeft1: {
+    animation: 'x 2s',
+    animationName: Radium.keyframes(slideInLeft, 'slideInLeft1')
+  },
+  slideInRight: {
+    animation: 'x 3s',
+    animationName: Radium.keyframes(slideInRight, 'slideInRight')
+  },
+  fadeIn: {
+    animation: 'x 3s',
+    animationName: Radium.keyframes(fadeIn, 'fadeIn')
+  },
+  slideInLeft2: {
+    animation: 'x 3s',
+    animationName: Radium.keyframes(slideInLeft, 'slideInLeft2')
+  }
+}
 
 function WaterIcon(props) {
   return (
@@ -231,6 +262,8 @@ export const GardenActions = () => {
   if (username) {
       return (
         <div className={classes.flex}>
+          <StyleRoot>
+          <div style={styles.slideInLeft2}>
           <Grid container spacing={12}>
           <Grid item xs={4}>
             <Grid item xs={11}>
@@ -325,7 +358,6 @@ export const GardenActions = () => {
                         </ThemeProvider>
                         </Paper>
                         </Grid>
-                  
                         {/*
                         <Grid item xs={11}>
                         <ThemeProvider theme={theme}>
@@ -360,7 +392,10 @@ export const GardenActions = () => {
                         username={username}
                         headBlockNum={headBlockNum}
                       />
+                      </div>
+                    </StyleRoot>
                     </div>
+                    
                   )
           } else {
               return (

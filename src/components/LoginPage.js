@@ -13,6 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { HashkingsAPI } from "../service/HashkingsAPI";
+import EconomyDashboard from './GardenPage/EconomyDashboard'
 
 function Copyright() {
   return (
@@ -138,8 +139,10 @@ export const LoginPage = ({history}) => {
         />
       </center>
       <br/>
+      
     </div>
       <div className={classes.paper}>
+        
         <Avatar className={classes.avatar}>
         {validatedTo && (
         <div>
