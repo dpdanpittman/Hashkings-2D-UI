@@ -11,10 +11,10 @@ export const GardenPage = () => {
   if (username) {
     return (
       <div className="card-blank-green-1">
-      <EconomyDashboard />
       <Divider />
       <GardenActions />
       <GrowJournal />
+      <EconomyDashboard />
       </div>
     );
   } else {
