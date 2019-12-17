@@ -10,7 +10,7 @@ export class HashkingsAPI {
 
   getTrending() {
     return this.getSteemAPI("get_discussions_by_trending", [
-      { tag: "canna-curate", limit: 20 }
+      { tag: "cannabis", limit: 20 }
     ]);
   }
 
