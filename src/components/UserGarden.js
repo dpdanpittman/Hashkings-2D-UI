@@ -45,7 +45,7 @@ function UserGarden({
       <div className="p-col-12">
         <div className="card-weedLeft card-w-title">
           {user.userExists === false ? (
-            <p>Sorry, {username} doesn't play yet. Please login using Steem Keychain</p>
+            <p>Sorry, {username} doesn't play yet. Please login</p>
           ) : (
             <Inventory user={user} />
           )}

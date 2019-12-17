@@ -49,6 +49,13 @@ export const Partners = () => {
                     src="https://i.imgur.com/eQlRywXt.jpg"
                   />
                 </a>
+                <br/>
+                <a href="https://www.gameit.io/">
+                <img
+                    alt="GameIT Logo"
+                    src="https://i.imgur.com/gzqQao2s.png"
+                  />
+                </a>
                 </center>
                 </Paper> 
         </center>

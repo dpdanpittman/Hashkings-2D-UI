@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
 import { HashkingsAPI } from "../service/HashkingsAPI";
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -66,7 +65,7 @@ const useStyles = makeStyles(theme => ({
   gridList: {
     width: 'auto',
     height: 'auto',
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+    // Promote the list into its own layer on Chrome. This costs memory but helps to keep FPS high.
     transform: 'translateZ(0)',
   },
   titleBar: {
