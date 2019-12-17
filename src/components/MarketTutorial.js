@@ -3,7 +3,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import {HashkingsAPI} from "../service/HashkingsAPI";
 import {StateContext} from "../App";
 import Delegate from "./Delegate";
-import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -121,12 +121,6 @@ const HtmlTooltip = withStyles(theme => ({
     border: '1px solid #dadde9',
   },
 }))(Tooltip);
-
-const theme = createMuiTheme({
-  palette: {
-    primary: { 500: '#00211B' }, // custom color in hex 
-  },
-});
 
 export const MarketPlots = () => {
   const classes = useStyles();

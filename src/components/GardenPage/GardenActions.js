@@ -1,13 +1,13 @@
 import React, {useContext, useState, useEffect} from "react";
 import {withRouter} from "react-router-dom";
 import { Redirect } from 'react-router';
-import { HashkingsAPI, seedNames } from "../../service/HashkingsAPI";
+import { HashkingsAPI } from "../../service/HashkingsAPI";
 import {StateContext} from "../../App";
 import PlantModal from "../PlantModal";
 import WaterModal from "../WaterModal";
 import HarvestModal from "../HarvestModal";
 import Inventory from "./Inventory.js";
-import { createMuiTheme, makeStyles, withStyles, fade } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import SvgIcon from '@material-ui/core/SvgIcon';
@@ -33,10 +33,6 @@ const styles = {
   slideInLeft1: {
     animation: 'x 2s',
     animationName: Radium.keyframes(slideInLeft, 'slideInLeft1')
-  },
-  slideInRight: {
-    animation: 'x 3s',
-    animationName: Radium.keyframes(slideInRight, 'slideInRight')
   },
   fadeIn: {
     animation: 'x 3s',

@@ -10,7 +10,7 @@ import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import PlantModal from "./PlantModal";
-import { HashkingsAPI, seedNames } from "../service/HashkingsAPI";
+import { HashkingsAPI } from "../service/HashkingsAPI";
 
 function GerminateIcon(props) {
     return (

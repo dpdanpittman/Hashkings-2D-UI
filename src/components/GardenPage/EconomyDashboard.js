@@ -3,7 +3,7 @@ import { Redirect } from 'react-router';
 import { HashkingsAPI } from "../../service/HashkingsAPI";
 import {StateContext} from "../../App";
 import {withRouter} from "react-router-dom";
-import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import { red } from '@material-ui/core/colors';
@@ -148,11 +148,6 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { 500: '#00211B' }, // custom color in hex 
-  },
-});
 
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
@@ -180,9 +175,6 @@ export const EconomyDashboard = () => {
       leaderboard: []
     });
   
-    const [plantSeedModal, setPlantSeedModal] = useState(false);
-    const [waterModal, setWaterModal] = useState(false);
-    const [harvestModal, setHarvestModal] = useState(false);
     const [user, setUser] = useState({
       availableSeeds: [],
       activeGardens: [],
@@ -257,18 +249,6 @@ export const EconomyDashboard = () => {
         });
       }
     }, [username]);
-  
-  /*const handleClick = () => {
-      setOpen(true);
-    };*/
-  
-    const handleClose = (event, reason) => {
-      if (reason === 'clickaway') {
-        return;
-      }
-  
-      setOpen(false);
-    };
 
 if (username) {
       return (

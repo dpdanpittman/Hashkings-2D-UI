@@ -209,18 +209,6 @@ export const HashkingsTemplate = () => {
         });
       }
     }, [username]);
-  
-  /*const handleClick = () => {
-      setOpen(true);
-    };*/
-  
-    {/*const handleClose = (event, reason) => {
-      if (reason === 'clickaway') {
-        return;
-      }
-  
-      setOpen(false);
-    };*/}
 
 if (username) {
    return (

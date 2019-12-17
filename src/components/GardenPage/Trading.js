@@ -1,10 +1,9 @@
 import React, {useContext, useState, useEffect} from "react";
 import {withRouter} from "react-router-dom";
 import { Redirect } from 'react-router';
-import { HashkingsAPI, seedNames } from "../../service/HashkingsAPI";
+import { HashkingsAPI } from "../../service/HashkingsAPI";
 import {StateContext} from "../../App";
-import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
-import Tooltip from '@material-ui/core/Tooltip';
+import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 import Typography from '@material-ui/core/Typography';
 import { ThemeProvider } from '@material-ui/styles';
@@ -136,20 +135,9 @@ const theme = createMuiTheme({
   },
 });
 
-const HtmlTooltip = withStyles(theme => ({
-  tooltip: {
-    backgroundColor: "#000000",
-    color: '#DFB17B',
-    maxWidth: 220,
-    fontSize: theme.typography.pxToRem(12),
-    border: '1px solid #dadde9',
-  },
-}))(Tooltip);
-
 export const Trading = () => {
     const {username} = useContext(StateContext);
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
   
     const [dashboardStats, setDashboardStats] = useState({
       gardeners: 0,
@@ -162,9 +150,6 @@ export const Trading = () => {
       leaderboard: []
     });
   
-    const [plantSeedModal, setPlantSeedModal] = useState(false);
-    const [waterModal, setWaterModal] = useState(false);
-    const [harvestModal, setHarvestModal] = useState(false);
     const [user, setUser] = useState({
       availableSeeds: [],
       activeGardens: [],
@@ -239,18 +224,6 @@ export const Trading = () => {
         });
       }
     }, [username]);
-  
-  /*const handleClick = () => {
-      setOpen(true);
-    };*/
-  
-    const handleClose = (event, reason) => {
-      if (reason === 'clickaway') {
-        return;
-      }
-  
-      setOpen(false);
-    };
 
 if (username) {
       return (

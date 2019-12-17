@@ -2,9 +2,8 @@ import React, { useContext, useState } from "react";
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import {StateContext} from "../App";
-import Tooltip from '@material-ui/core/Tooltip';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import WaterModal from "./WaterModal";
@@ -104,22 +103,6 @@ export const TutorialWelcome = () => {
       fontWeight: theme.typography.fontWeightRegular,
     },
   }));
-  
-  const theme = createMuiTheme({
-    palette: {
-      primary: { 500: '#00211B' }, // custom color in hex 
-    },
-  });
-  
-  const HtmlTooltip = withStyles(theme => ({
-    tooltip: {
-      backgroundColor: "#000000",
-      color: '#DFB17B',
-      maxWidth: 220,
-      fontSize: theme.typography.pxToRem(12),
-      border: '1px solid #dadde9',
-    },
-  }))(Tooltip);
 
   const classes = useStyles();
   const [waterModal, setWaterModal] = useState(false);

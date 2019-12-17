@@ -13,7 +13,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { HashkingsAPI } from "../service/HashkingsAPI";
-import EconomyDashboard from './GardenPage/EconomyDashboard'
 
 function Copyright() {
   return (
@@ -170,7 +169,6 @@ export const LoginPage = ({history}) => {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
             onClick={Login}
             label={`${loginLabelPrefix} ${loginLabelSuffix}`}
             className={classes.font}
