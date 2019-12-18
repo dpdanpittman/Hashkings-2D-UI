@@ -326,7 +326,7 @@ class App extends Component {
             <Route path="/market/MarketSupplies" component={MarketSupplies} />
             <Route path="/trending" component={Trending} />
             <Route path="/streams" component={TwitchStreams} />
-            <Route path="/board" component={BoardMemberApp} />  
+            <Route path="/growers" component={BoardMemberApp} />  
           </div>
           <div className="layout-mask"></div>
         </div> 
