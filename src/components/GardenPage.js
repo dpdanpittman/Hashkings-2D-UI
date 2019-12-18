@@ -8,6 +8,7 @@ import GrowJournal from './GardenPage/GrowJournal';
  
 export const GardenPage = () => {
   const {username} = useContext(StateContext);
+  
   if (username) {
     return (
       <div className="card-blank-green-1">

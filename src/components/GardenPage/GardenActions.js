@@ -255,7 +255,6 @@ export const GardenActions = () => {
       }
     }, [username]);
 
-  if (username) {
       return (
         <div className={classes.flex}>
           <StyleRoot>
@@ -276,7 +275,7 @@ export const GardenActions = () => {
               TransitionComponent={Zoom}
               >
               <Typography gutterBottom variant="h5" component="h1">
-                <b><font color="DFB17B" className={classes.font}>Actions</font></b>
+                <b><font color="DFB17B" className={classes.font}>Farming</font></b>
                 </Typography>
                 </HtmlTooltip>
                 </ThemeProvider>
@@ -392,12 +391,7 @@ export const GardenActions = () => {
                     </StyleRoot>
                     </div>
                     
-                  )
-          } else {
-              return (
-              <Redirect to='/login'/>
-              );
-  }
+                  );
 };
 
 export default withRouter(GardenActions);

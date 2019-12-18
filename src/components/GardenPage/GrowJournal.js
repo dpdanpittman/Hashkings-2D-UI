@@ -273,7 +273,7 @@ if (username) {
       </ExpansionPanel>
       </HtmlTooltip>
       <br/>
-      <HtmlTooltip
+      {/*<HtmlTooltip
                   title={
                     <React.Fragment>
                       <Typography color="error" className={classes.font}><u>Recent Waterings and Plantings</u></Typography>
@@ -319,7 +319,7 @@ if (username) {
     </Paper>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      </HtmlTooltip>
+              </HtmlTooltip>*/}
       </Paper>
       </div>
       </StyleRoot>
