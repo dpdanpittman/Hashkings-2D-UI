@@ -198,7 +198,7 @@ class App extends Component {
             }
           },
           {
-            label: "STEEM Community",
+            label: "Our Community",
             icon: "pi pi-fw pi-file",
             command: () => {
               /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
