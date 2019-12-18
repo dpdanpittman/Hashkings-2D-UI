@@ -72,8 +72,20 @@ const useStyles = makeStyles(theme => ({
 
 const marks = [
   {
-    value: 15,
+    value: 0,
     label: 'Seedling',
+  },
+  {
+    value: 5,
+    label: '',
+  },
+  {
+    value: 10,
+    label: '',
+  },
+  {
+    value: 15,
+    label: '',
   },
   {
     value: 35,
@@ -82,6 +94,14 @@ const marks = [
   {
     value: 60,
     label: 'Flower',
+  },
+  {
+    value: 70,
+    label: '',
+  },
+  {
+    value: 75,
+    label: '',
   },
   {
     value: 80,
@@ -121,8 +141,7 @@ const HtmlTooltip = withStyles(theme => ({
 export const HashkingsTemplate = () => {
     const {username} = useContext(StateContext);
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
-  
+
     const [dashboardStats, setDashboardStats] = useState({
       gardeners: 0,
       gardens: 0,
@@ -134,49 +153,12 @@ export const HashkingsTemplate = () => {
       leaderboard: []
     });
   
-  
-    const [user, setUser] = useState({
-      availableSeeds: [],
-      activeGardens: [],
-      availableGardens: [],
-      headBlockNum: undefined
-    });
-  
+ 
     const [gardens, setGardens] = useState([]);
     const [loading, setLoading] = useState(false);
     const [setNoMoreHistory] = useState(false);
   
-    const [headBlockNum, setHeadBlockNum] = useState(0);
-  
     const hashkingsApi = new HashkingsAPI();
-  
-    useEffect(() => {
-      if (username) {
-        hashkingsApi.getUserGarden(username).then(garden => {
-          const {headBlockNum, ...user} = garden;
-          setUser(user);
-          setHeadBlockNum(headBlockNum);
-        });
-      }
-    }, [username]);
-  
-    useEffect(() => {
-      hashkingsApi
-        .getDashboardStats(username)
-        .then(stats => {
-          if (username) {
-            setDashboardStats(stats);
-          } else {
-            setDashboardStats({
-              ...dashboardStats,
-              ...stats
-            });
-          }
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    }, [username]);
   
     useEffect(() => {
       if (username) {
@@ -266,7 +248,7 @@ if (username) {
                     return (
                       <div className={classes.root}>
                         <Slider
-                          defaultValue={Math.floor((stage / 6) * 100)}
+                          defaultValue={Math.floor((stage / 4) * 100)}
                           valueLabelFormat={valueLabelFormat}
                           getAriaValueText={valuetext}
                           aria-labelledby="discrete-slider-restrict"
@@ -283,19 +265,6 @@ if (username) {
                     );
                   }}
                 />
-                {/*<Column
-                  field="substage"
-                  header="Substage"
-                  sortable={false}
-                  body={({ substage }) => {
-                    return (
-                      <ProgressBar
-                        value={Math.floor((substage / 100) * 100)}
-                        showValue={true}
-                      />
-                    );
-                  }}
-                />*/}
               </DataTable>
         </ExpansionPanelDetails>
         <Typography className={classes.font}><font color="red">

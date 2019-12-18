@@ -190,11 +190,19 @@ class App extends Component {
             to: "/trending"
           },
           {
-            label: "Hashkings Curation Trail",
+            label: "Curation Trail",
             icon: "pi pi-fw pi-file",
             command: () => {
               /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
               window.open('https://steempeak.com/@hashkings/introducing-hashkings-curation-trail', '_blank');
+            }
+          },
+          {
+            label: "STEEM Community",
+            icon: "pi pi-fw pi-file",
+            command: () => {
+              /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
+              window.open('https://beta.steemit.com/trending/hive-164881', '_blank');
             }
           },
           {
