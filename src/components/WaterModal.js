@@ -94,8 +94,7 @@ export default function WaterModal({
         id="waterModal"
       >
         {activeGardens.length === 0 ? (
-          <p>Sorry, you don't have any active Farm Plots. <a href="/market/farmplots">Please visit our 
-            market</a>.
+          <p>Sorry, you don't have any active Farm Plots. Please visit our market.
           </p>
         ) : (
           <>

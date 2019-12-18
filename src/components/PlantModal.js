@@ -70,7 +70,7 @@ export default function PlantModal({
         {availableGardens.length === 0 && (
           <p><b>Sorry, you don't have any available gardens</b></p>
         )}
-        {availableSeeds.length === 0 && <p>Sorry, you don't have any seeds.<a href="/market/seedbank">Please visit the seed market.</a></p>}
+        {availableSeeds.length === 0 && <p>Sorry, you don't have any seeds. Please visit the seed market.</p>}
         {availableGardens.length > 0 && availableSeeds.length > 0 && (
           <>
             <label htmlFor="seed">Seed</label>
