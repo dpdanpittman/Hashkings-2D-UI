@@ -208,9 +208,9 @@ class App extends Component {
         ]
       },
       {
-        label: "Board Members",
+        label: "Growers Association",
         icon: "pi pi-fw pi-circle-on",
-        to: "/board"
+        to: "/growers"
       },
       {
         label: "About",
