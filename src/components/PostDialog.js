@@ -40,13 +40,14 @@ export default function PostDialog() {
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogContent dividers>
         <Grid item xs={12}>
-            <Paper className={classes.paper}>
-    <CardMedia
-      className={classes.media}
-      image="https://i.imgur.com/vZ7ShWv.png"
-    />
-    </Paper>
-  </Grid>
+          <Paper className={classes.paper}>
+            <a href="https://www.twiztedmonkey.com" target="_blank">
+            <CardMedia
+              className={classes.media}
+              image="https://i.imgur.com/vZ7ShWv.png"
+            /></a>
+          </Paper>
+        </Grid>
         </DialogContent>
       </Dialog>
     </div>
