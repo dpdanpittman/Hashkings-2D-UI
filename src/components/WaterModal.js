@@ -94,10 +94,12 @@ export default function WaterModal({
         id="waterModal"
       >
         {activeGardens.length === 0 ? (
-          <p>Sorry, you don't have any active Farm Plots.</p>
+          <p>Sorry, you don't have any active Farm Plots. <a href="/market/farmplots">Please visit our 
+            market</a>.
+          </p>
         ) : (
           <>
-            <label htmlFor="garden"><b>Choose a Plot or Plots then click water</b></label>
+            <label htmlFor="garden"><b>Choose your Plots then click water</b></label>
 			<br/><br/>
 			  <Button
               disabled={isSubmitting}

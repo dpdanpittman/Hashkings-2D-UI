@@ -61,7 +61,7 @@ export default function PlantModal({
         header="Plant a Seed"
         visible={isOpen}
         modal={true}
-        style={{width: "50vw", maxWidth: 500}}
+        style={{width: "50vw", maxWidth: 500, background: "#000000"}}
         onHide={() => toggleModal("plantSeedModal")}
         closeOnEscape={true}
         dismissableMask={true}
@@ -70,7 +70,7 @@ export default function PlantModal({
         {availableGardens.length === 0 && (
           <p><b>Sorry, you don't have any available gardens</b></p>
         )}
-        {availableSeeds.length === 0 && <p>Sorry, you don't have any seeds.</p>}
+        {availableSeeds.length === 0 && <p>Sorry, you don't have any seeds.<a href="/market/seedbank">Please visit the seed market.</a></p>}
         {availableGardens.length > 0 && availableSeeds.length > 0 && (
           <>
             <label htmlFor="seed">Seed</label>
