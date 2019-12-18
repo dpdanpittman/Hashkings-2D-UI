@@ -88,7 +88,7 @@ const marks = [
     label: '',
   },
   {
-    value: 35,
+    value: 25,
     label: 'Veg',
   },
   {
@@ -248,7 +248,7 @@ if (username) {
                     return (
                       <div className={classes.root}>
                         <Slider
-                          defaultValue={Math.floor((stage / 4) * 100)}
+                          defaultValue={Math.floor((stage / 5) * 100)}
                           valueLabelFormat={valueLabelFormat}
                           getAriaValueText={valuetext}
                           aria-labelledby="discrete-slider-restrict"
