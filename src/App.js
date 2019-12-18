@@ -131,11 +131,11 @@ class App extends Component {
   createMenu() {
     this.menu = [
       {
-        label: "Ganja Farm",
+        label: "Farm",
         icon: "pi pi-fw pi-file",
         items: [
           {
-            label: "Farming",
+            label: "Dashboard",
             icon: "pi pi-fw pi-file",
             to: "/farm"
           },
@@ -147,41 +147,7 @@ class App extends Component {
         ]
       },
       {
-        label: "Market",
-        icon: "pi pi-fw pi-shopping-cart",
-        items: [
-          {
-            label: "Farm Plots",
-            icon: "pi pi-fw pi-circle-off",
-            to: "/market/farmplots"
-          },
-          {
-            fontFamily: '"Jua", sans-serif',
-            label: "Seeds",
-            icon: "pi pi-fw pi-circle-off",
-            to: "/market/seedbank"
-          },
-          {
-            label: "Get KFQ",
-            icon: "pi pi-fw pi-circle-off",
-            command: () => {
-              /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
-              window.open('https://steem-engine.com/?p=market&t=KFQ', '_blank');
-            }
-          },
-          /*{
-            label: "Supplies",
-            icon: "pi pi-fw pi-circle-off",
-            to: "/market/MarketSupplies"
-          },
-          {
-            label: "Maps (Coming Soon)",
-            icon: "pi pi-fw pi-circle-off"
-          }*/
-        ]
-      },
-      {
-        label: "Social",
+        label: "Community",
         icon: "pi pi-fw pi-globe",
         items: [
           {
@@ -198,7 +164,7 @@ class App extends Component {
             }
           },
           {
-            label: "Our Community",
+            label: "Steemit Hive",
             icon: "pi pi-fw pi-file",
             command: () => {
               /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
@@ -213,6 +179,39 @@ class App extends Component {
               window.open('https://discord.gg/Zq29TWe', '_blank');
             }
           },
+        ]
+      },
+      {
+        label: "Market",
+        icon: "pi pi-fw pi-shopping-cart",
+        items: [
+          {
+            label: "Farm Plots",
+            icon: "pi pi-fw pi-circle-off",
+            to: "/market/farmplots"
+          },
+          {
+            label: "Seeds",
+            icon: "pi pi-fw pi-circle-off",
+            to: "/market/seedbank"
+          },
+          {
+            label: "DEX",
+            icon: "pi pi-fw pi-circle-off",
+            command: () => {
+              /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
+              window.open('https://steem-engine.com/?p=market&t=KFQ', '_blank');
+            }
+          },
+          /*{
+            label: "Supplies",
+            icon: "pi pi-fw pi-circle-off",
+            to: "/market/MarketSupplies"
+          },
+          {
+            label: "Maps (Coming Soon)",
+            icon: "pi pi-fw pi-circle-off"
+          }*/
         ]
       },
       {

@@ -43,7 +43,7 @@ export default function PostDialog() {
             <Paper className={classes.paper}>
     <CardMedia
       className={classes.media}
-      image="https://i.imgur.com/jHzZD6Y.png"
+      image="https://i.imgur.com/vZ7ShWv.png"
     />
     </Paper>
   </Grid>

@@ -13,6 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { HashkingsAPI } from "../service/HashkingsAPI";
+import PostDialog from "./PostDialog";
 
 function Copyright() {
   return (
@@ -124,6 +125,7 @@ export const LoginPage = ({history}) => {
 
     return (
     <Grid container component="main" className={classes.root}>
+      <PostDialog />
     {/*<CssBaseline 
     color="#000000"
     />*/}
