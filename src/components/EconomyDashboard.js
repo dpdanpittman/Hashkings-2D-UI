@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import { Redirect } from 'react-router';
-import { HashkingsAPI } from "../../service/HashkingsAPI";
-import {StateContext} from "../../App";
+import { HashkingsAPI } from "../service/HashkingsAPI";
+import {StateContext} from "../App";
 import {withRouter} from "react-router-dom";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -14,8 +14,8 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { fadeInDown } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
- 
-const styles = {
+
+const styles = { 
   fadeInDown: {
     animation: 'x 1s',
     animationName: Radium.keyframes(fadeInDown, 'fadeInDown')

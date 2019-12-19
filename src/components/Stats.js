@@ -13,6 +13,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Paper from '@material-ui/core/Paper';
+import { EconomyDashboard } from './EconomyDashboard';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -167,6 +168,7 @@ export default function() {
   } else {
     return (
       <Paper className={classes.paperBlack}>
+        <EconomyDashboard />
           <Paper className={classes.paper}>
             <br />
             <center><h1>
