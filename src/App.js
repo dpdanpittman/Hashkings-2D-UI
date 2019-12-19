@@ -54,7 +54,7 @@ class App extends Component {
     this.state = {
       layoutMode: "static",
       layoutColorMode: "dark",
-      staticMenuInactive: false,
+      staticMenuInactive: true,
       overlayMenuActive: true,
       mobileMenuActive: false,
       localState: {

@@ -183,7 +183,7 @@ export const Dashboard = ({user}) => {
     </Grid>
     </Grid>
     </Paper>
-    </div>  
+    </div> {/*} 
       {username && (
         <>
         <div className="p-col-12 p-lg-12 card-blank-green-1">
@@ -200,7 +200,7 @@ export const Dashboard = ({user}) => {
             </DataTable>
         </div>
       </>
-      )}
+      )}*/}
     </div>
   );
 };

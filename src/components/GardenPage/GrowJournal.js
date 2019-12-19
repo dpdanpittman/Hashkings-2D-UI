@@ -92,6 +92,22 @@ const marks = [
     label: 'Veg',
   },
   {
+    value: 35,
+    label: '',
+  },
+  {
+    value: 45,
+    label: '',
+  },
+  {
+    value: 50,
+    label: '',
+  },
+  {
+    value: 55,
+    label: '',
+  },
+  {
     value: 60,
     label: 'Flower',
   },
@@ -100,11 +116,27 @@ const marks = [
     label: '',
   },
   {
-    value: 75,
+    value: 80,
     label: '',
   },
   {
-    value: 80,
+    value: 85,
+    label: '',
+  },
+  {
+    value: 90,
+    label: '',
+  },
+  {
+    value: 92,
+    label: '',
+  },
+  {
+    value: 95,
+    label: '',
+  },
+  {
+    value: 97,
     label: '',
   },
   {
