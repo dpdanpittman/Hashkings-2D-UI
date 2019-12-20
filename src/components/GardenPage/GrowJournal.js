@@ -7,7 +7,6 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import { DataTable } from "primereact/datatable";
-//import { ProgressBar } from "primereact/progressbar";
 import { Column } from "primereact/column";
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -305,7 +304,13 @@ if (username) {
       </ExpansionPanel>
       </HtmlTooltip>
       <br/>
-      {/*<HtmlTooltip
+
+      
+      {/*
+      
+      This is not properly keeping track and needs to have harvesting added as well
+      
+      <HtmlTooltip
                   title={
                     <React.Fragment>
                       <Typography color="error" className={classes.font}><u>Recent Waterings and Plantings</u></Typography>

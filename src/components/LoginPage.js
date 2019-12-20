@@ -14,7 +14,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { HashkingsAPI } from "../service/HashkingsAPI";
 import PostDialog from "./PostDialog";
-import Dashboard from "./Dashboard";
 
 function Copyright() {
   return (
