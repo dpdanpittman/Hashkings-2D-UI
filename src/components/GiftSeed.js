@@ -39,8 +39,10 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
+const hashkingsApi = new HashkingsAPI();
+
 export default function GiftSeed() {
-  const hashkingsApi = new HashkingsAPI();
+  
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [seed, setSeed] = useState();
@@ -102,7 +104,7 @@ export default function GiftSeed() {
 
   let buttonLabel = "Gift";
   if (isSubmitting) buttonLabel = "Gifting";
-  if (!username) buttonLabel = "Login to gift seeds";
+  if (!username) buttonLabel = "Please Login to gift seeds";
 
   return (
     <>

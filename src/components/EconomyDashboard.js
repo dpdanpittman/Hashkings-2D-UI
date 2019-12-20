@@ -63,7 +63,6 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
     backgroundColor: "#000000",
@@ -73,6 +72,8 @@ const HtmlTooltip = withStyles(theme => ({
     border: '1px solid #dadde9',
   },
 }))(Tooltip);
+
+const hashkingsApi = new HashkingsAPI();
 
 export const EconomyDashboard = () => {
     const {username} = useContext(StateContext);
@@ -101,8 +102,6 @@ export const EconomyDashboard = () => {
     const [setNoMoreHistory] = useState(false);
   
     const [headBlockNum, setHeadBlockNum] = useState(0);
-  
-    const hashkingsApi = new HashkingsAPI();
   
     useEffect(() => {
       if (username) {
