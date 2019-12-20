@@ -81,7 +81,7 @@ export const AppInlineProfile = () => {
     );
   } else {
   return (
-    <div className="profile">     
+    <div className="profile">
       <Tooltip title="Signed In" placement="bottom">
       <Chip
         icon={<Avatar className={classes.avatar}>

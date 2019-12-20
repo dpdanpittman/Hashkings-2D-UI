@@ -54,7 +54,7 @@ export class AppTopbar extends Component {
         return (
             <div className="layout-topbar clearfix">
 					<button className="p-link layout-menu-button" onClick={this.props.onToggleMenu}>
-                    <MenuWeedIcon />
+                      <MenuWeedIcon />
                     </button>
                 <div className="layout-topbar-icons button">
                 <AppInlineProfile />

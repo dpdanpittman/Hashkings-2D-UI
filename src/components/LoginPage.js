@@ -82,7 +82,6 @@ export const LoginPage = ({history}) => {
   const keychainLoggedIn = (_, token) => {
     if (token) {
       steemConnectAPI.setAccessToken(token);
-
       steemConnectAPI
         .me()
         .then(res => {
@@ -100,6 +99,7 @@ export const LoginPage = ({history}) => {
       setLoggingIn(false);
     }
   };
+
   const [validatedTo, setValidatedTo] = useState();
 
   useEffect(() => {
