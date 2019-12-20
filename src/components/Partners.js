@@ -21,21 +21,8 @@ export const Partners = () => {
         <div>
         <center>
         <Paper className={classes.paper}>
-          <br/><br/>
                 <center>
-                  <h1>
-                <font color="#DFB17B"><b><u>Check out these projects:</u></b></font>
-                </h1>
-                <br/>
-                <br/>
-                <a href="https://www.steempeak.com/@hashkings">
-                <img
-                    alt="Steempeak Logo"
-                    src="https://i.imgur.com/Zx6h5XB.png"
-                  />
-                </a>
-                <br/>
-                <br/>
+                  <br/>
                 <a href="https://www.steempeak.com/@canna-curate">
                 <img
                     alt="Canna-Curate Logo"
@@ -54,6 +41,14 @@ export const Partners = () => {
                 <img
                     alt="GameIT Logo"
                     src="https://i.imgur.com/gzqQao2s.png"
+                  />
+                </a>
+                <br/>
+                <br/>
+                <a href="https://www.steempeak.com/@hashkings">
+                <img
+                    alt="Steempeak Logo"
+                    src="https://i.imgur.com/Zx6h5XB.png"
                   />
                 </a>
                 </center>

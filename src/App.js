@@ -41,7 +41,7 @@ function initializeReactGA() {//                  "4MMMMnn..   *MMM  MM  MMP"  .
 }//                                                        ""**MMMMhx/.h/ .=*"                  
 //                                                                  .3P"%....                   
 export const StateContext = React.createContext();//              nP"     "*MMnx       DaFreakyG
-ReactGA.ga('send', 'pageview', '/login');
+ReactGA.ga('send', 'pageview', '/login'); 
 
 class App extends Component {
   constructor() {
@@ -132,32 +132,26 @@ class App extends Component {
     this.menu = [
       {
         label: "Farm",
-        icon: "pi pi-fw pi-file",
         items: [
           {
             label: "Dashboard",
-            icon: "pi pi-fw pi-file",
             to: "/farm"
           },
           {
             label: "Accounting",
-            icon: "pi pi-fw pi-file",
             to: "/accounting"
           },
         ]
       },
       {
         label: "Community",
-        icon: "pi pi-fw pi-globe",
         items: [
           {
             label: "Trending Posts",
-            icon: "pi pi-fw pi-globe",
             to: "/trending"
           },
           {
             label: "Curation Trail",
-            icon: "pi pi-fw pi-file",
             command: () => {
               /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
               window.open('https://steempeak.com/@hashkings/introducing-hashkings-curation-trail', '_blank');
@@ -165,7 +159,6 @@ class App extends Component {
           },
           {
             label: "Steemit Hive",
-            icon: "pi pi-fw pi-file",
             command: () => {
               /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
               window.open('https://beta.steemit.com/trending/hive-164881', '_blank');
@@ -173,7 +166,6 @@ class App extends Component {
           },
           {
             label: "Chat on Discord",
-            icon: "pi pi-fw pi-globe",
             command: () => {
               /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
               window.open('https://discord.gg/Zq29TWe', '_blank');
@@ -183,21 +175,17 @@ class App extends Component {
       },
       {
         label: "Market",
-        icon: "pi pi-fw pi-shopping-cart",
         items: [
           {
             label: "Farm Plots",
-            icon: "pi pi-fw pi-circle-off",
             to: "/market/farmplots"
           },
           {
             label: "Seeds",
-            icon: "pi pi-fw pi-circle-off",
             to: "/market/seedbank"
           },
           {
             label: "DEX",
-            icon: "pi pi-fw pi-circle-off",
             command: () => {
               /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
               window.open('https://steem-engine.com/?p=market&t=KFQ', '_blank');
@@ -216,12 +204,10 @@ class App extends Component {
       },
       {
         label: "Growers Association",
-        icon: "pi pi-fw pi-circle-on",
         to: "/growers"
       },
       {
         label: "About",
-        icon: "pi pi-fw pi-circle-on",
         to: "/faq"
       }
     ];
