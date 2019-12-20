@@ -18,7 +18,7 @@ import { slideInLeft } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
 import { fadeIn } from 'react-animations';
 import { slideInRight } from 'react-animations';
-import { WaterIcon, GerminateIcon, HarvestIcon } from '../Icons.js';
+import { WaterIcon, GerminateIcon, HarvestIcon } from '../Icons';
 
 const styles = {
   slideInRight: {

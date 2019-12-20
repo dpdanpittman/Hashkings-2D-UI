@@ -12,105 +12,47 @@ import { Redirect } from 'react-router';
 import {StateContext} from "../App";
 import Trading from './GardenPage/Trading';
 
+const useStyles = makeStyles(theme => ({
+  container: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(12, 1fr)',
+    gridGap: theme.spacing(3),
+  },
+  paper: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#294A0B",
+  },
+  paperBlack: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#154A4A"
+  },
+  paperBlacky: {
+    padding: theme.spacing(1),
+    backgroundColor: "#000000",
+  },
+  card: {
+    maxWidth: 345,
+    backgroundColor: "#154A4A",
+  },
+  media: {
+    height: 140,
+  },
+  font: {
+    fontFamily: '"Jua", sans-serif',
+  },
+}));
+
 export const MarketSeeds = () => {
   const {username} = useContext(StateContext);
-  const useStyles = makeStyles(theme => ({
-    button: {
-      margin: theme.spacing(1),
-    },
-    input: {
-      display: 'none',
-    },
-    root: {
-      '& > svg': {
-        margin: theme.spacing(2),
-      },
-    },
-    rootAgain: {
-      width: '100%',
-    },
-    iconHover: {
-      '&:hover': {
-        color: "red[800]",
-      },
-    },
-    fab: {
-      margin: theme.spacing(1),
-    },
-    extendedIcon: {
-      marginRight: theme.spacing(1),
-    },
-    flex: {
-      flexGrow: 1,
-    },
-    container: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(12, 1fr)',
-      gridGap: theme.spacing(3),
-    },
-    paper: {
-      padding: theme.spacing(1),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      whiteSpace: 'nowrap',
-      marginBottom: theme.spacing(1),
-      backgroundColor: "#294A0B",
-    },
-    paperBlue: {
-      padding: theme.spacing(1),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      whiteSpace: 'nowrap',
-      marginBottom: theme.spacing(1),
-      backgroundColor: "#154A4A",
-    },
-    paperExtended: {
-      padding: theme.spacing(1),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      whiteSpace: 'nowrap',
-      marginBottom: theme.spacing(1),
-      backgroundColor: "#532C0C",
-    },
-    paperBlack: {
-      padding: theme.spacing(1),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      whiteSpace: 'nowrap',
-      marginBottom: theme.spacing(1),
-      backgroundColor: "#154A4A"
-    },
-    paperBlacky: {
-      padding: theme.spacing(1),
-      backgroundColor: "#000000",
-    },
-    paperBrown: {
-      padding: theme.spacing(1),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      whiteSpace: 'nowrap',
-      marginBottom: theme.spacing(1),
-      backgroundColor: "#532C0C",
-    },
-    divider: {
-      margin: theme.spacing(2, 0),
-    },
-    card: {
-      maxWidth: 345,
-      backgroundColor: "#154A4A",
-    },
-    media: {
-      height: 140,
-    },
-    heading: {
-      fontSize: theme.typography.pxToRem(15),
-      fontWeight: theme.typography.fontWeightRegular,
-    },
-    font: {
-      fontFamily: '"Jua", sans-serif',
-    },
-  }));
-  
+
   const theme = createMuiTheme({
     palette: {
       primary: { 500: '#00211B' }, // custom color in hex 

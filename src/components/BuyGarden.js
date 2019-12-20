@@ -9,41 +9,8 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
   button: {
     margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
-  root: {
-    '& > svg': {
-      margin: theme.spacing(2),
-    },
-  },
-  extendedIcon: {
-    marginRight: theme.spacing(1),
-  },
-  flex: {
-    flexGrow: 1,
-  },
-  container: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12, 1fr)',
-    gridGap: theme.spacing(3),
   },
   paper: {
     padding: theme.spacing(1),
@@ -52,13 +19,6 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#294A0B",
-  },
-  divider: {
-    margin: theme.spacing(2, 0),
-  },
-  card: {
-    maxWidth: 345,
-    backgroundColor: "#000000",
   },
   font: {
     fontFamily: '"Jua", sans-serif',

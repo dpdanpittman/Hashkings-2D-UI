@@ -25,18 +25,6 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(3),
     backgroundColor: "#095938",
   },
-  post: {
-    padding: theme.spacing(1),
-    textAlign: 'left',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'wrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#095938",
-  },
-  media: {
-    height: 'auto',
-    paddingTop: '56.25%', // 16:9
-  },
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
@@ -46,14 +34,6 @@ const useStyles = makeStyles(theme => ({
   },
   flex: {
     flexGrow: 1,
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  container: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12, 1fr)',
-    gridGap: theme.spacing(1),
   },
   root: {
     display: 'flex',
@@ -67,11 +47,6 @@ const useStyles = makeStyles(theme => ({
     height: 'auto',
     // Promote the list into its own layer on Chrome. This costs memory but helps to keep FPS high.
     transform: 'translateZ(0)',
-  },
-  titleBar: {
-    background:
-      'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
-      'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
   icon: {
     color: 'white',

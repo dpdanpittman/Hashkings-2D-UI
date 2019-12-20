@@ -23,6 +23,37 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 // import _ from "lodash";
 
+const useStyles = makeStyles(theme => ({
+  card: {
+    maxWidth: 345,
+  },
+  paper: {
+    padding: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#217E6E",
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
+  flex: {
+    flexGrow: 1,
+  },
+}));
+
 export const MarketSupplies = () => {
   const {username} = useContext(StateContext);
   const [dashboardStats, setDashboardStats] = useState({
@@ -55,37 +86,6 @@ export const MarketSupplies = () => {
         console.log(e);
       });
   }, [username]);
-
-    const useStyles = makeStyles(theme => ({
-      card: {
-        maxWidth: 345,
-      },
-      paper: {
-        padding: theme.spacing(1),
-        marginBottom: theme.spacing(1),
-        backgroundColor: "#217E6E",
-      },
-      media: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
-      },
-      expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-          duration: theme.transitions.duration.shortest,
-        }),
-      },
-      expandOpen: {
-        transform: 'rotate(180deg)',
-      },
-      avatar: {
-        backgroundColor: red[500],
-      },
-      flex: {
-        flexGrow: 1,
-      },
-    }));
   
   const classes = useStyles();
   // const [setOpen] = React.useState(false);

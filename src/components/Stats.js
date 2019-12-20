@@ -16,15 +16,9 @@ import Paper from '@material-ui/core/Paper';
 import { EconomyDashboard } from './EconomyDashboard';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%',
-  },
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
-  },
-  card: {
-    backgroundColor: "#154A4A",
   },
   extension: {
     backgroundColor: "#095938",

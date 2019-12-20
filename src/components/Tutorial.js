@@ -24,14 +24,6 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),   
   },
-  paperBlue: {
-    padding: theme.spacing(1),
-    textAlign: 'left',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'wrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#154A4A"
-  },
   paperBlack: {
     padding: theme.spacing(1),
     textAlign: 'left',

@@ -12,33 +12,10 @@ import Paper from '@material-ui/core/Paper';
 import GiftSeed from "../GiftSeed";
 
 const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
   root: {
     '& > svg': {
       margin: theme.spacing(2),
     },
-  },
-  rootAgain: {
-    width: '100%',
-  },
-  iconHover: {
-    '&:hover': {
-      color: "red[800]",
-    },
-  },
-  fab: {
-    margin: theme.spacing(1),
-  },
-  extendedIcon: {
-    marginRight: theme.spacing(1),
-  },
-  extendPaper: {
-    color: red[800]
   },
   flex: {
     flexGrow: 1,
@@ -55,38 +32,6 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#095938",
-  },
-  paperBlue: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#154A4A",
-  },
-  paperExtended: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#532C0C",
-  },
-  paperBlack: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#000000"
-  },
-  paperBrown: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#532C0C",
   },
   paperDarkBlue: {
     padding: theme.spacing(1),
@@ -106,23 +51,6 @@ const useStyles = makeStyles(theme => ({
   },
   divider: {
     margin: theme.spacing(2, 0),
-  },
-  card: {
-    maxWidth: 345,
-    backgroundColor: "#154A4A",
-  },
-  table: {
-    backgroundColor: "#4A8686",
-  },
-  media: {
-    height: 140,
-  },
-  expansion: {
-    backgroundColor: "#154A4A",
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
   },
   font: {
     fontFamily: '"Jua", sans-serif',

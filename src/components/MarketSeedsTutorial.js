@@ -8,101 +8,45 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 
-export const MarketSeeds = () => {
-  const useStyles = makeStyles(theme => ({
-    button: {
-      margin: theme.spacing(1),
-    },
-    input: {
-      display: 'none',
-    },
-    root: {
-      '& > svg': {
-        margin: theme.spacing(2),
-      },
-    },
-    rootAgain: {
-      width: '100%',
-    },
-    iconHover: {
-      '&:hover': {
-        color: "red[800]",
-      },
-    },
-    fab: {
-      margin: theme.spacing(1),
-    },
-    extendedIcon: {
-      marginRight: theme.spacing(1),
-    },
-    flex: {
-      flexGrow: 1,
-    },
-    container: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(12, 1fr)',
-      gridGap: theme.spacing(3),
-    },
-    paper: {
-      padding: theme.spacing(1),
-      textAlign: 'left',
-      color: theme.palette.text.secondary,
-      whiteSpace: 'wrap',
-      marginBottom: theme.spacing(1),
-      backgroundColor: "#294A0B",
-    },
-    paperBlue: {
-      padding: theme.spacing(1),
-      textAlign: 'left',
-      color: theme.palette.text.secondary,
-      whiteSpace: 'wrap',
-      marginBottom: theme.spacing(1),
-      backgroundColor: "#154A4A",
-    },
-    paperExtended: {
-      padding: theme.spacing(1),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      whiteSpace: 'nowrap',
-      marginBottom: theme.spacing(1),
-      backgroundColor: "#532C0C",
-    },
-    paperBlack: {
-      padding: theme.spacing(1),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      whiteSpace: 'nowrap',
-      marginBottom: theme.spacing(1),
-      backgroundColor: "#154A4A"
-    },
-    paperBlacky: {
-      padding: theme.spacing(1),
-      backgroundColor: "#000000",
-    },
-    paperBrown: {
-      padding: theme.spacing(1),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-      whiteSpace: 'nowrap',
-      marginBottom: theme.spacing(1),
-      backgroundColor: "#532C0C",
-    },
-    divider: {
-      margin: theme.spacing(2, 0),
-    },
-    card: {
-      maxWidth: 345,
-      backgroundColor: "#000000",
-    },
-    media: {
-      height: 140,
-    },
-    heading: {
-      fontSize: theme.typography.pxToRem(15),
-      fontWeight: theme.typography.fontWeightRegular,
-    },
-  }));
-  
+const useStyles = makeStyles(theme => ({
+  paper: {
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'wrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#294A0B",
+  },
+  paperBlue: {
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'wrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#154A4A",
+  },
+  paperBlack: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#154A4A"
+  },
+  paperBlacky: {
+    padding: theme.spacing(1),
+    backgroundColor: "#000000",
+  },
+  card: {
+    maxWidth: 345,
+    backgroundColor: "#000000",
+  },
+  media: {
+    height: 140,
+  },
+}));
+
+export const MarketSeeds = () => {  
   const classes = useStyles();
 
   return(

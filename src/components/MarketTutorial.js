@@ -36,36 +36,8 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
   button: {
     margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
-  root: {
-    '& > svg': {
-      margin: theme.spacing(2),
-    },
-  },
-  iconHover: {
-    '&:hover': {
-      color: "red[800]",
-    },
-  },
-  fab: {
-    margin: theme.spacing(1),
-  },
-  extendedIcon: {
-    marginRight: theme.spacing(1),
-  },
-  extendPaper: {
-    color: red[800]
-  },
-  flex: {
-    flexGrow: 1,
   },
   container: {
     display: 'grid',
@@ -94,14 +66,6 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     marginBottom: theme.spacing(1),
     backgroundColor: "#000000",
-  },
-  paperBrown: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    backgroundColor: "#532C0C",
   },
   divider: {
     margin: theme.spacing(2, 0),
