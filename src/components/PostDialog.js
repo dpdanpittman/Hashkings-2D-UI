@@ -33,7 +33,7 @@ export default function PostDialog() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
-  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const hideDialog = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleClose = () => {
     setOpen(false);
@@ -41,7 +41,7 @@ export default function PostDialog() {
 
   return (
     <div>
-      <Dialog fullScreen={fullScreen} onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogContent dividers>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
