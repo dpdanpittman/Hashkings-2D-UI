@@ -18,6 +18,7 @@ import Link from '@material-ui/core/Link';
 import { YouTubeFrame } from './YouTubeFrame';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
+import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
@@ -100,6 +101,7 @@ if (!isDesktop) {
           <MediaCard />
         </Grid>
         <Grid item xs={6}>
+          <InsideCard />
         </Grid>
         <Grid item xs={3}>
           <MarketCard />

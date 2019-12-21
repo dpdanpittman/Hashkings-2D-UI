@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
-import { YouTubeFrame } from './YouTubeFrame';
 
 const useStyles = makeStyles({
   card: {
@@ -18,11 +17,6 @@ export default function MediaCard() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image={YouTubeFrame}
-        />
-    </Card>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Tvc8WKlf3mc?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   );
 }

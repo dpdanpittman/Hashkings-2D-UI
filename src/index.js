@@ -8,6 +8,7 @@ import ScrollToTop from "./ScrollToTop";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { AppFooter } from "./AppFooter";
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 const theme = createMuiTheme({
   palette: {
@@ -22,7 +23,9 @@ ReactDOM.render(
     <ScrollToTop>
     <MuiThemeProvider theme={theme}>
     <CssBaseline />
+    <ParallaxProvider>
       <App />
+      </ParallaxProvider>
       <AppFooter />
       </MuiThemeProvider>
     </ScrollToTop>
