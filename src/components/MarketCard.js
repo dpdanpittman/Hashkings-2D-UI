@@ -1,16 +1,18 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
+import IconButton from '@material-ui/core/IconButton';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { SeedIcon } from './Icons';
+import { LandIcon } from './Icons';
 
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
+    background: "#DFB17B",
   },
   media: {
     height: 140,
@@ -29,20 +31,20 @@ export default function MarketCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Market
+            <u>Markets</u>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             Purchase Seeds or lease property to grow on.
           </Typography>
         </CardContent>
-      <CardActions>
-        <Button size="small" color="primary">
-          Seeds
-        </Button>
-        <Button size="small" color="primary">
-          Leasing
-        </Button>
-      </CardActions>
+        <CardActions>
+          <IconButton color="primary" aria-label="Visit Farm">
+            <SeedIcon /> 
+          </IconButton>Seeds
+          <IconButton color="primary" aria-label="Visit Office">
+            <LandIcon /> 
+          </IconButton>Land
+        </CardActions>
     </Card>
   );
 }

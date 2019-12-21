@@ -18,13 +18,10 @@ export default function MediaCard() {
 
   return (
     <Card className={classes.card}>
-      <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://i.imgur.com/Al7KczE.png"
-          title="Contemplative Reptile"
+          image="https://i.imgur.com/plwe4uc.png"
         />
-      </CardActionArea>
     </Card>
   );
 }

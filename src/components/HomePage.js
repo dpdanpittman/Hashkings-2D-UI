@@ -87,8 +87,7 @@ const [value, setValue] = React.useState(0);
           <MediaCard />
         </Grid>
         <Grid item xs={6}>
-          <InsideCard /> 
-        </Grid>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Tvc8WKlf3mc?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        </Grid>
         <Grid item xs={3}>
           <MarketCard />
         </Grid>
