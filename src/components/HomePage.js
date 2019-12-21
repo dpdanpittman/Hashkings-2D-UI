@@ -114,7 +114,7 @@ const [value, setValue] = React.useState(0);
           className={classes.navWidth}
         >
           <BottomNavigationAction label="Trending" icon={<FavoriteIcon />} component={Link1} to="/trending" />
-          <BottomNavigationAction label="Tutorial" icon={<RestoreIcon />} component={Link2} to="/tutorial" />
+          <BottomNavigationAction />
           <BottomNavigationAction label="About" icon={<LocationOnIcon />} component={Link3} to="/faq" />
         </BottomNavigation>
         </Paper>
