@@ -13,10 +13,13 @@ import WelcomeCard from './WelcomeCard';
 import MarketCard from './MarketCard';
 import InstructionsCardOne from './InstructionsCardOne';
 import InstructionsCardTwo from './InstructionsCardTwo';
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
-    width: 500,
+    width: 550,
+    backgroundColor: "#DFB17B"
   },
   root: {
     flexGrow: 1,
@@ -63,6 +66,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
+const Link2 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
+const Link3 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
+
 export const HomePage = () => {
 const classes = useStyles();
 const [value, setValue] = React.useState(0);
@@ -98,18 +105,18 @@ const [value, setValue] = React.useState(0);
       <Grid item xs={3}>
       </Grid>
       <Grid item xs={6}>
-        <Paper className={classes.paper}>
+        <Paper className={classes.paperBlue}>
         <BottomNavigation
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
-      showLabels
-      className={classes.root}
-    >
-      <BottomNavigationAction label="Trending" icon={<RestoreIcon />} />
-      <BottomNavigationAction label="Steem-Engine" icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="About" icon={<LocationOnIcon />} />
-    </BottomNavigation>
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          showLabels
+          className={classes.navWidth}
+        >
+          <BottomNavigationAction label="Trending" icon={<RestoreIcon />} component={Link1} to="/trending" />
+          <BottomNavigationAction label="Steem-Engine" icon={<FavoriteIcon />} component={Link2} to="/trending" />
+          <BottomNavigationAction label="About" icon={<LocationOnIcon />} component={Link3} to="/faq" />
+        </BottomNavigation>
         </Paper>
       </Grid>
       <Grid item xs={3}>

@@ -8,6 +8,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { SeedIcon } from './Icons';
 import { LandIcon } from './Icons';
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles({
   card: {
@@ -18,6 +20,9 @@ const useStyles = makeStyles({
     height: 140,
   },
 });
+
+const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
+const Link2 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
 export default function MarketCard() {
   const classes = useStyles();
@@ -38,13 +43,17 @@ export default function MarketCard() {
           </Typography>
         </CardContent>
         <CardActions>
-          <IconButton color="primary" aria-label="Visit Farm">
-            <SeedIcon /> 
-          </IconButton>Seeds
-          <IconButton color="primary" aria-label="Visit Office">
-            <LandIcon /> 
-          </IconButton>Land
-        </CardActions>
+      <Link component={Link1} to="/market/seedbank">
+        <IconButton color="primary" aria-label="Visit Seed Market">
+        <SeedIcon /> 
+      </IconButton>Seeds
+        </Link>
+        <Link component={Link2} to="/market/farmplots">
+        <IconButton color="primary" aria-label="Visit Land Sales">
+        <LandIcon /> 
+      </IconButton>Land
+        </Link>
+      </CardActions>
     </Card>
   );
 }

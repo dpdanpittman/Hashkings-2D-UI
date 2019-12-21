@@ -86,7 +86,7 @@ export const LoginPage = ({history}) => {
         .then(res => {
           login(res.name);
           localStorage.setItem("sc_token", token);
-          history.push("/farm");
+          history.push("/home");
         })
         .catch(e => {
           console.log(e);
