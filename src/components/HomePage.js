@@ -15,10 +15,11 @@ import InstructionsCardOne from './InstructionsCardOne';
 import InstructionsCardTwo from './InstructionsCardTwo';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
+import { YouTubeFrame } from './YouTubeFrame';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
-    width: 550,
+    width: "auto",
     backgroundColor: "#DFB17B"
   },
   root: {
@@ -94,7 +95,7 @@ const [value, setValue] = React.useState(0);
           <MediaCard />
         </Grid>
         <Grid item xs={6}>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/Tvc8WKlf3mc?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        </Grid>
+        </Grid>
         <Grid item xs={3}>
           <MarketCard />
         </Grid>
