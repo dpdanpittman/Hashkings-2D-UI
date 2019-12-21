@@ -113,8 +113,8 @@ const [value, setValue] = React.useState(0);
           showLabels
           className={classes.navWidth}
         >
-          <BottomNavigationAction label="Trending" icon={<RestoreIcon />} component={Link1} to="/trending" />
-          <BottomNavigationAction label="Steem-Engine" icon={<FavoriteIcon />} component={Link2} to="/trending" />
+          <BottomNavigationAction label="Trending" icon={<FavoriteIcon />} component={Link1} to="/trending" />
+          <BottomNavigationAction label="Tutorial" icon={<RestoreIcon />} component={Link2} to="/tutorial" />
           <BottomNavigationAction label="About" icon={<LocationOnIcon />} component={Link3} to="/faq" />
         </BottomNavigation>
         </Paper>

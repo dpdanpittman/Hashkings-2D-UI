@@ -18,13 +18,10 @@ export default function WelcomeCard() {
 
   return (
     <Card className={classes.card}>
-      <CardActionArea>
         <CardMedia
           className={classes.media}
           image="https://i.imgur.com/lLmUeqa.png"
-          title="Hashkings Beta"
         />
-      </CardActionArea>
     </Card>
   );
 }

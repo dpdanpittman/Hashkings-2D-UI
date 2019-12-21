@@ -292,7 +292,7 @@ class App extends Component {
           </div>
           <div className="layout-main">
             <Route path="/login" component={LoginPage} />
-            <Route path="/" exact component={GardenPage} />
+            <Route path="/" exact component={HomePage} />
             <Route path="/garden/:username" component={UserGarden} />
             <Route exact path="/farm" component={GardenPage} />
             <Route path="/market/farmplots" component={MarketPlots} />
@@ -305,7 +305,7 @@ class App extends Component {
             <Route path="/trending" component={Trending} />
             <Route path="/streams" component={TwitchStreams} />
             <Route path="/growers" component={BoardMemberApp} />  
-            <Route path="/home" component={HomePage} /> 
+            <Route path="/home" component={HomePage} />
           </div>
           <div className="layout-mask"></div>
         </div> 
