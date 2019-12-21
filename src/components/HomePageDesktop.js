@@ -76,9 +76,9 @@ const Link3 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...pr
 export const HomePage = () => {
 const classes = useStyles();
 const [value, setValue] = React.useState(0);
-const isDesktop = window.innerWidth < 1000;
+const isMobile = window.innerWidth < 1500;
 
-if (!isDesktop) {
+if (isMobile) {
   return(
     <div className={classes.root}>
       <Container fixed>

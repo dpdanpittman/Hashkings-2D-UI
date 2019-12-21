@@ -8,13 +8,13 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import { FarmIcon } from './Icons';
 import { GerminateIconBlack } from './Icons';
-import { MemoryRouter as Router } from 'react-router';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
+    minWidth: 250,
     background: "#DFB17B",
   },
   media: {

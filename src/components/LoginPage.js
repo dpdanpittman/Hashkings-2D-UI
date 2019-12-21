@@ -77,7 +77,7 @@ export const LoginPage = ({history}) => {
   const {steemConnectAPI, login} = useContext(StateContext);
   const [loggingIn, setLoggingIn] = useState(false);
   const hasSteemKeychain = useSteemKeychain();
-
+  const isDesktop = window.innerWidth < 790;
   const keychainLoggedIn = (_, token) => {
     if (token) {
       steemConnectAPI.setAccessToken(token);
@@ -86,7 +86,11 @@ export const LoginPage = ({history}) => {
         .then(res => {
           login(res.name);
           localStorage.setItem("sc_token", token);
+          if (!isDesktop) {
           history.push("/home");
+        } else {
+          history.push("/farm");
+        }
         })
         .catch(e => {
           console.log(e);
@@ -125,7 +129,11 @@ export const LoginPage = ({history}) => {
 
     return (
     <Grid container component="main" className={classes.root}>
-      <PostDialog />
+      {isDesktop ? (
+        <PostDialog />
+      ) : ( 
+        <div></div>
+      )}      
     {/*<CssBaseline 
     color="#000000"
     />*/}
