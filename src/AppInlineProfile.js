@@ -7,14 +7,12 @@ import Avatar from '@material-ui/core/Avatar';
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { HashkingsAPI } from "./HashkingsAPI";
+import TutorialFab from "./components/TutorialFab.js"
 
 const handleClick = () => {
   window.location = '/login';
 };
 
-const handleTutorial = () => {
-  window.location = '/tutorial';
-};
 const handleApparel = () => {
   //window.location = 'https://www.bonfire.com/hashkings-community-shirts/';
   window.open('https://www.bonfire.com/hashkings-community-shirts/');
@@ -100,14 +98,7 @@ export const AppInlineProfile = () => {
         className={classes.font}
       />
       </Tooltip>
-      <Tooltip title="Start Live Tutorial" placement="bottom">
-      <Chip
-        label= "Tutorial"
-        onClick={handleTutorial}
-        color="primary"
-        className={classes.font}
-      />
-      </Tooltip>
+      <TutorialFab />
       <Tooltip title="Visit Bonfire.com" placement="bottom">
       <Chip
         label= "Hoodies!"

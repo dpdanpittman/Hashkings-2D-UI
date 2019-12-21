@@ -68,6 +68,7 @@ export const TutorialWelcome = () => {
     <Paper className={classes.paperBlacky}>
     <Paper className={classes.paperBlue}>
     <Grid container spacing={1}>
+    <Grid item xs={8}></Grid>
     <Grid item xs={8}>
       <Paper className={classes.paper}>
       <Typography paragraph>

@@ -12,6 +12,7 @@ import {MarketSupplies} from "./components/MarketSupplies";
 import {ScrollPanel} from "primereact/components/scrollpanel/ScrollPanel";
 import {TwitchStreams} from './components/TwitchStreams.js';
 import { BoardMemberApp } from "./components/BoardMemberApp";
+import { HomePage } from "./components/HomePage";
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
@@ -313,6 +314,7 @@ class App extends Component {
             <Route path="/trending" component={Trending} />
             <Route path="/streams" component={TwitchStreams} />
             <Route path="/growers" component={BoardMemberApp} />  
+            <Route path="/home" component={HomePage} /> 
           </div>
           <div className="layout-mask"></div>
         </div> 
