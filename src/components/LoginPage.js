@@ -78,6 +78,7 @@ export const LoginPage = ({history}) => {
   const [loggingIn, setLoggingIn] = useState(false);
   const hasSteemKeychain = useSteemKeychain();
   const isDesktop = window.innerWidth < 790;
+
   const keychainLoggedIn = (_, token) => {
     if (token) {
       steemConnectAPI.setAccessToken(token);
@@ -129,7 +130,7 @@ export const LoginPage = ({history}) => {
 
     return (
     <Grid container component="main" className={classes.root}>
-      {isDesktop ? (
+      {!isDesktop ? (
         <PostDialog />
       ) : ( 
         <div></div>
