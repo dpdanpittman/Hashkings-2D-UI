@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#000000",
   },
   card: {
-    maxWidth: 345,
+    maxWidth: 600,
     backgroundColor: "#154A4A",
   },
   media: {
@@ -191,7 +191,7 @@ export const MarketPlots = () => {
         </Card>
       </HtmlTooltip>
     </Grid>
-    <Grid item xs>
+    <Grid item xs alignItems="flex-end">
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
