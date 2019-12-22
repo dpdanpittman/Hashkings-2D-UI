@@ -113,7 +113,6 @@ export default function GiftSeed() {
       <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="error"><u>Trading Floor</u></Typography>
                       <em><a href="/market/seedbank">{"Do you have extra seeds?"}</a></em> <b>{"Click Gift Seeds to get started"}</b>
                     </React.Fragment>
                   }

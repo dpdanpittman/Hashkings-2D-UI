@@ -13,6 +13,8 @@ import {ScrollPanel} from "primereact/components/scrollpanel/ScrollPanel";
 import {TwitchStreams} from './components/TwitchStreams.js';
 import { BoardMemberApp } from "./components/BoardMemberApp";
 import { HomePage } from "./components/HomePage";
+import GiftSeed from "./components/GiftSeed";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
@@ -156,12 +158,16 @@ class App extends Component {
             to: "/market/seedbank"
           },
           {
+            label: "Gifting",
+            to: "/gifting"
+          }
+          /*{
             label: "DEX",
             command: () => {
-              /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
+              /*window.location = "https://steem-engine.com/?p=market&t=KFQ";
               window.open('https://steem-engine.com/?p=market&t=KFQ', '_blank');
             }
-          },
+          },*/
         ]
       },
       {
@@ -187,6 +193,7 @@ class App extends Component {
           },
           {
             label: "Chat on Discord",
+            icon: {ExitToAppIcon},
             command: () => {
               /*window.location = "https://steem-engine.com/?p=market&t=KFQ";*/
               window.open('https://discord.gg/Zq29TWe', '_blank');
@@ -306,6 +313,7 @@ class App extends Component {
             <Route path="/streams" component={TwitchStreams} />
             <Route path="/growers" component={BoardMemberApp} />  
             <Route path="/home" component={HomePage} />
+            <Route path="/gifting" component={GiftSeed} />
           </div>
           <div className="layout-mask"></div>
         </div> 

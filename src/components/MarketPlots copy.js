@@ -27,6 +27,26 @@ import Zoom from '@material-ui/core/Zoom';
 import { GerminateIcon } from './Icons';
 
 const useStyles = makeStyles(theme => ({
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: "#000000",
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
   container: {
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',
@@ -40,35 +60,32 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1),
     backgroundColor: "#294A0B",
   },
-  paperBlack: {
+  paperBlue: {
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
+    whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#154A4A"
+    backgroundColor: "#154A4A",
   },
-  paperBlacky: {
+  paperExtended: {
     padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    marginBottom: theme.spacing(1),
     backgroundColor: "#000000",
+  },
+  divider: {
+    margin: theme.spacing(2, 0),
   },
   card: {
     maxWidth: 345,
-    backgroundColor: "#154A4A",
-  },
-  media: {
-    height: 140,
+    backgroundColor: "#000000",
   },
   font: {
     fontFamily: '"Jua", sans-serif',
   },
 }));
-
-const theme = createMuiTheme({
-  palette: {
-    primary: { 500: '#00211B' }, // custom color in hex 
-  },
-});
 
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
@@ -79,6 +96,12 @@ const HtmlTooltip = withStyles(theme => ({
     border: '1px solid #dadde9',
   },
 }))(Tooltip);
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { 500: '#00211B' }, // custom color in hex 
+  },
+});
 
 export const MarketPlots = () => {
   const hashkingsApi = new HashkingsAPI();
@@ -122,21 +145,22 @@ export const MarketPlots = () => {
     return (
     <Redirect to='/login'/>
     );
-  } else {
+  }
   return (
-    <Paper className={classes.paperBlacky}>
-    <Grid container spacing={3}>
-      <Grid item xs={12}>
-        <Paper className={classes.paperBlack}>   
-          <ThemeProvider theme={theme}>
-            <Typography gutterBottom variant="h5" component="h1">
-              <b><font color="#DFB17B" className={classes.font}><u>Welcome to our Leasing Office</u></font></b>
-            </Typography>
-          </ThemeProvider>
-        </Paper>
-      </Grid>
-      <Grid item xs={4}>
-      <HtmlTooltip
+    <Paper className={classes.paperExtended}> 
+      <Paper className={classes.paperBlue}> 
+      <ThemeProvider theme={theme}>
+      <center>
+      <Typography gutterBottom variant="h4" component="h1">
+        <b><font color="#DFB17B" className={classes.font}><u>Leasing</u></font></b>
+      </Typography>
+      </center>
+    </ThemeProvider>
+    </Paper>
+    <Paper className={classes.paperBlue}> 
+      <Grid container spacing={1}>
+        <Grid item xs>
+          <HtmlTooltip
           title={
             <React.Fragment>
             <Typography color="error">
@@ -148,20 +172,24 @@ export const MarketPlots = () => {
           placement="right"
           TransitionComponent={Zoom}
           >
-      <Card className={classes.card}>
+          <Card className={classes.card}>
+            <CardHeader
+              avatar={
+                <Avatar aria-label="delegation" className={classes.avatar}>
+                  <img src="https://media.giphy.com/media/26gsnOb6H9AiTNIli/giphy.gif" />
+                </Avatar>
+              }
+            />
             <CardMedia
               className={classes.media}
               image="https://i.imgur.com/ZohrL4N.png"
               title="Mexico"
             />
             <CardContent>
-              <Typography color="textSecondary" gutterBottom variant="h5" component="h2">
+              <Typography variant="body2" color="textSecondary" component="p">
                 <font color="DFB17B" className={classes.font}>
                 Plot Delegation
                 </font>
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-              <font color="DFB17B" className={classes.font}>Delegate 20 STEEM Power per Plot below!</font>
               </Typography>
           </CardContent>
             <hr/>
@@ -192,23 +220,64 @@ export const MarketPlots = () => {
         </Card>
       </HtmlTooltip>
     </Grid>
-    <Grid item xs={4}>
-    </Grid>
-    <Grid item xs={4}>
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image="https://i.imgur.com/x1eOPYj.png"
+
+  <Grid item xs>
+  <Card className={classes.card}>
+    <CardMedia
+      className={classes.media}
+      image="https://i.imgur.com/TLlmPMi.png"
+      title="Hashkings"
+    />
+  </Card>
+  </Grid>
+
+  <Grid item xs>
+  <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="error" className={classes.font}><u>Leasing</u></Typography>
+                      <em><a href="/market/seedbank">{"Claim your leased plots for 0.5 STEEM each."}</a></em><b>{" In order to claim your plots we require a small fee. Pay with STEEM below"}</b>
+                    </React.Fragment>
+                  }
+                  placement="left"
+                  TransitionComponent={Zoom}
+                  >
+  <Card className={classes.card}>
+    <CardHeader
+      avatar={
+        <Avatar aria-label="leasing" className={classes.avatar}>
+          <GerminateIcon />
+        </Avatar>
+      }
+    />
+    <CardMedia
+      className={classes.media}
+      image="https://i.imgur.com/aDDEpiF.png"
+      title="Afghanistan"
+    />
+    <CardContent>
+    <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B" className={classes.font}>
+        Leasing</font>
+      </Typography>
+    </CardContent>
+    <hr/>
+    <CardActions disableSpacing>
+      <IconButton
+        className={clsx(classes.expand, {
+          [classes.expandOpen]: expanded,
+        })}
+        onClick={handleExpandClick}
+        aria-expanded={expanded}
+        aria-label="show more"
+      >
+        <ExpandMoreIcon 
+        color="error"
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B" className={classes.font}>Pay for your Plot</font>
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B" className={classes.font}>Each plot requires a 0.5 STEEM Leasing Fee. Please choose your region below.</font>
-          </Typography>
-          <br/>
-          {delegation.available > 0 && (
+      </IconButton>
+    </CardActions>
+    <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <CardContent>
+            {delegation.available > 0 && (
               <BuyGarden
                 username={username}
                 delegation={delegation}
@@ -225,13 +294,14 @@ export const MarketPlots = () => {
                 </font>
               </p>
             )}
-          {/*<BuySeed type="r" />*/}
-        </CardContent>
-      </Card>
-    </Grid>
-    </Grid>
+      <Divider variant="middle" />
+      </CardContent>
+    </Collapse>
+  </Card>
+  </HtmlTooltip>
+  </Grid>
+  </Grid>
+  </Paper>
   </Paper>
   );
-}
 };
-

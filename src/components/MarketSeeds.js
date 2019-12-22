@@ -139,7 +139,6 @@ export const MarketSeeds = () => {
         </CardContent>
       </Card>
     </Grid>
-    <Trading />
     </Grid>
   </Paper>
   )
