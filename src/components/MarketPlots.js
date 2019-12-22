@@ -124,7 +124,6 @@ export const MarketPlots = () => {
     );
   } else {
   return (
-    <Paper className={classes.paperBlacky}>
     <Grid container spacing={3}>
       <Grid item xs={12}>
         <Paper className={classes.paperBlack}>   
@@ -193,8 +192,6 @@ export const MarketPlots = () => {
       </HtmlTooltip>
     </Grid>
     <Grid item xs>
-    </Grid>
-    <Grid item xs>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -230,7 +227,6 @@ export const MarketPlots = () => {
       </Card>
     </Grid>
     </Grid>
-  </Paper>
   );
 }
 };
