@@ -130,12 +130,12 @@ export const MarketPlots = () => {
         <Paper className={classes.paperBlack}>   
           <ThemeProvider theme={theme}>
             <Typography gutterBottom variant="h5" component="h1">
-              <b><font color="#DFB17B" className={classes.font}><u>Welcome to our Leasing Office</u></font></b>
+              <b><font color="#DFB17B" className={classes.font}><u>Leasing Office</u></font></b>
             </Typography>
           </ThemeProvider>
         </Paper>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs>
       <HtmlTooltip
           title={
             <React.Fragment>
@@ -192,9 +192,9 @@ export const MarketPlots = () => {
         </Card>
       </HtmlTooltip>
     </Grid>
-    <Grid item xs={4}>
+    <Grid item xs>
     </Grid>
-    <Grid item xs={4}>
+    <Grid item xs>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}

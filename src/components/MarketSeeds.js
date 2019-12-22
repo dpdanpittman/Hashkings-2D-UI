@@ -10,7 +10,6 @@ import Paper from '@material-ui/core/Paper';
 import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import { Redirect } from 'react-router';
 import {StateContext} from "../App";
-import Trading from './GardenPage/Trading';
 
 const useStyles = makeStyles(theme => ({
   container: {
