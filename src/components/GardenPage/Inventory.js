@@ -82,7 +82,7 @@ export default function Inventory({user}) {
   return (
   <div className={classes.flex}>
     
-    <Grid container spacing={3}>
+    <Grid container spacing={1}>
       <Grid item xs={12}>
         <Paper className={classes.paperFarming}>
           <ThemeProvider theme={theme}>
