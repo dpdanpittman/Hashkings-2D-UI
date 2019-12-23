@@ -4,7 +4,6 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import MediaCard from './FarmingCard';
@@ -14,11 +13,8 @@ import MarketCard from './MarketCard';
 import InstructionsCardOne from './InstructionsCardOne';
 import InstructionsCardTwo from './InstructionsCardTwo';
 import { Link as RouterLink } from 'react-router-dom';
-import Link from '@material-ui/core/Link';
-import { YouTubeFrame } from './YouTubeFrame';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
-import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
@@ -71,7 +67,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-const Link2 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 const Link3 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
 export const HomePage = () => {

@@ -189,7 +189,7 @@ export const GardenActions = () => {
               TransitionComponent={Zoom}
               >
               <Typography gutterBottom variant="h5" component="h1">
-                <b><font color="DFB17B" className={classes.font}>Farm</font></b>
+                <b><font color="DFB17B" className={classes.font}>Farming</font></b>
                 </Typography>
                 </HtmlTooltip>
                 </ThemeProvider>
