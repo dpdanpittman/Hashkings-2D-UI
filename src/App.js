@@ -61,7 +61,7 @@ class App extends Component {
       overlayMenuActive: true,
       mobileMenuActive: false,
       localState: {
-        username: "saboin",
+        username: "",
         login: username =>
           this.setState(state => ({
             localState: {
