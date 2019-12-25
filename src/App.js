@@ -61,7 +61,7 @@ class App extends Component {
       overlayMenuActive: true,
       mobileMenuActive: false,
       localState: {
-        username: "",
+        username: "saboin",
         login: username =>
           this.setState(state => ({
             localState: {
@@ -282,10 +282,12 @@ class App extends Component {
             >
               <div className="layout-sidebar-scroll-content">
                 <div className="layout-logo">
+                <a href="/">
                 <img
                     alt="Logo"
                     src="/assets/layout/images/hashkingsbanner.png"
                   />
+                  </a>
                   <br/>
                   <br/>
                 </div>                

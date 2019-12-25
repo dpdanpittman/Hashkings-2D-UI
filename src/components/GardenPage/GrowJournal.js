@@ -102,6 +102,10 @@ const marks = [
     label: 'Flower',
   },
   {
+    value: 65,
+    label: '',
+  },
+  {
     value: 70,
     label: '',
   },
@@ -270,7 +274,7 @@ if (username) {
                     return (
                       <div className={classes.root}>
                         <Slider
-                          defaultValue={Math.floor((stage / 5) * 100)}
+                          defaultValue={Math.floor((stage / 8) * 100)}
                           valueLabelFormat={valueLabelFormat}
                           getAriaValueText={valuetext}
                           aria-labelledby="discrete-slider-restrict"

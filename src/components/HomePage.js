@@ -67,7 +67,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-const Link3 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
+const Link2 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
 export const HomePage = () => {
 const classes = useStyles();
@@ -119,7 +119,7 @@ if (!isDesktop) {
         >
           <BottomNavigationAction label="Trending" icon={<FavoriteIcon />} component={Link1} to="/trending" />
           <BottomNavigationAction />
-          <BottomNavigationAction label="About" icon={<LocationOnIcon />} component={Link3} to="/faq" />
+          <BottomNavigationAction label="About" icon={<LocationOnIcon />} component={Link2} to="/faq" />
         </BottomNavigation>
         </>
         </Paper>

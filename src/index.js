@@ -23,11 +23,11 @@ ReactDOM.render(
     <ScrollToTop>
     <MuiThemeProvider theme={theme}>
     <CssBaseline />
-    <ParallaxProvider>
-      <App />
+      <ParallaxProvider>
+        <App />
       </ParallaxProvider>
       <AppFooter />
-      </MuiThemeProvider>
+    </MuiThemeProvider>
     </ScrollToTop>
   </BrowserRouter>,
   document.getElementById("root")
