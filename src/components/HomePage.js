@@ -74,7 +74,7 @@ export const HomePage = () => {
 const classes = useStyles();
 const [value, setValue] = React.useState(0);
 const isDesktop = window.innerWidth < 1000;
-const image1 = "https://i.imgur.com/CFhHzP4.png";
+const image1 = "https://i.imgur.com/j2CGYh2.jpg";
 
 if (!isDesktop) {
   return(
