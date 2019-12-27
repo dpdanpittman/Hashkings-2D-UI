@@ -21,7 +21,7 @@ import Radium, {StyleRoot} from 'radium';
  
 const styles = {
   slideInRight: {
-    animation: 'x 3s',
+    animation: 'x 1s',
     animationName: Radium.keyframes(slideInRight, 'slideInRight')
   }
 }

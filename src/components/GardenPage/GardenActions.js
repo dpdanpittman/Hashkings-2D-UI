@@ -22,7 +22,7 @@ import { WaterIcon, GerminateIcon, HarvestIcon } from '../Icons';
 
 const styles = {
   slideInRight: {
-    animation: 'x 3s',
+    animation: 'x 1s',
     animationName: Radium.keyframes(slideInRight, 'slideInRight')
   },
   slideInLeft: {
@@ -30,15 +30,15 @@ const styles = {
     animationName: Radium.keyframes(slideInLeft, 'slideInLeft')
   },
   slideInLeft1: {
-    animation: 'x 2s',
+    animation: 'x 1s',
     animationName: Radium.keyframes(slideInLeft, 'slideInLeft1')
   },
   fadeIn: {
-    animation: 'x 3s',
+    animation: 'x 1s',
     animationName: Radium.keyframes(fadeIn, 'fadeIn')
   },
   slideInLeft2: {
-    animation: 'x 3s',
+    animation: 'x 1s',
     animationName: Radium.keyframes(slideInLeft, 'slideInLeft2')
   }
 }
