@@ -156,7 +156,7 @@ export default function DesktopTopbar(){
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link6} to="/faq">
+            <IconButton className="layout-menu-button" component={Link6} to="/tutorial">
             <TutorialIcon />
             </IconButton>
             </HtmlTooltip>
