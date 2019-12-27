@@ -85,14 +85,7 @@ if (!isDesktop) {
         <Grid item xs={12}>
           <WelcomeCard />
         </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paperBlue}>
-          <InstructionsCardOne />
-          </Paper>
-        </Grid>
-        <Grid item xs={6}>
-        <InstructionsCardTwo />
-        </Grid>
+        
         <Grid container spacing={3}>
       <Grid item xs={12}> 
       </Grid>
