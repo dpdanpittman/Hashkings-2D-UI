@@ -10,6 +10,7 @@ import { FarmIcon } from './Icons';
 import { GerminateIconBlack } from './Icons';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles({
   card: {
@@ -31,6 +32,7 @@ export default function MediaCard() {
   const classes = useStyles();
 
   return (
+    <Box boxShadow={12}>
     <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -58,5 +60,6 @@ export default function MediaCard() {
         </Link>
       </CardActions>
     </Card>
+    </Box>
   );
 }
