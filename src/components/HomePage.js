@@ -92,7 +92,6 @@ if (!isDesktop) {
       <Grid item xs={3}>
       </Grid>
       <Grid item xs={6}>
-        
           <>
         <BottomNavigation
           onChange={(event, newValue) => {
@@ -106,7 +105,6 @@ if (!isDesktop) {
           <BottomNavigationAction label="Streams" icon={<TwitchIcon />} component={Link2} to="/streams" />
         </BottomNavigation>
         </>
-       
       </Grid>
       <Grid item xs={3}>
       </Grid>
