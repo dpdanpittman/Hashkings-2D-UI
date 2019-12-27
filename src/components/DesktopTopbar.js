@@ -135,21 +135,6 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>FAQ</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-            <IconButton className="layout-menu-button" component={Link6} to="/faq">
-            <InformationIcon />
-            </IconButton>
-            </HtmlTooltip>
-            </Grid> 
-            <Grid item xs={1}>
-            <HtmlTooltip
-              title={
-                <React.Fragment>
                   <Typography color="error" className={classes.font}>Learn to Play</Typography>
                 </React.Fragment>
               }
@@ -158,6 +143,21 @@ export default function DesktopTopbar(){
               >
             <IconButton className="layout-menu-button" component={Link6} to="/tutorial">
             <TutorialIcon />
+            </IconButton>
+            </HtmlTooltip>
+            </Grid> 
+            <Grid item xs={1}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}>FAQ</Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+            <IconButton className="layout-menu-button" component={Link6} to="/faq">
+            <InformationIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid> 

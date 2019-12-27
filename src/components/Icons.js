@@ -248,3 +248,9 @@ export function WaterIcon(props) {
     </SvgIcon>
       );
     }
+
+    export function SteemIcon() {
+      return(
+    <img src="https://i.imgur.com/ICnn2By.png"></img>
+      );
+    }

@@ -13,7 +13,7 @@ import InstructionsCardTwo from './InstructionsCardTwo';
 import { Link as RouterLink } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
-import { BlogIcon, InformationIcon, CurationIcon, TwitchIcon } from './Icons';
+import { BlogIcon, InformationIcon, SteemIcon, TwitchIcon } from './Icons';
 import { Parallax, Background } from 'react-parallax';
 
 const useStyles = makeStyles(theme => ({
@@ -108,7 +108,7 @@ if (!isDesktop) {
           showLabels
           className={classes.navWidth}
         >
-          <BottomNavigationAction label="Curation Trail" icon={<CurationIcon />} component={Link1} to="/trending" />
+          <BottomNavigationAction label="Curation Trail" icon={<SteemIcon />} component={Link1} to="/trending" />
           <BottomNavigationAction />
           <BottomNavigationAction label="Streams" icon={<TwitchIcon />} component={Link2} to="/streams" />
         </BottomNavigation>
