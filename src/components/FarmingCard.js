@@ -42,7 +42,7 @@ export default function MediaCard() {
             <u>Farming</u>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          Vist your Farm or and check your inventory or the your stats
+          Vist your Farm and check your inventory or visit your stats
           </Typography>
         </CardContent>
       <CardActions>
