@@ -82,7 +82,7 @@ export default function Inventory({user}) {
   return (
   <div className={classes.flex}>
     
-    <Grid container spacing={3}>
+    <Grid container spacing={2}>
       <Grid item xs={12}>
         <Paper className={classes.paperFarming}>
           <ThemeProvider theme={theme}>
@@ -132,46 +132,6 @@ export default function Inventory({user}) {
       </Card>
       </HtmlTooltip>
     </Grid>
-    <Grid item xs={12}>
-    <HtmlTooltip
-                  title={
-                    <React.Fragment>
-                      <Typography color="error" className={classes.font}><u>Available Seeds</u></Typography>
-                      <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
-                    </React.Fragment>
-                  }
-                  TransitionComponent={Zoom}
-                  >
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image="https://d3atagt0rnqk7k.cloudfront.net/wp-content/uploads/2016/04/29195549/cannabis-seeds-101-all-you-need-to-know-and-more.jpg"
-        />
-        <CardContent className={classes.font}>
-          <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B" className={classes.font}>Seeds</font>
-          </Typography>
-          <hr/>
-          {_.uniqBy(user.availableSeeds, seed => seed.strain)
-            .map(seed => ({
-              strain: seed.strain,
-              count: user.availableSeeds.filter(
-                aseed => aseed.strain === seed.strain
-              ).length
-            }))
-            .map(seed => (
-              <p key={seed.strain}><font color="B28D43" className={classes.font}>
-                <Badge className={classes.margin} badgeContent={seed.count} color="primary">
-                  <SeedIcon  />
-                </Badge>
-                 {seedNames[seed.strain]}
-                {seed.count !== 1 ? "s" : ""}</font>
-              </p>
-            ))}
-        </CardContent>
-      </Card>
-      </HtmlTooltip>
-    </Grid>
     <Grid item xs>
     <HtmlTooltip
                   title={
@@ -189,7 +149,7 @@ export default function Inventory({user}) {
         />
         <CardContent className={classes.font}>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B" className={classes.font}>Plots</font>
+          <font color="DFB17B" className={classes.font}>Available Plots</font>
           </Typography>
           <hr/>
           {_.uniqBy(user.availableGardens, garden => garden[0])
@@ -207,6 +167,46 @@ export default function Inventory({user}) {
                  {gardenNames[garden.id]}
                 {garden.count !== 1 ? "s" : ""}</font>
               </p></b> 
+            ))}
+        </CardContent>
+      </Card>
+      </HtmlTooltip>
+    </Grid>
+    <Grid item xs>
+    <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="error" className={classes.font}><u>Available Seeds</u></Typography>
+                      <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
+                    </React.Fragment>
+                  }
+                  TransitionComponent={Zoom}
+                  >
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          image="https://d3atagt0rnqk7k.cloudfront.net/wp-content/uploads/2016/04/29195549/cannabis-seeds-101-all-you-need-to-know-and-more.jpg"
+        />
+        <CardContent className={classes.font}>
+          <Typography gutterBottom variant="h5" component="h2">
+          <font color="DFB17B" className={classes.font}>Available Seeds</font>
+          </Typography>
+          <hr/>
+          {_.uniqBy(user.availableSeeds, seed => seed.strain)
+            .map(seed => ({
+              strain: seed.strain,
+              count: user.availableSeeds.filter(
+                aseed => aseed.strain === seed.strain
+              ).length
+            }))
+            .map(seed => (
+              <p key={seed.strain}><font color="B28D43" className={classes.font}>
+                <Badge className={classes.margin} badgeContent={seed.count} color="primary">
+                  <SeedIcon  />
+                </Badge>
+                 {seedNames[seed.strain]}
+                {seed.count !== 1 ? "s" : ""}</font>
+              </p>
             ))}
         </CardContent>
       </Card>
