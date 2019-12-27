@@ -14,15 +14,16 @@ import { Link as RouterLink } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
 import { BlogIcon, InformationIcon, CurationIcon, TwitchIcon } from './Icons';
-
+import { Parallax, Background } from 'react-parallax';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
     width: "auto",
-    backgroundColor: "#DFB17B"
+    backgroundColor: "transparent"
   },
   root: {
     flexGrow: 1,
+    height: "auto",
   },
   container: {
     display: 'grid',
@@ -73,16 +74,16 @@ export const HomePage = () => {
 const classes = useStyles();
 const [value, setValue] = React.useState(0);
 const isDesktop = window.innerWidth < 1000;
+const image1 = "https://i.imgur.com/CFhHzP4.png";
 
 if (!isDesktop) {
   return(
+    <Parallax blur={1} bgImage={image1} strength={500}>
     <div className={classes.root}>
       <Container fixed>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Paper className={classes.paperBlue}>
           <WelcomeCard />
-          </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paperBlue}>
@@ -98,7 +99,7 @@ if (!isDesktop) {
       <Grid item xs={3}>
       </Grid>
       <Grid item xs={6}>
-        <Paper className={classes.paperBlue}>
+        
           <>
         <BottomNavigation
           onChange={(event, newValue) => {
@@ -112,7 +113,7 @@ if (!isDesktop) {
           <BottomNavigationAction label="Streams" icon={<TwitchIcon />} component={Link2} to="/streams" />
         </BottomNavigation>
         </>
-        </Paper>
+       
       </Grid>
       <Grid item xs={3}>
       </Grid>
@@ -133,7 +134,6 @@ if (!isDesktop) {
       <Grid item xs={3}>
       </Grid>
       <Grid item xs={6}>
-        <Paper className={classes.paperBlue}>
           <>
         <BottomNavigation
           onChange={(event, newValue) => {
@@ -147,13 +147,16 @@ if (!isDesktop) {
           <BottomNavigationAction label="About" icon={<InformationIcon />} component={Link2} to="/faq" />
         </BottomNavigation>
         </>
-        </Paper>
+     
       </Grid>
       <Grid item xs={3}>
       </Grid>
-    </Grid>
+    </Grid> 
+      
+    
     </Container>
-  </div>
+    </div>
+    </Parallax>
   );
  } else {
   return (
