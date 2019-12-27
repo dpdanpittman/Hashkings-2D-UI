@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import {AppInlineProfile} from "../AppInlineProfile";
 import { Link as RouterLink } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
-import { FarmTopbarIcon, BlogIcon, LandIcon, SeedIcon, InformationIcon, FarmIcon } from './Icons';
+import { FarmTopbarIcon, BlogIcon, LandIcon, SeedIcon, InformationIcon, FarmIcon, TutorialIcon } from './Icons';
 import Tooltip from '@material-ui/core/Tooltip';
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -143,6 +143,21 @@ export default function DesktopTopbar(){
               >
             <IconButton className="layout-menu-button" component={Link6} to="/faq">
             <InformationIcon />
+            </IconButton>
+            </HtmlTooltip>
+            </Grid> 
+            <Grid item xs={1}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}>Learn to Play</Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+            <IconButton className="layout-menu-button" component={Link6} to="/faq">
+            <TutorialIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid> 
