@@ -4,8 +4,6 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
 import MediaCard from './FarmingCard';
 import InsideCard from './InsideCard';
 import WelcomeCard from './WelcomeCard';
@@ -15,6 +13,8 @@ import InstructionsCardTwo from './InstructionsCardTwo';
 import { Link as RouterLink } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
+import { BlogIcon, InformationIcon, CurationIcon, TwitchIcon } from './Icons';
+
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
@@ -92,6 +92,31 @@ if (!isDesktop) {
         <Grid item xs={6}>
         <InstructionsCardTwo />
         </Grid>
+        <Grid container spacing={3}>
+      <Grid item xs={12}> 
+      </Grid>
+      <Grid item xs={3}>
+      </Grid>
+      <Grid item xs={6}>
+        <Paper className={classes.paperBlue}>
+          <>
+        <BottomNavigation
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          showLabels
+          className={classes.navWidth}
+        >
+          <BottomNavigationAction label="Curation Trail" icon={<CurationIcon />} component={Link1} to="/trending" />
+          <BottomNavigationAction />
+          <BottomNavigationAction label="Streams" icon={<TwitchIcon />} component={Link2} to="/streams" />
+        </BottomNavigation>
+        </>
+        </Paper>
+      </Grid>
+      <Grid item xs={3}>
+      </Grid>
+    </Grid>
         <Grid item xs={3}>
           <MediaCard />
         </Grid>
@@ -117,9 +142,9 @@ if (!isDesktop) {
           showLabels
           className={classes.navWidth}
         >
-          <BottomNavigationAction label="Trending" icon={<FavoriteIcon />} component={Link1} to="/trending" />
+          <BottomNavigationAction label="Trending" icon={<BlogIcon />} component={Link1} to="/trending" />
           <BottomNavigationAction />
-          <BottomNavigationAction label="About" icon={<LocationOnIcon />} component={Link2} to="/faq" />
+          <BottomNavigationAction label="About" icon={<InformationIcon />} component={Link2} to="/faq" />
         </BottomNavigation>
         </>
         </Paper>

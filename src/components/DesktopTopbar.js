@@ -60,7 +60,7 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Main Menu</Typography>
+                  <Typography color="error" className={classes.font}>Home</Typography>
                 </React.Fragment>
               }
               placement="top"

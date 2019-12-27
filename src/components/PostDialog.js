@@ -45,10 +45,10 @@ export default function PostDialog() {
         <DialogContent dividers>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <a href="https://www.twiztedmonkey.com" target="_blank">
+            <a href="https://www.bonfire.com/hashkings-community-shirts/" target="_blank">
             <CardMedia
               className={classes.media}
-              image="https://i.imgur.com/vZ7ShWv.png"
+              image="https://i.imgur.com/GkgOq4F.png"
             /></a>
           </Paper>
         </Grid>
