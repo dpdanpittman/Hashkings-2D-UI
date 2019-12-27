@@ -5,6 +5,7 @@ import {gardenNames} from "../service/HashkingsAPI";
 import {MultiSelect} from "primereact/multiselect";
 import {StateContext} from "../App";
 import {format as formatTimeAgo} from "timeago.js";
+import selectedGardensTemplate from "../hooks/SelectedGardensTemplate";
 
 export default function WaterModal({
   isOpen,
@@ -72,15 +73,7 @@ export default function WaterModal({
       name
     };
   });
-
-  const selectedGardensTemplate = option => {
-    if (option) {
-      return <span>{`${option.id} `}</span>;
-    } else {
-      return <span>Choose your plots...</span>;
-    }
-  };
-
+  
   return (
     <>
       <Dialog

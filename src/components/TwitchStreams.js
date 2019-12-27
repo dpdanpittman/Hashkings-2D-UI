@@ -29,16 +29,16 @@ const useStyles = makeStyles(theme => ({
 
   const tileData = [
     {
-      title: 'Dr DisRespect',
+      title: '419stream',
+      channel: '419stream',
+    },
+    {
+      title: 'Snoop Dogg',
+      channel: 'doggydog20',
+    },
+    {
+      title: 'Dr Disrespect',
       channel: 'drdisrespect',
-    },
-    {
-      title: 'lirik',
-      channel: 'lirik',
-    },
-    {
-      title: 'shroud',
-      channel: 'shroud',
     },
     {
       title: 'timthetatman',
@@ -53,16 +53,12 @@ export const TwitchStreams = () => {
     <div className={classes.root}>
       <GridList cellHeight={320} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div"><font color="#B28D43"><b><h1>Top Twitch Streams</h1></b></font></ListSubheader>
+          <ListSubheader component="div"><font color="#B28D43"><b><h1>Top Ganja Streams</h1></b></font></ListSubheader>
         </GridListTile>
         {tileData.map(tile => (
           <GridListTile key={tile.img}>
             <TwitchStream channelName={tile.channel} allowFullScreen autoPlay muted/>
-            <GridListTileBar
-              actionIcon={
-                <IconButton aria-label={`info about ${tile.channel}`} className={classes.icon} onClick={window.open('https://www.twitch.tv/' + tile.channel, '_blank')}>
-                  <InfoIcon />
-                </IconButton>
+            
               }
             />
           </GridListTile>

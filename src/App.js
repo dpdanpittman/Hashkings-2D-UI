@@ -160,14 +160,13 @@ class App extends Component {
           {
             label: "Gifting",
             to: "/gifting"
-          }
-          /*{
+          },
+          {
             label: "DEX",
             command: () => {
-              /*window.location = "https://steem-engine.com/?p=market&t=KFQ";
               window.open('https://steem-engine.com/?p=market&t=KFQ', '_blank');
             }
-          },*/
+          },
         ]
       },
       {
@@ -176,6 +175,10 @@ class App extends Component {
           {
             label: "Trending Posts",
             to: "/trending"
+          },
+          {
+            label: "Twitch Streams",
+            to: "/streams"
           },
           {
             label: "Curation Trail",
