@@ -18,6 +18,7 @@ import Paper from '@material-ui/core/Paper';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { slideInRight } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
+import Box from '@material-ui/core/Box';
  
 const styles = {
   slideInRight: {
@@ -224,6 +225,7 @@ if (username) {
       <div className={classes.flex}>
       <StyleRoot>
       <div style={styles.slideInRight}>
+      <Box boxShadow={4}>
       <Paper className={classes.paper}>
            <ThemeProvider theme={theme}>
                 <Typography gutterBottom variant="h1" component="h1">
@@ -353,6 +355,7 @@ if (username) {
       </ExpansionPanel>
               </HtmlTooltip>*/}
       </Paper>
+      </Box>
       </div>
       </StyleRoot>
       </div>

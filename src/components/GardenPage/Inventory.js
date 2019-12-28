@@ -1,10 +1,9 @@
 import React from "react";
 import { gardenNames, seedNames } from "../../service/HashkingsAPI";
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
-import { red } from '@material-ui/core/colors';
+import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';
-import SvgIcon from '@material-ui/core/SvgIcon';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -81,9 +80,9 @@ export default function Inventory({user}) {
   
   return (
   <div className={classes.flex}>
-    
     <Grid container spacing={2}>
       <Grid item xs={12}>
+      <Box boxShadow={12}>
         <Paper className={classes.paperFarming}>
           <ThemeProvider theme={theme}>
             <Typography gutterBottom variant="h5" component="h1">
@@ -91,6 +90,7 @@ export default function Inventory({user}) {
             </Typography>
           </ThemeProvider>
         </Paper>
+        </Box>
       </Grid>
       <Grid item xs>
       <HtmlTooltip
@@ -102,6 +102,7 @@ export default function Inventory({user}) {
                   }
                   TransitionComponent={Zoom}
                   >
+                     <Box boxShadow={12}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -130,6 +131,7 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       </Card>
+      </Box>
       </HtmlTooltip>
     </Grid>
     <Grid item xs>
@@ -142,6 +144,7 @@ export default function Inventory({user}) {
                   }
                   TransitionComponent={Zoom}
                   >
+                    <Box boxShadow={12}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -170,6 +173,7 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       </Card>
+      </Box>
       </HtmlTooltip>
     </Grid>
     <Grid item xs>
@@ -182,6 +186,7 @@ export default function Inventory({user}) {
                   }
                   TransitionComponent={Zoom}
                   >
+                    <Box boxShadow={12}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -210,6 +215,7 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       </Card>
+      </Box>
       </HtmlTooltip>
     </Grid>
     </Grid>

@@ -1,6 +1,5 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -8,8 +7,6 @@ import MediaCard from './FarmingCard';
 import InsideCard from './InsideCard';
 import WelcomeCard from './WelcomeCard';
 import MarketCard from './MarketCard';
-import InstructionsCardOne from './InstructionsCardOne';
-import InstructionsCardTwo from './InstructionsCardTwo';
 import { Link as RouterLink } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
@@ -85,7 +82,6 @@ if (!isDesktop) {
         <Grid item xs={12}>
           <WelcomeCard />
         </Grid>
-        
         <Grid container spacing={3}>
       <Grid item xs={12}> 
       </Grid>

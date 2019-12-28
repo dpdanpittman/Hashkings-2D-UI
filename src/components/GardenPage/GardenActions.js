@@ -19,6 +19,7 @@ import Radium, {StyleRoot} from 'radium';
 import { fadeIn } from 'react-animations';
 import { slideInRight } from 'react-animations';
 import { WaterIcon, GerminateIcon, HarvestIcon } from '../Icons';
+import Box from '@material-ui/core/Box';
 
 const styles = {
   slideInRight: {
@@ -176,6 +177,7 @@ export const GardenActions = () => {
           <Grid container spacing={12}>
           <Grid item xs={4}>
             <Grid item xs={11}>
+            <Box boxShadow={4}>
               <Paper className={classes.paperBrown}>
             <ThemeProvider theme={theme}>
             <HtmlTooltip
@@ -194,8 +196,10 @@ export const GardenActions = () => {
                 </HtmlTooltip>
                 </ThemeProvider>
                 </Paper>
+                </Box>
               </Grid>
               <Grid item xs={11}>
+              <Box boxShadow={4}>
                 <Paper className={classes.paperBrown}>
               <ThemeProvider theme={theme}>
                 <HtmlTooltip
@@ -218,8 +222,10 @@ export const GardenActions = () => {
                 </HtmlTooltip>
               </ThemeProvider>
                 </Paper>
+                </Box>
               </Grid>
               <Grid item xs={11}>
+              <Box boxShadow={4}>
                 <Paper className={classes.paperBrown}>
               <ThemeProvider theme={theme}>
               <HtmlTooltip
@@ -242,8 +248,10 @@ export const GardenActions = () => {
                   </HtmlTooltip>
                   </ThemeProvider>
                   </Paper>
+                  </Box>
                   </Grid>
                   <Grid item xs={11}>
+                  <Box boxShadow={4}>
                   <Paper className={classes.paperBrown}>            
                     <ThemeProvider theme={theme}>
                     <HtmlTooltip
@@ -266,6 +274,7 @@ export const GardenActions = () => {
                         </HtmlTooltip>
                         </ThemeProvider>
                         </Paper>
+                        </Box>
                         </Grid>
                         {/*
                         <Grid item xs={11}>
