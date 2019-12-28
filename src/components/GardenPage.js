@@ -1,14 +1,9 @@
 import React, {useContext} from "react";
-import { Redirect } from 'react-router';
 import {StateContext} from "../App";
 import GardenActions from './GardenPage/GardenActions.js';
 import GrowJournal from './GardenPage/GrowJournal';
-import { Parallax, Background } from 'react-parallax';
+import { Parallax } from 'react-parallax';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper } from "@material-ui/core";
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-
  
 const useStyles = makeStyles(theme => ({
 root: {
@@ -46,8 +41,10 @@ export const GardenPage = () => {
   } else {
     return (
       <div className="card-blank-green-1">
+        <Parallax blur={1} bgImage={farmBackground} strength={500}>
         <GardenActions />
         <GrowJournal />
+        </Parallax>
     </div>
     );
   }

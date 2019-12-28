@@ -8,15 +8,12 @@ import { Redirect } from 'react-router';
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
 import Divider from '@material-ui/core/Divider';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Grid from '@material-ui/core/Grid';
@@ -24,7 +21,8 @@ import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
-import { GerminateIcon } from './Icons';
+import Box from '@material-ui/core/Box';
+import { Parallax } from 'react-parallax';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -86,6 +84,7 @@ export const MarketPlots = () => {
   const {username} = useContext(StateContext);
   const [delegation, setDelegation] = useState({used: 0, available: 0});
   const [landSupply, setLandSupply] = useState();
+  const leaseBackground = "https://i.imgur.com/j2CGYh2.jpg";
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -124,8 +123,11 @@ export const MarketPlots = () => {
     );
   } else {
   return (
+    <Parallax blur={1} bgImage={leaseBackground} strength={500}>
+      <br/>
     <Grid container spacing={3}>
       <Grid item xs={12}>
+      <Box boxShadow={4}>
         <Paper className={classes.paperBlack}>   
           <ThemeProvider theme={theme}>
             <Typography gutterBottom variant="h5" component="h1">
@@ -133,6 +135,7 @@ export const MarketPlots = () => {
             </Typography>
           </ThemeProvider>
         </Paper>
+        </Box>
       </Grid>
       <Grid item xs>
       <HtmlTooltip
@@ -147,6 +150,7 @@ export const MarketPlots = () => {
           placement="right"
           TransitionComponent={Zoom}
           >
+             <Box boxShadow={12}>
       <Card className={classes.card}>
             <CardMedia
               className={classes.media}
@@ -189,9 +193,11 @@ export const MarketPlots = () => {
           </CardContent>
           </Collapse>
         </Card>
+        </Box>
       </HtmlTooltip>
     </Grid>
     <Grid item xs alignItems="flex-end">
+    <Box boxShadow={4}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -225,8 +231,11 @@ export const MarketPlots = () => {
           {/*<BuySeed type="r" />*/}
         </CardContent>
       </Card>
+      </Box>
     </Grid>
     </Grid>
+    <br/>
+    </Parallax>
   );
 }
 };
