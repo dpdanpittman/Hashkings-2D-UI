@@ -11,12 +11,14 @@ import { Link as RouterLink } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
 import { BlogIcon, InformationIcon, SteemIcon, TwitchIcon } from './Icons';
-import { Parallax, Background } from 'react-parallax';
+import { Parallax } from 'react-parallax';
+import PostDialog from "./PostDialog";
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
     width: "auto",
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
+    borderColor: "#000000"
   },
   root: {
     flexGrow: 1,
@@ -77,6 +79,7 @@ if (!isDesktop) {
   return(
     <Parallax blur={1} bgImage={image1} strength={500}>
     <div className={classes.root}>
+      <PostDialog />
       <Container fixed>
       <Grid container spacing={3}>
         <Grid item xs={12}>
@@ -87,6 +90,7 @@ if (!isDesktop) {
       </Grid>
       <Grid item xs={3}>
       </Grid>
+      
       <Grid item xs={6}>
           <>
         <BottomNavigation

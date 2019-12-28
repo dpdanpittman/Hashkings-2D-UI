@@ -4,6 +4,7 @@ import GardenActions from './GardenPage/GardenActions.js';
 import GrowJournal from './GardenPage/GrowJournal';
 import { Parallax } from 'react-parallax';
 import { makeStyles } from '@material-ui/core/styles';
+import PostDialog from "./PostDialog";
  
 const useStyles = makeStyles(theme => ({
 root: {
@@ -41,6 +42,7 @@ export const GardenPage = () => {
   } else {
     return (
       <div className="card-blank-green-1">
+        <PostDialog />
         <Parallax blur={1} bgImage={farmBackground} strength={500}>
         <GardenActions />
         <GrowJournal />
