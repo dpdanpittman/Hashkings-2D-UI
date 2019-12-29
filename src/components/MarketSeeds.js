@@ -9,6 +9,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import { Redirect } from 'react-router';
+import { Parallax } from 'react-parallax';
+import Box from '@material-ui/core/Box';
 import {StateContext} from "../App";
 
 const useStyles = makeStyles(theme => ({
@@ -51,6 +53,7 @@ const useStyles = makeStyles(theme => ({
 
 export const MarketSeeds = () => {
   const {username} = useContext(StateContext);
+  const seedBackground = "https://i.imgur.com/Kio2LW4.jpg";
 
   const theme = createMuiTheme({
     palette: {
@@ -63,8 +66,10 @@ export const MarketSeeds = () => {
   if (username) {
   return(
     <Paper className={classes.paperBlacky}>
-    <Grid container spacing={3}>
+      <Parallax blur={1} bgImage={seedBackground} strength={500}>
+    <Grid container spacing={2}>
       <Grid item xs={12}>
+      <Box boxShadow={4}>
         <Paper className={classes.paperBlack}>   
           <ThemeProvider theme={theme}>
             <Typography gutterBottom variant="h5" component="h1">
@@ -72,8 +77,10 @@ export const MarketSeeds = () => {
             </Typography>
           </ThemeProvider>
         </Paper>
+        </Box>
       </Grid>
       <Grid item xs>
+      <Box boxShadow="auto">
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -94,8 +101,10 @@ export const MarketSeeds = () => {
             <BuySeed type="t" />
         </CardContent>
       </Card>
+      </Box>
     </Grid>
     <Grid item xs>
+    <Box boxShadow="auto">
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -115,8 +124,10 @@ export const MarketSeeds = () => {
           {/*<BuySeed type="m" />*/}
         </CardContent>
       </Card>
+      </Box>
     </Grid>
     <Grid item xs>
+    <Box boxShadow="auto">
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -137,8 +148,10 @@ export const MarketSeeds = () => {
           {/*<BuySeed type="r" />*/}
         </CardContent>
       </Card>
+      </Box>
     </Grid>
     </Grid>
+    </Parallax>
   </Paper>
   )
 } else {

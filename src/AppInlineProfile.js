@@ -137,7 +137,7 @@ export const AppInlineProfile = () => {
         onDelete={handleDelete}
         className={classes.font}
       />
-        </Tooltip>*/}
+        </Tooltip>*/} 
       <Tooltip title="Visit Bonfire.com" placement="bottom">
       <Chip
         label= "Hoodies!"

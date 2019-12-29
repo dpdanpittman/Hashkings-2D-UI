@@ -35,6 +35,7 @@ export const GardenPage = () => {
           <br/>
           <GardenActions />
           <GrowJournal />
+          <br/>
         </Parallax>
       </div>
       </div>
@@ -46,6 +47,7 @@ export const GardenPage = () => {
         <Parallax blur={1} bgImage={farmBackground} strength={500}>
         <GardenActions />
         <GrowJournal />
+        <br/>
         </Parallax>
     </div>
     );
