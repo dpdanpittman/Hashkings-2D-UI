@@ -120,7 +120,7 @@ export const AppInlineProfile = () => {
         />
       </HtmlTooltip>
 
-      <Tooltip title="Signed In" placement="bottom">
+      {/*<Tooltip title="Signed In" placement="bottom">
       <Chip
         icon={<Avatar className={classes.avatar}>
         {validatedTo && (
@@ -137,7 +137,7 @@ export const AppInlineProfile = () => {
         onDelete={handleDelete}
         className={classes.font}
       />
-      </Tooltip>
+        </Tooltip>*/}
       <Tooltip title="Visit Bonfire.com" placement="bottom">
       <Chip
         label= "Hoodies!"
