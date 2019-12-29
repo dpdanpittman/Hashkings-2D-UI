@@ -43,7 +43,6 @@ export const GardenPage = () => {
   } else {
     return (
       <div className="card-blank-green-1">
-        <PostDialog />
         <Parallax blur={1} bgImage={farmBackground} strength={500}>
         <GardenActions />
         <GrowJournal />
