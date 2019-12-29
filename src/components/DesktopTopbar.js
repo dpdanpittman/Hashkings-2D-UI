@@ -8,6 +8,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Zoom from '@material-ui/core/Zoom';
+import { ExchangeIcon } from './Icons';
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -50,6 +51,7 @@ export default function DesktopTopbar(){
     const Link4 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
     const Link5 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
     const Link6 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
+    const Link7 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
     return (
 <div className="layout-topbar clearfix">
@@ -143,6 +145,21 @@ export default function DesktopTopbar(){
               >
             <IconButton className="layout-menu-button" component={Link6} to="/tutorial">
             <TutorialIcon />
+            </IconButton>
+            </HtmlTooltip>
+            </Grid> 
+            <Grid item xs={1}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}>Asset Trade</Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+            <IconButton className="layout-menu-button" component={Link7} to="/gifting">
+            <ExchangeIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid> 
