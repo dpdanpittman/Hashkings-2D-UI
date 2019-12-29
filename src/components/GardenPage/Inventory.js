@@ -178,15 +178,15 @@ export default function Inventory({user}) {
     </Grid>
     <Grid item xs>
     <HtmlTooltip
-                  title={
-                    <React.Fragment>
-                      <Typography color="error" className={classes.font}><u>Available Seeds</u></Typography>
-                      <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
-                    </React.Fragment>
-                  }
-                  TransitionComponent={Zoom}
-                  >
-                    <Box boxShadow={12}>
+    title={
+    <React.Fragment>
+    <Typography color="error" className={classes.font}><u>Available Seeds</u></Typography>
+    <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
+    </React.Fragment>
+    }
+    TransitionComponent={Zoom}
+    >
+    <Box boxShadow={12}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -213,6 +213,32 @@ export default function Inventory({user}) {
                 {seed.count !== 1 ? "s" : ""}</font>
               </p>
             ))}
+        </CardContent>
+      </Card>
+      </Box>
+      </HtmlTooltip>
+    </Grid>
+    <Grid item xs>
+    <HtmlTooltip
+    title={
+    <React.Fragment>
+    <Typography color="error" className={classes.font}><u>Available Seeds</u></Typography>
+    <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
+    </React.Fragment>
+    }
+    TransitionComponent={Zoom}
+    >
+    <Box boxShadow={12}>
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          image="https://subcool.com/wp-content/uploads/2018/04/male-pollen-1024x585.jpg"
+        />
+        <CardContent className={classes.font}>
+          <Typography gutterBottom variant="h5" component="h2">
+          <font color="DFB17B" className={classes.font}>Available Pollen</font>
+          </Typography>
+          <hr/>
         </CardContent>
       </Card>
       </Box>
