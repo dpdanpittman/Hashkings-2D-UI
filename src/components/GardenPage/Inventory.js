@@ -222,8 +222,8 @@ export default function Inventory({user}) {
     <HtmlTooltip
     title={
     <React.Fragment>
-    <Typography color="error" className={classes.font}><u>Available Seeds</u></Typography>
-    <em><a href="/market/seedbank">{"Total number of available seeds you own"}</a></em> <b>{"Plant them on an extra plot or trade them above!"}</b>
+    <Typography color="error" className={classes.font}><u>Available Pollen</u></Typography>
+    <em><a href="/market/seedbank">{"Total amount of pollen you own"}</a></em> <b>{"Use Pollen to create hybrids!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
