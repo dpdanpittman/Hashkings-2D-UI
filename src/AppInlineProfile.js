@@ -8,6 +8,9 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { HashkingsAPI } from "./HashkingsAPI";
 import TutorialFab from "./components/TutorialFab.js"
+import BuildIcon from '@material-ui/icons/Build';
+import Typography from '@material-ui/core/Typography';
+import Zoom from '@material-ui/core/Zoom';
 
 const handleClick = () => {
   window.location = '/login';
@@ -20,7 +23,7 @@ const handleApparel = () => {
 
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
-    backgroundColor: '#f5f5f9',
+    backgroundColor: '#000000',
     color: 'rgba(0, 0, 0, 0.87)',
     maxWidth: 220,
     fontSize: theme.typography.pxToRem(12),
@@ -58,6 +61,25 @@ export const AppInlineProfile = () => {
   if (!username) {
     return (
       <div className="profile">
+        
+        <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}>Maintenance Mode<br/>Be back shortly, please check our twitter for updates</Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+      <Chip
+        icon={<BuildIcon />}
+        color="secondary"
+        label= "Maintenance Mode"
+        onClick={handleClick}
+        className={classes.font}
+      />
+      </HtmlTooltip>
+
         <Tooltip title="Please Sign In to Begin" placement="left">
       <Chip
         icon={<LockOpen />}
@@ -80,6 +102,24 @@ export const AppInlineProfile = () => {
   } else {
   return (
     <div className="profile">
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}>Maintenance Mode<br/>Be back shortly, please check our twitter for updates</Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+        <Chip
+          icon={<BuildIcon />}
+          color="secondary"
+          label= "Maintenance Mode"
+          onClick={handleClick}
+          className={classes.font}
+        />
+      </HtmlTooltip>
+
       <Tooltip title="Signed In" placement="bottom">
       <Chip
         icon={<Avatar className={classes.avatar}>
@@ -98,7 +138,6 @@ export const AppInlineProfile = () => {
         className={classes.font}
       />
       </Tooltip>
-      <TutorialFab />
       <Tooltip title="Visit Bonfire.com" placement="bottom">
       <Chip
         label= "Hoodies!"
