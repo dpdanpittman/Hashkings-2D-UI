@@ -61,7 +61,7 @@ const HtmlTooltip = withStyles(theme => ({
 
 const hashkingsApi = new HashkingsAPI();
 
-export default function GiftSeed({user}) {
+export default function GiftSeed() {
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [seed, setSeed] = useState();
