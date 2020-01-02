@@ -79,7 +79,6 @@ if (!isDesktop) {
   return(
     <Parallax blur={1} bgImage={image1} strength={500}>
     <div className={classes.root}>
-      <PostDialog />
       <Container fixed>
       <Grid container spacing={3}>
         <Grid item xs={12}>

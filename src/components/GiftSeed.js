@@ -16,6 +16,7 @@ import Zoom from '@material-ui/core/Zoom';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { Parallax } from 'react-parallax';
+import TradingFloor from "./TradingFloor";
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -60,7 +61,7 @@ const HtmlTooltip = withStyles(theme => ({
 
 const hashkingsApi = new HashkingsAPI();
 
-export default function GiftSeed() {
+export default function GiftSeed({user}) {
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [seed, setSeed] = useState();
@@ -127,13 +128,14 @@ export default function GiftSeed() {
 
   return (
     <Parallax blur={1} bgImage={seedBackground} strength={500}>
+      <TradingFloor />
     <>
       <Growl ref={growl} />
       <Grid container spacing={1}>
         <Grid item xs={3}>
         </Grid>
         <Grid item xs={6}>
-          <Paper className={classes.paper}>
+          <Paper className={classes.paperTransparent}>
           <HtmlTooltip
           title={
             <React.Fragment>

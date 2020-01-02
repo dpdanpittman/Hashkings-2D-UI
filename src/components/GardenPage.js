@@ -4,7 +4,6 @@ import GardenActions from './GardenPage/GardenActions.js';
 import GrowJournal from './GardenPage/GrowJournal';
 import { Parallax } from 'react-parallax';
 import { makeStyles } from '@material-ui/core/styles';
-import PostDialog from "./PostDialog";
  
 const useStyles = makeStyles(theme => ({
 root: {
@@ -20,7 +19,7 @@ paper: {
 },
 }));
 
-export const GardenPage = () => {
+export const GardenPage = (user) => {
   const {username} = useContext(StateContext);
   const classes = useStyles();
   const isDesktop = window.innerWidth < 1000;

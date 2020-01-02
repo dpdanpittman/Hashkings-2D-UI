@@ -62,7 +62,7 @@ export const AppInlineProfile = () => {
     return (
       <div className="profile">
         
-        <HtmlTooltip
+        {/*<HtmlTooltip
               title={
                 <React.Fragment>
                   <Typography color="error" className={classes.font}>Maintenance Mode<br/>Be back shortly, please check our twitter for updates</Typography>
@@ -78,7 +78,7 @@ export const AppInlineProfile = () => {
         onClick={handleClick}
         className={classes.font}
       />
-      </HtmlTooltip>
+      </HtmlTooltip>*/}
 
         <Tooltip title="Please Sign In to Begin" placement="left">
       <Chip
@@ -102,7 +102,7 @@ export const AppInlineProfile = () => {
   } else {
   return (
     <div className="profile">
-            <HtmlTooltip
+            {/*<HtmlTooltip
               title={
                 <React.Fragment>
                   <Typography color="error" className={classes.font}>Maintenance Mode<br/>Be back shortly, please check our twitter for updates</Typography>
@@ -118,9 +118,9 @@ export const AppInlineProfile = () => {
           onClick={handleClick}
           className={classes.font}
         />
-      </HtmlTooltip>
+      </HtmlTooltip>*/}
 
-      {/*<Tooltip title="Signed In" placement="bottom">
+      <Tooltip title="Signed In" placement="bottom">
       <Chip
         icon={<Avatar className={classes.avatar}>
         {validatedTo && (
@@ -137,7 +137,7 @@ export const AppInlineProfile = () => {
         onDelete={handleDelete}
         className={classes.font}
       />
-        </Tooltip>*/} 
+        </Tooltip> 
       <Tooltip title="Visit Bonfire.com" placement="bottom">
       <Chip
         label= "Hoodies!"
