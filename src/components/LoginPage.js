@@ -130,7 +130,7 @@ export const LoginPage = ({history}) => {
 
     return (
     <Grid container component="main" className={classes.root}>
-      {!isDesktop ? (
+      {/*{!isDesktop ? (
         <PostDialog />
       ) : ( 
         <div></div>
