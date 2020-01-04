@@ -343,7 +343,7 @@ class App extends Component {
             <Route path="/streams" component={TwitchStreams} />
             <Route path="/growers" component={BoardMemberApp} />  
             <Route path="/home" component={HomePage} />
-            <Route path="/market" component={GiftSeed} />
+            <Route path="/markets" component={GiftSeed} />
 
             <Route path="/seeds/afghani" component={Afghani} />
             <Route path="/seeds/colombian-gold" component={ColombianGold} />
