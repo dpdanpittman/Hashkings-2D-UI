@@ -46,12 +46,6 @@ export default function DesktopTopbar(){
     const classes = useStyles();
 
     const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-    const Link2 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-    const Link3 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-    const Link4 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-    const Link5 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-    const Link6 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-    const Link7 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
     return (
 <div className="layout-topbar clearfix">
@@ -83,7 +77,7 @@ export default function DesktopTopbar(){
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link2} to="/farm">
+            <IconButton className="layout-menu-button" component={Link1} to="/farm">
             <LandIcon />
             </IconButton>
             </HtmlTooltip>
@@ -92,13 +86,13 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Lease Farm Plots</Typography>
+                  <Typography color="error" className={classes.font}>Farm Plots</Typography>
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link3} to="/market/farmplots">
+            <IconButton className="layout-menu-button" component={Link1} to="/market/farmplots">
             <FarmTopbarIcon />
             </IconButton>
             </HtmlTooltip>
@@ -107,13 +101,13 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Seed Market</Typography>
+                  <Typography color="error" className={classes.font}>Starter Seeds</Typography>
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link4} to="/market/seedbank">
+            <IconButton className="layout-menu-button" component={Link1} to="/market/seedbank">
             <SeedIcon />
             </IconButton>
             </HtmlTooltip>
@@ -128,7 +122,7 @@ export default function DesktopTopbar(){
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link5} to="/trending">
+            <IconButton className="layout-menu-button" component={Link1} to="/trending">
             <BlogIcon />
             </IconButton>
             </HtmlTooltip>
@@ -143,26 +137,26 @@ export default function DesktopTopbar(){
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link6} to="/tutorial">
+            <IconButton className="layout-menu-button" component={Link1} to="/tutorial">
             <TutorialIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid> 
-            <Grid item xs={1}>
+            {/*<Grid item xs={1}>
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Asset Trade</Typography>
+                  <Typography color="error" className={classes.font}>Market</Typography>
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link7} to="/gifting">
+            <IconButton className="layout-menu-button" component={Link1} to="/market">
             <ExchangeIcon />
             </IconButton>
             </HtmlTooltip>
-            </Grid> 
+            </Grid> */}
             <Grid item xs={1}>
             <HtmlTooltip
               title={
@@ -173,7 +167,7 @@ export default function DesktopTopbar(){
               placement="top"
               TransitionComponent={Zoom}
               >
-            <IconButton className="layout-menu-button" component={Link6} to="/faq">
+            <IconButton className="layout-menu-button" component={Link1} to="/faq">
             <InformationIcon />
             </IconButton>
             </HtmlTooltip>

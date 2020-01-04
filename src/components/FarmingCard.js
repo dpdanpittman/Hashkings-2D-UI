@@ -26,7 +26,6 @@ const useStyles = makeStyles({
 // The use of React.forwardRef will no longer be required for react-router-dom v6.
 // See https://github.com/ReactTraining/react-router/issues/6056
 const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-const Link2 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
 export default function MediaCard() {
   const classes = useStyles();
@@ -53,7 +52,7 @@ export default function MediaCard() {
         <GerminateIconBlack /> 
       </IconButton>Farm
         </Link>
-        <Link component={Link2} to="/accounting">
+        <Link component={Link1} to="/accounting">
         <IconButton color="primary" aria-label="Visit Farm">
         <FarmIcon /> 
       </IconButton>Office

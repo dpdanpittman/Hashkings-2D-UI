@@ -13,6 +13,41 @@ import {ScrollPanel} from "primereact/components/scrollpanel/ScrollPanel";
 import {TwitchStreams} from './components/TwitchStreams.js';
 import { BoardMemberApp } from "./components/BoardMemberApp";
 import { HomePage } from "./components/HomePage";
+
+import { MazariSharif } from "./components/seeds/MazariSharif";
+import { PanamaRed } from "./components/seeds/PanamaRed";
+import { SwaziGold } from "./components/seeds/SwaziGold";
+import { ColombianGold } from "./components/seeds/ColombianGold";
+import { Malawi } from "./components/seeds/Malawi";
+import { Kilimanjaro } from "./components/seeds/Kilimanjaro";
+import { KingsBread } from "./components/seeds/KingsBread";
+import { AcapulcoGold } from "./components/seeds/AcapulcoGold";
+import { LambsBread } from "./components/seeds/LambsBread";
+import { HinduKush } from "./components/seeds/HinduKush";
+import { DurbanPoison } from "./components/seeds/DurbanPoison";
+import { ChocolateThai } from "./components/seeds/ChocolateThai";
+import { Thai } from "./components/seeds/Thai";
+import { Afghani } from "./components/seeds/Afghani";
+import { LashkarGah } from "./components/seeds/LashkarGah";
+import { Aceh } from "./components/seeds/Aceh";
+
+import { MazariSharifpollen } from "./components/pollen/MazariSharifpollen";
+import { PanamaRedpollen } from "./components/pollen/PanamaRedpollen";
+import { SwaziGoldpollen } from "./components/pollen/SwaziGoldpollen";
+import { ColombianGoldpollen } from "./components/pollen/ColombianGoldpollen";
+import { Malawipollen } from "./components/pollen/Malawipollen";
+import { Kilimanjaropollen } from "./components/pollen/Kilimanjaropollen";
+import { KingsBreadpollen } from "./components/pollen/KingsBreadpollen";
+import { AcapulcoGoldpollen } from "./components/pollen/AcapulcoGoldpollen";
+import { LambsBreadpollen } from "./components/pollen/LambsBreadpollen";
+import { HinduKushpollen } from "./components/pollen/HinduKushpollen";
+import { DurbanPoisonpollen } from "./components/pollen/DurbanPoisonpollen";
+import { ChocolateThaipollen } from "./components/pollen/ChocolateThaipollen";
+import { Thaipollen } from "./components/pollen/Thaipollen";
+import { Afghanipollen } from "./components/pollen/Afghanipollen";
+import { LashkarGahpollen } from "./components/pollen/LashkarGahpollen";
+import { Acehpollen } from "./components/pollen/Acehpollen";
+
 import GiftSeed from "./components/GiftSeed";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import "primereact/resources/themes/nova-light/theme.css";
@@ -156,16 +191,6 @@ class App extends Component {
           {
             label: "Seeds",
             to: "/market/seedbank"
-          },
-          {
-            label: "Gifting",
-            to: "/gifting"
-          },
-          {
-            label: "DEX",
-            command: () => {
-              window.open('https://steem-engine.com/?p=market&t=KFQ', '_blank');
-            }
           },
         ]
       },
@@ -318,7 +343,42 @@ class App extends Component {
             <Route path="/streams" component={TwitchStreams} />
             <Route path="/growers" component={BoardMemberApp} />  
             <Route path="/home" component={HomePage} />
-            <Route path="/gifting" component={GiftSeed} />
+            <Route path="/market" component={GiftSeed} />
+
+            <Route path="/seeds/afghani" component={Afghani} />
+            <Route path="/seeds/colombian-gold" component={ColombianGold} />
+            <Route path="/seeds/lashkar-gah" component={LashkarGah} />
+            <Route path="/seeds/chocolate-thai" component={ChocolateThai} />
+            <Route path="/seeds/thai" component={Thai} />
+            <Route path="/seeds/swazi-gold" component={SwaziGold} />
+            <Route path="/seeds/malawi" component={Malawi} />
+            <Route path="/seeds/kings-bread" component={KingsBread} />
+            <Route path="/seeds/kilimanjaro" component={Kilimanjaro} />
+            <Route path="/seeds/acapulco-gold" component={AcapulcoGold} />
+            <Route path="/seeds/durban-poison" component={DurbanPoison} />
+            <Route path="/seeds/lambs-bread" component={LambsBread} />
+            <Route path="/seeds/mazar-i-sharif" component={MazariSharif} />
+            <Route path="/seeds/hindu-kush" component={HinduKush} />
+            <Route path="/seeds/panama-red" component={PanamaRed} />
+            <Route path="/seeds/aceh" component={Aceh} />
+
+            <Route path="/pollen/colombian-gold" component={ColombianGoldpollen} />
+            <Route path="/pollen/lashkar-gah" component={LashkarGahpollen} />
+            <Route path="/pollen/chocolate-thai" component={ChocolateThaipollen} />
+            <Route path="/pollen/thai" component={Thaipollen} />
+            <Route path="/pollen/swazi-gold" component={SwaziGoldpollen} />
+            <Route path="/pollen/malawi" component={Malawipollen} />
+            <Route path="/pollen/kings-bread" component={KingsBreadpollen} />
+            <Route path="/pollen/kilimanjaro" component={Kilimanjaropollen} />
+            <Route path="/pollen/acapulco-gold" component={AcapulcoGoldpollen} />
+            <Route path="/pollen/durban-poison" component={DurbanPoisonpollen} />
+            <Route path="/pollen/lambs-bread" component={LambsBreadpollen} />
+            <Route path="/pollen/mazar-i-sharif" component={MazariSharifpollen} />
+            <Route path="/pollen/hindu-kush" component={HinduKushpollen} />
+            <Route path="/pollen/panama-red" component={PanamaRedpollen} />
+            <Route path="/pollen/aceh" component={Acehpollen} />
+            <Route path="/pollen/afghani" component={Afghanipollen} />
+            
           </div>
           <div className="layout-mask"></div>
         </div> 
