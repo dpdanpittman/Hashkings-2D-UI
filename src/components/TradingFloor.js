@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import PropTypes from 'prop-types';
+import {StateContext} from "../App";
+import { Redirect } from 'react-router';
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -93,6 +95,7 @@ const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...pr
 
 export default function TradingFloor() {
   const classes = useStyles();
+  const {username} = useContext(StateContext);
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const seedBackground = "https://allhdwallpapers.com/wp-content/uploads/2018/12/beautiful-weed-plants.jpeg";
@@ -105,6 +108,7 @@ export default function TradingFloor() {
     setValue(index);
   };
 
+  if (username) {
   return (
     <div className={classes.root}>
       <Parallax blur={1} bgImage={seedBackground} strength={1000}>
@@ -600,4 +604,9 @@ export default function TradingFloor() {
       </SwipeableViews>
     </div>
   );
+} else {
+  return (
+    <Redirect to='/login'/>
+    );
+  }
 }
