@@ -21,7 +21,7 @@ import {sign} from "steemconnect";
 import useSteemKeychain from "../../hooks/useSteemKeychain"; 
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
-import SeedGifting from './SeedGifting';
+import PollenGifting from './PollenGifting';
 import {seedTypes} from '../../service/HashkingsAPI';
 
 function TabPanel(props) {
@@ -86,7 +86,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const SwaziGold = () => {
+export const LambsBreadpollen = () => {
   const classes = useStyles();
   const image1 = "https://i.imgur.com/j2CGYh2.jpg";
   const theme = useTheme();
@@ -109,7 +109,7 @@ export const SwaziGold = () => {
     if (username) {
       setIsSubmitting(true);
 
-      const memo = `tseed swz`;
+      const memo = `tseed aca`;
       const to = "hashkings";
       const amount = seedTypes["t"].str;
       const currency = "STEEM";
@@ -172,7 +172,7 @@ export const SwaziGold = () => {
             <Grid container spacing={2}>
               <Grid item>
                 <ButtonBase className={classes.image}>
-                  <img className={classes.img} alt="Swazi Gold" src="https://i.imgur.com/WLgOk7w.png" />
+                  <img className={classes.img} alt="Acapulco Gold" src="https://i.imgur.com/iAgZUb9.png" />
                 </ButtonBase>
               </Grid>
               <Grid item xs={12} sm container>
@@ -180,7 +180,7 @@ export const SwaziGold = () => {
                   <Grid item xs>
                   <Typography gutterBottom variant="h5" component="h2">
                       <font color="#DFB17B"><b>
-                      Swazi Gold</b>
+                      Acapulco Gold</b>
                       </font>
                     </Typography>
                     <Typography variant="body2" gutterBottom>
@@ -255,7 +255,7 @@ export const SwaziGold = () => {
         <AcapulcoAvail />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <SeedGifting />
+          <PollenGifting />
         </TabPanel>
       </SwipeableViews>
     </div>
@@ -268,4 +268,4 @@ export const SwaziGold = () => {
     );
 };
 
-export default withRouter(SwaziGold);
+export default withRouter(LambsBreadpollen);

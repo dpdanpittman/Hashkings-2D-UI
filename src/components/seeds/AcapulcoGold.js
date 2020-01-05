@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import {withRouter} from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
@@ -15,6 +15,14 @@ import PropTypes from 'prop-types';
 import WelcomeCard from '../WelcomeCard';
 import SwipeableViews from 'react-swipeable-views';
 import AcapulcoAvail from '../AcapulcoAvail';
+import {Button} from "primereact/button";
+import {StateContext} from "../../App";
+import {sign} from "steemconnect";
+import useSteemKeychain from "../../hooks/useSteemKeychain"; 
+import CardContent from '@material-ui/core/CardContent';
+import Card from '@material-ui/core/Card';
+import SeedGifting from './SeedGifting';
+import {seedTypes} from '../../service/HashkingsAPI';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -54,8 +62,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     margin: 'auto',
     maxWidth: 500,
-    backgroundColor: "black",
-    color: '#550000',
+    backgroundColor: "transparent",
+    color: '#DFB17B',
   },
   image: {
     width: 128,
@@ -67,6 +75,15 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '100%',
     maxHeight: '100%',
   },
+  card: {
+    backgroundColor: "#154A4A",
+  },
+  media: {
+    height: 140,
+  },
+  background: {
+    backgroundColor: "#154A4A",
+  },
 }));
 
 export const AcapulcoGold = () => {
@@ -74,6 +91,10 @@ export const AcapulcoGold = () => {
   const image1 = "https://i.imgur.com/j2CGYh2.jpg";
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  const {username} = useContext(StateContext);
+  const [seed, setSeed] = useState();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const hasSteemKeychain = useSteemKeychain();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -82,6 +103,62 @@ export const AcapulcoGold = () => {
   const handleChangeIndex = index => {
     setValue(index);
   };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    if (username) {
+      setIsSubmitting(true);
+
+      const memo = `tseed aca`;
+      const to = "hashkings";
+      const amount = seedTypes["t"].str;
+      const currency = "STEEM";
+
+      if (hasSteemKeychain()) {
+        const steem_keychain = window.steem_keychain;
+        try {
+          await new Promise((resolve, reject) => {
+            return steem_keychain.requestTransfer(
+              username,
+              to,
+              amount,
+              memo,
+              currency,
+              response => {
+                if (response.success) {
+                  resolve(response);
+                } else {
+                  reject();
+                }
+              },
+              true
+            );
+          });
+          setIsSubmitting(false);
+          setSeed();
+        } catch {
+          setIsSubmitting(false);
+        }
+      } else {
+        window.location.href = sign(
+          "transfer",
+          {
+            to,
+            from: username,
+            amount: `${amount} ${currency}`,
+            memo
+          },
+          process.env.REACT_APP_URL
+            ? `${process.env.REACT_APP_URL}/market/seedbank`
+            : "http://localhost:3000/market/seedbank"
+        );
+      }
+    }
+  };
+
+  let buttonLabel = "Purchase";
+  if (isSubmitting) buttonLabel = "Purchasing";
+  if (!username) buttonLabel = "Please Sign in";
 
     return (
       <Parallax blur={1} bgImage={image1} strength={500}>
@@ -101,8 +178,8 @@ export const AcapulcoGold = () => {
               <Grid item xs={12} sm container>
                 <Grid item xs container direction="column" spacing={2}>
                   <Grid item xs>
-                    <Typography gutterBottom variant="subtitle1">
-                      <font color="#550000"><b>
+                  <Typography gutterBottom variant="h5" component="h2">
+                      <font color="#DFB17B"><b>
                       Acapulco Gold</b>
                       </font>
                     </Typography>
@@ -134,10 +211,11 @@ export const AcapulcoGold = () => {
           textColor="primary"
           variant="fullWidth"
           aria-label="full width tabs example"
+          className={classes.background}
         >
-          <Tab label="Your Seeds" {...a11yProps(0)} />
-          <Tab label="For Sale" {...a11yProps(1)} />
-          <Tab label="Info" {...a11yProps(2)} />
+          <Tab label="Official Seeds" {...a11yProps(0)} />
+          <Tab label="User Seeds" {...a11yProps(1)} />
+          <Tab label="Send Seeds" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -146,13 +224,38 @@ export const AcapulcoGold = () => {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          Item One
+        <Grid item xs>
+          <Card className={classes.card}>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+              <font color="DFB17B" className={classes.font}>Hashkings Official Genesis Seed</font>
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+              <font color="DFB17B" className={classes.font}>
+                This seed is part of the first round of seeds and extremely rare. 
+                It can be used to make beta seeds.
+              </font>
+              </Typography>
+              <br/>
+              <br/>
+              <Typography variant="body2" color="textSecondary" component="p">
+              <font color="DFB17B" className={classes.font}><b>Price: 3 STEEM</b></font>
+              </Typography>
+              <br/>
+              <Button
+              disabled={isSubmitting || !username}
+              label={buttonLabel}
+              onClick={handleSubmit}
+              />
+            </CardContent>
+          </Card>
+          </Grid>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
         <AcapulcoAvail />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
+          <SeedGifting />
         </TabPanel>
       </SwipeableViews>
     </div>

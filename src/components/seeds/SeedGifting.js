@@ -1,10 +1,20 @@
 import React, {useContext, useState, useRef, useEffect} from "react";
-import { HashkingsAPI } from "../service/HashkingsAPI";
-import {StateContext} from "../App";
+import {seedNames, HashkingsAPI} from "../../service/HashkingsAPI";
+import {StateContext} from "../../App";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
-import { Parallax } from 'react-parallax';
-import TradingFloor from "./TradingFloor";
+import Zoom from '@material-ui/core/Zoom';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import {InputText} from "primereact/inputtext";
+import {Growl} from "primereact/growl";
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {Button} from "primereact/button";
+import {Dropdown} from "primereact/dropdown";
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -49,7 +59,7 @@ const HtmlTooltip = withStyles(theme => ({
 
 const hashkingsApi = new HashkingsAPI();
 
-export default function GiftSeed() {
+export default function SeedGifting() {
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [seed, setSeed] = useState();
@@ -115,15 +125,10 @@ export default function GiftSeed() {
   if (!username) buttonLabel = "Please Login to gift seeds";
 
   return (
-    <Parallax blur={1} bgImage={seedBackground} strength={1000}>
-      <TradingFloor />
-      {/*
     <>
       <Growl ref={growl} />
       <Grid container spacing={1}>
-        <Grid item xs={3}>
-        </Grid>
-        <Grid item xs={6}>
+        <Grid item xs>
           <Paper className={classes.paperTransparent}>
           <HtmlTooltip
           title={
@@ -189,66 +194,8 @@ export default function GiftSeed() {
           </ExpansionPanel>
         </HtmlTooltip>
       </Paper>
-      <Paper className={classes.paper}>
-      <br/>
-      <HtmlTooltip
-      title={
-        <React.Fragment>
-        <em><a href="/market/seedbank">{"Do you have extra Polen?"}</a></em> <b>{"Click Gift Pollen to get started"}</b>
-        </React.Fragment>
-      }
-      placement="top"
-      TransitionComponent={Zoom}
-      >
-      <ExpansionPanel className={classes.background}>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography className={classes.heading}><font color="DFB17B">Send Pollen</font></Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-        <InputText
-          className="form-input"
-          value={to}
-          onChange={e => setTo(e.target.value.trim())}
-          placeholder="STEEM user to send to"
-        />
-        </ExpansionPanelDetails>
-        <ExpansionPanelDetails>
-        {validatedTo && (
-          <div>
-            <h2>{validatedTo}</h2>
-            <img
-              alt="avatar"
-              src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
-            />
-          </div>
-        )}
-        </ExpansionPanelDetails>
-        <ExpansionPanelDetails>
-          <Dropdown
-            className="form-input"
-            disabled={isSubmitting || !username}
-            optionLabel="name"
-            value={seed}
-            id="name"
-            placeholder="Choose Pollen..."
-          />
-        </ExpansionPanelDetails>
-        <ExpansionPanelDetails>
-          <Button
-            label="Coming Soon"
-          />
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
-    </HtmlTooltip>
-  </Paper>
 </Grid>
 </Grid>
 </>
-        */}
-</Parallax>
   );
 }

@@ -101,7 +101,7 @@ export const MarketSeeds = () => {
             <BuySeed type="t" />
         </CardContent>
       </Card>
-      </Box>
+      </Box> 
     </Grid>
     <Grid item xs>
     <Box boxShadow="auto">

@@ -97,7 +97,24 @@ export default function DesktopTopbar(){
             </IconButton>
             </HtmlTooltip>
             </Grid>
+
             <Grid item xs={1}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}>Market</Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+            <IconButton className="layout-menu-button" component={Link1} to="/markets">
+            <SeedIcon />
+            </IconButton>
+            </HtmlTooltip>
+            </Grid>
+
+            {/*<Grid item xs={1}>
             <HtmlTooltip
               title={
                 <React.Fragment>
@@ -111,7 +128,8 @@ export default function DesktopTopbar(){
             <SeedIcon />
             </IconButton>
             </HtmlTooltip>
-            </Grid> 
+            </Grid> */}
+
             <Grid item xs={1}>
             <HtmlTooltip
               title={
@@ -127,6 +145,7 @@ export default function DesktopTopbar(){
             </IconButton>
             </HtmlTooltip>
             </Grid> 
+
             <Grid item xs={1}>
             <HtmlTooltip
               title={
@@ -142,21 +161,7 @@ export default function DesktopTopbar(){
             </IconButton>
             </HtmlTooltip>
             </Grid> 
-            {/*<Grid item xs={1}>
-            <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>Market</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-            <IconButton className="layout-menu-button" component={Link1} to="/market">
-            <ExchangeIcon />
-            </IconButton>
-            </HtmlTooltip>
-            </Grid> */}
+            
             <Grid item xs={1}>
             <HtmlTooltip
               title={

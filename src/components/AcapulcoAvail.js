@@ -16,8 +16,6 @@ import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
 import ShopIcon from '@material-ui/icons/Shop';
 
 function createData(name, price) {
@@ -126,6 +124,7 @@ const useToolbarStyles = makeStyles(theme => ({
   root: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(10),
+    backgroundColor: "#154A4A",
   },
   highlight:
     theme.palette.type === 'light'
@@ -139,6 +138,7 @@ const useToolbarStyles = makeStyles(theme => ({
         },
   title: {
     flex: '1 1 100%',
+    color: "#DFB17B",
   },
 }));
 
@@ -158,7 +158,7 @@ const EnhancedTableToolbar = props => {
         </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle">
-          Seeds For Sale
+          Seeds For Sale - <font color="red">(Coming Soon)</font>
         </Typography>
       )}
 
@@ -182,13 +182,16 @@ EnhancedTableToolbar.propTypes = {
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
+    color: '#DFB17B',
   },
   paper: {
     width: '100%',
     marginBottom: theme.spacing(2),
+    color: '#DFB17B',
   },
   table: {
     minWidth: 350,
+    color: '#DFB17B',
   },
   visuallyHidden: {
     border: 0,
@@ -200,6 +203,10 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     top: 20,
     width: 1,
+  },
+  background: {
+    backgroundColor: "#154A4A",
+    color: '#DFB17B',
   },
 }));
 
@@ -264,11 +271,11 @@ export default function AcapulcoAvail() {
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
-  return (
+  return ( 
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer>
+        <EnhancedTableToolbar numSelected={selected.length} className={classes.background} />
+        <TableContainer className={classes.background}>
           <Table
             className={classes.table}
             aria-labelledby="tableTitle"
@@ -283,8 +290,9 @@ export default function AcapulcoAvail() {
               onSelectAllClick={handleSelectAllClick}
               onRequestSort={handleRequestSort}
               rowCount={rows.length}
+              className={classes.background}
             />
-            <TableBody>
+            <TableBody className={classes.background}>
               {stableSort(rows, getSorting(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
@@ -300,17 +308,19 @@ export default function AcapulcoAvail() {
                       tabIndex={-1}
                       key={row.name}
                       selected={isItemSelected}
+                      className={classes.background}
                     >
                       <TableCell padding="checkbox">
                         <Checkbox
+                          className={classes.background}
                           checked={isItemSelected}
                           inputProps={{ 'aria-labelledby': labelId }}
                         />
                       </TableCell>
-                      <TableCell component="th" id={labelId} scope="row" padding="none">
+                      <TableCell component="th" id={labelId} scope="row" padding="none" className={classes.background}>
                         {row.name}
                       </TableCell>
-                      <TableCell align="left">{row.price}</TableCell>
+                      <TableCell align="left" className={classes.background}>{row.price}</TableCell>
                     </TableRow>
                   );
                 })}
@@ -323,6 +333,7 @@ export default function AcapulcoAvail() {
           </Table>
         </TableContainer>
         <TablePagination
+          className={classes.background}
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
           count={rows.length}

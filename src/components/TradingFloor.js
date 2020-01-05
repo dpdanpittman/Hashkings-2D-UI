@@ -16,6 +16,8 @@ import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
+import { Parallax } from 'react-parallax';
+import WelcomeCard from "./WelcomeCard";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,8 +66,8 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     color: theme.palette.text.secondary,
     whiteSpace: 'wrap',
-    marginBottom: theme.spacing(3),
-    backgroundColor: "#154A4A",
+    marginBottom: theme.spacing(0),
+    backgroundColor: "transparent",
   },
   paperWhite: {
     padding: theme.spacing(1),
@@ -93,6 +95,7 @@ export default function TradingFloor() {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  const seedBackground = "https://allhdwallpapers.com/wp-content/uploads/2018/12/beautiful-weed-plants.jpeg";
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -104,6 +107,9 @@ export default function TradingFloor() {
 
   return (
     <div className={classes.root}>
+      <Parallax blur={1} bgImage={seedBackground} strength={1000}>
+      <WelcomeCard />
+      </Parallax>
       <AppBar position="static" color="#2597C0" className={classes.background}>
         <Tabs
           value={value}
@@ -152,7 +158,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/hindu-kush">
+        <Link component={Link1} to="/seeds/hindu-kush">
           Pollen
         </Link>
         </Button>
@@ -187,7 +193,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/lashkar-gah">
+        <Link component={Link1} to="/seeds/lashkar-gah">
           Pollen
         </Link>
         </Button>
@@ -220,7 +226,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/afghani">
+        <Link component={Link1} to="/seeds/afghani">
           Pollen
         </Link>
         </Button>
@@ -254,7 +260,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/mazar-i-sharif">
+        <Link component={Link1} to="/seeds/mazar-i-sharif">
           Pollen
         </Link>
         </Button>
@@ -287,7 +293,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/lambs-bread">
+        <Link component={Link1} to="/seeds/lambs-bread">
           Pollen
         </Link>
         </Button>
@@ -321,7 +327,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/durban-poison">
+        <Link component={Link1} to="/seeds/durban-poison">
           Pollen
         </Link>
         </Button>
@@ -355,7 +361,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/acapulco-gold">
+        <Link component={Link1} to="/seeds/acapulco-gold">
           Pollen
         </Link>
         </Button>
@@ -389,7 +395,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/kilimanjaro">
+        <Link component={Link1} to="/seeds/kilimanjaro">
           Pollen
         </Link>
         </Button>
@@ -423,7 +429,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/kings-bread">
+        <Link component={Link1} to="/seeds/kings-bread">
           Pollen
         </Link>
         </Button>
@@ -456,7 +462,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/malawi">
+        <Link component={Link1} to="/seeds/malawi">
           Pollen
         </Link>
         </Button>
@@ -490,7 +496,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/swazi-gold">
+        <Link component={Link1} to="/seeds/swazi-gold">
           Pollen
         </Link>
         </Button>
@@ -524,7 +530,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/chocolate-thai">
+        <Link component={Link1} to="/seeds/chocolate-thai">
           Pollen
         </Link>
         </Button>
@@ -558,7 +564,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/colombian-gold">
+        <Link component={Link1} to="/seeds/colombian-gold">
           Pollen
         </Link>
         </Button>
@@ -591,7 +597,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/aceh">
+        <Link component={Link1} to="/seeds/aceh">
           Pollen
         </Link>
         </Button>
@@ -626,7 +632,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/panama-red">
+        <Link component={Link1} to="/seeds/panama-red">
           Pollen
         </Link>
         </Button>
@@ -661,7 +667,7 @@ export default function TradingFloor() {
         </Link>
         </Button>
         <Button size="small" color="primary">
-        <Link component={Link1} to="/pollen/thai">
+        <Link component={Link1} to="/seeds/thai">
           Pollen
         </Link>
         </Button>
