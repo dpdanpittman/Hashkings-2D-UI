@@ -152,14 +152,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/hindu-kush">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/hindu-kush" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/hindu-kush">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -187,14 +182,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/lashkar-gah">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/lashkar-gah" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/lashkar-gah">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -220,14 +210,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/afghani">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/afghani" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/afghani">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -254,14 +239,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/mazar-i-sharif">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/mazar-i-sharif" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/mazar-i-sharif">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -287,14 +267,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/lambs-bread">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/lambs-bread" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/lambs-bread">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -321,14 +296,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/durban-poison">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/durban-poison" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/durban-poison">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -355,14 +325,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/acapulco-gold">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/acapulco-gold" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/acapulco-gold">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -389,14 +354,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/kilimanjaro">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/kilimanjaro" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/kilimanjaro">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -423,14 +383,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/kings-bread">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/kings-bread" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/kings-bread">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -456,14 +411,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/malawi">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/malawi" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/malawi">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -490,14 +440,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/swazi-gold">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/swazi-gold" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/swazi-gold">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -524,14 +469,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/chocolate-thai">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/chocolate-thai" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/chocolate-thai">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -558,14 +498,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/colombian-gold">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/colombian-gold" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/colombian-gold">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -591,14 +526,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/aceh">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/aceh" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/aceh">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -626,14 +556,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/panama-red">
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/panama-red" color="error">
           Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/panama-red">
-          Pollen
         </Link>
         </Button>
       </CardActions>
@@ -661,14 +586,9 @@ export default function TradingFloor() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary">
-      <Link component={Link1} to="/seeds/thai">
-          Seeds
-        </Link>
-        </Button>
-        <Button size="small" color="primary">
-        <Link component={Link1} to="/seeds/thai">
-          Pollen
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/thai" color="error">
+        Seeds
         </Link>
         </Button>
       </CardActions>
