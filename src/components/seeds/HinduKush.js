@@ -90,6 +90,10 @@ const useStyles = makeStyles(theme => ({
     fontFamily: '"Jua", sans-serif',
     color: '#DFB17B',
   },
+  fontDark: {
+    fontFamily: '"Jua", sans-serif',
+    color: '#5E659A',
+  },
 }));
 
 export const HinduKush = () => {
@@ -200,7 +204,7 @@ export const HinduKush = () => {
                   </Grid>
                 </Grid>
                 <Grid item>
-                  <Typography variant="subtitle1" className={classes.font}>Indica</Typography>
+                  <Typography variant="h5" className={classes.fontDark}>Indica</Typography>
                 </Grid>
               </Grid>
             </Grid>

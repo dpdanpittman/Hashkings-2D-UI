@@ -90,6 +90,10 @@ const useStyles = makeStyles(theme => ({
     fontFamily: '"Jua", sans-serif',
     color: '#DFB17B',
   },
+  fontDark: {
+    fontFamily: '"Jua", sans-serif',
+    color: '#040828',
+  },
 }));
 
 export const Afghani = () => {
@@ -200,7 +204,7 @@ export const Afghani = () => {
                   </Grid>
                 </Grid>
                 <Grid item>
-                  <Typography variant="subtitle1" className={classes.font}>Indica</Typography>
+                  <Typography variant="subtitle1" className={classes.fontDark}>Indica</Typography>
                 </Grid>
               </Grid>
             </Grid>

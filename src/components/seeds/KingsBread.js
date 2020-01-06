@@ -200,7 +200,7 @@ export const KingsBread = () => {
                   </Grid>
                 </Grid>
                 <Grid item>
-                  <Typography variant="subtitle1" className={classes.font}>Sativa</Typography>
+                  <Typography variant="h5" className={classes.font}>Sativa</Typography>
                 </Grid>
               </Grid>
             </Grid>
