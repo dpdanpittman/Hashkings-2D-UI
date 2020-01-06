@@ -168,7 +168,7 @@ export const MazariSharifpollen = () => {
       <br/><br/>
       <Grid container spacing={3}>
         <Grid item xs>
-          <Paper className={classes.paper}>
+          <Card className={classes.paper} raised={true}>
             <Grid container spacing={2}>
               <Grid item>
                 <ButtonBase className={classes.image}>
@@ -198,7 +198,7 @@ export const MazariSharifpollen = () => {
                 </Grid>
               </Grid>
             </Grid>
-          </Paper>
+          </Card>
         </Grid>
         <Grid item xs>
           <Paper className={classes.paper}>

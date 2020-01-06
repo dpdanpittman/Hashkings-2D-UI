@@ -225,7 +225,7 @@ export const AcapulcoGoldpollen = () => {
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
         <Grid item xs>
-          <Card className={classes.card}>
+          <Card className={classes.card} raised={true}>
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
               <font color="DFB17B" className={classes.font}>Hashkings Official Genesis Seed</font>

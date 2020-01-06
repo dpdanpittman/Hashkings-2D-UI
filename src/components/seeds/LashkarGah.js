@@ -168,7 +168,7 @@ export const LashkarGah = () => {
       <br/><br/>
       <Grid container spacing={3}>
         <Grid item xs>
-          <Paper className={classes.paper}>
+          <Card className={classes.paper} raised={true}>
             <Grid container spacing={2}>
               <Grid item>
                 <ButtonBase className={classes.image}>
@@ -198,7 +198,7 @@ export const LashkarGah = () => {
                 </Grid>
               </Grid>
             </Grid>
-          </Paper>
+          </Card>
         </Grid>
         <Grid item xs>
           <Paper className={classes.paper}>
@@ -225,7 +225,7 @@ export const LashkarGah = () => {
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
         <Grid item xs>
-          <Card className={classes.card}>
+          <Card className={classes.card} raised={true}>
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
               <font color="DFB17B" className={classes.font}>Hashkings Official Genesis Seed</font>

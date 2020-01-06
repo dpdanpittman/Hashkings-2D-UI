@@ -17,7 +17,7 @@ export default function InstructionsCardOne() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} raised={true}>
         <CardMedia
           className={classes.media}
           image="https://i.imgur.com/QOmvpg4.png"
