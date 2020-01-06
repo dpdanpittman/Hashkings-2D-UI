@@ -21,8 +21,9 @@ import {sign} from "steemconnect";
 import useSteemKeychain from "../../hooks/useSteemKeychain"; 
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
-import {seedTypes} from '../../service/HashkingsAPI';
 import SeedGifting from './SeedGifting';
+import {seedTypes} from '../../service/HashkingsAPI';
+import { DealIcon, StoreIcon, GiftIcon } from "../Icons";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,6 +65,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 500,
     backgroundColor: "transparent",
     color: '#DFB17B',
+    fontFamily: '"Jua", sans-serif',
   },
   image: {
     width: 128,
@@ -76,13 +78,17 @@ const useStyles = makeStyles(theme => ({
     maxHeight: '100%',
   },
   card: {
-    backgroundColor: "#154A4A",
+    backgroundColor: "#062B3D",
   },
   media: {
     height: 140,
   },
   background: {
     backgroundColor: "#154A4A",
+  },
+  font: {
+    fontFamily: '"Jua", sans-serif',
+    color: '#DFB17B',
   },
 }));
 
@@ -165,36 +171,36 @@ export const DurbanPoison = () => {
       <Container fixed>
       <div className={classes.root}>
       <WelcomeCard />
-      <br/><br/>
+      <br/><hr/><br/>
       <Grid container spacing={3}>
         <Grid item xs>
           <Card className={classes.paper} raised={true}>
             <Grid container spacing={2}>
               <Grid item>
                 <ButtonBase className={classes.image}>
-                  <img className={classes.img} alt="Druban Poison" src="https://i.imgur.com/4pIKcn5.png" />
+                  <img className={classes.img} alt="Durban Poison" src="https://i.imgur.com/4pIKcn5.png" />
                 </ButtonBase>
               </Grid>
               <Grid item xs={12} sm container>
                 <Grid item xs container direction="column" spacing={2}>
                   <Grid item xs>
-                  <Typography gutterBottom variant="h5" component="h2">
-                      <font color="#DFB17B"><b>
+                  <Typography gutterBottom variant="h4" component="h2" className={classes.font}>
+                      <font color="#8C3820"><b>
                       Durban Poison</b>
                       </font>
                     </Typography>
-                    <Typography variant="body2" gutterBottom>
+                    <Typography variant="body2" gutterBottom className={classes.font}>
                       Landrace Strain
                     </Typography>
-                    <Typography variant="body2">
-                      ID: 1030118
+                    <Typography variant="body2" className={classes.font}>
+                      ID: 1030114
                     </Typography>
                   </Grid>
                   <Grid item>
                   </Grid>
                 </Grid>
                 <Grid item>
-                  <Typography variant="subtitle1">Sativa</Typography>
+                  <Typography variant="subtitle1" className={classes.font}>Sativa</Typography>
                 </Grid>
               </Grid>
             </Grid>
@@ -203,19 +209,19 @@ export const DurbanPoison = () => {
         <Grid item xs>
           <Paper className={classes.paper}>
           <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar position="dynamic" color="default">
         <Tabs
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
-          textColor="primary"
+          textColor="error"
           variant="fullWidth"
-          aria-label="full width tabs example"
+          aria-label="Market Tabs"
           className={classes.background}
         >
-          <Tab label="Official Seeds" {...a11yProps(0)} />
-          <Tab label="User Seeds" {...a11yProps(1)} />
-          <Tab label="Send Seeds" {...a11yProps(2)} />
+          <Tab icon={<StoreIcon />} {...a11yProps(0)} className={classes.font} />
+          <Tab icon={<DealIcon />} {...a11yProps(1)} className={classes.font} disabled={true} />
+          <Tab icon={<GiftIcon />} {...a11yProps(2)} className={classes.font} />
         </Tabs>
       </AppBar>
       <SwipeableViews
