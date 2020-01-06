@@ -13,6 +13,7 @@ import { Redirect } from 'react-router';
 import { BlogIcon, InformationIcon, SteemIcon, TwitchIcon } from './Icons';
 import { Parallax } from 'react-parallax';
 import PostDialog from "./PostDialog";
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
@@ -80,6 +81,7 @@ if (!isDesktop) {
     <Parallax blur={1} bgImage={image1} strength={500}>
     <div className={classes.root}>
       <Container fixed>
+      <PostDialog />
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <WelcomeCard />
