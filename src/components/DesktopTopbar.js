@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import {AppInlineProfile} from "../AppInlineProfile";
 import { Link as RouterLink } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
-import { FarmTopbarIcon, BlogIcon, LandIcon, SeedIcon, InformationIcon, FarmIcon, TutorialIcon } from './Icons';
+import { FarmTopbarIcon, BlogIcon, CareIcon, StoreIcon, InformationIcon, FarmIcon, TutorialIcon, LandIcon } from './Icons';
 import Tooltip from '@material-ui/core/Tooltip';
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -78,7 +78,7 @@ export default function DesktopTopbar(){
               TransitionComponent={Zoom}
               >
             <IconButton className="layout-menu-button" component={Link1} to="/farm">
-            <LandIcon />
+            <CareIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid>
@@ -93,7 +93,7 @@ export default function DesktopTopbar(){
               TransitionComponent={Zoom}
               >
             <IconButton className="layout-menu-button" component={Link1} to="/market/farmplots">
-            <FarmTopbarIcon />
+            <LandIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid>
@@ -109,7 +109,7 @@ export default function DesktopTopbar(){
               TransitionComponent={Zoom}
               >
             <IconButton className="layout-menu-button" component={Link1} to="/markets">
-            <SeedIcon />
+            <StoreIcon />
             </IconButton>
             </HtmlTooltip>
             </Grid>

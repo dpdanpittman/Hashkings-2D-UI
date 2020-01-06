@@ -6,15 +6,11 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import {InputText} from "primereact/inputtext";
+import TextField from '@material-ui/core/TextField';
 import {Growl} from "primereact/growl";
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {Button} from "primereact/button";
 import {Dropdown} from "primereact/dropdown";
+import Card from '@material-ui/core/Card';
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -28,15 +24,22 @@ const useStyles = makeStyles(theme => ({
   },
   font: {
     fontFamily: '"Jua", sans-serif',
+    color: '#DFB17B',
   },
-    paper: {
-      padding: theme.spacing(1),
-      textAlign: 'left',
-      color: theme.palette.text.secondary,
-      whiteSpace: 'wrap',
-      marginBottom: theme.spacing(3),
-      backgroundColor: "Transparent",
-    },
+  card: {
+    backgroundColor: "#2E5B71",
+    height: 200,
+  },
+  paper: {
+    padding: theme.spacing(3),
+    marginBottom: theme.spacing(3),
+    margin: 'auto',
+    maxWidth: 500,
+    height: 200,
+    backgroundColor: "transparent",
+    color: '#DFB17B',
+    fontFamily: '"Jua", sans-serif',
+  },
     paperTransparent: {
       padding: theme.spacing(1),
       textAlign: 'left',
@@ -120,78 +123,82 @@ export default function SeedGifting() {
     }
   };
 
-  let buttonLabel = "Gift";
-  if (isSubmitting) buttonLabel = "Gifting";
-  if (!username) buttonLabel = "Please Login to gift seeds";
+  let buttonLabel = "Send";
+  if (isSubmitting) buttonLabel = "Sending";
+  if (!username) buttonLabel = "Please sign in to send seeds";
 
   return (
     <>
       <Growl ref={growl} />
       <Grid container spacing={1}>
         <Grid item xs>
-          <Paper className={classes.paperTransparent}>
+          <Paper className={classes.paper}>
           <HtmlTooltip
           title={
             <React.Fragment>
-            <em><a href="/market/seedbank">{"Do you have extra seeds?"}</a></em> <b>{"Click Gift Seeds to get started"}</b>
+            <em><a href="/market/seedbank">{"Do you have extra seeds?"}</a></em> <b>{"Enter the recipients username, choose the seed and click send"}</b>
             </React.Fragment>
           }
           placement="top"
           TransitionComponent={Zoom}
           >
-            <ExpansionPanel className={classes.background}>
-              <ExpansionPanelSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              >
-                <Typography className={classes.heading}><font color="DFB17B">Send Seeds</font></Typography>
-              </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <InputText
-                className="form-input"
-                value={to}
-                onChange={e => setTo(e.target.value.trim())}
-                placeholder="STEEM user to send to"
-              />
-            </ExpansionPanelDetails>
-            <ExpansionPanelDetails>
-            {validatedTo && (
-              <div>
-                <h2>{validatedTo}</h2>
-                <img
-                  alt="avatar"
-                  src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
+            <Card className={classes.card} raised={true}>
+            <Paper className={classes.paper}>
+            <form className={classes.root} noValidate autoComplete="off">
+            <Grid container spacing={1}>
+              <Grid item xs>
+                <TextField id="outlined-basic" 
+                  color="secondary"
+                  label="Enter Recipient" 
+                  variant="filled" 
+                  value={to}
+                  onChange={e => setTo(e.target.value.trim())}
+                  className={classes.font}
                 />
-              </div>
-            )}
-            </ExpansionPanelDetails>
-            <ExpansionPanelDetails>
-              <Dropdown
-                className="form-input"
-                disabled={isSubmitting || !username}
-                optionLabel="name"
-                value={seed}
-                id="name"
-                options={userSeeds.map(seed => ({
-                  ...seed,
-                  name: `${seedNames[seed.strain]} - ${seed.xp} XP`
-                }))}
-                style={{width: "100%"}}
-                onChange={e => {
-                  setSeed(e.value);
-                }}
-                placeholder="Choose a seed..."
-              />
-            </ExpansionPanelDetails>
-            <ExpansionPanelDetails>
-              <Button
-                disabled={isSubmitting || !username || !validatedTo | !seed}
-                label={buttonLabel}
-                onClick={handleSubmit}
-              />
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+                <br/>
+              </Grid>
+            </Grid>
+              <Grid container spacing={1}>
+                <Grid item xs>
+                  {validatedTo && (
+                    <div>
+                      <h2>{validatedTo}</h2>
+                      <img
+                        alt="avatar"
+                        src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
+                      />
+                    </div>
+                  )}
+                </Grid>
+              </Grid>
+              <Grid container spacing={1}>
+                <Grid item xs>
+                  <Dropdown
+                    className="form-input"
+                    disabled={isSubmitting || !username}
+                    optionLabel="name"
+                    value={seed}
+                    id="name"
+                    options={userSeeds.map(seed => ({
+                      ...seed,
+                      name: `${seedNames[seed.strain]} - ${seed.xp} XP`
+                    }))}
+                    style={{width: "100%", color: "#ffffff"}}
+                    onChange={e => {
+                      setSeed(e.value);
+                    }}
+                    placeholder="Choose a seed..."
+                  />
+                  <Button
+                    disabled={isSubmitting || !username || !validatedTo | !seed}
+                    label={buttonLabel}
+                    onClick={handleSubmit}
+                  />
+                </Grid>
+              </Grid>
+              </form>
+              </Paper>
+            </Card>
         </HtmlTooltip>
       </Paper>
 </Grid>
