@@ -204,7 +204,7 @@ export const LashkarGah = () => {
                   </Grid>
                 </Grid>
                 <Grid item>
-                  <Typography variant="subtitle1" className={classes.fontDark}>Indica</Typography>
+                  <Typography variant="h5" className={classes.fontDark}>Indica</Typography>
                 </Grid>
               </Grid>
             </Grid>
