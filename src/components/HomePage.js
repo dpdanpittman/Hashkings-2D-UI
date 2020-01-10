@@ -81,7 +81,6 @@ if (!isDesktop) {
     <Parallax blur={1} bgImage={image1} strength={500}>
     <div className={classes.root}>
       <Container fixed>
-      <PostDialog />
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <WelcomeCard />
