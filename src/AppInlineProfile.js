@@ -11,6 +11,9 @@ import TutorialFab from "./components/TutorialFab.js"
 import BuildIcon from '@material-ui/icons/Build';
 import Typography from '@material-ui/core/Typography';
 import Zoom from '@material-ui/core/Zoom';
+import api from './service/SteemConnectAPI';
+
+const access_token = localStorage.getItem("sc_token");
 
 const handleClick = () => {
   window.location = '/login';
@@ -57,6 +60,18 @@ export const AppInlineProfile = () => {
   const handleDelete = () => {
     alert('Need to sign out? Please clear your cache to sign out completely.');
   };
+
+
+  // Logout function, revoke access token
+const logOut = () => {
+  api.revokeToken(function(err, res) {
+      if (res && res.success) {
+          username = null;
+          document.location.href = '/login';
+      }
+  });
+  return false;
+};
 
   if (!username) {
     return (
@@ -134,7 +149,7 @@ export const AppInlineProfile = () => {
         </Avatar>}
         label= {username}
         color="primary"
-        onDelete={handleDelete}
+        onDelete={logOut}
         className={classes.font}
       />
         </Tooltip> 

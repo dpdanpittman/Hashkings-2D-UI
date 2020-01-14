@@ -48,7 +48,7 @@ export default function CustomizedDialogs() {
     src="https://www.youtube.com/embed/Tvc8WKlf3mc?autoplay=1" 
     frameborder="0"
     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
+    allowfullScreen>
     </iframe>
   </Grid>
         </DialogContent>

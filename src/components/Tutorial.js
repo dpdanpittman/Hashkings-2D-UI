@@ -12,6 +12,9 @@ import { PlantingTutorial } from './PlantingTutorial.js';
 import { WateringTutorial } from './WateringTutorial.js';
 import { TutorialWelcome } from './TutorialWelcome.js';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import { Parallax } from 'react-parallax';
+import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,7 +25,8 @@ const useStyles = makeStyles(theme => ({
   },
   instructions: {
     marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),   
+    marginBottom: theme.spacing(1),
+    fontFamily: '"Jua", sans-serif',   
   },
   paperBlack: {
     padding: theme.spacing(1),
@@ -30,10 +34,12 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#000000"
+    backgroundColor: "transparent",
+    fontFamily: '"Jua", sans-serif',
   },
   backgroundExtend: {
-    backgroundColor:"#154A4A"
+    backgroundColor:"#154A4A",
+    fontFamily: '"Jua", sans-serif',
   }
 }));
 
@@ -64,6 +70,7 @@ export default function Tutorial() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
+  const image4 = "https://i.imgur.com/j2CGYh2.jpg";
 
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
@@ -77,9 +84,15 @@ export default function Tutorial() {
     setActiveStep(0);
   };
 
+  const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
+
   return (
+    <Parallax blur={1} bgImage={image4} strength={500}>
     <div className={classes.root}>
-        <Paper className={classes.paperBlack}><font color="#DFB17B">
+      <Grid container spacing={1}>
+      <Grid item xs={1}></Grid>
+    <Grid item xs>
+      <Paper className={classes.paperBlack}><font color="#DFB17B">
       <Stepper activeStep={activeStep} alternativeLabel className={classes.backgroundExtend}>
         {steps.map(label => (
           <Step key={label}>
@@ -90,7 +103,7 @@ export default function Tutorial() {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}><font color="DFB17B">Great Job! now its time to <a href="/farm">Visit your Farm!</a></font></Typography>
+            <Typography className={classes.instructions}><font color="DFB17B">Great Job! now its time to Visit your Farm!</font></Typography>
             <Button onClick={handleReset}><font color="#ffffff">Reset</font></Button>
           </div>
         ) : (
@@ -114,6 +127,9 @@ export default function Tutorial() {
         )}
       </div>
       </Paper>
+      </Grid>
+      </Grid>
     </div>
+    </Parallax>
   );
 }

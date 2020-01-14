@@ -7,6 +7,7 @@ import {StateContext} from "../App";
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import WaterModal from "./WaterModal";
+import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -14,13 +15,17 @@ const useStyles = makeStyles(theme => ({
     gridTemplateColumns: 'repeat(12, 1fr)',
     gridGap: theme.spacing(3),
   },
+  font: {
+    fontFamily: '"Jua", sans-serif',
+  },
   paper: {
     padding: theme.spacing(1),
     textAlign: 'left',
     color: theme.palette.text.secondary,
     whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#294A0B",
+    backgroundColor: "#0C1243",
+    fontFamily: '"Jua", sans-serif'
   },
   paperBlue: {
     padding: theme.spacing(1),
@@ -34,9 +39,9 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
+    whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#154A4A"
+    backgroundColor: "#000000",
   },
   paperBlacky: {
     padding: theme.spacing(1),
@@ -65,30 +70,30 @@ export const TutorialWelcome = () => {
   const [headBlockNum] = useState(0);
 
   return(
-    <Paper className={classes.paperBlacky}>
+    <Container>
+    <Paper className={classes.paperBlack}>
     <Paper className={classes.paperBlue}>
     <Grid container spacing={1}>
     <Grid item xs={8}></Grid>
     <Grid item xs={8}>
       <Paper className={classes.paper}>
       <Typography paragraph>
-        <font color="DFB17B">Welcome to Hashkings!
-        </font>
+        <font color="DFB17B" className={classes.font}>HashKings® is a Crypto Cannabis Farming and Trading Game, 
+        Curation Trail and Community on the STEEM Blockchain. Users delegate Steem Power, 
+        purchase seeds and propagate plants for daily rewards.</font>
       </Typography>
       <Typography paragraph>
-        <font color="DFB17B">HashKings® is a Crypto Cannabis Farming and Trading Game, 
-        Curation Trail and Community on the STEEM Blockchain . Users delegate Steem Power, 
-        purchase seeds and propagate plants for daily rewards. Hashkings Farmers grow unique 
-        strains, each with their own traits, sell them or use them to continue playing for free! 
+        <font color="DFB17B" className={classes.font}>As a Hashkings Farmer you will grow unique 
+        strains, each with their own traits, sell them or use them to continue playing for free!</font>
+      </Typography>
+      <Typography paragraph>
+        <font color="DFB17B" className={classes.font}> 
         We have designed this game using customized STEEM tokens as our seeds and Steem-Engine tokens as 
         our in game currency (KFQ). A custom API powers Hashkings along with react.js and steem.js. 
         Start your journey to cannabis connoisseur today!</font>
       </Typography>
       <Typography paragraph>
-        <font color="DFB17B"><b>In this tutorial you will be guided through the basics of Hashkings ie. Delegating, Planting and Watering</b></font>
-      </Typography>
-      <Typography paragraph>
-        <font color="red">Click next when you are ready to begin!</font>
+        <font color="DFB17B" className={classes.font}><b>In this tutorial you will be guided through the basics of Hashkings ie. Delegating, Planting and Watering</b></font>
       </Typography>
       </Paper>    
   
@@ -112,5 +117,6 @@ export const TutorialWelcome = () => {
           headBlockNum={headBlockNum}
         />
   </Paper>
+  </Container>
   )
 };

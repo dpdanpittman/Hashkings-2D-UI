@@ -17,9 +17,13 @@ const useStyles = makeStyles({
     maxWidth: 345,
     minWidth: 250,
     background: "#DFB17B",
+    fontFamily: '"Jua", sans-serif',
   },
   media: {
     height: 140,
+  },
+  font: {
+    fontFamily: '"Jua", sans-serif',
   },
 });
 
@@ -39,10 +43,10 @@ export default function MediaCard() {
           title="South America Plot"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
             <u>Farming</u>
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
           Vist your Farm and check your inventory or visit your stats
           </Typography>
         </CardContent>

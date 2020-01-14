@@ -16,9 +16,13 @@ const useStyles = makeStyles({
     maxWidth: 345,
     background: "#DFB17B",
     minWidth:250,
+    fontFamily: '"Jua", sans-serif',
   },
   media: {
     height: 140,
+  },
+  font: {
+    fontFamily: '"Jua", sans-serif',
   },
 });
 
@@ -36,10 +40,10 @@ export default function MarketCard() {
           title="Market"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
             <u>Markets</u>
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
             Purchase Seeds or lease property to grow on.
           </Typography>
         </CardContent>
