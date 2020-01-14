@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
+  font : {
+    fontFamily: '"Jua", sans-serif',
+  },
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
@@ -133,7 +136,7 @@ export const MarketPlots = () => {
         <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="error"><u>Delegate for a plot</u></Typography>
+                      <Typography color="error" className={classes.font}><u>Delegate for a plot</u></Typography>
                       <em><a href="/market/seedbank">{"Get your farm plots here"}</a></em> <b>{"Each Plot requires a 20 STEEM Power delegation"}</b>
                     </React.Fragment>
                   }
@@ -148,7 +151,7 @@ export const MarketPlots = () => {
       title="Mexico"
     />
     <CardContent>
-      <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B">
+      <Typography variant="body2" color="textSecondary" component="p" className={classes.font}><font color="DFB17B">
       Plot Delegation</font>
       </Typography>
     </CardContent>
@@ -184,16 +187,16 @@ export const MarketPlots = () => {
   </Grid>
   <Grid item xs={8}>
       <Paper className={classes.paper}>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="DFB17B">Here is where you get yourself some land to grow on.  Each time you
         would like to get a plot you will need to delegate 20 STEEM Power.  Learn more about delegation <a href="https://steempeak.com/steemit/@katerinaramm/what-is-steem-power-delegation">here</a>
         </font>
       </Typography>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="DFB17B">Please expand the Delegation Card and choose the number of plots you would like click Delegate and verify the transaction.</font>
       </Typography>
       <Typography paragraph>
-        <font color="red">Click next when you are finished!</font>
+        <font color="red" className={classes.font}>Click next when you are finished!</font>
       </Typography>
       </Paper>    
   </Grid>

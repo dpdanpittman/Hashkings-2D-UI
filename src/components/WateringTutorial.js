@@ -45,6 +45,9 @@ export const WateringTutorial = () => {
     rootAgain: {
       width: '100%',
     },
+    font: {
+      fontFamily: '"Jua", sans-serif',
+    },
     iconHover: {
       '&:hover': {
         color: "red[800]",
@@ -220,7 +223,7 @@ export const WateringTutorial = () => {
                 <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="error"><u>Water</u></Typography>
+                      <Typography color="error" className={classes.font}><u>Water</u></Typography>
                       <em><a href="/market/seedbank">{"Your Plants might be thirsty!"}</a></em> <b>{"Give them some water."}</b>
                     </React.Fragment>
                   }
@@ -241,14 +244,14 @@ export const WateringTutorial = () => {
     <Grid item xs={8}>
       <Paper className={classes.paper}>
       <Typography paragraph>
-        <font color="DFB17B">Go ahead and water your plant now.  Click the button and follow the directions in the popup and verify the transaction.
+        <font color="DFB17B" className={classes.font}>Go ahead and water your plant now.  Click the button and follow the directions in the popup and verify the transaction.
         </font>
       </Typography>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="DFB17B">This step is very important.  Once you water your plant you will want to come back every 24 hours 
         for the next 8 weeks to receive your rewards.  Once the 8 weeks is up you can Harvest and start the process over!</font>
       </Typography>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="red">Click next when you are finished!</font>
       </Typography>
       </Paper>    

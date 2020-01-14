@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
   },
+  font: {
+    fontFamily: '"Jua", sans-serif',
+  },
   fab: {
     margin: theme.spacing(1),
   },
@@ -31,6 +34,7 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#294A0B",
+    fontFamily: '"Jua", sans-serif',
   },
   paperBlue: {
     padding: theme.spacing(1),
@@ -178,7 +182,7 @@ export const PlantingTutorial = () => {
                   <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="error"><u>Planting</u></Typography>
+                      <Typography color="error" className={classes.font}><u>Planting</u></Typography>
                       <em><a href="/market/seedbank">{"Did you get seeds?"}</a></em> <b>{"plant some Crops!"}</b>
                     </React.Fragment>
                   }
@@ -198,19 +202,19 @@ export const PlantingTutorial = () => {
     </Grid>
     <Grid item xs={8}>
       <Paper className={classes.paper}>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="DFB17B">The next step is to plant your seed on your plot of land. 
         </font>
       </Typography>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="DFB17B">When you click the button you will see a popup. Please follow the directions.</font>
       </Typography>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="DFB17B">Original first round of seeds, purchased in the Hashkings Seed Bank or bought from other players. 
         These limited edition seeds cannot be grown and are limited in number. We call 
         them the Genesis Seeds because they are the first ones and give life to the beta seeds after harvest.</font>
       </Typography>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="red">Click next when you are finished!</font>
       </Typography>
       </Paper>    

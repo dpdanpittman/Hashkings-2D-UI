@@ -158,8 +158,8 @@ export const MarketPlots = () => {
               title="Mexico"
             />
             <CardContent>
-              <Typography color="textSecondary" gutterBottom variant="h5" component="h2">
-                <font color="DFB17B" className={classes.font}>
+              <Typography color="textSecondary" gutterBottom variant="h5" component="h2" className={classes.font}>
+                <font color="DFB17B">
                 Plot Delegation
                 </font>
               </Typography>

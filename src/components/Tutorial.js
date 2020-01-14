@@ -40,6 +40,9 @@ const useStyles = makeStyles(theme => ({
   backgroundExtend: {
     backgroundColor:"#154A4A",
     fontFamily: '"Jua", sans-serif',
+  },
+  font : {
+    fontFamily: '"Jua", sans-serif',
   }
 }));
 
@@ -117,9 +120,9 @@ export default function Tutorial() {
                 onClick={handleBack}
                 className={classes.backButton}
               >
-                <font color="#ffffff">Back</font>
+                <font color="#ffffff" className={classes.font}>Back</font>
               </Button>
-              <Button variant="contained" color="secondary" onClick={handleNext}>
+              <Button variant="contained" color="secondary" onClick={handleNext} className={classes.font}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
             </div>

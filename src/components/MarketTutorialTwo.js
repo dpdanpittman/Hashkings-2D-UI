@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
+  font : {
+    fontFamily: '"Jua", sans-serif',
+  },
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
@@ -131,14 +134,14 @@ export const MarketPlotsTwo = () => {
       <Grid container spacing={1}>
       <Grid item xs={8}>
       <Paper className={classes.paper}>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="DFB17B">In order to start growing on your plot you will need to a pay a one time leasing fee of 0.5 STEEM.
         </font>
       </Typography>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="DFB17B">The leasing fee pays for development of Hashkings and ensures the continued success of this project.</font>
       </Typography>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="red">Click next when you are finished!</font>
       </Typography>
       </Paper>    
@@ -148,7 +151,7 @@ export const MarketPlotsTwo = () => {
   <HtmlTooltip
                   title={
                     <React.Fragment>
-                      <Typography color="error"><u>Leasing</u></Typography>
+                      <Typography color="error" className={classes.font}><u>Leasing</u></Typography>
                       <em><a href="/market/seedbank">{"Claim your leased plots for 0.5 STEEM each."}</a></em><b>{" In order to claim your plots we require a small fee. Pay with STEEM below"}</b>
                     </React.Fragment>
                   }
@@ -163,7 +166,7 @@ export const MarketPlotsTwo = () => {
       title="Afghanistan"
     />
     <CardContent>
-    <Typography variant="body2" color="textSecondary" component="p"><font color="DFB17B">
+    <Typography variant="body2" color="textSecondary" component="p" className={classes.font}><font color="DFB17B">
         Leasing</font>
       </Typography>
     </CardContent>
@@ -186,7 +189,7 @@ export const MarketPlotsTwo = () => {
       <CardContent>
       <Divider variant="middle" />
       <br/>
-        <Typography paragraph><font color="DFB17B">Lease Plots:</font></Typography>
+        <Typography paragraph className={classes.font}><font color="DFB17B">Lease Plots:</font></Typography>
             {delegation.available > 0 && (
               <BuyGarden
                 username={username}

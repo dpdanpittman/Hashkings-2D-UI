@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1),
     backgroundColor: "#294A0B",
   },
+  font : {
+    fontFamily: '"Jua", sans-serif',
+  },
   paperBlue: {
     padding: theme.spacing(1),
     textAlign: 'left',
@@ -60,14 +63,14 @@ export const MarketSeeds = () => {
           image="https://i.imgur.com/vAUGcFV.png"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
           <font color="DFB17B">Genesis Seeds</font>
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
           <font color="DFB17B">These seeds are the first round of seeds, are extremely rare and are used to make beta seeds.</font>
           </Typography>
           <br/>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
           <font color="DFB17B"><b>Price: 3 STEEM</b></font>
           </Typography>
               <label htmlFor="multiselect" />
@@ -77,22 +80,22 @@ export const MarketSeeds = () => {
     </Grid>
     <Grid item xs={8}>
       <Paper className={classes.paper}>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="DFB17B">Hashkings Seeds are the main driving force behind the game. 
         </font>
       </Typography>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="DFB17B">With these seeds it is possible to grow plants, 
         create new seeds and earn STEEM. Unlike our in-game currency Kief(KFQ), 
         seeds are custom designed tokens by @disregardfiat and only available within our ecosystem, 
         NOT tradable on Steem-Engine.</font>
       </Typography>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="DFB17B">Original first round of seeds, purchased in the Hashkings Seed Bank or bought from other players. 
         These limited edition seeds cannot be grown and are limited in number. We call 
         them the Genesis Seeds because they are the first ones and give life to the beta seeds after harvest.</font>
       </Typography>
-      <Typography paragraph>
+      <Typography paragraph className={classes.font}>
         <font color="red">Click next when you are finished!</font>
       </Typography>
       </Paper>    

@@ -87,9 +87,7 @@ export const TutorialWelcome = () => {
         strains, each with their own traits, sell them or use them to continue playing for free!</font>
       </Typography>
       <Typography paragraph>
-        <font color="DFB17B" className={classes.font}> 
-        We have designed this game using customized STEEM tokens as our seeds and Steem-Engine tokens as 
-        our in game currency (KFQ). A custom API powers Hashkings along with react.js and steem.js. 
+        <font color="DFB17B" className={classes.font}>A custom API powers Hashkings along with react.js and steem.js. 
         Start your journey to cannabis connoisseur today!</font>
       </Typography>
       <Typography paragraph>
