@@ -174,7 +174,7 @@ export const GardenActions = () => {
         <div className={classes.flex}>
           <StyleRoot>
           <div style={styles.slideInLeft2}>
-          <Grid container spacing={12}>
+          <Grid container spacing={1}>
           <Grid item xs={4}>
             <Grid item xs={11}>
             <Box boxShadow={4}>
@@ -276,13 +276,6 @@ export const GardenActions = () => {
                         </Paper>
                         </Box>
                         </Grid>
-                        {/*
-                        <Grid item xs={11}>
-                        <ThemeProvider theme={theme}>
-                        <img src="https://media.giphy.com/media/GXHR881M1wZ32/giphy.gif" class="rounded" />
-                        </ThemeProvider>
-                        </Grid>
-                        */}
                       </Grid>
                         <Grid item xs={8}>
                           <Inventory user={user} />

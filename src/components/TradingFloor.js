@@ -83,6 +83,9 @@ const useStyles = makeStyles(theme => ({
     height: 140,
     maxWidth: 120,
   },
+  magicalMedia: {
+    height: 370,
+  },
   card: {
     maxWidth: "auto",
     backgroundColor: "#154A4A",
@@ -121,17 +124,14 @@ export default function TradingFloor() {
           indicatorColor="primary"
           textColor="primary"
           variant="scrollable"
-          aria-label="full width tabs example"
+          aria-label="full width tabs"
         >
           <Tab className={classes.font} label="Hashkings Signature Strains" {...a11yProps(0)} />
           <Tab className={classes.font} label="Hybrid Strains" {...a11yProps(1)} disabled />
+          <Tab className={classes.font} label="Plots of Land" {...a11yProps(2)} disabled />
+          <Tab className={classes.font} label="Services" {...a11yProps(3)} />
         </Tabs>
       </AppBar>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
         <TabPanel value={value} index={0} dir={theme.direction}>
         <div className={classes.root}>
       <Grid container spacing={3}>
@@ -601,7 +601,81 @@ export default function TradingFloor() {
         </Grid>
     </div>
         </TabPanel>
-      </SwipeableViews>
+
+        <TabPanel value={value} index={2} dir={theme.direction}>
+        <div className={classes.root}>
+        <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="https://i.imgur.com/vj68ESn.png"
+          title="Hindu Kush"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
+          Hindu Kush
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
+          Hindu Kush is a pure indica strain named after the mountain range stretching 500 miles 
+          between Pakistan and Afghanistan where it originated. The harsh climate of its homeland has 
+          conditioned this strain to express a thick, protective coat of crystal trichomes 
+          cherished by hash makers worldwide. 
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/hindu-kush" color="error">
+          Seeds
+        </Link>
+        </Button>
+      </CardActions>
+    </Card>
+        </div>
+        </TabPanel>
+
+        <TabPanel value={value} index={3} dir={theme.direction}>
+        <div className={classes.root}>
+        <Card className={classes.card}>
+      <CardActionArea to="https://ecoinstats.net">
+        <CardMedia
+          className={classes.magicalMedia}
+          image="https://i.imgur.com/VZdLKOj.png"
+          title="Automagical Services"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h4" component="h2" className={classes.font}>
+          Automatic Watering (Irrigation)
+          </Typography>
+          <Typography variant="body3" color="textSecondary" component="p" className={classes.font}>
+          Brought to you by ecoinstant.net
+          </Typography>
+          <br/>
+          <Typography variant="body1" color="textSecondary" component="p" className={classes.font}>
+          If you are going on vacation or don't have time to water your plants regularly, check out 
+          the automatic watering system developed by Automagical Services.
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
+          For more information please visit their latest blog post at <b><a href="https://steempeak.com/hashkings/@ecoinstant/automated-operation-episode-2-watering-your-hashkings-plots">Steampeak.com 
+            </a></b>
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      <Button size="large" color="error">
+      <a href="https://ecoinstats.net" target="_blank" rel="noreferrer">
+          Get Started
+        </a>
+        </Button>
+        <Button size="large" color="error">
+      <a href="https://steempeak.com/hashkings/@ecoinstant/automated-operation-episode-2-watering-your-hashkings-plots" target="_blank" rel="noreferrer">
+          Learn More
+        </a>
+        </Button>
+      </CardActions>
+    </Card>
+        </div>
+        </TabPanel>
     </div>
   );
 } else {
