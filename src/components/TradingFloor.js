@@ -20,6 +20,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 import { Parallax } from 'react-parallax';
 import WelcomeCard from "./WelcomeCard";
+import { MarketPlots } from "./MarketPlots";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -128,7 +129,7 @@ export default function TradingFloor() {
         >
           <Tab className={classes.font} label="Hashkings Signature Strains" {...a11yProps(0)} />
           <Tab className={classes.font} label="Hybrid Strains" {...a11yProps(1)} disabled />
-          <Tab className={classes.font} label="Plots of Land" {...a11yProps(2)} disabled />
+          <Tab className={classes.font} label="Plots of Land" {...a11yProps(2)} />
           <Tab className={classes.font} label="Services" {...a11yProps(3)} />
         </Tabs>
       </AppBar>
@@ -604,40 +605,14 @@ export default function TradingFloor() {
 
         <TabPanel value={value} index={2} dir={theme.direction}>
         <div className={classes.root}>
-        <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="https://i.imgur.com/vj68ESn.png"
-          title="Hindu Kush"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
-          Hindu Kush
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
-          Hindu Kush is a pure indica strain named after the mountain range stretching 500 miles 
-          between Pakistan and Afghanistan where it originated. The harsh climate of its homeland has 
-          conditioned this strain to express a thick, protective coat of crystal trichomes 
-          cherished by hash makers worldwide. 
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-      <Button size="large" color="error">
-      <Link component={Link1} to="/seeds/hindu-kush" color="error">
-          Seeds
-        </Link>
-        </Button>
-      </CardActions>
-    </Card>
+        <MarketPlots />
         </div>
         </TabPanel>
 
         <TabPanel value={value} index={3} dir={theme.direction}>
         <div className={classes.root}>
         <Card className={classes.card}>
-      <CardActionArea to="https://ecoinstats.net">
+      <CardActionArea disabled>
         <CardMedia
           className={classes.magicalMedia}
           image="https://i.imgur.com/VZdLKOj.png"

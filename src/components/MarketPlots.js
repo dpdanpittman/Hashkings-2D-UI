@@ -123,20 +123,9 @@ export const MarketPlots = () => {
     );
   } else {
   return (
-    <Parallax blur={1} bgImage={leaseBackground} strength={500}>
+    <div>
       <br/>
     <Grid container spacing={3}>
-      <Grid item xs={12}>
-      <Box boxShadow={4}>
-        <Paper className={classes.paperBlack}>   
-          <ThemeProvider theme={theme}>
-            <Typography gutterBottom variant="h5" component="h1">
-              <b><font color="#DFB17B" className={classes.font}><u>Leasing Office</u></font></b>
-            </Typography>
-          </ThemeProvider>
-        </Paper>
-        </Box>
-      </Grid>
       <Grid item xs>
       <HtmlTooltip
           title={
@@ -235,7 +224,7 @@ export const MarketPlots = () => {
     </Grid>
     </Grid>
     <br/>
-    </Parallax>
+    </div>
   );
 }
 };

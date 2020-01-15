@@ -82,21 +82,6 @@ export default function DesktopTopbar(){
             </IconButton>
             </HtmlTooltip>
             </Grid>
-            <Grid item xs={1}>
-            <HtmlTooltip
-              title={
-                <React.Fragment>
-                  <Typography color="error" className={classes.font}>Lease Farm Plots</Typography>
-                </React.Fragment>
-              }
-              placement="top"
-              TransitionComponent={Zoom}
-              >
-            <IconButton className="layout-menu-button" component={Link1} to="/market/farmplots">
-            <LandIcon />
-            </IconButton>
-            </HtmlTooltip>
-            </Grid>
 
             <Grid item xs={1}>
             <HtmlTooltip
