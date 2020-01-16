@@ -106,8 +106,8 @@ export default function Tutorial() {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}><font color="DFB17B">Great Job! now its time to Visit your Farm!</font></Typography>
-            <Button onClick={handleReset}><font color="#ffffff">Reset</font></Button>
+            <Typography className={classes.instructions}><font color="DFB17B">Great Job!</font></Typography>
+            <Button component={Link1} to="/home"><font color="#ffffff">Begin</font></Button>
           </div>
         ) : (
           <div>

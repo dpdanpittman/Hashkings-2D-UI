@@ -12,8 +12,6 @@ import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
 import { BlogIcon, InformationIcon, SteemIcon, TwitchIcon } from './Icons';
 import { Parallax } from 'react-parallax';
-import PostDialog from "./PostDialog";
-import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
@@ -68,7 +66,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-const Link2 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
 export const HomePage = () => {
 const classes = useStyles();
@@ -103,7 +100,7 @@ if (!isDesktop) {
         >
           <BottomNavigationAction label="Curation Trail" icon={<SteemIcon />} component={Link1} to="/trending" />
           <BottomNavigationAction />
-          <BottomNavigationAction label="Streams" icon={<TwitchIcon />} component={Link2} to="/streams" />
+          <BottomNavigationAction label="Streams" icon={<TwitchIcon />} component={Link1} to="/streams" />
         </BottomNavigation>
         </>
       </Grid>
@@ -136,7 +133,7 @@ if (!isDesktop) {
         >
           <BottomNavigationAction label="Trending" icon={<BlogIcon />} component={Link1} to="/trending" />
           <BottomNavigationAction />
-          <BottomNavigationAction label="About" icon={<InformationIcon />} component={Link2} to="/faq" />
+          <BottomNavigationAction label="About" icon={<InformationIcon />} component={Link1} to="/faq" />
         </BottomNavigation>
         </>
      

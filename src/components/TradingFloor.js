@@ -21,6 +21,7 @@ import Link from '@material-ui/core/Link';
 import { Parallax } from 'react-parallax';
 import WelcomeCard from "./WelcomeCard";
 import { MarketPlots } from "./MarketPlots";
+import Divider from '@material-ui/core/Divider';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -59,10 +60,17 @@ const useStyles = makeStyles(theme => ({
   },
   font: {
     fontFamily: '"Jua", sans-serif',
+    color: "#DFB17B"
+  },
+  fontDark: {
+    fontFamily: '"Jua", sans-serif',
     color: "#000000"
   },
   background: {
     backgroundColor: "#DFB17B",
+  },
+  divider: {
+    color: "#000000",
   },
   paper: {
     padding: theme.spacing(1),
@@ -91,6 +99,10 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "auto",
     backgroundColor: "#154A4A",
   },
+  cardDark: {
+    maxWidth: "auto",
+    backgroundColor: "#191A1C",
+  },
 }));
 
 // The use of React.forwardRef will no longer be required for react-router-dom v6.
@@ -115,9 +127,8 @@ export default function TradingFloor() {
   if (username) {
   return (
     <div className={classes.root}>
-      <Parallax blur={1} bgImage={seedBackground} strength={1000}>
       <WelcomeCard />
-      </Parallax>
+     
       <AppBar position="static" color="#2597C0" className={classes.background}>
         <Tabs
           value={value}
@@ -127,10 +138,10 @@ export default function TradingFloor() {
           variant="scrollable"
           aria-label="full width tabs"
         >
-          <Tab className={classes.font} label="Hashkings Signature Strains" {...a11yProps(0)} />
-          <Tab className={classes.font} label="Hybrid Strains" {...a11yProps(1)} disabled />
-          <Tab className={classes.font} label="Plots of Land" {...a11yProps(2)} />
-          <Tab className={classes.font} label="Services" {...a11yProps(3)} />
+          <Tab className={classes.fontDark} label="Hashkings Signature Strains" {...a11yProps(0)} />
+          <Tab className={classes.fontDark} label="Hybrid Strains" {...a11yProps(1)} disabled />
+          <Tab className={classes.fontDark} label="Farm Plots" {...a11yProps(2)} />
+          <Tab className={classes.fontDark} label="Services" {...a11yProps(3)} />
         </Tabs>
       </AppBar>
         <TabPanel value={value} index={0} dir={theme.direction}>
@@ -611,7 +622,7 @@ export default function TradingFloor() {
 
         <TabPanel value={value} index={3} dir={theme.direction}>
         <div className={classes.root}>
-        <Card className={classes.card}>
+        <Card className={classes.cardDark}>
       <CardActionArea disabled>
         <CardMedia
           className={classes.magicalMedia}
@@ -619,6 +630,8 @@ export default function TradingFloor() {
           title="Automagical Services"
         />
         <CardContent>
+          <hr/>
+          <br/>
           <Typography gutterBottom variant="h4" component="h2" className={classes.font}>
           Automatic Watering (Irrigation)
           </Typography>

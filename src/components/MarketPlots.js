@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#000000",
   },
   card: {
-    maxWidth: 600,
+    maxWidth:'auto',
     backgroundColor: "#154A4A",
   },
   media: {
@@ -125,7 +125,7 @@ export const MarketPlots = () => {
   return (
     <div>
       <br/>
-    <Grid container spacing={3}>
+    <Grid container spacing={1}>
       <Grid item xs>
       <HtmlTooltip
           title={
@@ -136,7 +136,7 @@ export const MarketPlots = () => {
               <em><a href="/market/seedbank">{"Get your farm plots here"}</a></em> <b>{"Each Plot requires a 20 STEEM Power delegation"}</b>
             </React.Fragment>
           }
-          placement="right"
+          placement="top"
           TransitionComponent={Zoom}
           >
              <Box boxShadow={12}>
@@ -185,6 +185,10 @@ export const MarketPlots = () => {
         </Box>
       </HtmlTooltip>
     </Grid>
+    </Grid>
+
+    <br/>
+
     <Grid item xs alignItems="flex-end">
     <Box boxShadow={4}>
       <Card className={classes.card}>
@@ -221,7 +225,6 @@ export const MarketPlots = () => {
         </CardContent>
       </Card>
       </Box>
-    </Grid>
     </Grid>
     <br/>
     </div>
