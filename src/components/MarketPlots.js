@@ -131,9 +131,9 @@ export const MarketPlots = () => {
           title={
             <React.Fragment>
             <Typography color="error">
-              <u>Delegate for a plot</u>
+              <u>Plot Credits</u>
             </Typography>
-              <em><a href="/market/seedbank">{"Get your farm plots here"}</a></em> <b>{"Each Plot requires a 20 STEEM Power delegation"}</b>
+              <em><a href="/market/seedbank">{"Use your plot credits to gain access to farm plots"}</a></em> <b>{"1 Plot Credit = 20 STEEM Power delegation"}</b>
             </React.Fragment>
           }
           placement="top"
@@ -149,11 +149,13 @@ export const MarketPlots = () => {
             <CardContent>
               <Typography color="textSecondary" gutterBottom variant="h5" component="h2" className={classes.font}>
                 <font color="DFB17B">
-                Plot Delegation
+                Delegate for Plot Credits
                 </font>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-              <font color="DFB17B" className={classes.font}>Delegate 20 STEEM Power per Plot Credit below!</font>
+              <font color="DFB17B" className={classes.font}>To grow plants you will need to have plot credits. Each plot credit
+              allows you to choose a plot below. You can see the number of plot credits you own and how many have been used. 
+              To get more plot credits just delegate 20 STEEM Power per Plot Credit using the button below!</font>
               </Typography>
               <br/>
               <Delegate

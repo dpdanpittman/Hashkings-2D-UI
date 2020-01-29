@@ -149,12 +149,18 @@ export const MarketPlots = () => {
             <CardContent>
               <Typography color="textSecondary" gutterBottom variant="h5" component="h2" className={classes.font}>
                 <font color="DFB17B">
-                Plot Delegation
+                Plot Credits
                 </font>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-              <font color="DFB17B" className={classes.font}>Delegate 20 STEEM Power per Plot Credit below!</font>
+              <font color="DFB17B" className={classes.font}>To grow plants you will need to have plot credits.</font>
               </Typography>
+              <br/>
+              <Typography variant="body2" color="textSecondary" component="p">
+              <font color="DFB17B" className={classes.font}>
+              For more plot credits simply delegate 20 STEEM Power per Plot Credit using the button below!</font>
+              </Typography>
+              <hr/>
               <br/>
               <Delegate
                   username={username}
