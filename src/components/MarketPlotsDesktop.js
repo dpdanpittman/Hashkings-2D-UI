@@ -153,14 +153,10 @@ export const MarketPlots = () => {
                 </font>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-              <font color="DFB17B" className={classes.font}>To grow plants you will need to have plot credits.</font>
-              </Typography>
-              <br/>
-              <Typography variant="body2" color="textSecondary" component="p">
-              <font color="DFB17B" className={classes.font}>
-              For more plot credits simply delegate 20 STEEM Power per Plot Credit using the button below!</font>
+              <font color="DFB17B" className={classes.font}>To gain access to one of the farm plots you will need to have plot credits.</font>
               </Typography>
               <hr/>
+              <br/>
               <br/>
               <Delegate
                   username={username}

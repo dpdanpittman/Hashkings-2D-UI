@@ -155,7 +155,7 @@ export const MarketPlots = () => {
               <Typography variant="body2" color="textSecondary" component="p">
               <font color="DFB17B" className={classes.font}>To grow plants you will need to have plot credits. Each plot credit
               allows you to choose a plot below. You can see the number of plot credits you own and how many have been used. 
-              To get more plot credits just delegate 20 STEEM Power per Plot Credit using the button below!</font>
+              To get more plot credits just delegate 20 STEEM Power for each Plot Credit!</font>
               </Typography>
               <br/>
               <Delegate
@@ -182,7 +182,7 @@ export const MarketPlots = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B" className={classes.font}>Pay for your Plot</font>
+          <font color="DFB17B" className={classes.font}>Lease a plot</font>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
           <font color="DFB17B" className={classes.font}>Each plot requires a 0.5 STEEM Leasing Fee. Please choose your region below.</font>

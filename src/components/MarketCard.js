@@ -48,12 +48,12 @@ export default function MarketCard() {
           </Typography>
         </CardContent>
         <CardActions>
-      <Link component={Link1} to="/market/seedbank">
+      <Link component={Link1} to="/markets">
         <IconButton color="primary" aria-label="Visit Seed Market">
         <SeedIcon /> 
       </IconButton>Seeds
         </Link>
-        <Link component={Link2} to="/market/farmplots">
+        <Link component={Link2} to="/markets">
         <IconButton color="primary" aria-label="Visit Land Sales">
         <LandIcon /> 
       </IconButton>Land

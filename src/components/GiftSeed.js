@@ -58,7 +58,7 @@ export default function GiftSeed() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const {steemConnectAPI} = useContext(StateContext);
   const growl = useRef(null);
-  const seedBackground = "https://wallpaperaccess.com/full/816276.jpg";
+  const seedBackground = "https://i.imgur.com/z2A9PtG.jpg";
 
   const [userSeeds, setUserSeeds] = useState([]);
 

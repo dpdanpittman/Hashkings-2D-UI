@@ -89,7 +89,7 @@ export const LoginPage = ({history}) => {
           if (!isDesktop) {
           history.push("/home");
         } else {
-          history.push("/farm");
+          history.push("/home");
         }
         })
         .catch(e => {

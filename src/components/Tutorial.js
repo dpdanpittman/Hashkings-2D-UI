@@ -107,7 +107,7 @@ export default function Tutorial() {
         {activeStep === steps.length ? (
           <div>
             <Typography className={classes.instructions}><font color="DFB17B">Great Job!</font></Typography>
-            <Button component={Link1} to="/home"><font color="#ffffff">Begin</font></Button>
+            <Button component={Link1} to="/home"><font color="#ffffff">Home</font></Button>
           </div>
         ) : (
           <div>

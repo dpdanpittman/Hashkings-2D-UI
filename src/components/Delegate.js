@@ -122,8 +122,11 @@ export default function Delegate({username, delegation, updateDelegation}) {
           ))}
         </TableBody>
       </Table>
-      <br/>
-      <Typography paragraph className={classes.font}>Choose number of extra plot credits you would like.</Typography>
+      <br/><br/>
+      
+      <Typography heading className={classes.font}>Choose number of extra plot credits you would like.</Typography>
+      
+      <hr/>
       <div className="p-col-12 p-md-4">
         <Spinner value={amount} onChange={e => setAmount(e.value)} min={1} />
       </div>
