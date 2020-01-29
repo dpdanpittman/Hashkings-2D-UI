@@ -6,7 +6,7 @@ import useSteemKeychain from "../hooks/useSteemKeychain";
 import {sign} from "steemconnect";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@material-ui/core/Typography'; 
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -41,7 +41,7 @@ export default function BuyGarden({
     e.preventDefault();
     if (garden) {
       setIsSubmitting(true);
-      const memo = `${garden.id} manage`;
+      const memo = `b manage`;
       const amount = "0.500";
       const currency = "STEEM";
       const to = "hashkings";
@@ -97,7 +97,7 @@ export default function BuyGarden({
     <Paper className={classes.paper}>
       <p>
         <b><Typography paragraph><font color="DFB17B" className={classes.font}>
-            Plot Credits Available: <br/><br/><b>({delegation.available})</b>
+            Plot leases Available: <br/><br/><b>({delegation.available} Plots)</b>
             {delegation.available === 1 ? "s" : ""}</font></Typography>
         </b>
       </p>

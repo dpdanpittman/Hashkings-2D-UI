@@ -31,6 +31,13 @@ import { Afghani } from "./components/seeds/Afghani";
 import { LashkarGah } from "./components/seeds/LashkarGah";
 import { Aceh } from "./components/seeds/Aceh";
 
+import Afghanistan from './components/seeds/Afghanistan';
+import Africa from './components/seeds/Africa';
+import Jamaica from './components/seeds/Jamaica';
+import CentralAmerica from './components/seeds/CentralAmerica';
+import Asia from './components/seeds/Asia';
+import Mexico from './components/seeds/Mexico';
+
 import { MazariSharifpollen } from "./components/seeds/MazariSharifpollen";
 import { PanamaRedpollen } from "./components/seeds/PanamaRedpollen";
 import { SwaziGoldpollen } from "./components/seeds/SwaziGoldpollen";
@@ -378,7 +385,13 @@ class App extends Component {
             <Route path="/pollen/panama-red" component={PanamaRedpollen} />
             <Route path="/pollen/aceh" component={Acehpollen} />
             <Route path="/pollen/afghani" component={Afghanipollen} />
-            
+
+            <Route path="/plots/afghanistan" component={Afghanistan} />
+            <Route path="/plots/africa" component={Africa} />
+            <Route path="/plots/asia" component={Asia} />
+            <Route path="/plots/central-america" component={CentralAmerica} />
+            <Route path="/plots/jamaica" component={Jamaica} />
+            <Route path="/plots/mexico" component={Mexico} />
           </div>
           <div className="layout-mask"></div>
         </div> 

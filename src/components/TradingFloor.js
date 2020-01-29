@@ -20,7 +20,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 import { Parallax } from 'react-parallax';
 import WelcomeCard from "./WelcomeCard";
-import { MarketPlots } from "./MarketPlots";
+import { MarketPlots } from "./MarketPlotsDesktop";
 import Divider from '@material-ui/core/Divider';
 
 function TabPanel(props) {
@@ -91,6 +91,9 @@ const useStyles = makeStyles(theme => ({
   media: {
     height: 140,
     maxWidth: 120,
+  },
+  mediaPlots: {
+    height: 200,
   },
   magicalMedia: {
     height: 370,
@@ -506,7 +509,7 @@ export default function TradingFloor() {
           Colombian Gold
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
-            LColombian Gold is a classic landrace sativa that originated in the Santa Marta mountains of 
+            Colombian Gold is a classic landrace sativa that originated in the Santa Marta mountains of 
             Colombia. Its buds are fluffy and crystal-covered, radiating skunky, sweet notes of lemon and lime. 
             This indigenous sativa parented the famous Skunk #1, a hybrid that has become a staple of cannabis 
             breeding. 
@@ -617,6 +620,190 @@ export default function TradingFloor() {
         <TabPanel value={value} index={2} dir={theme.direction}>
         <div className={classes.root}>
         <MarketPlots />
+        <Grid container spacing={1}>
+        <Grid item xs={4}>
+        <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.mediaPlots}
+          image="https://i.imgur.com/ZUyNK5H.png"
+          title="Afghanistan"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
+          Afghanistan
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
+          Many growers believe the earliest cannabis strains sprouted in the Hindu Kush region of 
+          Afghanistan and Pakistan and eventually spread to other areas. We call these indigenous 
+          strains landraces.
+          </Typography>
+          <br/>
+          <Typography variant="body3" color="textSecondary" component="p" className={classes.font}>
+          Bailey Rahn - January 30, 2014
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      <Button size="large" color="error">
+      <Link component={Link1} to="/plots/afghanistan" color="error">
+          Lease Here
+        </Link>
+        </Button>
+      </CardActions>
+    </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.mediaPlots}
+          image="https://i.imgur.com/tc52N5W.png"
+          title="Africa"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
+          Africa
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
+          HARARE, Zimbabwe (AP) — Zimbabwe has legalized the production of marijuana for medicinal and scientific purposes, making it the rare African country to turn the drug into a source of revenue.
+          A government notice issued by the health minister says individuals and corporations can apply for licenses to grow marijuana, whose production and possession had brought up to 12 years in prison.
+          Recreational use remains illegal. 
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      <Button size="large" color="error">
+      <Link component={Link1} to="/plots/africa" color="error">
+          Lease Here
+        </Link>
+        </Button>
+      </CardActions>
+    </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.mediaPlots}
+          image="https://i.imgur.com/MCnWKee.png"
+          title="Asia"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
+          Asia
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
+          BANGKOK (AP) — Thailand’s legislature has officially proposed allowing the licensed medical 
+          use of marijuana, making it a potential trailblazer in Asia in legalizing what used to be 
+          regarded strictly as a dangerous drug.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      <Button size="large" color="error">
+      <Link component={Link1} to="/plots/asia" color="error">
+          Lease Here
+        </Link>
+        </Button>
+      </CardActions>
+    </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.mediaPlots}
+          image="https://i.imgur.com/i1dSLCf.png"
+          title="Central America"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
+          Central America
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
+          Central American refers to the indigenous varieties of cannabis (or landraces) that grow 
+          natively in this region of the world. Because of this region's latitude and climate, these
+          native landrace strains tend to be sativa in structure and effect.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      <Button size="large" color="error">
+      <Link component={Link1} to="/plots/central-america" color="error">
+          Lease Here
+        </Link>
+        </Button>
+      </CardActions>
+    </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.mediaPlots}
+          image="https://i.imgur.com/4wjvHLj.png"
+          title="Jamaica"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
+          Jamaica
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
+          India’s influence on cannabis in Jamaica is also evident in common phrasing. 
+          “Ganja,” the preferred moniker for cannabis, is a Hindi word passed down from 
+          Sanskrit – “gāñjā” means “hemp” or “hemp resin.”
+          </Typography>
+          <br/>
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
+          Cannabis quickly became a mainstay in Jamaica, particularly among the lower, 
+          working classes of society. It was common in the rural countryside and in the poor, 
+          black districts of larger towns. Despite this widespread usage, the Jamaican government 
+          quickly outlawed the herb with the Ganja Law of 1913, led by plantation owners who tried 
+          to ply workers with rum (which they could profit from), but in spite of these efforts, 
+          the love of the leaf was growing.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      <Button size="large" color="error">
+      <Link component={Link1} to="/plots/jamaica" color="error">
+          Lease Here
+        </Link>
+        </Button>
+      </CardActions>
+      </Card>
+        </Grid>
+        <Grid item xs={4}>
+        <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.mediaPlots}
+          image="https://i.imgur.com/pNI9khY.png"
+          title="MExico"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
+          Mexico
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
+          n a legal Mexican cannabis economy, Nieto might be a prized artisan grower, perhaps even 
+          a wealthy one. In March, his Zamaldelica strain, a heady Sativa with a healthy dose of 
+          cannabidiol (CBD), won top prize in a rare Mexican cannabis cup, sponsored in Guadalajara 
+          by the Spanish company Ace Seeds.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      <Button size="large" color="error">
+      <Link component={Link1} to="/plots/mexico" color="error">
+        Lease Here
+        </Link>
+        </Button>
+      </CardActions>
+    </Card>
+        </Grid>
+        </Grid>
         </div>
         </TabPanel>
 

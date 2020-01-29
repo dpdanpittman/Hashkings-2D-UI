@@ -7,6 +7,11 @@ import useSteemKeychain from "../hooks/useSteemKeychain";
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -25,8 +30,21 @@ const useStyles = makeStyles(theme => ({
   },
   font: {
     fontFamily: '"Jua", sans-serif',
+    color: "#DFB17B",
+  },
+  root: {
+    width: '100%',
+    marginTop: theme.spacing(3),
+    overflowX: 'auto',
+  },
+  table: {
+    minWidth: 250,
   },
 }));
+
+function createData(item, value) {
+  return { item, value };
+}
 
 export default function Delegate({username, delegation, updateDelegation}) {
   const [amount, setAmount] = useState(1);
@@ -85,26 +103,27 @@ export default function Delegate({username, delegation, updateDelegation}) {
     }
   };
 
+  const rows = [
+    createData('Total Plot Credits', totalPlots),
+    createData('Plot Credits Used', delegation.used),
+    createData('Plot Credits Available', delegation.available),
+  ];
+
   return (
     <div>
       <Paper className={classes.paper}>
-      <Typography paragraph>
-      <font color="DFB17B" className={classes.font}>You have delegated enough SP for:</font></Typography>
-      <b><font color="DFB17B" className={classes.font}>
-      {`(${totalPlots} plot${
-        totalPlots !== 1 ? "s" : ""})`}
-        <br/><br/><Divider variant="middle" /><br/>
-        <Typography paragraph>
-        <font color="DFB17B" className={classes.font}>You can lease:</font></Typography>
-       {`(${delegation.available} plot${
-          delegation.available !== 1 ? "s" : ""})`}
-          <br/><br/><Divider variant="middle" /><br/>
-          <Typography paragraph><font color="DFB17B" className={classes.font}>Total Leased Plots: </font></Typography>
-       {`(${delegation.used} plot${
-          delegation.used !== 1 ? "s" : ""})`}
-        <br/><br/><Divider variant="middle" /><br/>
-        {`Please choose the number of additional plots you would like.`}
-          </font>
+      <Table className={classes.table}>
+        <TableBody>
+          {rows.map(row => (
+            <TableRow key={row.item}>
+              <TableCell align="left" className={classes.font}>{row.item}</TableCell>
+              <TableCell align="left" className={classes.font}>{row.value}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      <br/>
+      <Typography paragraph className={classes.font}>Choose number of extra plot credits you would like.</Typography>
       <div className="p-col-12 p-md-4">
         <Spinner value={amount} onChange={e => setAmount(e.value)} min={1} />
       </div>
@@ -117,7 +136,6 @@ export default function Delegate({username, delegation, updateDelegation}) {
         />
       </div>
       <br/>
-      </b>
       </Paper>
     </div>
   );

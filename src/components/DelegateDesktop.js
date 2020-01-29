@@ -149,11 +149,11 @@ export const MarketPlots = () => {
             <CardContent>
               <Typography color="textSecondary" gutterBottom variant="h5" component="h2" className={classes.font}>
                 <font color="DFB17B">
-                Plot Delegation
+                Plot Credits
                 </font>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-              <font color="DFB17B" className={classes.font}>Delegate 20 STEEM Power per Plot Credit below!</font>
+              <font color="DFB17B" className={classes.font}>Delegate 20 STEEM Power per Plot below!</font>
               </Typography>
               <br/>
               <Delegate
@@ -162,53 +162,11 @@ export const MarketPlots = () => {
                   updateDelegation={updateDelegation}
                 />
           </CardContent>
-            <hr/>
         </Card>
         </Box>
       </HtmlTooltip>
     </Grid>
     </Grid>
-
-    <br/>
-
-    <Grid item xs alignItems="flex-end">
-    <Box boxShadow={4}>
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image="https://i.imgur.com/x1eOPYj.png"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-          <font color="DFB17B" className={classes.font}>Pay for your Plot</font>
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B" className={classes.font}>Each plot requires a 0.5 STEEM Leasing Fee. Please choose your region below.</font>
-          </Typography>
-          <br/>
-          {delegation.available > 0 && (
-              <BuyGarden
-                username={username}
-                delegation={delegation}
-                updateDelegation={updateDelegation}
-                landSupply={landSupply}
-              />
-            )}
-            {delegation.available === 0 && (
-              <p>
-                <font color="DFB17B" className={classes.font}>
-                  <b>
-                    All Fees Paid. Please delegate more Steem Power to lease a plot.
-                  </b>
-                </font>
-              </p>
-            )}
-          {/*<BuySeed type="r" />*/}
-        </CardContent>
-      </Card>
-      </Box>
-    </Grid>
-    <br/>
     </div>
   );
 }

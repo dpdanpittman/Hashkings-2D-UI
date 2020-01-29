@@ -351,7 +351,7 @@ export class HashkingsAPI {
 
 export const gardenNames = {
   a: "Afghanistan",
-  b: "Africa",
+  b: "Africa", 
   c: "Asia",
   d: "Central America",
   e: "Jamaica",
