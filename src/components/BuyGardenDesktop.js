@@ -41,7 +41,7 @@ export default function BuyGarden({
     e.preventDefault();
     if (garden) {
       setIsSubmitting(true);
-      const memo = `b manage`;
+      const memo = `${garden.id} manage`;
       const amount = "0.500";
       const currency = "STEEM";
       const to = "hashkings";

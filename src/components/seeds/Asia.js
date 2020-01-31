@@ -93,14 +93,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Africa({
+export default function Asia({
   updateDelegation,
   delegation,
   landSupply
 }) {
   const [garden, setGarden] = useState();
   const classes = useStyles();
-  const image1 = "https://i.imgur.com/tc52N5W.png";
+  const image1 = "https://i.imgur.com/MCnWKee.png";
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const {username} = useContext(StateContext);
@@ -185,7 +185,7 @@ export default function Africa({
             <Grid container spacing={2}>
               <Grid item>
                 <ButtonBase className={classes.image}>
-                  <img className={classes.img} alt="Asia" src="https://i.imgur.com/tc52N5W.png" />
+                  <img className={classes.img} alt="Asia" src="https://i.imgur.com/MCnWKee.png" />
                 </ButtonBase>
               </Grid>
               <Grid item xs={12} sm container>
