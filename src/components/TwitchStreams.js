@@ -41,8 +41,8 @@ const useStyles = makeStyles(theme => ({
       channel: 'drdisrespect',
     },
     {
-      title: 'timthetatman',
-      channel: 'timthetatman',
+      title: 'Autumn Diver',
+      channel: 'autumndiver',
     },
   ];
  
