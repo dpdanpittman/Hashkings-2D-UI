@@ -89,21 +89,6 @@ if (!isDesktop) {
       <Grid item xs={3}>
       </Grid>
       
-      <Grid item xs={6}>
-          <>
-        <BottomNavigation
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-          showLabels
-          className={classes.navWidth}
-        >
-          <BottomNavigationAction label="Curation Trail" icon={<SteemIcon />} component={Link1} to="/trending" />
-          <BottomNavigationAction />
-          <BottomNavigationAction label="Streams" icon={<TwitchIcon />} component={Link1} to="/streams" />
-        </BottomNavigation>
-        </>
-      </Grid>
       <Grid item xs={3}>
       </Grid>
     </Grid>
@@ -122,22 +107,7 @@ if (!isDesktop) {
       </Grid>
       <Grid item xs={3}>
       </Grid>
-      <Grid item xs={6}>
-          <>
-        <BottomNavigation
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-          showLabels
-          className={classes.navWidth}
-        >
-          <BottomNavigationAction label="Trending" icon={<BlogIcon />} component={Link1} to="/trending" />
-          <BottomNavigationAction />
-          <BottomNavigationAction label="About" icon={<InformationIcon />} component={Link1} to="/faq" />
-        </BottomNavigation>
-        </>
-     
-      </Grid>
+      
       <Grid item xs={3}>
       </Grid>
     </Grid> 
