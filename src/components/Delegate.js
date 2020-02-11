@@ -67,7 +67,7 @@ export default function Delegate({username, delegation, updateDelegation}) {
       try {
         await new Promise((resolve, reject) => {
           return steem_keychain.requestDelegation(
-            [username],
+            username,
             delegatee,
             amountStr,
             unit,
