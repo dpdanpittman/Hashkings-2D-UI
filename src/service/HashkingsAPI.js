@@ -14,6 +14,12 @@ export class HashkingsAPI {
     ]);
   }
 
+  getTrendingHome() {
+    return this.getSteemAPI("get_discussions_by_trending", [
+      { tag: "cannabis", limit: 1 }
+    ]);
+  }
+
   getUser(username) {
     return this.get(`u/${username}`);
   }

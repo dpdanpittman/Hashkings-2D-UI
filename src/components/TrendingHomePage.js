@@ -3,6 +3,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { HashkingsAPI } from "../service/HashkingsAPI";
 import GridList from '@material-ui/core/GridList';
+import Grid from '@material-ui/core/Grid';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
@@ -40,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: 'transparent',
   },
   gridList: {
     width: 'auto',
@@ -70,7 +71,7 @@ const HtmlTooltip = withStyles(theme => ({
   },
 }))(Tooltip);
 
-export default function Trending() {
+export default function TrendingHomePage() {
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [trending, setTrending] = useState();
@@ -78,7 +79,7 @@ export default function Trending() {
 
   useEffect(() => {
     const hashkingsAPI = new HashkingsAPI();
-    hashkingsAPI.getTrending().then(setTrending);
+    hashkingsAPI.getTrendingHome().then(setTrending);
   }, []);
 
   if (!trending) return <SkeletonPage />;

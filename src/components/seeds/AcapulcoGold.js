@@ -25,6 +25,13 @@ import SeedGifting from './SeedGifting';
 import {seedTypes} from '../../service/HashkingsAPI';
 import { DealIcon, StoreIcon, GiftIcon } from "../Icons";
 
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -71,6 +78,11 @@ const useStyles = makeStyles(theme => ({
     width: 128,
     height: 128,
   },
+  table: {
+    minWidth: 350,
+    fontFamily: '"Jua", sans-serif',
+    color: '#DFB17B',
+  },
   img: {
     margin: 'auto',
     display: 'block',
@@ -90,7 +102,31 @@ const useStyles = makeStyles(theme => ({
     fontFamily: '"Jua", sans-serif',
     color: '#DFB17B',
   },
+  fontBottom: {
+    fontFamily: '"Jua", sans-serif',
+    color: '#51798D',
+  },
 }));
+
+function createData(name, calories) {
+  return { name, calories };
+}
+
+const rows = [
+  createData('Family Tree', 'Landrace'),
+  createData('Max Yield', '2 seeds/pollen'),
+  createData('Sex', 'Random'),
+];
+
+function createDataBottom(nameBottom) {
+  return { nameBottom };
+}
+
+const rowsBottom = [
+  createDataBottom('B-Caryophyllene'),
+  createDataBottom('Trans-Nerolidol'),
+  createDataBottom('Terpinolene'),
+];
 
 export const AcapulcoGold = () => {
   const classes = useStyles();
@@ -204,6 +240,39 @@ export const AcapulcoGold = () => {
                 </Grid>
               </Grid>
             </Grid>
+            <br/>
+            <Typography variant="h5" className={classes.fontBottom}>Attributes</Typography>
+            <TableContainer>
+                      <Table className={classes.table} aria-label="simple table">
+                        <TableBody>
+                          {rows.map(row => (
+                            <TableRow key={row.name}>
+                              <TableCell component="th" scope="row" className={classes.font}>
+                                {row.name}
+                              </TableCell>
+                              <TableCell align="right" className={classes.font}>{row.calories}</TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                    <br/>
+                    <br/>
+                    <Typography variant="h5" className={classes.fontBottom}>Terpene Profile</Typography>
+                    <TableContainer>
+                      <Table className={classes.table} aria-label="simple table">
+                        <TableBody>
+                          {rowsBottom.map(row => (
+                            <TableRow key={rowsBottom.nameBottom}>
+                              <TableCell component="th" scope="row" className={classes.font}>
+                                {row.nameBottom}
+                              </TableCell>
+                              <TableCell align="right" className={classes.font}>{row.attributeBottom}</TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
           </Card>
         </Grid>
         <Grid item xs>

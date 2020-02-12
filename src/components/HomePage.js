@@ -5,6 +5,7 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import MediaCard from './FarmingCard';
 import InsideCard from './InsideCard';
+import Paper from '@material-ui/core/Paper';
 import WelcomeCard from './WelcomeCard';
 import MarketCard from './MarketCard';
 import { Link as RouterLink } from 'react-router-dom';
@@ -12,6 +13,13 @@ import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
 import { BlogIcon, InformationIcon, SteemIcon, TwitchIcon } from './Icons';
 import { Parallax } from 'react-parallax';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import TrendingHomePage from './TrendingHomePage';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
@@ -57,11 +65,16 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#000000",
   },
   card: {
-    maxWidth: 345,
-    backgroundColor: "#000000",
+    maxWidth: 'auto',
+    backgroundColor: "transparent",
   },
   media: {
     height: 140,
+    width: 270,
+  },
+  mediaTwo: {
+    height: 100,
+    width: 270,
   },
 }));
 
@@ -102,18 +115,71 @@ if (!isDesktop) {
           <MarketCard />
         </Grid>
       </Grid>
-    <Grid container spacing={3}>
-      <Grid item xs={12}> 
+      <br/>
+      <hr/>
+      <br/>
+
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+        <center>
+    <img src="https://i.imgur.com/Yzzk8H0.png"></img>
+    </center>
+        </Grid>
+        <Grid item xs={12}>
+         <TrendingHomePage /> 
+        </Grid>
       </Grid>
-      <Grid item xs={3}>
+      <br/>
+      {/*<hr/>
+      <br/>
+    <Grid container spacing={1}>
+      <Grid item xs={12}>
+      <Grid container spacing={3}>   
+        <Grid item xs>
+            <CardMedia
+              className={classes.media}
+              image="https://i.imgur.com/dfHVMYV.png"
+              title="Splinterlands"
+            />
+        </Grid>
+        <Grid item xs>
+            <CardMedia
+              className={classes.media}
+              image="https://i.imgur.com/ymrzJc9.png"
+              title="Market"
+            />
+        </Grid>
+        <Grid item xs>
+        <Card className={classes.card}>
+            <CardMedia
+              className={classes.media}
+              image="https://cdn.shopify.com/s/files/1/0065/4917/6438/products/a-man-lounges-while-smoking-weed-and-view-of-an-outdoor-rural-market-background_1200x1200.jpg?v=1536742441"
+              title="Market"
+            />
+          </Card>
+        </Grid>
+        <Grid item xs>
+        <Card className={classes.card}>
+            <CardMedia
+              className={classes.media}
+              image="https://cdn.shopify.com/s/files/1/0065/4917/6438/products/a-man-lounges-while-smoking-weed-and-view-of-an-outdoor-rural-market-background_1200x1200.jpg?v=1536742441"
+              title="Market"
+            />
+          </Card>
+        </Grid>
+        <Grid item xs>
+        <Card className={classes.card}>
+            <CardMedia
+              className={classes.media}
+              image="https://cdn.shopify.com/s/files/1/0065/4917/6438/products/a-man-lounges-while-smoking-weed-and-view-of-an-outdoor-rural-market-background_1200x1200.jpg?v=1536742441"
+              title="Market"
+            />
+          </Card>
+        </Grid>
       </Grid>
-      
-      <Grid item xs={3}>
-      </Grid>
-    </Grid> 
-      
-    
-    </Container>
+    </Grid>
+    </Grid>  */}
+      </Container>
     </div>
     </Parallax>
   );
