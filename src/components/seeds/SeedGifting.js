@@ -11,6 +11,7 @@ import {Growl} from "primereact/growl";
 import {Button} from "primereact/button";
 import {Dropdown} from "primereact/dropdown";
 import Card from '@material-ui/core/Card';
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -28,14 +29,12 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     backgroundColor: "#2E5B71",
-    height: 200,
   },
   paper: {
     padding: theme.spacing(3),
     marginBottom: theme.spacing(3),
     margin: 'auto',
     maxWidth: 500,
-    height: 200,
     backgroundColor: "transparent",
     color: '#DFB17B',
     fontFamily: '"Jua", sans-serif',
@@ -132,7 +131,6 @@ export default function SeedGifting() {
       <Growl ref={growl} />
       <Grid container spacing={1}>
         <Grid item xs>
-          <Paper className={classes.paper}>
           <HtmlTooltip
           title={
             <React.Fragment>
@@ -143,10 +141,12 @@ export default function SeedGifting() {
           TransitionComponent={Zoom}
           >
             <Card className={classes.card} raised={true}>
-            <Paper className={classes.paper}>
             <form className={classes.root} noValidate autoComplete="off">
+            <Paper className={classes.paper}>
             <Grid container spacing={1}>
               <Grid item xs>
+                <Typography>Send Seeds to other Farmers</Typography>
+                <br/>
                 <TextField id="outlined-basic" 
                   color="secondary"
                   label="Enter Recipient" 
@@ -196,11 +196,12 @@ export default function SeedGifting() {
                   />
                 </Grid>
               </Grid>
-              </form>
               </Paper>
+              </form>
+            
             </Card>
         </HtmlTooltip>
-      </Paper>
+     
 </Grid>
 </Grid>
 </>
