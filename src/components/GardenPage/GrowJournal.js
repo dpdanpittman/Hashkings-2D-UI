@@ -228,7 +228,7 @@ if (username) {
       <Box boxShadow={4}>
       <Paper className={classes.paper}>
            <ThemeProvider theme={theme}>
-                <Typography gutterBottom variant="h1" component="h1">
+                <Typography gutterBottom variant="h5" component="h5">
             <b><font color="DFB17B" className={classes.font}>Grow Journal</font></b>
           </Typography>
                   </ThemeProvider>

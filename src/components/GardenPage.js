@@ -29,14 +29,12 @@ export const GardenPage = (user) => {
   if (username && !isDesktop) {
     return (
       <div className={classes.root}>
-        <div className="card-blank-green-1">
         <Parallax blur={1} bgImage={farmBackground} strength={500}>
           <br/>
           <GardenActions />
           <GrowJournal />
           <br/>
         </Parallax>
-      </div>
       </div>
     );
   } else {
