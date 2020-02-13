@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import {AppInlineProfile} from "../AppInlineProfile";
 import { Link as RouterLink } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
-import { FarmTopbarIcon, BlogIcon, CareIcon, StoreIcon, InformationIcon, FarmIcon, TutorialIcon, LandIcon } from './Icons';
+import { FarmTopbarIcon, SteemSVGIcon, BlogIcon, CareIcon, StoreIcon, InformationIcon, FarmIcon, TutorialIcon, LandIcon } from './Icons';
 import Tooltip from '@material-ui/core/Tooltip';
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -162,6 +162,25 @@ export default function DesktopTopbar(){
             </IconButton>
             </HtmlTooltip>
             </Grid> 
+
+            <Grid item xs={1}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}>What is STEEM?</Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+            <a href="https://steemit.com/faq.html" target="_default">    
+            <IconButton className="layout-menu-button">
+            <SteemSVGIcon />
+            </IconButton>
+            </a>
+            </HtmlTooltip>
+            </Grid> 
+            
         </Grid>
     </Grid>
     <Grid item xs={6}>
