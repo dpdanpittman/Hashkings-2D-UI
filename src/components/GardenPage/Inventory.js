@@ -12,7 +12,11 @@ import Typography from '@material-ui/core/Typography';
 import _ from "lodash";
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
-import { FarmIcon, SeedIcon, InventoryBanner } from '../Icons';
+import { FarmIcon, SeedIcon } from '../Icons';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import { ExpansionPanelDetails } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -55,7 +59,11 @@ const useStyles = makeStyles(theme => ({
   },
   font: {
     fontFamily: '"Jua", sans-serif',
+    color: '#DFB17B',
   },
+  extension: {
+    backgroundColor: "transparent",
+  }
 }));
 
 const theme = createMuiTheme({
@@ -100,6 +108,15 @@ export default function Inventory({user}) {
           <center><font color="DFB17B" className={classes.font}>Active Plots</font></center>
           </Typography>
           <hr/>
+          <ExpansionPanel className={classes.extension}>
+            <ExpansionPanelSummary
+             expandIcon={<ExpandMoreIcon />}
+             aria-controls="panel1a-content"
+             id="panel1a-header"
+            >
+            <Typography className={classes.font}>View Plots</Typography>
+            </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
           {_.uniqBy(user.activeGardens, garden => garden.id[0])
             .map(garden => ({
               id: garden.id[0],
@@ -116,6 +133,8 @@ export default function Inventory({user}) {
                 {garden.count !== 1 ? "" : ""}
               </p></font></b>
             ))}
+            </ExpansionPanelDetails>
+            </ExpansionPanel>
         </CardContent>
       </Card>
       </HtmlTooltip>
@@ -140,6 +159,15 @@ export default function Inventory({user}) {
           <font color="DFB17B" className={classes.font}>Available Plots</font>
           </Typography>
           <hr/>
+          <ExpansionPanel className={classes.extension}>
+            <ExpansionPanelSummary
+             expandIcon={<ExpandMoreIcon />}
+             aria-controls="panel1a-content"
+             id="panel1a-header"
+            >
+            <Typography className={classes.font}>View Plots</Typography>
+            </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
           {_.uniqBy(user.availableGardens, garden => garden[0])
             .map(garden => ({
               id: garden[0],
@@ -153,9 +181,11 @@ export default function Inventory({user}) {
                   <FarmIcon  />
                 </Badge>
                  {gardenNames[garden.id]}
-                {garden.count !== 1 ? "s" : ""}</font>
+                {garden.count !== 1 ? " Plots" : ""}</font>
               </p></b> 
             ))}
+            </ExpansionPanelDetails>
+            </ExpansionPanel>
         </CardContent>
       </Card>
       </HtmlTooltip>
@@ -183,6 +213,15 @@ export default function Inventory({user}) {
           <font color="DFB17B" className={classes.font}>Available Subdivisions</font>
           </Typography>
           <hr/>
+          <ExpansionPanel className={classes.extension}>
+            <ExpansionPanelSummary
+             expandIcon={<ExpandMoreIcon />}
+             aria-controls="panel1a-content"
+             id="panel1a-header"
+            >
+            <Typography className={classes.font}>View Subdivisions</Typography>
+            </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
           {_.uniqBy(user.availableGardens, garden => garden[0])
             .map(garden => ({
               id: garden[0],
@@ -198,6 +237,8 @@ export default function Inventory({user}) {
                 </font>
               </p></b> 
             ))}
+            </ExpansionPanelDetails>
+            </ExpansionPanel>
         </CardContent>
       </Card>
       </HtmlTooltip>
@@ -223,6 +264,15 @@ export default function Inventory({user}) {
           <font color="DFB17B" className={classes.font}>Rented Subdivisions</font>
           </Typography>
           <hr/>
+          <ExpansionPanel className={classes.extension}>
+            <ExpansionPanelSummary
+             expandIcon={<ExpandMoreIcon />}
+             aria-controls="panel1a-content"
+             id="panel1a-header"
+            >
+            <Typography className={classes.font}>View Subdivisions</Typography>
+            </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
           {_.uniqBy(user.gardens, garden => garden[0])
             .map(garden => ({
               id: garden[0],
@@ -239,6 +289,8 @@ export default function Inventory({user}) {
                 {garden.count !== 1 ? "s" : ""}</font>
               </p></b> 
             ))}
+            </ExpansionPanelDetails>
+            </ExpansionPanel>
         </CardContent>
       </Card>
       </HtmlTooltip>
@@ -266,6 +318,15 @@ export default function Inventory({user}) {
           <font color="DFB17B" className={classes.font}>Available Seeds</font>
           </Typography>
           <hr/>
+          <ExpansionPanel className={classes.extension}>
+            <ExpansionPanelSummary
+             expandIcon={<ExpandMoreIcon />}
+             aria-controls="panel1a-content"
+             id="panel1a-header"
+            >
+            <Typography className={classes.font}>View Seeds</Typography>
+            </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
           {_.uniqBy(user.availableSeeds, seed => seed.strain)
             .map(seed => ({
               strain: seed.strain,
@@ -282,6 +343,8 @@ export default function Inventory({user}) {
                 {seed.count !== 1 ? "s" : ""}</font>
               </p>
             ))}
+            </ExpansionPanelDetails>
+            </ExpansionPanel>
         </CardContent>
       </Card>
       </HtmlTooltip>
@@ -306,6 +369,16 @@ export default function Inventory({user}) {
           <font color="DFB17B" className={classes.font}>Available Pollen</font>
           </Typography>
           <hr/>
+          <ExpansionPanel className={classes.extension}>
+            <ExpansionPanelSummary
+             expandIcon={<ExpandMoreIcon />}
+             aria-controls="panel1a-content"
+             id="panel1a-header"
+            >
+            <Typography className={classes.font}>View Pollen</Typography>
+            </ExpansionPanelSummary>
+          <ExpansionPanelDetails></ExpansionPanelDetails>
+          </ExpansionPanel>
         </CardContent>
       </Card>
       </HtmlTooltip>
