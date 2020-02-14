@@ -4,6 +4,7 @@ import GardenActions from './GardenPage/GardenActions.js';
 import GrowJournal from './GardenPage/GrowJournal';
 import { Parallax } from 'react-parallax';
 import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
  
 const useStyles = makeStyles(theme => ({
 root: {
@@ -31,8 +32,10 @@ export const GardenPage = (user) => {
       <div className={classes.root}>
         <Parallax blur={1} bgImage={farmBackground} strength={500}>
           <br/>
+          <Container>
           <GardenActions />
           <GrowJournal />
+          </Container>
           <br/>
         </Parallax>
       </div>
