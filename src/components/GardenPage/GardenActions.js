@@ -154,9 +154,9 @@ export const GardenActions = () => {
                   date
                 }) => {
   
-                  if (stop) {
+                 /* if (stop) {
                     setNoMoreHistory(true);
-                  }
+                  }*/
   
                   if (date) {
                   }
