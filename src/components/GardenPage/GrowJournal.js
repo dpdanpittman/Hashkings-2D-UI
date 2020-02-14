@@ -276,7 +276,7 @@ if (username) {
                     return (
                       <div className={classes.root}>
                         <Slider
-                          defaultValue={Math.floor((stage / 8) * 100)}
+                          defaultValue={Math.floor((stage / 4) * 100)}
                           valueLabelFormat={valueLabelFormat}
                           getAriaValueText={valuetext}
                           aria-labelledby="discrete-slider-restrict"

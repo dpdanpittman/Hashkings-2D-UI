@@ -1,7 +1,6 @@
 import React from "react";
 import { gardenNames, seedNames } from "../../service/HashkingsAPI";
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';
 import Card from '@material-ui/core/Card';
@@ -13,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import _ from "lodash";
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
-import { FarmIcon, SeedIcon } from '../Icons';
+import { FarmIcon, SeedIcon, InventoryBanner } from '../Icons';
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -80,18 +79,7 @@ export default function Inventory({user}) {
   
   return (
   <div className={classes.flex}>
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
-      <Box boxShadow={12}>
-        <Paper className={classes.paperFarming}>
-          <ThemeProvider theme={theme}>
-            <Typography gutterBottom variant="h5" component="h1">
-              <b><font color="DFB17B" className={classes.font}>Inventory</font></b>
-            </Typography>
-          </ThemeProvider>
-        </Paper>
-        </Box>
-      </Grid>
+      <Grid container spacing={2}>
       <Grid item xs>
       <HtmlTooltip
                   title={
@@ -102,7 +90,6 @@ export default function Inventory({user}) {
                   }
                   TransitionComponent={Zoom}
                   >
-                     <Box boxShadow={12}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -131,7 +118,6 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       </Card>
-      </Box>
       </HtmlTooltip>
     </Grid>
     <Grid item xs>
@@ -144,7 +130,6 @@ export default function Inventory({user}) {
                   }
                   TransitionComponent={Zoom}
                   >
-                    <Box boxShadow={12}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -173,9 +158,94 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       </Card>
-      </Box>
       </HtmlTooltip>
     </Grid>
+    </Grid>
+
+<Grid container spacing={2}>
+    <Grid item xs>
+    <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="error" className={classes.font}><u>Coming Soon</u></Typography>
+                     <b>{"Once the subdivisions feature is available this will show your available subdivisions"}</b>
+                    </React.Fragment>
+                  }
+                  TransitionComponent={Zoom}
+                  >
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          image="https://i.imgur.com/MCnWKee.png"
+        />
+        <CardContent className={classes.font}>
+          <Typography gutterBottom variant="h5" component="h2">
+          <font color="DFB17B" className={classes.font}>Available Subdivisions</font>
+          </Typography>
+          <hr/>
+          {_.uniqBy(user.availableGardens, garden => garden[0])
+            .map(garden => ({
+              id: garden[0],
+              count: user.availableGardens.filter(
+                agarden => agarden[0] === garden[0]
+              ).length
+            }))
+            .map(garden => (
+              <b><p key={garden.id}><font color="B28D43" className={classes.font}>
+                <Badge className={classes.margin} badgeContent={garden.count} color="error">
+                  <FarmIcon  />
+                </Badge>
+                </font>
+              </p></b> 
+            ))}
+        </CardContent>
+      </Card>
+      </HtmlTooltip>
+    </Grid>
+    
+    <Grid item xs>
+    <HtmlTooltip
+                  title={
+                    <React.Fragment>
+                      <Typography color="error" className={classes.font}><u>Coming Soon</u></Typography>
+                      <b>{"Once the subdivisions feature is available this will show your Rented Subdivisions"}</b>
+                    </React.Fragment>
+                  }
+                  TransitionComponent={Zoom}
+                  >
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          image="https://i.imgur.com/ZUyNK5H.png"
+        />
+        <CardContent className={classes.font}>
+          <Typography gutterBottom variant="h5" component="h2">
+          <font color="DFB17B" className={classes.font}>Rented Subdivisions</font>
+          </Typography>
+          <hr/>
+          {_.uniqBy(user.gardens, garden => garden[0])
+            .map(garden => ({
+              id: garden[0],
+              count: user.gardens.filter(
+                agarden => agarden[0] === garden[0]
+              ).length
+            }))
+            .map(garden => (
+              <b><p key={garden.id}><font color="B28D43" className={classes.font}>
+                <Badge className={classes.margin} badgeContent={garden.count} color="error">
+                  <FarmIcon  />
+                </Badge>
+                 {gardenNames[garden.id]}
+                {garden.count !== 1 ? "s" : ""}</font>
+              </p></b> 
+            ))}
+        </CardContent>
+      </Card>
+      </HtmlTooltip>
+    </Grid>
+    </Grid>
+
+<Grid container spacing={2}>
     <Grid item xs>
     <HtmlTooltip
     title={
@@ -186,7 +256,6 @@ export default function Inventory({user}) {
     }
     TransitionComponent={Zoom}
     >
-    <Box boxShadow={12}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -215,7 +284,6 @@ export default function Inventory({user}) {
             ))}
         </CardContent>
       </Card>
-      </Box>
       </HtmlTooltip>
     </Grid>
     <Grid item xs>
@@ -228,7 +296,6 @@ export default function Inventory({user}) {
     }
     TransitionComponent={Zoom}
     >
-    <Box boxShadow={12}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -241,7 +308,6 @@ export default function Inventory({user}) {
           <hr/>
         </CardContent>
       </Card>
-      </Box>
       </HtmlTooltip>
     </Grid>
     </Grid>
