@@ -103,7 +103,7 @@ class App extends Component {
       overlayMenuActive: true,
       mobileMenuActive: false,
       localState: {
-        username: "qwoyn",
+        username: "",
         login: username =>
           this.setState(state => ({
             localState: {
