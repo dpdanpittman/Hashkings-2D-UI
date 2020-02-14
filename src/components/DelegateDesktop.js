@@ -102,7 +102,7 @@ export const MarketPlots = () => {
           if (delegation && delegation.delegator) {
             setDelegation({
               used: delegation.used,
-              available: delegation.availible
+              available: delegation.available
             });
           }
           setLandSupply(stats.supply.land);
