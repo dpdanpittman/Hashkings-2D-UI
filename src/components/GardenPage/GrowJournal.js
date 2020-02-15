@@ -203,12 +203,12 @@ export const HashkingsTemplate = () => {
                   date
                 }) => {
   
-                  if (stop) {
+                  /*if (stop) {
                     setNoMoreHistory(true);
                   }
   
                   if (date) {
-                  }
+                  }*/
                 }
               ),
             hashkingsApi.getUserGarden(username).then(garden => {
