@@ -18,7 +18,6 @@ export default function PlantModal({
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {steemConnectAPI} = useContext(StateContext);
-
   useEffect(() => {
     if (!isOpen) {
       setSeed();
@@ -81,7 +80,7 @@ export default function PlantModal({
               options={_.uniqBy(availableSeeds, seed => seed.strain).map(
                 seed => ({
                   ...seed,
-                  name: seedNames[seed.strain]
+                  name: `${seedNames[seed.strain]}`
                 })
               )}
               style={{width: "100%"}}

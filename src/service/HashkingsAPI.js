@@ -28,6 +28,10 @@ export class HashkingsAPI {
     return this.get(`a/${username}`);
   }
 
+  getUserSeeds(username) {
+    return this.get(`s/${username}`);
+  }
+
   getUserDelegation(username) {
     return this.get(`delegation/${username}`);
   }
