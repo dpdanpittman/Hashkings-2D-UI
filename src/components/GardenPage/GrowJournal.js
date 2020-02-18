@@ -67,6 +67,10 @@ const marks = [
     label: 'Seedling',
   },
   {
+    value: 1.5,
+    label: '',
+  },
+  {
     value: 3.5,
     label: '',
   },
@@ -99,6 +103,10 @@ const marks = [
     label: 'Veg',
   },
   {
+    value: 27,
+    label: '',
+  },
+  {
     value: 28.5,
     label: '',
   },
@@ -129,6 +137,10 @@ const marks = [
   {
     value: 60,
     label: 'Flower',
+  },
+  {
+    value: 63,
+    label: '',
   },
   {
     value: 65.5,
