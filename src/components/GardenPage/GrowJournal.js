@@ -67,15 +67,31 @@ const marks = [
     label: 'Seedling',
   },
   {
-    value: 5,
+    value: 3.5,
     label: '',
   },
   {
-    value: 10,
+    value: 7,
     label: '',
   },
   {
-    value: 15,
+    value: 10.5,
+    label: '',
+  },
+  {
+    value: 14,
+    label: '',
+  },
+  {
+    value: 17.5,
+    label: '',
+  },
+  {
+    value: 20,
+    label: '',
+  },
+  {
+    value: 23.5,
     label: '',
   },
   {
@@ -83,7 +99,15 @@ const marks = [
     label: 'Veg',
   },
   {
+    value: 28.5,
+    label: '',
+  },
+  {
     value: 35,
+    label: '',
+  },
+  {
+    value: 40,
     label: '',
   },
   {
@@ -99,35 +123,35 @@ const marks = [
     label: '',
   },
   {
+    value: 57.5,
+    label: '',
+  },
+  {
     value: 60,
     label: 'Flower',
   },
   {
-    value: 65,
+    value: 65.5,
     label: '',
   },
   {
-    value: 70,
+    value: 71,
     label: '',
   },
   {
-    value: 80,
+    value: 76.5,
     label: '',
   },
   {
-    value: 85,
+    value: 82,
     label: '',
   },
   {
-    value: 90,
+    value: 87.5,
     label: '',
   },
   {
-    value: 92,
-    label: '',
-  },
-  {
-    value: 95,
+    value: 93,
     label: '',
   },
   {
