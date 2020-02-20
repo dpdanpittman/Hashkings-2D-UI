@@ -56,8 +56,6 @@ export default function HarvestModal({
     const harvestActions = garden.care
       .filter(care => care[1] === "harvested")
       .sort((a, b) => b[0] - a[0]);
-    
-    const readyHarvest = gardens.map(g => g.stage)
 
       if (garden.stage >= 4) {
         name = `${name} - Ready for harvest`;

@@ -290,8 +290,9 @@ if (username) {
         <DataTable
                 value={gardens}
                 loading={loading}
+                className={classes.font}
                 responsive={true}
-                emptyMessage="Please visit our Market to lease a plot"                
+                emptyMessage="Please plant some seeds or visit our market to get more plots"                
               >
                 <Column field="id" header="Plot #" className={classes.font} sortable={false} style={{width:'20%', backgroundColor:"#DFB17B", color:'#000000'}} />
                 <Column
