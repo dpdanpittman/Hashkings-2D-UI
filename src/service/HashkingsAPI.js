@@ -286,6 +286,27 @@ export class HashkingsAPI {
             })
         )
         .flat();
+
+        const harvested = activeGardens
+        .map(garden =>
+          garden.care
+            .filter(care => care[1] === "harvested")
+            .map(harvested => {
+              const date = new Date(Date.now());
+              date.setSeconds(
+                date.getSeconds() - (headBlockNum - harvested[0]) * 3
+              );
+              return {
+                when: formatTimeAgo(date),
+                id: garden.id,
+                block: harvested[0],
+                strain: garden.strain,
+                type: "harvested"
+              };
+            })
+        )
+        .flat();
+
       const planted = activeGardens.map(garden => {
         const date = new Date(Date.now());
         date.setSeconds(
@@ -300,7 +321,7 @@ export class HashkingsAPI {
         };
       });
 
-      const activity = [...planted, ...watered].sort(
+      const activity = [...planted, ...watered, ...harvested].sort(
         (a, b) => b.block - a.block
       );
 

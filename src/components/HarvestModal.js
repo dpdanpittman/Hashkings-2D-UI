@@ -50,19 +50,19 @@ export default function HarvestModal({
     }
   };
 
-  const waterGardens = activeGardens.map(garden => {
+  const harvestGardens = activeGardens.map(garden => {
     let name = `${gardenNames[garden.id[0]]} - ${garden.id}`;
 
-    const waterActions = garden.care
+    const harvestActions = garden.care
       .filter(care => care[1] === "harvested")
       .sort((a, b) => b[0] - a[0]);
 
-    if (waterActions.length > 0) {
+    if (harvestActions.length > 0) {
       const date = new Date(Date.now());
       date.setSeconds(
-        date.getSeconds() - (headBlockNum - waterActions[0][0]) * 3
+        date.getSeconds() - (headBlockNum - harvestActions[0][0]) * 3
       );
-      name = `${name} - Harvest: ${formatTimeAgo(date)}`;
+      name = `${name} - Harvested: ${formatTimeAgo(date)}`;
     }
 
     return {
@@ -108,7 +108,7 @@ export default function HarvestModal({
                 style={{width: "100%"}}
                 optionLabel="name"
                 value={gardens}
-                options={waterGardens}
+                options={harvestGardens}
                 onChange={e => setGardens(e.value)}
                 filter={true}
                 selectedItemTemplate={selectedGardensTemplate}
