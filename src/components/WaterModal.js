@@ -52,7 +52,16 @@ export default function WaterModal({
   };
 
   const waterGardens = activeGardens.map(garden => {
-    let name = `${gardenNames[garden.id[0]]} - ${garden.id} - ${garden.traits}`;
+
+    var plantSex = garden.sex;
+
+    if(garden.sex == undefined){
+      plantSex = 'Not Sexed';
+    } else {
+      plantSex = garden.sex;
+    }
+
+    let name = `${gardenNames[garden.id[0]]} - ${garden.id} - ${garden.traits} - ${plantSex}`;
 
     const waterActions = garden.care
       .filter(care => care[1] === "watered")

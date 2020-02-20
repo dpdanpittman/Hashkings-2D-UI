@@ -51,7 +51,16 @@ export default function HarvestModal({
   };
 
   const harvestGardens = activeGardens.map(garden => {
-    let name = `${gardenNames[garden.id[0]]} - ${garden.id} - ${garden.strain}`;
+
+    var plantSex = garden.sex;
+
+    if(garden.sex == undefined){
+      plantSex = 'Not Sexed';
+    } else {
+      plantSex = garden.sex;
+    }
+
+    let name = `${gardenNames[garden.id[0]]} - ${garden.id} - ${garden.strain} - ${plantSex}`;
 
     const harvestActions = garden.care
       .filter(care => care[1] === "harvested")
