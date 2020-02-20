@@ -95,7 +95,9 @@ export default function PlantModal({
               id="garden"
               value={garden}
               options={_.uniqBy(availableGardens, garden => garden[0]).map(
-                garden => ({id: garden, name: gardenNames[garden[0]]})
+                garden => ({id: garden, 
+                  name: `${gardenNames[garden[0]]}`
+                })
               )}
               style={{width: "100%"}}
               onChange={e => {

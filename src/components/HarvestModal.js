@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import {Button} from "primereact/button";
 import {Dialog} from "primereact/dialog";
-import {gardenNames} from "../service/HashkingsAPI";
+import {gardenNames, seedNames} from "../service/HashkingsAPI";
 import {MultiSelect} from "primereact/multiselect";
 import {StateContext} from "../App";
 import {format as formatTimeAgo} from "timeago.js";
@@ -60,7 +60,7 @@ export default function HarvestModal({
       plantSex = garden.sex;
     }
 
-    let name = `${gardenNames[garden.id[0]]} - ${garden.id} - ${garden.strain} - ${plantSex}`;
+    let name = `${gardenNames[garden.id[0]]} - ${garden.id} - ${seedNames[garden.strain]} - ${plantSex}`;
 
     const harvestActions = garden.care
       .filter(care => care[1] === "harvested")
