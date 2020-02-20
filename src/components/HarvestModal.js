@@ -51,25 +51,30 @@ export default function HarvestModal({
   };
 
   const harvestGardens = activeGardens.map(garden => {
-    let name = `${gardenNames[garden.id[0]]} - ${garden.id}`;
+    let name = `${gardenNames[garden.id[0]]} - ${garden.id} - ${garden.strain}`;
 
     const harvestActions = garden.care
       .filter(care => care[1] === "harvested")
       .sort((a, b) => b[0] - a[0]);
+    
+    const readyHarvest = gardens.map(g => g.stage)
 
-    if (harvestActions.length > 0) {
+      if (garden.stage >= 4) {
+        name = `${name} - Ready for harvest`;
+      } else {
+      if (harvestActions.length > 0) {
       const date = new Date(Date.now());
       date.setSeconds(
         date.getSeconds() - (headBlockNum - harvestActions[0][0]) * 3
       );
       name = `${name} - Harvested: ${formatTimeAgo(date)}`;
+      }
     }
-
-    return {
-      id: garden.id,
-      name
-    };
-  });
+      return {
+        id: garden.id,
+        name
+      };
+    });
 
   const selectedGardensTemplate = option => {
     if (option) {
