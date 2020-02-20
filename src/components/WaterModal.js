@@ -80,7 +80,7 @@ export default function WaterModal({
         header="Water your Plots"
         visible={isOpen}
         modal={true}
-        style={{width: "50vw", maxWidth: 200}}
+        style={{width: "50vw", maxWidth: 500}}
         onHide={() => toggleModal("waterModal")}
         closeOnEscape={true}
         dismissableMask={true}
