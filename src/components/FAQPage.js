@@ -101,7 +101,7 @@ export const FAQPage = () => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-		  Yes there is an initial leasing fee for land plots (plus 20 SP delegation) and 
+		  Yes, there is an initial leasing fee and a 20 SP delegation for each plot
 			  seeds also cost a small amount of STEEM to purchase.
           </Typography>
         </ExpansionPanelDetails>
