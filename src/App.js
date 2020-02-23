@@ -30,6 +30,7 @@ import { Thai } from "./components/seeds/Thai";
 import { Afghani } from "./components/seeds/Afghani";
 import { LashkarGah } from "./components/seeds/LashkarGah";
 import { Aceh } from "./components/seeds/Aceh";
+import { SteemOG } from "./components/seeds/SteemOG";
 
 import Afghanistan from './components/seeds/Afghanistan';
 import Africa from './components/seeds/Africa';
@@ -352,6 +353,7 @@ class App extends Component {
             <Route path="/home" component={HomePage} />
             <Route path="/markets" component={GiftSeed} />
 
+            <Route path="/seeds/steem-og" component={SteemOG} />
             <Route path="/seeds/afghani" component={Afghani} />
             <Route path="/seeds/colombian-gold" component={ColombianGold} />
             <Route path="/seeds/lashkar-gah" component={LashkarGah} />
