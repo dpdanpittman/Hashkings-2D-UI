@@ -1,13 +1,11 @@
 import React from "react";
 import { gardenNames, seedNames } from "../../service/HashkingsAPI";
-import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
+import {  makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Paper from '@material-ui/core/Paper';
-import { ThemeProvider } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import _ from "lodash";
 import Tooltip from '@material-ui/core/Tooltip';
@@ -32,18 +30,22 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
+    whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#073232",
   },
   margin: {
     margin: theme.spacing(2),
+    whiteSpace: 'wrap',
+    scrollable: true
   },
   padding: {
     padding: theme.spacing(0, 2),
   },
   card: {
     backgroundColor: "#073232",
+    whiteSpace: 'wrap',
+    scrollable: true
   },
   media: {
     height: 140,
@@ -52,24 +54,21 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    whiteSpace: 'nowrap',
+    whiteSpace: 'wrap',
     marginBottom: theme.spacing(1),
     backgroundColor: "#073232",
   },
   font: {
     fontFamily: '"Jua", sans-serif',
     color: '#DFB17B',
+    whiteSpace: 'wrap',
+    scrollable: true
   },
   extension: {
     backgroundColor: "transparent",
+    whiteSpace: 'wrap',
   }
 }));
-
-const theme = createMuiTheme({
-  palette: {
-    primary: { 500: '#00211B' }, // custom color in hex 
-  },
-});
 
 const HtmlTooltip = withStyles(theme => ({
   tooltip: {
@@ -83,7 +82,7 @@ const HtmlTooltip = withStyles(theme => ({
 
 export default function Inventory({user}) {
   const classes = useStyles();
-  
+
   return (
   <div className={classes.flex}>
       <Grid container spacing={2}>
@@ -106,7 +105,15 @@ export default function Inventory({user}) {
           <Typography gutterBottom variant="h5" component="h2">
           <center><font color="DFB17B" className={classes.font}>Active Plots</font></center>
           </Typography>
-          <hr/>
+          <b><font color="B28D43" className={classes.font}>
+                <Typography gutterBottom variant="p" component="p">
+                <font color="DFB17B" className={classes.font}>Total: </font>
+                <Badge className={classes.margin} badgeContent={user.activeGardens.length} color="primary">
+                  <FarmIcon  />
+                </Badge>
+                </Typography>
+              </font></b>
+              <hr/>
           <ExpansionPanel className={classes.extension}>
             <ExpansionPanelSummary
              expandIcon={<ExpandMoreIcon />}
@@ -157,6 +164,17 @@ export default function Inventory({user}) {
           <Typography gutterBottom variant="h5" component="h2">
           <font color="DFB17B" className={classes.font}>Available Plots</font>
           </Typography>
+          
+
+              <b><font color="B28D43" className={classes.font}>
+                <Typography gutterBottom variant="p" component="p">
+                <font color="DFB17B" className={classes.font}>Total: </font>
+                <Badge className={classes.margin} badgeContent={user.availableGardens.length} color="primary">
+                  <FarmIcon  />
+                </Badge>
+                </Typography>
+              </font></b>
+         
           <hr/>
           <ExpansionPanel className={classes.extension}>
             <ExpansionPanelSummary
@@ -211,7 +229,15 @@ export default function Inventory({user}) {
           <Typography gutterBottom variant="h5" component="h2">
           <font color="DFB17B" className={classes.font}>Available Subdivisions</font>
           </Typography>
-          <hr/>
+          <b><font color="B28D43" className={classes.font}>
+                <Typography gutterBottom variant="p" component="p">
+                <font color="DFB17B" className={classes.font}>Total: </font>
+                <Badge className={classes.margin} badgeContent={user.availableGardens.length} color="primary">
+                  <FarmIcon  />
+                </Badge>
+                </Typography>
+              </font></b>
+              <hr/>
           <ExpansionPanel className={classes.extension}>
             <ExpansionPanelSummary
              expandIcon={<ExpandMoreIcon />}
@@ -262,7 +288,15 @@ export default function Inventory({user}) {
           <Typography gutterBottom variant="h5" component="h2">
           <font color="DFB17B" className={classes.font}>Rented Subdivisions</font>
           </Typography>
-          <hr/>
+          <b><font color="B28D43" className={classes.font}>
+                <Typography gutterBottom variant="p" component="p">
+                <font color="DFB17B" className={classes.font}>Total: </font>
+                <Badge className={classes.margin} badgeContent='0' color="primary">
+                  <FarmIcon  />
+                </Badge>
+                </Typography>
+              </font></b>
+              <hr/>
           <ExpansionPanel className={classes.extension}>
             <ExpansionPanelSummary
              expandIcon={<ExpandMoreIcon />}
@@ -281,7 +315,7 @@ export default function Inventory({user}) {
             }))
             .map(garden => (
               <b><p key={garden.id}><font color="B28D43" className={classes.font}>
-                <Badge className={classes.margin} badgeContent={garden.count} color="error">
+                <Badge className={classes.margin} badgeContent='0' color="error">
                   <FarmIcon  />
                 </Badge>
                  {gardenNames[garden.id]}
@@ -316,7 +350,15 @@ export default function Inventory({user}) {
           <Typography gutterBottom variant="h5" component="h2">
           <font color="DFB17B" className={classes.font}>Available Seeds</font>
           </Typography>
-          <hr/>
+          <b><font color="B28D43" className={classes.font}>
+                <Typography gutterBottom variant="p" component="p">
+                <font color="DFB17B" className={classes.font}>Total: </font>
+                <Badge className={classes.margin} badgeContent={user.availableSeeds.length} color="primary">
+                  <FarmIcon  />
+                </Badge>
+                </Typography>
+              </font></b>
+              <hr/>
           <ExpansionPanel className={classes.extension}>
             <ExpansionPanelSummary
              expandIcon={<ExpandMoreIcon />}
@@ -325,7 +367,7 @@ export default function Inventory({user}) {
             >
             <Typography className={classes.font}>View Seeds</Typography>
             </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          <ExpansionPanelDetails className={classes.font}>
           {_.uniqBy(user.availableSeeds, seed => seed.strain)
             .map(seed => ({
               strain: seed.strain,
@@ -367,7 +409,15 @@ export default function Inventory({user}) {
           <Typography gutterBottom variant="h5" component="h2">
           <font color="DFB17B" className={classes.font}>Available Pollen</font>
           </Typography>
-          <hr/>
+          <b><font color="B28D43" className={classes.font}>
+                <Typography gutterBottom variant="p" component="p">
+                <font color="DFB17B" className={classes.font}>Total: </font>
+                <Badge className={classes.margin} badgeContent='0' color="primary">
+                  <FarmIcon  />
+                </Badge>
+                </Typography>
+              </font></b>
+              <hr/>
           <ExpansionPanel className={classes.extension}>
             <ExpansionPanelSummary
              expandIcon={<ExpandMoreIcon />}
@@ -376,7 +426,26 @@ export default function Inventory({user}) {
             >
             <Typography className={classes.font}>View Pollen</Typography>
             </ExpansionPanelSummary>
-          <ExpansionPanelDetails></ExpansionPanelDetails>
+          <ExpansionPanelDetails>
+
+          {_.uniqBy(user.availablePollen, pollen => pollen.strain)
+            .map(pollen => ({
+              strain: pollen.strain,
+              count: user.availablePollen.filter(
+                apollen => apollen.strain === pollen.strain
+              ).length
+            }))
+            .map(pollen => (
+              <p key={pollen.strain}><font color="B28D43" className={classes.font}>
+                <Badge className={classes.margin} badgeContent={pollen.count} color="primary">
+                  <SeedIcon  />
+                </Badge>
+                 {seedNames[pollen.strain]}
+                {pollen.count !== 1 ? "s" : ""}</font>
+              </p>
+            ))}
+
+          </ExpansionPanelDetails>
           </ExpansionPanel>
         </CardContent>
       </Card>
