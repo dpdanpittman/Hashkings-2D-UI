@@ -117,7 +117,7 @@ export const FAQPage = () => {
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
 		      Head on over to the<a href="/tutorial">
-          tutorial</a> by following the lin or click "New to Hashkings?" in the top right hand corner. 
+          tutorial</a> by following the link or click "New to Hashkings?" in the top right hand corner. 
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -190,7 +190,7 @@ export const FAQPage = () => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.text}>
           <Typography>
-			There are a total of 25,200 plots of land available and you can own as many as are available at the time of delegation. At the moment you can own as many seeds as your green thumb can handle.
+			There are a total of 2520 plots of land available and you can own as many as are available at the time of delegation. At the moment you can own as many seeds as your green thumb can handle.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>

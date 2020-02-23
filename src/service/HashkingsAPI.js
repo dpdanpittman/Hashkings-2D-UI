@@ -405,7 +405,8 @@ export const seedNames = {
   cg: "Colombian Gold",
   ach: "Aceh",
   tha: "Thai",
-  cht: "Chocolate Thai"
+  cht: "Chocolate Thai",
+  sog: "Steem OG"
 };
 
 export const seedTypes = {
@@ -423,5 +424,10 @@ export const seedTypes = {
     num: 3000,
     str: "3.000",
     name: "Hand-Picked"
+  },
+  s: {
+    num: 10000,
+    str: "10.000",
+    name: "Steem OG"
   }
 };

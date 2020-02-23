@@ -92,6 +92,10 @@ const useStyles = makeStyles(theme => ({
     height: 140,
     maxWidth: 120,
   },
+  mediaSteemOG: {
+    height: 140,
+    maxWidth: 140,
+  },
   mediaPlots: {
     height: 200,
   },
@@ -150,6 +154,32 @@ export default function TradingFloor() {
         <TabPanel value={value} index={0} dir={theme.direction}>
         <div className={classes.root}>
       <Grid container spacing={3}>
+      <Grid item xs={3}>
+        <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.mediaSteemOG}
+          image="https://i.imgur.com/ymrzJc9.png"
+          title="Lashkar Gah"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
+          Steem OG
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
+          Steem OG is a hybrid created by @jonyoudyer, founder of @canna-curate in Central California.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      <Button size="large" color="error">
+      <Link component={Link1} to="/seeds/steem-og" color="error">
+          Seeds
+        </Link>
+        </Button>
+      </CardActions>
+    </Card>
+        </Grid>
         <Grid item xs={3}>
         <Card className={classes.card}>
       <CardActionArea>

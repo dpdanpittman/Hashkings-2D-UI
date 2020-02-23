@@ -2,15 +2,21 @@ import axios from "axios";
 import { format as formatTimeAgo } from "timeago.js";
 
 export class HashkingsAPI {
-  baseUrl = "https://hashkings.herokuapp.com/";
-
+  baseUrl = "https://hashkings.herokuapp.com/"; // main api
+  
   get(suffix) {
     return axios.get(this.baseUrl + suffix).then(res => res.data);
   }
 
   getTrending() {
     return this.getSteemAPI("get_discussions_by_trending", [
-      { tag: "canna-curate", limit: 20 }
+      { tag: "cannabis", limit: 20 }
+    ]);
+  }
+
+  getTrendingHome() {
+    return this.getSteemAPI("get_discussions_by_trending", [
+      { tag: "cannabis", limit: 1 }
     ]);
   }
 
@@ -20,6 +26,10 @@ export class HashkingsAPI {
 
   getUserLand(username) {
     return this.get(`a/${username}`);
+  }
+
+  getUserSeeds(username) {
+    return this.get(`s/${username}`);
   }
 
   getUserDelegation(username) {
@@ -225,7 +235,7 @@ export class HashkingsAPI {
       (parseFloat(dgpo.total_vesting_fund_steem.split(" ")[0]) *
         totalDelegation) /
       parseFloat(dgpo.total_vesting_shares.split(" ")[0]) /
-      1000000 + 1115.47
+      1000000 + 1217.81  
     ).toFixed(3);
 
     const leaderboard = Object.keys(all.users)
@@ -276,6 +286,27 @@ export class HashkingsAPI {
             })
         )
         .flat();
+
+        const harvested = activeGardens
+        .map(garden =>
+          garden.care
+            .filter(care => care[1] === "harvested")
+            .map(harvested => {
+              const date = new Date(Date.now());
+              date.setSeconds(
+                date.getSeconds() - (headBlockNum - harvested[0]) * 3
+              );
+              return {
+                when: formatTimeAgo(date),
+                id: garden.id,
+                block: harvested[0],
+                strain: garden.strain,
+                type: "harvested"
+              };
+            })
+        )
+        .flat();
+
       const planted = activeGardens.map(garden => {
         const date = new Date(Date.now());
         date.setSeconds(
@@ -290,7 +321,7 @@ export class HashkingsAPI {
         };
       });
 
-      const activity = [...planted, ...watered].sort(
+      const activity = [...planted, ...watered, ...harvested].sort(
         (a, b) => b.block - a.block
       );
 
@@ -351,7 +382,7 @@ export class HashkingsAPI {
 
 export const gardenNames = {
   a: "Afghanistan",
-  b: "Africa",
+  b: "Africa", 
   c: "Asia",
   d: "Central America",
   e: "Jamaica",
@@ -374,7 +405,8 @@ export const seedNames = {
   cg: "Colombian Gold",
   ach: "Aceh",
   tha: "Thai",
-  cht: "Chocolate Thai"
+  cht: "Chocolate Thai",
+  sog: "Steem OG"
 };
 
 export const seedTypes = {
@@ -392,5 +424,10 @@ export const seedTypes = {
     num: 3000,
     str: "3.000",
     name: "Hand-Picked"
+  },
+  s: {
+    num: 10000,
+    str: "10.000",
+    name: "Steem OG"
   }
 };
