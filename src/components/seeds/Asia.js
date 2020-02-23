@@ -119,7 +119,7 @@ export default function Asia({
   const handleSubmit = async e => {
     e.preventDefault();
       setIsSubmitting(true);
-      const memo = `b manage`;
+      const memo = `c manage`;
       const amount = "0.500";
       const currency = "STEEM";
       const to = "hashkings";
