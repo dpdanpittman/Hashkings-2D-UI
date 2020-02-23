@@ -181,7 +181,7 @@ export default function SeedGifting() {
                     id="name"
                     options={userSeeds.map(seed => ({
                       ...seed,
-                      name: `${seedNames[seed.strain]} - ${seed.xp} XP`
+                      name: `${seedNames[seed.strain]} - ${seed.traits}`
                     }))}
                     style={{width: "100%", color: "#ffffff"}}
                     onChange={e => {
