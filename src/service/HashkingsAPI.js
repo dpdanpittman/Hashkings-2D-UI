@@ -266,6 +266,7 @@ export class HashkingsAPI {
         land => typeof land === "string"
       );
       const availableSeeds = user.seeds || [];
+      const availablePollen = user.pollen || [];
 
       const watered = activeGardens
         .map(garden =>
@@ -329,6 +330,7 @@ export class HashkingsAPI {
         gardeners: stats.gardeners,
         gardens,
         availableSeeds: availableSeeds.length,
+        availablePollen: availablePollen.length,
         activeGardens: activeGardens.length,
         availableGardens: availableGardens.length,
         activity,

@@ -409,14 +409,6 @@ export default function Inventory({user}) {
           <Typography gutterBottom variant="h5" component="h2">
           <font color="DFB17B" className={classes.font}>Available Pollen</font>
           </Typography>
-          <b><font color="B28D43" className={classes.font}>
-                <Typography gutterBottom variant="p" component="p">
-                <font color="DFB17B" className={classes.font}>Total: </font>
-                <Badge className={classes.margin} badgeContent='0' color="primary">
-                  <FarmIcon  />
-                </Badge>
-                </Typography>
-              </font></b>
               <hr/>
           <ExpansionPanel className={classes.extension}>
             <ExpansionPanelSummary
@@ -427,7 +419,6 @@ export default function Inventory({user}) {
             <Typography className={classes.font}>View Pollen</Typography>
             </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-
           {_.uniqBy(user.availablePollen, pollen => pollen.strain)
             .map(pollen => ({
               strain: pollen.strain,

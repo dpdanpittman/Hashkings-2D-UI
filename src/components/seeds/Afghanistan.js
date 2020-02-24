@@ -1,20 +1,13 @@
 import React, {useContext, useState} from "react";
-import {withRouter} from "react-router-dom";
 import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
 import { makeStyles, useTheme  } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { Parallax } from 'react-parallax';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import WelcomeCard from '../WelcomeCard';
-import SwipeableViews from 'react-swipeable-views';
-import AcapulcoAvail from '../AcapulcoAvail';
 import {Button} from "primereact/button";
 import {StateContext} from "../../App";
 import {sign} from "steemconnect";
@@ -22,9 +15,9 @@ import useSteemKeychain from "../../hooks/useSteemKeychain";
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import SeedGifting from './SeedGifting';
-import {seedTypes} from '../../service/HashkingsAPI';
+import {seedTypes, gardenNames} from '../../service/HashkingsAPI';
 import { DealIcon, StoreIcon, GiftIcon } from "../Icons";
-import {gardenNames} from "../../service/HashkingsAPI";
+import {} from "../../service/HashkingsAPI";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -194,6 +187,11 @@ export default function Afghanistan({
                   <Typography gutterBottom variant="h3" component="h2" className={classes.font}>
                       <font color="#8C3820"><b>
                       Afghanistan</b>
+                      </font>
+                    </Typography>
+                    <Typography gutterBottom variant="h3" component="h2" className={classes.font}>
+                      <font color="#8C3820"><b>
+                      Only {}</b>
                       </font>
                     </Typography>
                   </Grid>
