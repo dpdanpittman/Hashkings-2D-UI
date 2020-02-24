@@ -71,7 +71,7 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Vist your Farm</Typography>
+                  <Typography color="error" className={classes.font}>Visit your Farm</Typography>
                 </React.Fragment>
               }
               placement="top"
