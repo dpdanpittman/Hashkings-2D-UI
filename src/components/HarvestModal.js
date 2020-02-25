@@ -67,16 +67,20 @@ export default function HarvestModal({
       .sort((a, b) => b[0] - a[0]);
 
       if (garden.stage >= 4) {
-        name = `${name} - Ready for harvest`;
+        name = `${name} - Harvest Now`;
       } else {
       if (harvestActions.length > 0) {
-      const date = new Date(Date.now());
-      date.setSeconds(
-        date.getSeconds() - (headBlockNum - harvestActions[0][0]) * 3
-      );
-      name = `${name} - Harvested: ${formatTimeAgo(date)}`;
+        const date = new Date(Date.now());
+        date.setSeconds(
+          date.getSeconds() - (headBlockNum - harvestActions[0][0]) * 3
+        );
+        name = `${name} - Harvested: ${formatTimeAgo(date)}`;
+      } else {
+        if (garden.stage < 4) {
+          name = `${name} - Not Ready`;
+        }
       }
-    }
+      } 
       return {
         id: garden.id,
         name

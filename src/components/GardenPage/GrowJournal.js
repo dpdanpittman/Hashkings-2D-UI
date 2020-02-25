@@ -28,9 +28,6 @@ const styles = {
 }
 
 const useStyles = makeStyles(theme => ({
-  /*rootAgain: {
-    width: '100%',
-  },*/
   flex: {
     flexGrow: 1,
   },
@@ -322,8 +319,8 @@ if (username) {
                           marks={marks}
                           disabled={true}
                           color='primary'
-                          max={110}
-                          min={-5}
+                          max={100}
+                          min={0}
                           style={{color:'#000000'}}
                         />
                     </div>

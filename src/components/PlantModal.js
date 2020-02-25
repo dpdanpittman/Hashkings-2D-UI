@@ -103,7 +103,7 @@ export default function PlantModal({
               onChange={e => {
                 setGarden(e.value);
               }}
-              placeholder="Choose a garden..."
+              placeholder="Choose a plot..."
             />
             <Button
               disabled={isSubmitting}
