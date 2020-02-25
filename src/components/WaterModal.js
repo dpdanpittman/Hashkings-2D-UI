@@ -61,7 +61,7 @@ export default function WaterModal({
       plantSex = garden.sex;
     }
 
-    let name = `${gardenNames[garden.id[0]]} - ${garden.id} - ${seedNames[garden.strain]} -${garden.traits} - ${plantSex}`;
+    let name = `${seedNames[garden.strain]} - ${plantSex} - ${garden.traits} || ${gardenNames[garden.id[0]]} - ${garden.id}`;
 
     const waterActions = garden.care
       .filter(care => care[1] === "watered")

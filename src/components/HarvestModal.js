@@ -60,14 +60,14 @@ export default function HarvestModal({
       plantSex = garden.sex;
     }
 
-    let name = `${gardenNames[garden.id[0]]} - ${garden.id} - ${seedNames[garden.strain]} - ${plantSex}`;
+    let name = `${seedNames[garden.strain]} - ${plantSex} || ${gardenNames[garden.id[0]]} - ${garden.id}`;
 
     const harvestActions = garden.care
       .filter(care => care[1] === "harvested")
       .sort((a, b) => b[0] - a[0]);
 
       if (garden.stage >= 4) {
-        name = `${name} - Harvest Now`;
+        name = `Harvest Now! - ${name}`;
       } else {
       if (harvestActions.length > 0) {
         const date = new Date(Date.now());
@@ -77,7 +77,7 @@ export default function HarvestModal({
         name = `${name} - Harvested: ${formatTimeAgo(date)}`;
       } else {
         if (garden.stage < 4) {
-          name = `${name} - Not Ready`;
+          name = `Not Ready - ${name}`;
         }
       }
       } 
