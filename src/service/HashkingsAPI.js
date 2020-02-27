@@ -267,6 +267,7 @@ export class HashkingsAPI {
       );
       const availableSeeds = user.seeds || [];
       const availablePollen = user.pollen || [];
+      const availableBuds = user.buds || [];
 
       const watered = activeGardens
         .map(garden =>
@@ -308,6 +309,26 @@ export class HashkingsAPI {
         )
         .flat();
 
+        const pollinated = activeGardens
+        .map(garden =>
+          garden.care
+            .filter(care => care[1] === "pollinated")
+            .map(pollinated => {
+              const date = new Date(Date.now());
+              date.setSeconds(
+                date.getSeconds() - (headBlockNum - pollinated[0]) * 3
+              );
+              return {
+                when: formatTimeAgo(date),
+                id: garden.id,
+                block: pollinated[0],
+                strain: garden.strain,
+                type: "pollinated"
+              };
+            })
+        )
+        .flat();
+
       const planted = activeGardens.map(garden => {
         const date = new Date(Date.now());
         date.setSeconds(
@@ -322,7 +343,7 @@ export class HashkingsAPI {
         };
       });
 
-      const activity = [...planted, ...watered, ...harvested].sort(
+      const activity = [...planted, ...watered, ...harvested, ...pollinated].sort(
         (a, b) => b.block - a.block
       );
 
@@ -331,6 +352,7 @@ export class HashkingsAPI {
         gardens,
         availableSeeds: availableSeeds.length,
         availablePollen: availablePollen.length,
+        availableBuds: availableBuds.length,
         activeGardens: activeGardens.length,
         availableGardens: availableGardens.length,
         activity,
@@ -363,12 +385,14 @@ export class HashkingsAPI {
     availableGardens.push(...harvestedLand);
     const availableSeeds = user.seeds || [];
     const availablePollen = user.pollen || [];
+    const availableBuds = user.buds || [];
 
     return {
       activeGardens,
       availableGardens,
       availableSeeds,
       availablePollen,
+      availableBuds,
       headBlockNum: dgpo.head_block_number
     };
   }

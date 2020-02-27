@@ -3,6 +3,7 @@ import {withRouter} from "react-router-dom";
 import { HashkingsAPI } from "../../service/HashkingsAPI";
 import {StateContext} from "../../App";
 import PlantModal from "../PlantModal";
+import PollinateModal from "../PollinateModal";
 import WaterModal from "../WaterModal";
 import HarvestModal from "../HarvestModal";
 import Inventory from "./Inventory.js";
@@ -18,8 +19,9 @@ import { slideInLeft } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
 import { fadeIn } from 'react-animations';
 import { slideInRight } from 'react-animations';
-import { WaterIcon, GerminateIcon, HarvestIcon } from '../Icons';
+import { WaterIcon, GerminateIcon, HarvestIcon, PollinateIcon } from '../Icons';
 import Box from '@material-ui/core/Box';
+import SeedGifting from '../seeds/SeedGifting.js';
 
 const styles = {
   slideInRight: {
@@ -93,11 +95,13 @@ export const GardenActions = () => {
     });
   
     const [plantSeedModal, setPlantSeedModal] = useState(false);
+    const [pollinateSeedModal, setPollinateSeedModal] = useState(false);
     const [waterModal, setWaterModal] = useState(false);
     const [harvestModal, setHarvestModal] = useState(false);
     const [user, setUser] = useState({
       availableSeeds: [],
       activeGardens: [],
+      availablePollen: [],
       availableGardens: [],
       headBlockNum: undefined
     });
@@ -191,13 +195,14 @@ export const GardenActions = () => {
               TransitionComponent={Zoom}
               >
               <Typography gutterBottom variant="h5" component="h1">
-                <b><font color="DFB17B" className={classes.font}>Farm</font></b>
+                <b><font color="DFB17B" className={classes.font}>Farming</font></b>
                 </Typography>
                 </HtmlTooltip>
                 </ThemeProvider>
                 </Paper>
                 </Box>
               </Grid>
+
               <Grid item xs={11}>
               <Box boxShadow={4}>
                 <Paper className={classes.paperBrown}>
@@ -224,6 +229,7 @@ export const GardenActions = () => {
                 </Paper>
                 </Box>
               </Grid>
+
               <Grid item xs={11}>
               <Box boxShadow={4}>
                 <Paper className={classes.paperBrown}>
@@ -250,6 +256,34 @@ export const GardenActions = () => {
                   </Paper>
                   </Box>
                   </Grid>
+
+                  <Grid item xs={11}>
+              <Box boxShadow={4}>
+                <Paper className={classes.paperBrown}>
+              <ThemeProvider theme={theme}>
+                <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="error" className={classes.font}><u>Pollinating</u></Typography>
+                    <em><a href="/market/seedbank">{"Breed your own Hybrid?"}</a></em> <b>{"Use some pollen to breed!"}</b>
+                  </React.Fragment>
+                }
+                placement="left"
+                TransitionComponent={Zoom}
+                >
+                <Fab
+                  variant="contained" 
+                  color="primary"
+                  onClick={() => setPollinateSeedModal(!pollinateSeedModal)}
+                  className={classes.button}
+                ><PollinateIcon />
+                </Fab>
+                </HtmlTooltip>
+              </ThemeProvider>
+                </Paper>
+                </Box>
+              </Grid>
+
                   <Grid item xs={11}>
                   <Box boxShadow={4}>
                   <Paper className={classes.paperBrown}>            
@@ -276,6 +310,17 @@ export const GardenActions = () => {
                         </Paper>
                         </Box>
                         </Grid>
+  
+                        <Grid item xs={11}>
+                  <Box boxShadow={4}>
+                  <Paper className={classes.paperBrown}>            
+                    <ThemeProvider theme={theme}>
+                    <SeedGifting />
+                        </ThemeProvider>
+                        </Paper>
+                        </Box>
+                        </Grid>
+
                       </Grid>
                         <Grid item xs={8}>
                           <Inventory user={user} />
@@ -287,6 +332,13 @@ export const GardenActions = () => {
                         toggleModal={() => setPlantSeedModal(!plantSeedModal)}
                         availableGardens={user.availableGardens}
                         availableSeeds={user.availableSeeds}
+                        username={username}
+                      />
+                      <PollinateModal
+                        isOpen={pollinateSeedModal}
+                        toggleModal={() => setPollinateSeedModal(!pollinateSeedModal)}
+                        activeGardens={user.activeGardens}
+                        availablePollen={user.availablePollen}
                         username={username}
                       />
                       <WaterModal

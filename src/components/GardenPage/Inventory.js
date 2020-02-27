@@ -443,6 +443,58 @@ export default function Inventory({user}) {
       </HtmlTooltip>
     </Grid>
     </Grid>
+    
+    <Grid item xs>
+    <HtmlTooltip
+    title={
+    <React.Fragment>
+    <Typography color="error" className={classes.font}><u>Available Pollen</u></Typography>
+    <em><a href="/market/seedbank">{"Total amount of pollen you own"}</a></em> <b>{"Use Pollen to create hybrids!"}</b>
+    </React.Fragment>
+    }
+    TransitionComponent={Zoom}
+    >
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          image="https://i.imgur.com/zUL2lCj.jpg?1"
+        />
+        <CardContent className={classes.font}>
+          <Typography gutterBottom variant="h5" component="h2">
+          <font color="DFB17B" className={classes.font}>Available Buds</font>
+          </Typography>
+              <hr/>
+          <ExpansionPanel className={classes.extension}>
+            <ExpansionPanelSummary
+             expandIcon={<ExpandMoreIcon />}
+             aria-controls="panel1a-content"
+             id="panel1a-header"
+            >
+            <Typography className={classes.font}>View Buds</Typography>
+            </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+          {_.uniqBy(user.availableBuds, buds => buds.strain)
+            .map(buds => ({
+              strain: buds.strain,
+              count: user.availableBuds.filter(
+                abuds => abuds.strain === buds.strain
+              ).length
+            }))
+            .map(buds => (
+              <p key={buds.strain}><font color="B28D43" className={classes.font}>
+                <Badge className={classes.margin} badgeContent={buds.count} color="primary">
+                  <SeedIcon  />
+                </Badge>
+                 {seedNames[buds.strain]}
+                {buds.count !== 1 ? " Buds" : " Bud"}</font>
+              </p>
+            ))}
+          </ExpansionPanelDetails>
+          </ExpansionPanel>
+        </CardContent>
+      </Card>
+      </HtmlTooltip>
+    </Grid>
     </div>
   );
 }

@@ -65,18 +65,36 @@ export default function SeedGifting() {
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [seed, setSeed] = useState();
+  const [buds, setBuds] = useState();
+  const [pollen, setPollen] = useState();
   const [to, setTo] = useState("");
   const [validatedTo, setValidatedTo] = useState();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmittingSeeds, setIsSubmittingSeeds] = useState(false);
+  const [isSubmittingBuds, setIsSubmittingBuds] = useState(false);
+  const [isSubmittingPollen, setIsSubmittingPollen] = useState(false);
   const {steemConnectAPI} = useContext(StateContext);
   const growl = useRef(null);
   const seedBackground = "https://wallpaperaccess.com/full/816276.jpg";
 
   const [userSeeds, setUserSeeds] = useState([]);
+  const [userBuds, setUserBuds] = useState([]);
+  const [userPollen, setUserPollen] = useState([]);
 
   useEffect(() => {
     hashkingsApi.getUserGarden(username).then(garden => {
       setUserSeeds(garden.availableSeeds);
+    });
+  }, [username]);
+
+  useEffect(() => {
+    hashkingsApi.getUserGarden(username).then(garden => {
+      setUserPollen(garden.availablePollen);
+    });
+  }, [username]);
+
+  useEffect(() => {
+    hashkingsApi.getUserGarden(username).then(garden => {
+      setUserBuds(garden.availableBuds);
     });
   }, [username]);
 
@@ -88,7 +106,9 @@ export default function SeedGifting() {
         detail: "Please try again"
       });
     }
-    setIsSubmitting(false);
+    setIsSubmittingSeeds(false);
+    setIsSubmittingBuds(false);
+    setIsSubmittingPollen(false);
   };
 
   useEffect(() => {
@@ -101,9 +121,9 @@ export default function SeedGifting() {
     });
   }, [to]);
 
-  const handleSubmit = async () => {
+  const handleSubmitSeeds = async () => {
     if (validatedTo && username && seed) {
-      setIsSubmitting(true);
+      setIsSubmittingSeeds(true);
 
       const custom_json_id = "qwoyn_give_seed";
       const custom_JSON = JSON.stringify({
@@ -122,9 +142,53 @@ export default function SeedGifting() {
     }
   };
 
+  const handleSubmitPollen = async () => {
+    if (validatedTo && username && pollen) {
+      setIsSubmittingPollen(true);
+
+      const custom_json_id = "qwoyn_give_pollen";
+      const custom_JSON = JSON.stringify({
+        to: validatedTo,
+        seed: pollen.strain,
+        qual: pollen.xp
+      });
+
+      steemConnectAPI.customJson(
+        [],
+        [username],
+        custom_json_id,
+        custom_JSON,
+        gifted
+      );
+    }
+  };
+
+  const handleSubmitBuds = async () => {
+    if (validatedTo && username && buds) {
+      setIsSubmittingBuds(true);
+
+      const custom_json_id = "qwoyn_give_buds";
+      const custom_JSON = JSON.stringify({
+        to: validatedTo,
+        seed: buds.strain,
+        qual: buds.xp
+      });
+
+      steemConnectAPI.customJson(
+        [],
+        [username],
+        custom_json_id,
+        custom_JSON,
+        gifted
+      );
+    }
+  };
+
   let buttonLabel = "Send";
-  if (isSubmitting) buttonLabel = "Sending";
-  if (!username) buttonLabel = "Please sign in to send seeds";
+  if (isSubmittingSeeds) buttonLabel = "Sending Seeds";
+  if (isSubmittingBuds) buttonLabel = "Sending Buds";
+  if (isSubmittingPollen) buttonLabel = "Sending Pollen";
+  if (!username) buttonLabel = "Please sign in to send items";
 
   return (
     <>
@@ -146,6 +210,135 @@ export default function SeedGifting() {
             <Grid container spacing={1}>
               <Grid item xs>
                 <Typography>Send Seeds to other Farmers</Typography>
+                <br/>
+                <TextField id="outlined-basic" 
+                  color="secondary"
+                  label="Enter Recipient" 
+                  variant="filled" 
+                  value={to}
+                  onChange={f => setTo(f.target.value.trim())}
+                  className={classes.font}
+                />
+                <br/>
+              </Grid>
+            </Grid>
+              <Grid container spacing={1}>
+                <Grid item xs>
+                  {validatedTo && (
+                    <div>
+                      <h2>{validatedTo}</h2>
+                      <img
+                        alt="avatar"
+                        src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
+                      />
+                    </div>
+                  )}
+                </Grid>
+              </Grid>
+              <Grid container spacing={1}>
+                <Grid item xs>
+                  <Dropdown
+                    className="form-input"
+                    disabled={isSubmittingSeeds || !username}
+                    optionLabel="nameSeeds"
+                    value={seed}
+                    id="nameSeeds"
+                    options={userSeeds.map(seed => ({
+                      ...seed,
+                      name: `${seedNames[seed.strain]} - ${seed.traits}`
+                    }))}
+                    style={{width: "100%", color: "#ffffff"}}
+                    onChange={f => {
+                      setSeed(f.value);
+                    }}
+                    placeholder="Choose a seed..."
+                  />
+                  <br/>
+                  <Button
+                    disabled={isSubmittingSeeds || !username || !validatedTo | !seed}
+                    label={buttonLabel}
+                    onClick={handleSubmitSeeds}
+                  />
+                </Grid>
+              </Grid>
+              </Paper>
+              </form>
+            
+            </Card>
+        </HtmlTooltip>
+     
+</Grid>
+<Grid item xs>
+            <Card className={classes.card} raised={true}>
+            <form className={classes.root} noValidate autoComplete="off">
+            <Paper className={classes.paper}>
+            <Grid container spacing={1}>
+              <Grid item xs>
+                <Typography>Send Buds to other Farmers</Typography>
+                <br/>
+                <TextField id="outlined-basic" 
+                  color="secondary"
+                  label="Enter Recipient" 
+                  variant="filled" 
+                  value={to}
+                  onChange={g => setTo(g.target.value.trim())}
+                  className={classes.font}
+                />
+                <br/>
+              </Grid>
+            </Grid>
+              <Grid container spacing={1}>
+                <Grid item xs>
+                  {validatedTo && (
+                    <div>
+                      <h2>{validatedTo}</h2>
+                      <img
+                        alt="avatar"
+                        src={`https://steemitimages.com/u/${validatedTo}/avatar/small`}
+                      />
+                    </div>
+                  )}
+                </Grid>
+              </Grid>
+              <Grid container spacing={1}>
+                <Grid item xs>
+                  <Dropdown
+                    className="form-input"
+                    disabled={isSubmittingBuds || !username}
+                    optionLabel="name"
+                    value={buds}
+                    id="name"
+                    options={userBuds.map(buds => ({
+                      ...buds,
+                      name: `${seedNames[buds.strain]}`
+                    }))}
+                    style={{width: "100%", color: "#ffffff"}}
+                    onChange={g => {
+                      setBuds(g.value);
+                    }}
+                    placeholder="Choose some bud..."
+                  />
+                  <br/>
+                  <Button
+                    disabled={isSubmittingBuds || !username || !validatedTo | !buds}
+                    label={buttonLabel}
+                    onClick={handleSubmitBuds}
+                  />
+                </Grid>
+              </Grid>
+              </Paper>
+              </form>
+            
+            </Card>
+     
+</Grid>
+<Grid item xs>
+            <Card className={classes.card} raised={true}>
+            <form className={classes.root} noValidate autoComplete="off">
+            <Paper className={classes.paper}>
+            <Grid container spacing={1}>
+              <Grid item xs>
+                <Typography>Send Pollen to other Farmers</Typography>
                 <br/>
                 <TextField id="outlined-basic" 
                   color="secondary"
@@ -175,24 +368,25 @@ export default function SeedGifting() {
                 <Grid item xs>
                   <Dropdown
                     className="form-input"
-                    disabled={isSubmitting || !username}
+                    disabled={isSubmittingPollen || !username}
                     optionLabel="name"
-                    value={seed}
+                    value={pollen}
                     id="name"
-                    options={userSeeds.map(seed => ({
-                      ...seed,
-                      name: `${seedNames[seed.strain]} - ${seed.traits}`
+                    options={userPollen.map(pollen => ({
+                      ...pollen,
+                      name: `${seedNames[pollen.strain]} - ${pollen.traits}`
                     }))}
                     style={{width: "100%", color: "#ffffff"}}
                     onChange={e => {
-                      setSeed(e.value);
+                      setPollen(e.value);
                     }}
-                    placeholder="Choose a seed..."
+                    placeholder="Choose Pollen..."
                   />
+                  <br/>
                   <Button
-                    disabled={isSubmitting || !username || !validatedTo | !seed}
+                    disabled={isSubmittingPollen || !username || !validatedTo | !pollen}
                     label={buttonLabel}
-                    onClick={handleSubmit}
+                    onClick={handleSubmitPollen}
                   />
                 </Grid>
               </Grid>
@@ -200,7 +394,6 @@ export default function SeedGifting() {
               </form>
             
             </Card>
-        </HtmlTooltip>
      
 </Grid>
 </Grid>
