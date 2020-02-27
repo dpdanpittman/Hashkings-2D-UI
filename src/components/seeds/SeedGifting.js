@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     color: '#DFB17B',
   },
   card: {
-    backgroundColor: "#2E5B71",
+    backgroundColor: "#144848",
   },
   paper: {
     padding: theme.spacing(3),
@@ -194,11 +194,17 @@ export default function SeedGifting() {
     <>
       <Growl ref={growl} />
       <Grid container spacing={1}>
+      <Grid item xs>
+      <Paper className={classes.paper}>
+      <Typography gutterBottom variant="h4" component="h4" className={classes.font}>Inventory Exchange</Typography>
+      <hr/>
+      </Paper>
+      </Grid>
         <Grid item xs>
           <HtmlTooltip
           title={
             <React.Fragment>
-            <em><a href="/market/seedbank">{"Do you have extra seeds?"}</a></em> <b>{"Enter the recipients username, choose the seed and click send"}</b>
+            <em><a href="/market/seedbank">{"Do you have extra items?"}</a></em><b>{"Enter the recipients username, choose the seed/pollen/buds and click send"}</b>
             </React.Fragment>
           }
           placement="top"

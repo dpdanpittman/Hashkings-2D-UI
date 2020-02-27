@@ -56,10 +56,11 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
-    backgroundColor: "#532C0C",
+    backgroundColor: "#000E0E",
   },
   font: {
     fontFamily: '"Jua", sans-serif',
+    color: "#DFB17B"
   },
 }));
 
@@ -194,11 +195,12 @@ export const GardenActions = () => {
               placement="top"
               TransitionComponent={Zoom}
               >
-              <Typography gutterBottom variant="h5" component="h1">
-                <b><font color="DFB17B" className={classes.font}>Farming</font></b>
+              <Typography gutterBottom variant="h4" component="h4" className={classes.font}>
+                Farming
                 </Typography>
                 </HtmlTooltip>
                 </ThemeProvider>
+                <hr/>
                 </Paper>
                 </Box>
               </Grid>
@@ -264,7 +266,7 @@ export const GardenActions = () => {
                 <HtmlTooltip
                 title={
                   <React.Fragment>
-                    <Typography color="error" className={classes.font}><u>Pollinating</u></Typography>
+                    <Typography color="error" className={classes.font}><u>Pollinate</u></Typography>
                     <em><a href="/market/seedbank">{"Breed your own Hybrid?"}</a></em> <b>{"Use some pollen to breed!"}</b>
                   </React.Fragment>
                 }

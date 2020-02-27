@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import _ from "lodash";
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
-import { FarmIcon, SeedIcon } from '../Icons';
+import { FarmIcon, SeedIcon, SubdivisionIcon, SeedSvgIcon, DnaIcon, BongIcon } from '../Icons';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0, 2),
   },
   card: {
-    backgroundColor: "#073232",
+    backgroundColor: "#001E1E",
     whiteSpace: 'wrap',
     scrollable: true
   },
@@ -233,7 +233,7 @@ export default function Inventory({user}) {
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
                 <Badge className={classes.margin} badgeContent={user.availableGardens.length * 10} color="primary">
-                  <FarmIcon  />
+                  <SubdivisionIcon  />
                 </Badge>
                 </Typography>
               </font></b>
@@ -257,7 +257,7 @@ export default function Inventory({user}) {
             .map(garden => (
               <b><p key={garden.id}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent={garden.count} color="error">
-                  <FarmIcon  />
+                  <SubdivisionIcon  />
                 </Badge>
                 </font>
               </p></b> 
@@ -292,7 +292,7 @@ export default function Inventory({user}) {
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
                 <Badge className={classes.margin} badgeContent='0' color="primary">
-                  <FarmIcon  />
+                  <SubdivisionIcon  />
                 </Badge>
                 </Typography>
               </font></b>
@@ -316,7 +316,7 @@ export default function Inventory({user}) {
             .map(garden => (
               <b><p key={garden.id}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent='0' color="error">
-                  <FarmIcon  />
+                  <SubdivisionIcon  />
                 </Badge>
                  {gardenNames[garden.id]}
                 {garden.count !== 1 ? "s" : ""}</font>
@@ -354,7 +354,7 @@ export default function Inventory({user}) {
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
                 <Badge className={classes.margin} badgeContent={user.availableSeeds.length} color="primary">
-                  <FarmIcon  />
+                  <SeedSvgIcon  />
                 </Badge>
                 </Typography>
               </font></b>
@@ -378,7 +378,7 @@ export default function Inventory({user}) {
             .map(seed => (
               <p key={seed.strain}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent={seed.count} color="primary">
-                  <SeedIcon  />
+                  <SeedSvgIcon />
                 </Badge>
                  {seedNames[seed.strain]}
                 {seed.count !== 1 ? "s" : ""}</font>
@@ -409,6 +409,14 @@ export default function Inventory({user}) {
           <Typography gutterBottom variant="h5" component="h2">
           <font color="DFB17B" className={classes.font}>Available Pollen</font>
           </Typography>
+          <b><font color="B28D43" className={classes.font}>
+                <Typography gutterBottom variant="p" component="p">
+                <font color="DFB17B" className={classes.font}>Total: </font>
+                <Badge className={classes.margin} badgeContent={user.availablePollen.length} color="primary">
+                  <DnaIcon  />
+                </Badge>
+                </Typography>
+              </font></b>
               <hr/>
           <ExpansionPanel className={classes.extension}>
             <ExpansionPanelSummary
@@ -429,7 +437,7 @@ export default function Inventory({user}) {
             .map(pollen => (
               <p key={pollen.strain}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent={pollen.count} color="primary">
-                  <SeedIcon  />
+                  <DnaIcon  />
                 </Badge>
                  {seedNames[pollen.strain]}
                 {pollen.count !== 1 ? "s" : ""}</font>
@@ -443,13 +451,13 @@ export default function Inventory({user}) {
       </HtmlTooltip>
     </Grid>
     </Grid>
-    
+    <br/>
     <Grid item xs>
     <HtmlTooltip
     title={
     <React.Fragment>
-    <Typography color="error" className={classes.font}><u>Available Pollen</u></Typography>
-    <em><a href="/market/seedbank">{"Total amount of pollen you own"}</a></em> <b>{"Use Pollen to create hybrids!"}</b>
+    <Typography color="error" className={classes.font}><u>Available Buds</u></Typography>
+    <em><a href="/market/seedbank">{"Total amount of bud you own"}</a></em> <b>{"Use bud to create new items!"}</b>
     </React.Fragment>
     }
     TransitionComponent={Zoom}
@@ -463,6 +471,14 @@ export default function Inventory({user}) {
           <Typography gutterBottom variant="h5" component="h2">
           <font color="DFB17B" className={classes.font}>Available Buds</font>
           </Typography>
+          <b><font color="B28D43" className={classes.font}>
+                <Typography gutterBottom variant="p" component="p">
+                <font color="DFB17B" className={classes.font}>Total: </font>
+                <Badge className={classes.margin} badgeContent={'0'} color="primary">
+                  <BongIcon  />
+                </Badge>
+                </Typography>
+              </font></b>
               <hr/>
           <ExpansionPanel className={classes.extension}>
             <ExpansionPanelSummary
@@ -483,7 +499,7 @@ export default function Inventory({user}) {
             .map(buds => (
               <p key={buds.strain}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent={buds.count} color="primary">
-                  <SeedIcon  />
+                  <BongIcon />
                 </Badge>
                  {seedNames[buds.strain]}
                 {buds.count !== 1 ? " Buds" : " Bud"}</font>

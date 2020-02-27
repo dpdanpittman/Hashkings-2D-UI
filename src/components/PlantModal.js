@@ -40,7 +40,7 @@ export default function PlantModal({
 
       const custom_json_id = "qwoyn_plant";
       const custom_JSON = JSON.stringify({
-        addr: garden.id,
+        addr: garden.id,  
         seed: seed.strain
       });
 
