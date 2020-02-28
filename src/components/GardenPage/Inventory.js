@@ -1,5 +1,5 @@
 import React from "react";
-import { gardenNames, seedNames } from "../../service/HashkingsAPI";
+import { gardenNames, seedNames, gardenLinkNames, seedLinkNames } from "../../service/HashkingsAPI";
 import {  makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';
@@ -8,6 +8,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import _ from "lodash";
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 import { FarmIcon, SeedIcon, SubdivisionIcon, SeedSvgIcon, DnaIcon, BongIcon } from '../Icons';
@@ -15,6 +17,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import { ExpansionPanelDetails } from "@material-ui/core";
+import AvailableSeedTable from './AvailableSeedTable';
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -82,7 +85,11 @@ const HtmlTooltip = withStyles(theme => ({
 
 export default function Inventory({user}) {
   const classes = useStyles();
+
   const userBuds = user.availableGardens.length;
+
+  const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
+
   return (
   <div className={classes.flex}>
       <Grid container spacing={2}>
@@ -103,7 +110,7 @@ export default function Inventory({user}) {
         />
         <CardContent className={classes.font}>
           <Typography gutterBottom variant="h5" component="h2">
-          <center><font color="DFB17B" className={classes.font}>Active Plots</font></center>
+          <font color="DFB17B" className={classes.font}>Active Plots</font>
           </Typography>
           <b><font color="B28D43" className={classes.font}>
                 <Typography gutterBottom variant="p" component="p">
@@ -123,6 +130,7 @@ export default function Inventory({user}) {
             <Typography className={classes.font}>View Plots</Typography>
             </ExpansionPanelSummary>
           <ExpansionPanelDetails>
+          <Grid container spacing={2}>
           {_.uniqBy(user.activeGardens, garden => garden.id[0])
             .map(garden => ({
               id: garden.id[0],
@@ -131,14 +139,28 @@ export default function Inventory({user}) {
               ).length
             }))
             .map(garden => (
+              <Link
+                component={Link1} 
+                to={'/plots/' + gardenLinkNames[garden.id]}
+                variant="body2"
+                onClick={() => {
+                  console.info("I'm a button.");
+                }}
+              >
               <b><font color="B28D43" className={classes.font}><p key={garden.id}>
                 <Badge className={classes.margin} badgeContent={garden.count} color="primary">
                   <FarmIcon  />
                 </Badge>
                     {gardenNames[garden.id]}
                 {garden.count !== 1 ? "" : ""}
-              </p></font></b>
+              </p></font></b></Link>
             ))}
+            
+            <Grid item xs>
+              </Grid>
+              {/*<AvailableSeedTable />*/}
+            </Grid>
+            
             </ExpansionPanelDetails>
             </ExpansionPanel>
         </CardContent>
@@ -164,8 +186,6 @@ export default function Inventory({user}) {
           <Typography gutterBottom variant="h5" component="h2">
           <font color="DFB17B" className={classes.font}>Available Plots</font>
           </Typography>
-          
-
               <b><font color="B28D43" className={classes.font}>
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
@@ -174,7 +194,6 @@ export default function Inventory({user}) {
                 </Badge>
                 </Typography>
               </font></b>
-         
           <hr/>
           <ExpansionPanel className={classes.extension}>
             <ExpansionPanelSummary
@@ -193,6 +212,14 @@ export default function Inventory({user}) {
               ).length
             }))
             .map(garden => (
+              <Link
+                component={Link1} 
+                to={'/plots/' + gardenLinkNames[garden.id]}
+                variant="body2"
+                onClick={() => {
+                  console.info("I'm a button.");
+                }}
+              >
               <b><p key={garden.id}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent={garden.count} color="error">
                   <FarmIcon  />
@@ -200,6 +227,7 @@ export default function Inventory({user}) {
                  {gardenNames[garden.id]}
                 {garden.count !== 1 ? " Plots" : ""}</font>
               </p></b> 
+              </Link>
             ))}
             </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -376,6 +404,14 @@ export default function Inventory({user}) {
               ).length
             }))
             .map(seed => (
+              <Link
+                component={Link1} 
+                to={'/seeds/' + seedLinkNames[seed.strain]}
+                variant="body2"
+                onClick={() => {
+                  console.info("I'm a button.");
+                }}
+              >
               <p key={seed.strain}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent={seed.count} color="primary">
                   <SeedSvgIcon />
@@ -383,6 +419,7 @@ export default function Inventory({user}) {
                  {seedNames[seed.strain]}
                 {seed.count !== 1 ? "s" : ""}</font>
               </p>
+              </Link>
             ))}
             </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -435,6 +472,14 @@ export default function Inventory({user}) {
               ).length
             }))
             .map(pollen => (
+              <Link
+                component={Link1} 
+                to={'/seeds/' + seedLinkNames[pollen.strain]}
+                variant="body2"
+                onClick={() => {
+                  console.info("I'm a button.");
+                }}
+              >
               <p key={pollen.strain}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent={pollen.count} color="primary">
                   <DnaIcon  />
@@ -442,8 +487,8 @@ export default function Inventory({user}) {
                  {seedNames[pollen.strain]}
                 {pollen.count !== 1 ? "s" : ""}</font>
               </p>
+              </Link>
             ))}
-
           </ExpansionPanelDetails>
           </ExpansionPanel>
         </CardContent>
@@ -497,6 +542,14 @@ export default function Inventory({user}) {
               ).length
             }))
             .map(buds => (
+              <Link
+                component={Link1} 
+                to={'/seeds/' + seedLinkNames[buds.strain]}
+                variant="body2"
+                onClick={() => {
+                  console.info("I'm a button.");
+                }}
+              >
               <p key={buds.strain}><font color="B28D43" className={classes.font}>
                 <Badge className={classes.margin} badgeContent={buds.count} color="primary">
                   <BongIcon />
@@ -504,6 +557,7 @@ export default function Inventory({user}) {
                  {seedNames[buds.strain]}
                 {buds.count !== 1 ? " Buds" : " Bud"}</font>
               </p>
+              </Link>
             ))}
           </ExpansionPanelDetails>
           </ExpansionPanel>

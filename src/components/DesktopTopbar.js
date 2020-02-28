@@ -3,7 +3,15 @@ import Grid from '@material-ui/core/Grid';
 import {AppInlineProfile} from "../AppInlineProfile";
 import { Link as RouterLink } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
-import { FarmTopbarIcon, SteemSVGIcon, BlogIcon, CareIcon, StoreIcon, InformationIcon, FarmIcon, TutorialIcon, LandIcon } from './Icons';
+import {  FarmTopbarIcon, 
+          SteemSVGIcon, 
+          BlogIcon, 
+          CareIcon, 
+          StoreIcon, 
+          InformationIcon, 
+          FarmIcon, 
+          TutorialIcon, 
+          LandIcon } from './Icons';
 import Tooltip from '@material-ui/core/Tooltip';
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';

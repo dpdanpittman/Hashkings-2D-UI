@@ -1,24 +1,13 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import MediaCard from './FarmingCard';
 import InsideCard from './InsideCard';
-import Paper from '@material-ui/core/Paper';
 import WelcomeCard from './WelcomeCard';
 import MarketCard from './MarketCard';
-import { Link as RouterLink } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
-import { BlogIcon, InformationIcon, SteemIcon, TwitchIcon } from './Icons';
 import { Parallax } from 'react-parallax';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import TrendingHomePage from './TrendingHomePage';
 
 const useStyles = makeStyles(theme => ({
@@ -78,11 +67,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-
 export const HomePage = () => {
 const classes = useStyles();
-const [value, setValue] = React.useState(0);
 const isDesktop = window.innerWidth < 1000;
 const image1 = "https://i.imgur.com/j2CGYh2.jpg";
 

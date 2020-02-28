@@ -467,3 +467,32 @@ export const seedTypes = {
     name: "Steem OG"
   }
 };
+
+export const gardenLinkNames = {
+  a: "Afghanistan",
+  b: "Africa", 
+  c: "Asia",
+  d: "Central-America",
+  e: "Jamaica",
+  f: "Mexico"
+};
+
+export const seedLinkNames = {
+  hk: "Hindu-Kush",
+  dp: "Durban-Poison",
+  lb: "Lambs-Bread",
+  afg: "Afghani",
+  lkg: "Lashkar-Gah",
+  mis: "Mazar-i-Sharif",
+  kbr: "Kings-Bread",
+  aca: "Acapulco-Gold",
+  swz: "Swazi-Gold",
+  kmj: "Kilimanjaro",
+  mal: "Malawi",
+  pam: "Panama-Red",
+  cg: "Colombian-Gold",
+  ach: "Aceh",
+  tha: "Thai",
+  cht: "Chocolate-Thai",
+  sog: "Steem-OG"
+};

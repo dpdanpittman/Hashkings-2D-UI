@@ -388,12 +388,12 @@ class App extends Component {
             <Route path="/pollen/aceh" component={Acehpollen} />
             <Route path="/pollen/afghani" component={Afghanipollen} />
 
-            <Route path="/plots/afghanistan" component={Afghanistan} />
-            <Route path="/plots/africa" component={Africa} />
-            <Route path="/plots/asia" component={Asia} />
-            <Route path="/plots/central-america" component={CentralAmerica} />
-            <Route path="/plots/jamaica" component={Jamaica} />
-            <Route path="/plots/mexico" component={Mexico} />
+            <Route path="/plots/Afghanistan" component={Afghanistan} />
+            <Route path="/plots/Africa" component={Africa} />
+            <Route path="/plots/Asia" component={Asia} />
+            <Route path="/plots/Central-America" component={CentralAmerica} />
+            <Route path="/plots/Jamaica" component={Jamaica} />
+            <Route path="/plots/Mexico" component={Mexico} />
           </div>
           <div className="layout-mask"></div>
         </div> 
