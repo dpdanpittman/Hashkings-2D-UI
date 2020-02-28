@@ -246,9 +246,9 @@ export default function SeedGifting() {
                   <Dropdown
                     className="form-input"
                     disabled={isSubmittingSeeds || !username}
-                    optionLabel="nameSeeds"
+                    optionLabel="name"
                     value={seed}
-                    id="nameSeeds"
+                    id="name"
                     options={userSeeds.map(seed => ({
                       ...seed,
                       name: `${seedNames[seed.strain]} - ${seed.traits}`
@@ -316,7 +316,7 @@ export default function SeedGifting() {
                     id="name"
                     options={userBuds.map(buds => ({
                       ...buds,
-                      name: `${seedNames[buds.strain]}`
+                      name: `${seedNames[buds.strain]} - ${buds.traits}`
                     }))}
                     style={{width: "100%", color: "#ffffff"}}
                     onChange={g => {
