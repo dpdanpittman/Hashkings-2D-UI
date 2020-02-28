@@ -58,6 +58,14 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1),
     backgroundColor: "#000E0E",
   },
+  paperRed: {
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+    backgroundColor: "#260518",
+  },
   font: {
     fontFamily: '"Jua", sans-serif',
     color: "#DFB17B"

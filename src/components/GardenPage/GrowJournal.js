@@ -60,118 +60,101 @@ const useStyles = makeStyles(theme => ({
 
 const marks = [
   {
-    value: 0,
+    value: 25,
     label: 'Seedling',
   },
   {
-    value: 1.5,
+    value: 28.57,
     label: '',
   },
   {
-    value: 3.5,
+    value: 32.14,
     label: '',
   },
   {
-    value: 7,
+    value: 35.71,
     label: '',
   },
   {
-    value: 10.5,
+    value: 39.28,
     label: '',
   },
   {
-    value: 14,
+    value: 42.85,
     label: '',
   },
   {
-    value: 17.5,
-    label: '',
-  },
-  {
-    value: 20,
-    label: '',
-  },
-  {
-    value: 23.5,
-    label: '',
-  },
-  {
-    value: 25,
-    label: 'Veg',
-  },
-  {
-    value: 27,
-    label: '',
-  },
-  {
-    value: 28.5,
-    label: '',
-  },
-  {
-    value: 35,
-    label: '',
-  },
-  {
-    value: 40,
-    label: '',
-  },
-  {
-    value: 45,
+    value: 46.42,
     label: '',
   },
   {
     value: 50,
+    label: 'Veg',
+  },
+  {
+    value: 54,
     label: '',
   },
   {
-    value: 55,
-    label: '',
-  },
-  {
-    value: 57.5,
+    value: 57,
     label: '',
   },
   {
     value: 60,
-    label: 'Flower',
+    label: '',
   },
   {
     value: 63,
     label: '',
   },
   {
-    value: 65.5,
+    value: 66,
     label: '',
   },
   {
-    value: 71,
+    value: 69,
     label: '',
   },
   {
-    value: 76.5,
+    value: 72,
     label: '',
   },
   {
-    value: 82,
+    value: 75,
+    label: 'Flower',
+  },
+  {
+    value: 78,
     label: '',
   },
   {
-    value: 87.5,
+    value: 81,
     label: '',
   },
   {
-    value: 93,
+    value: 84,
     label: '',
   },
   {
-    value: 97,
+    value: 89,
+    label: '',
+  },
+  {
+    value: 92,
+    label: '',
+  },
+  {
+    value: 95,
+    label: '',
+  },
+  {
+    value: 98,
     label: '',
   },
   {
     value: 100,
     label: 'Harvest',
   },
-
 ];
 
 function valuetext(value) {
@@ -310,17 +293,17 @@ if (username) {
                     return (
                       <div className={classes.root}>
                         <Slider
-                          defaultValue={Math.floor((stage / 4) * 100)}
+                          value={stage / 4 * 125}
                           valueLabelFormat={valueLabelFormat}
                           getAriaValueText={valuetext}
                           aria-labelledby="discrete-slider-restrict"
-                          step={null}
+                          step={3.57}
                           valueLabelDisplay="auto"
                           marks={marks}
                           disabled={true}
                           color='primary'
-                          max={100}
-                          min={0}
+                          max={110}
+                          min={25}
                           style={{color:'#000000'}}
                         />
                     </div>
