@@ -82,7 +82,7 @@ const HtmlTooltip = withStyles(theme => ({
 
 export default function Inventory({user}) {
   const classes = useStyles();
-
+  const userBuds = user.availableGardens.length;
   return (
   <div className={classes.flex}>
       <Grid container spacing={2}>
@@ -474,7 +474,7 @@ export default function Inventory({user}) {
           <b><font color="B28D43" className={classes.font}>
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
-                <Badge className={classes.margin} badgeContent={'0'} color="primary">
+                <Badge className={classes.margin} badgeContent={userBuds} color="primary">
                   <BongIcon  />
                 </Badge>
                 </Typography>

@@ -32,6 +32,14 @@ export class HashkingsAPI {
     return this.get(`s/${username}`);
   }
 
+  getUserPollen(username) {
+    return this.get(`pollen/${username}`);
+  }
+
+  getUserBuds(username) {
+    return this.get(`bud/${username}`);
+  }
+
   getUserDelegation(username) {
     return this.get(`delegation/${username}`);
   }
