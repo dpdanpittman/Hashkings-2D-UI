@@ -440,7 +440,7 @@ export default function Inventory({user}) {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="https://subcool.com/wp-content/uploads/2018/04/male-pollen-1024x585.jpg"
+          image="https://cannabislifenetwork.com/wp-content/uploads/2019/12/wp-15760282384073593937729912723953.jpg"
         />
         <CardContent className={classes.font}>
           <Typography gutterBottom variant="h5" component="h2">
