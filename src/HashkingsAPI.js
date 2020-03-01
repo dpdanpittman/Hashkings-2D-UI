@@ -32,6 +32,14 @@ export class HashkingsAPI {
     return this.get(`s/${username}`);
   }
 
+  getUserPollen(username) {
+    return this.get(`pollen/${username}`);
+  }
+
+  getUserBuds(username) {
+    return this.get(`bud/${username}`);
+  }
+
   getUserDelegation(username) {
     return this.get(`delegation/${username}`);
   }
@@ -458,4 +466,33 @@ export const seedTypes = {
     str: "10.000",
     name: "Steem OG"
   }
+};
+
+export const gardenLinkNames = {
+  a: "Afghanistan",
+  b: "Africa", 
+  c: "Asia",
+  d: "Central-America",
+  e: "Jamaica",
+  f: "Mexico"
+};
+
+export const seedLinkNames = {
+  hk: "Hindu-Kush",
+  dp: "Durban-Poison",
+  lb: "Lambs-Bread",
+  afg: "Afghani",
+  lkg: "Lashkar-Gah",
+  mis: "Mazar-i-Sharif",
+  kbr: "Kings-Bread",
+  aca: "Acapulco-Gold",
+  swz: "Swazi-Gold",
+  kmj: "Kilimanjaro",
+  mal: "Malawi",
+  pam: "Panama-Red",
+  cg: "Colombian-Gold",
+  ach: "Aceh",
+  tha: "Thai",
+  cht: "Chocolate-Thai",
+  sog: "Steem-OG"
 };
