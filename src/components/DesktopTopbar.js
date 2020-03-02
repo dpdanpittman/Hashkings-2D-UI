@@ -10,7 +10,9 @@ import {  FarmTopbarIcon,
           StoreIcon, 
           InformationIcon, 
           FarmIcon, 
-          TutorialIcon, 
+          TutorialIcon,
+          FunditionIcon,
+          PatreonIcon, 
           LandIcon } from './Icons';
 import Tooltip from '@material-ui/core/Tooltip';
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
@@ -168,6 +170,42 @@ export default function DesktopTopbar(){
             <IconButton className="layout-menu-button" component={Link1} to="/faq">
             <InformationIcon />
             </IconButton>
+            </HtmlTooltip>
+            </Grid> 
+
+            <Grid item xs={1}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}>Become a Patron</Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+            <a href="https://www.patreon.com/hashkings" target="_default">    
+            <IconButton className="layout-menu-button">
+            <PatreonIcon />
+            </IconButton>
+            </a>
+            </HtmlTooltip>
+            </Grid> 
+
+            <Grid item xs={1}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}>Support us on Fundition</Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+            <a href="https://gaming.fundition.io/#!/@hashkings/vni1ql2j5" target="_default">    
+            <IconButton className="layout-menu-button">
+            <FunditionIcon />
+            </IconButton>
+            </a>
             </HtmlTooltip>
             </Grid> 
 

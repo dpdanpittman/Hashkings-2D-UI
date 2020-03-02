@@ -43,7 +43,7 @@ export default function WaterModal({
 
       steemConnectAPI.customJson(
         [],
-        [username],
+        [username], 
         custom_json_id,
         custom_JSON,
         watered
