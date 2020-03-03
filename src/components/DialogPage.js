@@ -43,7 +43,7 @@ export default function CustomizedDialogs() {
     <CardMedia
       className={classes.media}
       image="https://i.imgur.com/MpuyDVD.png"
-      title="Patreon"
+      title="Click here to become a Patron"
     /></a>
     {/*<iframe width="560" 
     height="315" 
