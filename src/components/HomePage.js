@@ -9,6 +9,7 @@ import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router';
 import { Parallax } from 'react-parallax';
 import TrendingHomePage from './TrendingHomePage';
+import DialogPage from './DialogPage';
 
 const useStyles = makeStyles(theme => ({
   navWidth: {
@@ -75,7 +76,9 @@ const image1 = "https://i.imgur.com/j2CGYh2.jpg";
 if (!isDesktop) {
   return(
     <Parallax blur={1} bgImage={image1} strength={500}>
+      <DialogPage />
     <div className={classes.root}>
+    
       <Container fixed>
       <Grid container spacing={3}>
         <Grid item xs={12}>

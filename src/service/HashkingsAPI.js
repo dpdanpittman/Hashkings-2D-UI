@@ -445,6 +445,26 @@ export const seedNames = {
   sog: "Steem OG"
 };
 
+export const pollenNames = {
+  hk: "Hindu Kush",
+  dp: "Durban Poison",
+  lb: "Lambs Bread",
+  afg: "Afghani",
+  lkg: "Lashkar Gah",
+  mis: "Mazar i Sharif",
+  kbr: "Kings Bread",
+  aca: "Acapulco Gold",
+  swz: "Swazi Gold",
+  kmj: "Kilimanjaro",
+  mal: "Malawi",
+  pam: "Panama Red",
+  cg: "Colombian Gold",
+  ach: "Aceh",
+  tha: "Thai",
+  cht: "Chocolate Thai",
+  sog: "Steem OG"
+};
+
 export const seedTypes = {
   r: {
     num: 750,

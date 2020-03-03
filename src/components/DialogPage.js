@@ -4,11 +4,12 @@ import Dialog from '@material-ui/core/Dialog';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
 import Grid from '@material-ui/core/Grid';
+import CardMedia from '@material-ui/core/CardMedia';
 
 const useStyles = makeStyles(theme => ({
   media: {
-    height: 500,
-    width: 500,
+    height: 350,
+    width: 515,
   },
 }));
 
@@ -37,19 +38,20 @@ export default function CustomizedDialogs() {
     <div>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogContent dividers>
-        <Grid item xs={12}>
-    {/*<CardMedia
+        <Grid item xs>
+          <a href="https://www.patreon.com/hashkings" target="_blank">
+    <CardMedia
       className={classes.media}
-      image="https://i.imgur.com/1irxCLo.png"
-      title="Hashkings"
-    />*/}
-    <iframe width="560" 
+      image="https://i.imgur.com/MpuyDVD.png"
+      title="Patreon"
+    /></a>
+    {/*<iframe width="560" 
     height="315" 
     src="https://www.youtube.com/embed/Tvc8WKlf3mc?autoplay=1" 
     frameborder="0"
     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
     allowfullScreen>
-    </iframe>
+    </iframe>*/}
   </Grid>
         </DialogContent>
       </Dialog>

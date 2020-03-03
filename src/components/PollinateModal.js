@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from "react";
 import {Button} from "primereact/button";
 import {Dialog} from "primereact/dialog";
-import {gardenNames, seedNames} from "../service/HashkingsAPI";
+import {gardenNames, seedNames, pollenNames} from "../service/HashkingsAPI";
 import {Dropdown} from "primereact/dropdown";
 import _ from "lodash";
 import {StateContext} from "../App";
@@ -80,7 +80,7 @@ export default function PollinateModal({
               options={_.uniqBy(availablePollen, pollen => pollen.strain).map(
                 pollen => ({
                   ...pollen,
-                  name: `${seedNames[pollen.strain]}`
+                  name: `${pollenNames[pollen.strain]}`
                 })
               )}
               style={{width: "100%"}}
@@ -96,7 +96,7 @@ export default function PollinateModal({
               value={garden}
               options={_.uniqBy(activeGardens, garden => garden[0]).map(
                 garden => ({id: garden, 
-                  name: `${(garden.sex = undefined) ? garden.sex : 'Not Ready for Pollen' } - ${seedNames[garden.strain]} || ${gardenNames[garden.id[0]]} - ${garden.id}`
+                  name: `${(garden.stage < 3) ? garden.sex : 'Not Ready for Pollen' } - ${pollenNames[garden.strain]} || ${gardenNames[garden.id[0]]} - ${garden.id}`
                 })
               )}
               style={{width: "100%"}}
