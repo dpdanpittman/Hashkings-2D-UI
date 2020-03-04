@@ -40,7 +40,7 @@ export default function PollinateModal({
 
       const custom_json_id = "qwoyn_pollinate";
       const custom_JSON = JSON.stringify({
-        plants: garden.id.id,
+        plants: garden.id,
         pollen: pollen.strain
       });
 
@@ -96,7 +96,7 @@ export default function PollinateModal({
               value={garden}
               options={_.uniqBy(activeGardens, garden => garden[0]).map(
                 garden => ({id: garden, 
-                  name: `${(garden.stage < 3) ? garden.sex : 'Not Ready for Pollen' } - ${pollenNames[garden.strain]} || ${gardenNames[garden.id[0]]} - ${garden.id}`
+                  name: `${(garden.stage < 3) ? garden.sex : 'Not Ready for Pollen' } -${(garden.pollinated === true) ? '' : ' Pollinated' } - ${pollenNames[garden.strain]} || ${gardenNames[garden.id[0]]} - ${garden.id}`
                 })
               )}
               style={{width: "100%"}}
