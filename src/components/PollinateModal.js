@@ -94,9 +94,10 @@ export default function PollinateModal({
               optionLabel="name"
               id="garden"
               value={garden}
-              options={_.uniqBy(activeGardens, garden => garden[0]).map(
-                garden => ({id: garden, 
-                  name: `${(garden.stage < 3) ? garden.sex : 'Not Ready for Pollen' } -${(garden.pollinated === true) ? '' : ' Pollinated' } - ${pollenNames[garden.strain]} || ${gardenNames[garden.id[0]]} - ${garden.id}`
+              options={_.uniqBy(activeGardens, garden => garden.id).map(
+                garden => ({
+                  ...garden,
+                  name: `${(garden.stage > 2) ? 'Ready for Pollen' : 'Not Ready for Pollen' } -${(garden.pollinated === true) ? ' Pollinated' : '' } - ${pollenNames[garden.strain]} || ${gardenNames[garden.id[0]]} - ${garden.id}`
                 })
               )}
               style={{width: "100%"}}

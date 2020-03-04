@@ -86,8 +86,6 @@ const HtmlTooltip = withStyles(theme => ({
 export default function Inventory({user}) {
   const classes = useStyles();
 
-  const userBuds = user.availableGardens.length;
-
   const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
   return (
@@ -519,7 +517,7 @@ export default function Inventory({user}) {
           <b><font color="B28D43" className={classes.font}>
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
-                <Badge className={classes.margin} badgeContent={userBuds} color="primary">
+                <Badge className={classes.margin} badgeContent={user.activeGardens.length} color="primary">
                   <BongIcon  />
                 </Badge>
                 </Typography>

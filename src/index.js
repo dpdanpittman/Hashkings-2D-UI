@@ -17,7 +17,7 @@ const theme = createMuiTheme({
     }
   }
 });
-
+  
 ReactDOM.render(
   <BrowserRouter>
     <ScrollToTop>

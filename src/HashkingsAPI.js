@@ -37,7 +37,7 @@ export class HashkingsAPI {
   }
 
   getUserBuds(username) {
-    return this.get(`bud/${username}`);
+    return this.get(`buds/${username}`);
   }
 
   getUserDelegation(username) {
@@ -227,7 +227,7 @@ export class HashkingsAPI {
       requests = [...requests, ...userRequests];
     }
 
-    const [stats, all, dgpo, user, userLand] = await Promise.all(requests);
+    const [stats, all, dgpo, user, userLand, userSeeds, userBuds, userPollen] = await Promise.all(requests);
 
     const { ac, bc, cc, dc, ec, fc } = stats.supply.land;
 
@@ -275,7 +275,9 @@ export class HashkingsAPI {
       );
       const availableSeeds = user.seeds || [];
       const availablePollen = user.pollen || [];
-      const availableBuds = user.buds || [];
+      const availableBuds = userBuds.filter(
+        buds => typeof buds === "string"
+      );;
 
       const watered = activeGardens
         .map(garden =>
@@ -290,7 +292,7 @@ export class HashkingsAPI {
                 when: formatTimeAgo(date),
                 id: garden.id,
                 block: watered[0],
-                strain: garden.strain,
+                strain: garden.seed.strain,
                 type: "watered"
               };
             })
@@ -310,7 +312,7 @@ export class HashkingsAPI {
                 when: formatTimeAgo(date),
                 id: garden.id,
                 block: harvested[0],
-                strain: garden.strain,
+                strain: garden.seed.strain,
                 type: "harvested"
               };
             })
@@ -330,7 +332,7 @@ export class HashkingsAPI {
                 when: formatTimeAgo(date),
                 id: garden.id,
                 block: pollinated[0],
-                strain: garden.strain,
+                strain: garden.pollen.strain,
                 type: "pollinated"
               };
             })
