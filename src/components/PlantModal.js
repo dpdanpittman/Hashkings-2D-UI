@@ -80,7 +80,7 @@ export default function PlantModal({
               options={_.uniqBy(availableSeeds, seed => seed.strain).map(
                 seed => ({
                   ...seed,
-                  name: `${seedNames[seed.strain]} -  ${seed.traits}`
+                  name: `${seedNames[seed.strain]}`
                 })
               )}
               style={{width: "100%"}}

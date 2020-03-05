@@ -88,6 +88,8 @@ export default function Inventory({user}) {
 
   const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
+  var budsCount = user.availableBuds
+
   return (
   <div className={classes.flex}>
       <Grid container spacing={2}>
@@ -517,7 +519,7 @@ export default function Inventory({user}) {
           <b><font color="B28D43" className={classes.font}>
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
-                <Badge className={classes.margin} badgeContent={user.activeGardens.length} color="primary">
+                <Badge className={classes.margin} /*badgeContent={availableBuds.strain.length}*/ color="primary">
                   <BongIcon  />
                 </Badge>
                 </Typography>
