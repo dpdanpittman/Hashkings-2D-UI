@@ -40,7 +40,7 @@ export default function PollinateModal({
 
       const custom_json_id = "qwoyn_pollinate";
       const custom_JSON = JSON.stringify({
-        plants: garden.id.id,
+        plants: garden.id,
         pollen: pollen.strain
       });
 
