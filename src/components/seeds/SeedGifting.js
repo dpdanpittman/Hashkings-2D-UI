@@ -149,7 +149,7 @@ export default function SeedGifting() {
       const custom_json_id = "qwoyn_give_pollen";
       const custom_JSON = JSON.stringify({
         to: validatedTo,
-        seed: pollen.strain,
+        pollen: pollen.strain,
         qual: pollen.xp
       });
 
@@ -170,7 +170,7 @@ export default function SeedGifting() {
       const custom_json_id = "qwoyn_give_buds";
       const custom_JSON = JSON.stringify({
         to: validatedTo,
-        seed: buds.strain,
+        buds: buds.strain,
         qual: buds.xp
       });
 

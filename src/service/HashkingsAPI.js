@@ -279,6 +279,8 @@ export class HashkingsAPI {
         buds => typeof buds === "string"
       );;
 
+      const breederName = user.breeder || []
+
       const watered = activeGardens
         .map(garden =>
           garden.care
@@ -366,6 +368,7 @@ export class HashkingsAPI {
         activeGardens: activeGardens.length,
         availableGardens: availableGardens.length,
         activity,
+        breederName,
         delegation: delegationVestsToSteem,
         leaderboard
       };
@@ -396,6 +399,7 @@ export class HashkingsAPI {
     const availableSeeds = user.seeds || [];
     const availablePollen = user.pollen || [];
     const availableBuds = user.buds || [];
+    const breederName = user.breeder || [];
 
     return {
       activeGardens,
@@ -403,6 +407,7 @@ export class HashkingsAPI {
       availableSeeds,
       availablePollen,
       availableBuds,
+      breederName,
       headBlockNum: dgpo.head_block_number
     };
   }
