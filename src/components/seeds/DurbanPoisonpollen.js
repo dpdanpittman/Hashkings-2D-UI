@@ -21,7 +21,6 @@ import {sign} from "steemconnect";
 import useSteemKeychain from "../../hooks/useSteemKeychain"; 
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
-import PollenGifting from './PollenGifting';
 import {seedTypes} from '../../service/HashkingsAPI';
 
 function TabPanel(props) {
@@ -255,7 +254,6 @@ export const DurbanPoisonpollen = () => {
         <AcapulcoAvail />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <PollenGifting />
         </TabPanel>
       </SwipeableViews>
     </div>
