@@ -189,6 +189,8 @@ export const HashkingsTemplate = () => {
       gardeners: 0,
       gardens: 0,
       availableSeeds: 0,
+      availablePollen: 0,
+      availableBuds: 0,
       activeGardens: 0,
       availableGardens: 0,
       activity: [],

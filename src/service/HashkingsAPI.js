@@ -275,11 +275,9 @@ export class HashkingsAPI {
       );
       const availableSeeds = user.seeds || [];
       const availablePollen = user.pollen || [];
-      const availableBuds = userBuds.filter(
-        buds => typeof buds === "string"
-      );;
+      const availableBuds = user.buds || [];
 
-      const breederName = user.breeder || []
+      const breederName = user.breeder || [];
 
       const watered = activeGardens
         .map(garden =>
@@ -412,6 +410,22 @@ export class HashkingsAPI {
     };
   }
 
+  async getUsersBuds(username) {
+    const [user, userBuds, dgpo] = await Promise.all([
+      this.getUser(username),
+      this.getUserBuds(username),
+      this.getDGPO()
+    ]);
+    const availableBuds = userBuds.filter(
+      buds => typeof buds === "object"
+    );
+
+    return {
+      availableBuds,
+      headBlockNum: dgpo.head_block_number
+    };
+  }
+
   userExists(username) {
     return this.getAll().then(all => Object.keys(all.users).includes(username));
   }
@@ -430,6 +444,15 @@ export const gardenNames = {
   d: "Central America",
   e: "Jamaica",
   f: "Mexico"
+};
+
+export const profileImages = {
+  1: "Afghanistan",
+  2: "Africa", 
+  3: "Asia",
+  4: "Central America",
+  5: "Jamaica",
+  6: "Mexico"
 };
 
 export const seedNames = {
@@ -474,18 +497,18 @@ export const pollenNames = {
 
 export const seedTypes = {
   r: {
-    num: 750,
-    str: "0.750",
+    num: 5000,
+    str: "5",
     name: "Basic"
   },
   m: {
-    num: 1500,
-    str: "1.500",
+    num: 5000,
+    str: "5",
     name: "Premium"
   },
   t: {
-    num: 3000,
-    str: "3.000",
+    num: 5000,
+    str: "5",
     name: "Hand-Picked"
   },
   s: {

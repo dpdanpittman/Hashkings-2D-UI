@@ -111,6 +111,7 @@ export const GardenActions = () => {
       availableSeeds: [],
       activeGardens: [],
       availablePollen: [],
+      availableBuds: [],
       availableGardens: [],
       headBlockNum: undefined
     });

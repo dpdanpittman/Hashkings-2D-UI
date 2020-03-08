@@ -12,12 +12,11 @@ import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
-import { FarmIcon, SeedIcon, SubdivisionIcon, SeedSvgIcon, DnaIcon, BongIcon } from '../Icons';
+import { FarmIcon, SubdivisionIcon, SeedSvgIcon, DnaIcon, BongIcon } from '../Icons';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import { ExpansionPanelDetails } from "@material-ui/core";
-import AvailableSeedTable from './AvailableSeedTable';
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -87,8 +86,6 @@ export default function Inventory({user}) {
   const classes = useStyles();
 
   const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
-
-  var budsCount = user.availableBuds
 
   return (
   <div className={classes.flex}>
@@ -519,7 +516,7 @@ export default function Inventory({user}) {
           <b><font color="B28D43" className={classes.font}>
                 <Typography gutterBottom variant="p" component="p">
                 <font color="DFB17B" className={classes.font}>Total: </font>
-                <Badge className={classes.margin} /*badgeContent={availableBuds.strain.length}*/ color="primary">
+                <Badge className={classes.margin} badgeContent={user.availableBuds.length} color="primary">
                   <BongIcon  />
                 </Badge>
                 </Typography>

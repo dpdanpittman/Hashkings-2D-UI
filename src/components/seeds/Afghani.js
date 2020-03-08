@@ -249,7 +249,7 @@ export const Afghani = () => {
               <br/>
               <br/>
               <Typography variant="body2" color="textSecondary" component="p">
-              <font color="DFB17B" className={classes.font}><b>Price: 3 STEEM</b></font>
+              <font color="DFB17B" className={classes.font}><b>Price: 5 STEEM</b></font>
               </Typography>
               <br/>
               <Button

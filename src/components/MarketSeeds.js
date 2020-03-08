@@ -95,7 +95,7 @@ export const MarketSeeds = () => {
           </Typography>
           <br/>
           <Typography variant="body2" color="textSecondary" component="p">
-          <font color="DFB17B" className={classes.font}><b>Price: 3 STEEM</b></font>
+          <font color="DFB17B" className={classes.font}><b>Price: 5 STEEM</b></font>
           </Typography>
               <label htmlFor="multiselect" />
             <BuySeed type="t" />
