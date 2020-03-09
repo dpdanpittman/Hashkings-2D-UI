@@ -215,7 +215,7 @@ export default function SeedGifting() {
             <Paper className={classes.paper}>
             <Grid container spacing={1}>
               <Grid item xs>
-                <Typography>Send Seeds to other Farmers</Typography>
+                <Typography>Send a Seed to another Farmer</Typography>
                 <br/>
                 <TextField id="outlined-basic" 
                   color="secondary"
@@ -280,7 +280,7 @@ export default function SeedGifting() {
             <Paper className={classes.paper}>
             <Grid container spacing={1}>
               <Grid item xs>
-                <Typography>Send Buds to other Farmers</Typography>
+                <Typography>Send a Bud to another Farmer</Typography>
                 <br/>
                 <TextField id="outlined-basic" 
                   color="secondary"
@@ -344,7 +344,7 @@ export default function SeedGifting() {
             <Paper className={classes.paper}>
             <Grid container spacing={1}>
               <Grid item xs>
-                <Typography>Send Pollen to other Farmers</Typography>
+                <Typography>Send a Pollen to another Farmer</Typography>
                 <br/>
                 <TextField id="outlined-basic" 
                   color="secondary"
