@@ -227,7 +227,7 @@ export class HashkingsAPI {
       requests = [...requests, ...userRequests];
     }
 
-    const [stats, all, dgpo, user, userLand, userSeeds, userBuds, userPollen] = await Promise.all(requests);
+    const [stats, all, dgpo, user, userLand] = await Promise.all(requests);
 
     const { ac, bc, cc, dc, ec, fc } = stats.supply.land;
 
@@ -275,9 +275,22 @@ export class HashkingsAPI {
       );
       const availableSeeds = user.seeds || [];
       const availablePollen = user.pollen || [];
-      const availableBuds = userBuds.filter(
-        buds => typeof buds === "string"
-      );;
+      const availableBuds = user.buds || [];
+      const availableJoints = user.joints || [];
+      const availableEdibles = user.edibles || [];
+      const availableBlunts = user.blunts || [];
+      const availableDippedJoints = user.dippedjoints || [];
+      const availableCannagars = user.cannagars || [];
+      const availablePapers = user.papers || [];
+      const availableBluntwraps = user.bluntwraps || [];
+      const availableHempwraps = user.hempwraps || [];
+      const availableKiefbox = user.kiefbox || [];
+      const availableVacovens = user.vacoven || [];
+      const availableBrownieMix = user.browniemix || [];
+      const availableKief = user.kief || [];
+      const availableOil = user.oil || [];
+      const totalxps = user.xps || [];
+      const breederName = user.breeder || [];
 
       const watered = activeGardens
         .map(garden =>
@@ -363,9 +376,24 @@ export class HashkingsAPI {
         availableSeeds: availableSeeds.length,
         availablePollen: availablePollen.length,
         availableBuds: availableBuds.length,
+        availableJoints: availableJoints.length,
+        availableEdibles: availableEdibles.length,
+        availableBlunts: availableBlunts.length,
+        availableDippedJoints: availableDippedJoints.length,
+        availableCannagars: availableCannagars.length,
+        availablePapers: availablePapers,
+        availableVacovens: availableVacovens,
+        availableBluntwraps: availableBluntwraps,
+        availableHempwraps: availableHempwraps,
+        availableKiefbox: availableKiefbox,
+        availableBrownieMix: availableBrownieMix,
+        availableKief: availableKief.length,
+        availableOil: availableOil.length,
+        totalxps: totalxps,
         activeGardens: activeGardens.length,
         availableGardens: availableGardens.length,
         activity,
+        breeder: breederName,
         delegation: delegationVestsToSteem,
         leaderboard
       };
@@ -396,12 +424,58 @@ export class HashkingsAPI {
     const availableSeeds = user.seeds || [];
     const availablePollen = user.pollen || [];
     const availableBuds = user.buds || [];
+    const availableKief = user.kief || [];
+    const availableOil = user.oil || [];
+    const totalxps = user.xps || [];
+    const availableJoints = user.joints || [];
+    const availableEdibles = user.edibles || [];
+    const availableBlunts = user.blunts || [];
+    const availableDippedJoints = user.dippedjoints || [];
+    const availableCannagars = user.cannagars || [];
+    const availablePapers = user.papers || [];
+    const availableBluntwraps = user.bluntwraps || [];
+    const availableHempwraps = user.hempwraps || [];
+    const availableKiefbox = user.kiefbox || [];
+    const availableVacovens= user.vacoven || [];
+    const availableBrownieMix = user.browniemix || [];
+    const breederName = user.breeder || [];
 
     return {
       activeGardens,
       availableGardens,
       availableSeeds,
       availablePollen,
+      availableBuds,
+      availableJoints,
+      availableVacovens,
+      availableEdibles,
+      availableDippedJoints,
+      availableCannagars,
+      availableBluntwraps,
+      availableBlunts,
+      availablePapers,
+      availableHempwraps,
+      availableKiefbox,
+      availableBrownieMix,
+      availableKief,
+      availableOil,
+      totalxps,
+      breederName,
+      headBlockNum: dgpo.head_block_number
+    };
+  }
+
+  async getUsersBuds(username) {
+    const [user, userBuds, dgpo] = await Promise.all([
+      this.getUser(username),
+      this.getUserBuds(username),
+      this.getDGPO()
+    ]);
+    const availableBuds = userBuds.filter(
+      buds => typeof buds === "object"
+    );
+
+    return {
       availableBuds,
       headBlockNum: dgpo.head_block_number
     };
@@ -425,6 +499,15 @@ export const gardenNames = {
   d: "Central America",
   e: "Jamaica",
   f: "Mexico"
+};
+
+export const profileImages = {
+  1: "Afghanistan",
+  2: "Africa", 
+  3: "Asia",
+  4: "Central America",
+  5: "Jamaica",
+  6: "Mexico"
 };
 
 export const seedNames = {
@@ -469,18 +552,18 @@ export const pollenNames = {
 
 export const seedTypes = {
   r: {
-    num: 750,
-    str: "0.750",
+    num: 5000,
+    str: "5",
     name: "Basic"
   },
   m: {
-    num: 1500,
-    str: "1.500",
+    num: 5000,
+    str: "5",
     name: "Premium"
   },
   t: {
-    num: 3000,
-    str: "3.000",
+    num: 5000,
+    str: "5",
     name: "Hand-Picked"
   },
   s: {
