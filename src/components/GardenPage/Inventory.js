@@ -143,7 +143,7 @@ export default function Inventory({user}) {
           onChange={handleChange}
           indicatorColor="primary"
           textColor="error"
-          variant="fullWidth"
+          variant="scrollable"
           aria-label="Market Tabs"
           className={classes.background}
         >
@@ -1318,7 +1318,6 @@ export default function Inventory({user}) {
       </Card>
       </HtmlTooltip>
     </Grid>
-    
     </TabPanel>
 
       </SwipeableViews>

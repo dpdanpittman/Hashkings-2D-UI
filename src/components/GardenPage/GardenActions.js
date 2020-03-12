@@ -5,7 +5,11 @@ import {StateContext} from "../../App";
 import PlantModal from "../PlantModal";
 import PollinateModal from "../PollinateModal";
 import WaterModal from "../WaterModal";
+import CraftOilModal from "../OilModal"
 import HarvestModal from "../HarvestModal";
+import KiefModal from "../KiefModal";
+import BluntModal from "../BluntModal";
+import JointModal from "../JointModal";
 import Inventory from "./Inventory.js";
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -19,9 +23,55 @@ import { slideInLeft } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
 import { fadeIn } from 'react-animations';
 import { slideInRight } from 'react-animations';
-import { WaterIcon, GerminateIcon, HarvestIcon, PollinateIcon } from '../Icons';
+import { WaterIcon, 
+         GerminateIcon, 
+         HarvestIcon, 
+         OilIcon,
+         CannagarIcon,
+         PollinateIcon, 
+         JointIcon, 
+         FarmingIcon, 
+         GiftIcon, 
+         CraftingIcon, 
+         CrystalIcon,
+         DippedIcon, 
+         BluntIcon } from '../Icons';
 import Box from '@material-ui/core/Box';
 import SeedGifting from '../seeds/SeedGifting.js';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import AppBar from '@material-ui/core/AppBar';
+import PropTypes from 'prop-types';
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`scrollable-prevent-tabpanel-${index}`}
+      aria-labelledby={`scrollable-prevent-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box p={3}>{children}</Box>}
+    </Typography>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `scrollable-prevent-tab-${index}`,
+    'aria-controls': `scrollable-prevent-tabpanel-${index}`,
+  };
+}
 
 const styles = {
   slideInRight: {
@@ -70,6 +120,16 @@ const useStyles = makeStyles(theme => ({
     fontFamily: '"Jua", sans-serif',
     color: "#DFB17B"
   },
+  tabs: {
+    borderRight: `1px solid ${theme.palette.divider}`,
+  },
+  vr: {
+    borderleft: `5px solid #000000`,
+    height: 500,
+  },
+  background: {
+    backgroundColor: "#073232"
+  },
 }));
 
 const theme = createMuiTheme({
@@ -91,6 +151,11 @@ const HtmlTooltip = withStyles(theme => ({
 export const GardenActions = () => {
     const {username} = useContext(StateContext);
     const classes = useStyles();
+    const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   
     const [dashboardStats, setDashboardStats] = useState({
       gardeners: 0,
@@ -109,6 +174,10 @@ export const GardenActions = () => {
     const [plantSeedModal, setPlantSeedModal] = useState(false);
     const [pollinateSeedModal, setPollinateSeedModal] = useState(false);
     const [waterModal, setWaterModal] = useState(false);
+    const [craftOilModal, setCraftOilModal] = useState(false);
+    const [craftKiefModal, setCraftKiefModal] = useState(false);
+    const [craftJointModal, setCraftJointModal] = useState(false);
+    const [craftBluntModal, setCraftBluntModal] = useState(false);
     const [harvestModal, setHarvestModal] = useState(false);
     const [user, setUser] = useState({
       availableSeeds: [],
@@ -151,24 +220,6 @@ export const GardenActions = () => {
     }, [username]);
   
     useEffect(() => {
-      hashkingsApi
-        .getDashboardStats(username)
-        .then(stats => {
-          if (username) {
-            setDashboardStats(stats);
-          } else {
-            setDashboardStats({
-              ...dashboardStats,
-              ...stats
-            });
-          }
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    }, [username]);
-  
-    useEffect(() => {
       if (username) {
         setLoading(true);
         hashkingsApi.getDGPO().then(dgpo => {
@@ -205,8 +256,23 @@ export const GardenActions = () => {
           <StyleRoot>
           <div style={styles.slideInLeft2}>
           <Grid container spacing={1}>
-          <Grid item xs={4}>
-            <Grid item xs={11}>
+          <Grid item xs={5}>
+          <AppBar position="static">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          variant="scrollable"
+          scrollButtons="off"
+          aria-label="scrollable prevent tabs example"
+          className={classes.background}
+        >
+          <Tab icon={<FarmingIcon />} aria-label="phone" {...a11yProps(0)} />
+          <Tab icon={<CraftingIcon />} aria-label="favorite" {...a11yProps(1)} />
+          <Tab icon={<GiftIcon />} aria-label="person" {...a11yProps(2)} />
+        </Tabs>
+      </AppBar>      
+      <TabPanel value={value} index={0}>
+            <Grid item xs={12}>
             <Box boxShadow={4}>
               <Paper className={classes.paperBrown}>
             <ThemeProvider theme={theme}>
@@ -220,7 +286,7 @@ export const GardenActions = () => {
               placement="top"
               TransitionComponent={Zoom}
               >
-              <Typography gutterBottom variant="h4" component="h4" className={classes.font}>
+              <Typography gutterBottom variant="h3" component="h3" className={classes.font}>
                 Farming
                 </Typography>
                 </HtmlTooltip>
@@ -229,8 +295,8 @@ export const GardenActions = () => {
                 </Paper>
                 </Box>
               </Grid>
-
-              <Grid item xs={11}>
+              
+              <Grid item xs={12}>
               <Box boxShadow={4}>
                 <Paper className={classes.paperBrown}>
               <ThemeProvider theme={theme}>
@@ -257,7 +323,7 @@ export const GardenActions = () => {
                 </Box>
               </Grid>
 
-              <Grid item xs={11}>
+              <Grid item xs={12}>
               <Box boxShadow={4}>
                 <Paper className={classes.paperBrown}>
               <ThemeProvider theme={theme}>
@@ -284,7 +350,7 @@ export const GardenActions = () => {
                   </Box>
                   </Grid>
 
-                  <Grid item xs={11}>
+                  <Grid item xs={12}>
               <Box boxShadow={4}>
                 <Paper className={classes.paperBrown}>
               <ThemeProvider theme={theme}>
@@ -311,7 +377,7 @@ export const GardenActions = () => {
                 </Box>
               </Grid>
 
-                  <Grid item xs={11}>
+                  <Grid item xs={12}>
                   <Box boxShadow={4}>
                   <Paper className={classes.paperBrown}>            
                     <ThemeProvider theme={theme}>
@@ -337,8 +403,247 @@ export const GardenActions = () => {
                         </Paper>
                         </Box>
                         </Grid>
-  
-                        <Grid item xs={11}>
+                        </TabPanel>
+
+                        <TabPanel value={value} index={1}>
+                        <Grid item xs={12}>
+            <Box boxShadow={4}>
+              <Paper className={classes.paperBrown}>
+            <ThemeProvider theme={theme}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}><u>Craft Items</u></Typography>
+                  <b>{"This is where you create items with your buds!"}</b>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+              <Typography gutterBottom variant="h3" component="h3" className={classes.font}>
+                Crafting
+                </Typography>
+                </HtmlTooltip>
+                </ThemeProvider>
+                <hr/>
+                </Paper>
+                </Box>
+              </Grid>
+
+              <Grid item xs={12}>
+            <Box boxShadow={4}>
+              <Paper className={classes.paperBrown}>
+            <ThemeProvider theme={theme}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}><u>Kief and Oil </u></Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+              <Typography gutterBottom variant="h5" component="h5" className={classes.font}>
+                Hashish
+                </Typography>
+                </HtmlTooltip>
+                </ThemeProvider>
+                <hr/>
+                </Paper>
+                </Box>
+              </Grid>
+        
+              <Grid item xs={12}>
+              <Box boxShadow={4}>
+                <Paper className={classes.paperBrown}>
+              <ThemeProvider theme={theme}>
+                <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="error" className={classes.font}><u>Craft Kief</u></Typography>
+                    <b>{"Use kief to craft moonrocks or dipped joints!"}</b>
+                  </React.Fragment>
+                }
+                placement="left"
+                TransitionComponent={Zoom}
+                >
+                <Fab
+                  variant="contained" 
+                  color="primary"
+                  onClick={() => setCraftKiefModal(!craftKiefModal)}
+                  className={classes.button}
+                ><CrystalIcon />
+                </Fab>
+                </HtmlTooltip>
+              </ThemeProvider>
+                </Paper>
+                </Box>
+              </Grid>
+              
+
+              <Grid item xs={12}>
+              <Box boxShadow={4}>
+                <Paper className={classes.paperBrown}>
+              <ThemeProvider theme={theme}>
+                <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="error" className={classes.font}><u>Craft Oil</u></Typography>
+                    <b>{"Use some Hashoil to create dipped joints or cannagars!"}</b>
+                  </React.Fragment>
+                }
+                placement="left"
+                TransitionComponent={Zoom}
+                >
+                <Fab
+                  variant="contained" 
+                  color="primary"
+                  onClick={() => setCraftOilModal(!craftOilModal)}
+                  className={classes.button}
+                ><OilIcon />
+                </Fab>
+                </HtmlTooltip>
+              </ThemeProvider>
+                </Paper>
+                </Box>
+              </Grid>
+<br/>
+              <Grid item xs={12}>
+            <Box boxShadow={4}>
+              <Paper className={classes.paperBrown}>
+            <ThemeProvider theme={theme}>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="error" className={classes.font}><u>Smoke these with your friends </u></Typography>
+                </React.Fragment>
+              }
+              placement="top"
+              TransitionComponent={Zoom}
+              >
+              <Typography gutterBottom variant="h5" component="h5" className={classes.font}>
+                Consumables
+                </Typography>
+                </HtmlTooltip>
+                </ThemeProvider>
+                <hr/>
+                </Paper>
+                </Box>
+              </Grid>
+
+              <Grid item xs={12}>
+              <Box boxShadow={4}>
+                <Paper className={classes.paperBrown}>
+              <ThemeProvider theme={theme}>
+                <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="error" className={classes.font}><u>Roll a Joint</u></Typography>
+                    <b>{"Roll a Joint and smoke it with your friends to gain XP"}</b>
+                  </React.Fragment>
+                }
+                placement="left"
+                TransitionComponent={Zoom}
+                >
+                <Fab
+                  variant="contained" 
+                  color="primary"
+                  onClick={() => setCraftJointModal(!craftJointModal)}
+                  className={classes.button}
+                ><JointIcon />
+                </Fab>
+                </HtmlTooltip>
+              </ThemeProvider>
+                </Paper>
+                </Box>
+              </Grid>
+
+              <Grid item xs={12}>
+              <Box boxShadow={4}>
+                <Paper className={classes.paperBrown}>
+              <ThemeProvider theme={theme}>
+                <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="error" className={classes.font}><u>Roll a Blunt</u></Typography>
+                    <b>{"Roll a Blunt and smoke it with your friends to gain XP"}</b>
+                    </React.Fragment>
+                }
+                placement="left"
+                TransitionComponent={Zoom}
+                >
+                <Fab
+                  variant="contained" 
+                  color="primary"
+                  onClick={() => setCraftBluntModal(!craftBluntModal)}
+                  className={classes.button}
+                ><BluntIcon />
+                </Fab>
+                </HtmlTooltip>
+              </ThemeProvider>
+                </Paper>
+                </Box>
+              </Grid>
+
+              <Grid item xs={12}>
+              <Box boxShadow={4}>
+                <Paper className={classes.paperBrown}>
+              <ThemeProvider theme={theme}>
+                <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="error" className={classes.font}><u>Craft a Dipped Joint</u></Typography>
+                    <b>{"Roll a Dipped Joint with kief, bud and oil and smoke it with your friends to gain XP"}</b>
+                  </React.Fragment>
+                }
+                placement="left"
+                TransitionComponent={Zoom}
+                >
+                <Fab
+                  variant="contained" 
+                  color="primary"
+                  //onClick={() => setPollinateSeedModal(!pollinateSeedModal)}
+                  className={classes.button}
+                ><DippedIcon />
+                </Fab>
+                </HtmlTooltip>
+              </ThemeProvider>
+                </Paper>
+                </Box>
+              </Grid>
+
+              <Grid item xs={12}>
+              <Box boxShadow={4}>
+                <Paper className={classes.paperBrown}>
+              <ThemeProvider theme={theme}>
+                <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="error" className={classes.font}><u>Craft a Cannagar</u></Typography>
+                    <b>{"Roll a Cannagar with kief, bud and oil and smoke it with your friends to gain XP"}</b>
+                  </React.Fragment>
+                }
+                placement="left"
+                TransitionComponent={Zoom}
+                >
+                <Fab
+                  variant="contained" 
+                  color="primary"
+                  //onClick={() => setPollinateSeedModal(!pollinateSeedModal)}
+                  className={classes.button}
+                ><CannagarIcon />
+                </Fab>
+                </HtmlTooltip>
+              </ThemeProvider>
+              
+                </Paper>
+                </Box>
+                
+              </Grid>
+              </TabPanel>
+
+              <TabPanel value={value} index={2}>
+                        <Grid item xs={12}>
                   <Box boxShadow={4}>
                   <Paper className={classes.paperBrown}>            
                     <ThemeProvider theme={theme}>
@@ -347,9 +652,13 @@ export const GardenActions = () => {
                         </Paper>
                         </Box>
                         </Grid>
-
+                      </TabPanel>
                       </Grid>
-                        <Grid item xs={8}>
+                      <Grid item xs>
+                          <div classesName={classes.vr}>
+                          </div>
+                        </Grid>
+                        <Grid item xs={6}>
                           <Inventory user={user} />
                         </Grid>
                       </Grid>
@@ -375,6 +684,39 @@ export const GardenActions = () => {
                         username={username}
                         headBlockNum={headBlockNum}
                       />
+                      <CraftOilModal
+                        isOpen={craftOilModal}
+                        toggleModal={() => setCraftOilModal(!craftOilModal)}
+                        availableBuds={user.availableBuds}
+                        availableVacovens={user.availableVacovens}
+                        username={username}
+                        headBlockNum={headBlockNum}
+                      />
+                      <KiefModal
+                        isOpen={craftKiefModal}
+                        toggleModal={() => setCraftKiefModal(!craftKiefModal)}
+                        availableBuds={user.availableBuds}
+                        availableKiefbox={user.availableKiefbox}
+                        username={username}
+                        headBlockNum={headBlockNum}
+                      />
+                      <JointModal
+                        isOpen={craftJointModal}
+                        toggleModal={() => setCraftJointModal(!craftJointModal)}
+                        availableBuds={user.availableBuds}
+                        availablePapers={user.availablePapers}
+                        username={username}
+                        headBlockNum={headBlockNum}
+                      />
+                      <BluntModal
+                        isOpen={craftBluntModal}
+                        toggleModal={() => setCraftBluntModal(!craftBluntModal)}
+                        availableBuds={user.availableBuds}
+                        availableBluntwraps={user.availableBluntwraps}
+                        username={username}
+                        headBlockNum={headBlockNum}
+                      />
+                      
                       <HarvestModal
                         isOpen={harvestModal}
                         toggleModal={() => setHarvestModal(!harvestModal)}
