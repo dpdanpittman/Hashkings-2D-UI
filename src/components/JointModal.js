@@ -5,12 +5,19 @@ import {seedNames} from "../service/HashkingsAPI";
 import {Dropdown} from "primereact/dropdown";
 import _ from "lodash";
 import {StateContext} from "../App";
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
+
+// The use of React.forwardRef will no longer be required for react-router-dom v6.
+// See https://github.com/ReactTraining/react-router/issues/6056
+const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
 export default function JointModal({
   isOpen,
   toggleModal,
   availableBuds,
   availablePapers,
+  totalxps,
   username
 }) {
   const [bud, setBud] = useState();
@@ -57,16 +64,22 @@ export default function JointModal({
         header="Roll Joint"
         visible={isOpen}
         modal={true}
-        style={{width: "50vw", maxWidth: 500, background: "#000000"}}
+        style={{width: "50vw", maxWidth: 500, background: "#0D2E2E"}}
         onHide={() => toggleModal("craftJointModal")}
         closeOnEscape={true}
         dismissableMask={true}
         id="craftJointModal"
       >
-        {availableBuds.length < 1 && (
-          <p><b>Sorry, you don't have any buds</b></p>
+        {totalxps < 2 && (
+          <h2><u><b>Locked!</b></u> - You need 100 XP to unlock and currently have {totalxps} XP .</h2>        )}
+        {availableBuds.length === 0 && (
+          <h4><b>Do you have any buds?</b></h4>
         )}
-        {availablePapers < 1 && <p>Sorry, you don't have any Papers. Please visit the market.</p>}
+        {availablePapers < 1 && <h3>You also need papers<br/> 
+        <Link component={Link1} to="/markets">Please visit the market.
+        </Link>
+        </h3>
+        }
         {availableBuds.length > 0 && availablePapers > 0 && (
           <>
             <label htmlFor="bud">Bud</label>

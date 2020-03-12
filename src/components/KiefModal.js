@@ -6,11 +6,19 @@ import {Dropdown} from "primereact/dropdown";
 import _ from "lodash";
 import {StateContext} from "../App";
 
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
+
+// The use of React.forwardRef will no longer be required for react-router-dom v6.
+// See https://github.com/ReactTraining/react-router/issues/6056
+const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
+
 export default function KiefModal({
   isOpen,
   toggleModal,
   availableBuds,
   availableKiefbox,
+  totalxps,
   username
 }) {
   const [bud, setBud] = useState();
@@ -63,10 +71,16 @@ export default function KiefModal({
         dismissableMask={true}
         id="craftKiefModal"
       >
+        {totalxps < 2 && (
+          <h2><u><b>Locked!</b></u> - You need 100 XP to unlock and currently have {totalxps} XP .</h2>        )}
         {availableBuds.length === 0 && (
-          <p><b>Sorry, you don't have any buds</b></p>
+          <h4><b>Do you have any buds?</b></h4>
         )}
-        {availableKiefbox < 1 && <p>Sorry, you don't have any Kief Boxes. Please visit the market.</p>}
+        {availableKiefbox < 1 && <h3>You also need a Kiefbox<br/> 
+        <Link component={Link1} to="/markets">Please visit the market.
+        </Link>
+        </h3>
+        }
         {availableBuds.length > 0 && availableKiefbox > 0 && (
           <>
             <label htmlFor="bud">Bud</label>

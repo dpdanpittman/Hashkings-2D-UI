@@ -166,6 +166,7 @@ export const GardenActions = () => {
       availableKief : 0,
       breederName: '',
       availableOil: 0,
+      totalxps: 0,
       activity: [],
       delegation: 0,
       leaderboard: []
@@ -186,6 +187,7 @@ export const GardenActions = () => {
       availableBuds: [],
       availableKief: [],
       availableOil: [],
+      totalxps: [],
       availableDippedJoints: [],
       availableBlunts: [],
       availableEdibles: [],
@@ -429,7 +431,7 @@ export const GardenActions = () => {
                 </Paper>
                 </Box>
               </Grid>
-
+<br/>
               <Grid item xs={12}>
             <Box boxShadow={4}>
               <Paper className={classes.paperBrown}>
@@ -592,7 +594,7 @@ export const GardenActions = () => {
                 <HtmlTooltip
                 title={
                   <React.Fragment>
-                    <Typography color="error" className={classes.font}><u>Craft a Dipped Joint</u></Typography>
+                    <Typography color="error" className={classes.font}><u>Craft a Dipped Joint<font color="red"> (Coming Soon!!)</font></u></Typography>
                     <b>{"Roll a Dipped Joint with kief, bud and oil and smoke it with your friends to gain XP"}</b>
                   </React.Fragment>
                 }
@@ -619,7 +621,7 @@ export const GardenActions = () => {
                 <HtmlTooltip
                 title={
                   <React.Fragment>
-                    <Typography color="error" className={classes.font}><u>Craft a Cannagar</u></Typography>
+                    <Typography color="error" className={classes.font}><u>Craft a fat Cannagar</u> <font color="red"><u>(Coming Soon!!)</u></font></Typography>
                     <b>{"Roll a Cannagar with kief, bud and oil and smoke it with your friends to gain XP"}</b>
                   </React.Fragment>
                 }
@@ -691,6 +693,7 @@ export const GardenActions = () => {
                         availableVacovens={user.availableVacovens}
                         username={username}
                         headBlockNum={headBlockNum}
+                        totalxps={user.totalxps}
                       />
                       <KiefModal
                         isOpen={craftKiefModal}
@@ -698,6 +701,7 @@ export const GardenActions = () => {
                         availableBuds={user.availableBuds}
                         availableKiefbox={user.availableKiefbox}
                         username={username}
+                        totalxps={user.totalxps}
                         headBlockNum={headBlockNum}
                       />
                       <JointModal
@@ -706,6 +710,7 @@ export const GardenActions = () => {
                         availableBuds={user.availableBuds}
                         availablePapers={user.availablePapers}
                         username={username}
+                        totalxps={user.totalxps}
                         headBlockNum={headBlockNum}
                       />
                       <BluntModal
@@ -714,6 +719,7 @@ export const GardenActions = () => {
                         availableBuds={user.availableBuds}
                         availableBluntwraps={user.availableBluntwraps}
                         username={username}
+                        totalxps={user.totalxps}
                         headBlockNum={headBlockNum}
                       />
                       

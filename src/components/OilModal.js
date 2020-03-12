@@ -1,16 +1,23 @@
 import React, {useContext, useState, useEffect} from "react";
 import {Button} from "primereact/button";
 import {Dialog} from "primereact/dialog";
-import {gardenNames, seedNames} from "../service/HashkingsAPI";
+import {seedNames} from "../service/HashkingsAPI";
 import {Dropdown} from "primereact/dropdown";
 import _ from "lodash";
 import {StateContext} from "../App";
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
+
+// The use of React.forwardRef will no longer be required for react-router-dom v6.
+// See https://github.com/ReactTraining/react-router/issues/6056
+const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
 export default function OilModal({
   isOpen,
   toggleModal,
   availableBuds,
   availableVacovens,
+  totalxps,
   username
 }) {
   const [bud, setBud] = useState();
@@ -57,16 +64,23 @@ export default function OilModal({
         header="Craft Oil"
         visible={isOpen}
         modal={true}
-        style={{width: "50vw", maxWidth: 500, background: "#000000"}}
+        style={{width: "50vw", maxWidth: 500, background: "#000E0E"}}
         onHide={() => toggleModal("craftOilModal")}
         closeOnEscape={true}
         dismissableMask={true}
         id="craftOilModal"
       >
-        {availableBuds.length === 0 && (
-          <p><b>Sorry, you don't have any buds</b></p>
+        {totalxps < 2 && (
+        <h2><u><b>Locked!</b></u> - You need 1000 XP to unlock and currently have {totalxps} XP .</h2>
         )}
-        {availableVacovens < 1 && <p>Sorry, you don't have any Vac Ovens. Please visit the market.</p>}
+        {availableBuds.length === 0 && (
+          <h4><b>Sorry, do you have any buds?</b></h4>
+        )}
+        {availableVacovens < 1 && <h3>You also need Vac Ovens.<br/> 
+        <Link component={Link1} to="/markets">Please visit the market.
+        </Link>
+        </h3>
+        }
         {availableBuds.length > 0 && availableVacovens > 0 && (
           <>
             <label htmlFor="bud">Bud</label>

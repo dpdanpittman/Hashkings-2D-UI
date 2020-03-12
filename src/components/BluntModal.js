@@ -5,11 +5,18 @@ import {seedNames} from "../service/HashkingsAPI";
 import {Dropdown} from "primereact/dropdown";
 import _ from "lodash";
 import {StateContext} from "../App";
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
+
+// The use of React.forwardRef will no longer be required for react-router-dom v6.
+// See https://github.com/ReactTraining/react-router/issues/6056
+const Link1 = React.forwardRef((props, ref) => <RouterLink innerRef={ref} {...props} />);
 
 export default function BluntModal({
   isOpen,
   toggleModal,
   availableBuds,
+  totalxps,
   availableBluntwraps,
   username
 }) {
@@ -63,10 +70,16 @@ export default function BluntModal({
         dismissableMask={true}
         id="craftBluntModal"
       >
-        {availableBuds.length < 1 && (
-          <p><b>Sorry, you don't have any buds</b></p>
+        {totalxps < 2 && (
+          <h2><u><b>Locked!</b></u> - You need 5000 XP to unlock and currently have {totalxps} XP .</h2>        )}
+        {availableBuds.length === 0 && (
+          <h4><b>Do you have any buds?</b></h4>
         )}
-        {availableBluntwraps < 1 && <p>Sorry, you don't have any Blunt wraps. Please visit the market.</p>}
+        {availableBluntwraps < 1 && <h3>You also need Bluntwraps<br/> 
+        <Link component={Link1} to="/markets">Please visit the market.
+        </Link>
+        </h3>
+        }
         {availableBuds.length > 0 && availableBluntwraps > 0 && (
           <>
             <label htmlFor="bud">Bud</label>
