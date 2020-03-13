@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import {StateContext} from "../App";
 import { Redirect } from 'react-router';
 import SwipeableViews from 'react-swipeable-views';
+import {seedTypes} from '../service/HashkingsAPI';
+import {sign} from "steemconnect";
+import useSteemKeychain from "../hooks/useSteemKeychain"; 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -120,7 +123,10 @@ export default function TradingFloor() {
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const theme = useTheme();
+  const [tool, setTool] = useState();
   const [value, setValue] = React.useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const hasSteemKeychain = useSteemKeychain();
   const seedBackground = "https://allhdwallpapers.com/wp-content/uploads/2018/12/beautiful-weed-plants.jpeg";
 
   const handleChange = (event, newValue) => {
@@ -130,6 +136,318 @@ export default function TradingFloor() {
   const handleChangeIndex = index => {
     setValue(index);
   };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    if (username) {
+      setIsSubmitting(true);
+
+      const memo = `papers`;
+      const to = "hashkings";
+      const amount = seedTypes["t"].str;
+      const currency = "STEEM";
+
+      if (hasSteemKeychain()) {
+        const steem_keychain = window.steem_keychain;
+        try {
+          await new Promise((resolve, reject) => {
+            return steem_keychain.requestTransfer(
+              username,
+              to,
+              amount,
+              memo,
+              currency,
+              response => {
+                if (response.success) {
+                  resolve(response);
+                } else {
+                  reject();
+                }
+              },
+              true
+            );
+          });
+          setIsSubmitting(false);
+          setTool();
+        } catch {
+          setIsSubmitting(false);
+        }
+      } else {
+        window.location.href = sign(
+          "transfer",
+          {
+            to,
+            from: username,
+            amount: `${amount} ${currency}`,
+            memo
+          },
+          process.env.REACT_APP_URL
+            ? `${process.env.REACT_APP_URL}/markets`
+            : "http://localhost:3000/markets"
+        );
+      }
+    }
+  };
+
+  const handleBluntSubmit = async e => {
+    e.preventDefault();
+    if (username) {
+      setIsSubmitting(true);
+
+      const memo = `bluntwraps`;
+      const to = "hashkings";
+      const amount = seedTypes["t"].str;
+      const currency = "STEEM";
+
+      if (hasSteemKeychain()) {
+        const steem_keychain = window.steem_keychain;
+        try {
+          await new Promise((resolve, reject) => {
+            return steem_keychain.requestTransfer(
+              username,
+              to,
+              amount,
+              memo,
+              currency,
+              response => {
+                if (response.success) {
+                  resolve(response);
+                } else {
+                  reject();
+                }
+              },
+              true
+            );
+          });
+          setIsSubmitting(false);
+          setTool();
+        } catch {
+          setIsSubmitting(false);
+        }
+      } else {
+        window.location.href = sign(
+          "transfer",
+          {
+            to,
+            from: username,
+            amount: `${amount} ${currency}`,
+            memo
+          },
+          process.env.REACT_APP_URL
+            ? `${process.env.REACT_APP_URL}/markets`
+            : "http://localhost:3000/markets"
+        );
+      }
+    }
+  };
+
+  const handleKiefSubmit = async e => {
+    e.preventDefault();
+    if (username) {
+      setIsSubmitting(true);
+
+      const memo = `kiefbox`;
+      const to = "hashkings";
+      const amount = seedTypes["t"].str;
+      const currency = "STEEM";
+
+      if (hasSteemKeychain()) {
+        const steem_keychain = window.steem_keychain;
+        try {
+          await new Promise((resolve, reject) => {
+            return steem_keychain.requestTransfer(
+              username,
+              to,
+              amount,
+              memo,
+              currency,
+              response => {
+                if (response.success) {
+                  resolve(response);
+                } else {
+                  reject();
+                }
+              },
+              true
+            );
+          });
+          setIsSubmitting(false);
+          setTool();
+        } catch {
+          setIsSubmitting(false);
+        }
+      } else {
+        window.location.href = sign(
+          "transfer",
+          {
+            to,
+            from: username,
+            amount: `${amount} ${currency}`,
+            memo
+          },
+          process.env.REACT_APP_URL
+            ? `${process.env.REACT_APP_URL}/markets`
+            : "http://localhost:3000/markets"
+        );
+      }
+    }
+  };  
+
+  const handleHempSubmit = async e => {
+    e.preventDefault();
+    if (username) {
+      setIsSubmitting(true);
+
+      const memo = `hempwraps`;
+      const to = "hashkings";
+      const amount = seedTypes["t"].str;
+      const currency = "STEEM";
+
+      if (hasSteemKeychain()) {
+        const steem_keychain = window.steem_keychain;
+        try {
+          await new Promise((resolve, reject) => {
+            return steem_keychain.requestTransfer(
+              username,
+              to,
+              amount,
+              memo,
+              currency,
+              response => {
+                if (response.success) {
+                  resolve(response);
+                } else {
+                  reject();
+                }
+              },
+              true
+            );
+          });
+          setIsSubmitting(false);
+          setTool();
+        } catch {
+          setIsSubmitting(false);
+        }
+      } else {
+        window.location.href = sign(
+          "transfer",
+          {
+            to,
+            from: username,
+            amount: `${amount} ${currency}`,
+            memo
+          },
+          process.env.REACT_APP_URL
+            ? `${process.env.REACT_APP_URL}/markets`
+            : "http://localhost:3000/markets"
+        );
+      }
+    }
+  };  
+
+  const handleVacSubmit = async e => {
+    e.preventDefault();
+    if (username) {
+      setIsSubmitting(true);
+
+      const memo = `vacoven`;
+      const to = "hashkings";
+      const amount = seedTypes["t"].str;
+      const currency = "STEEM";
+
+      if (hasSteemKeychain()) {
+        const steem_keychain = window.steem_keychain;
+        try {
+          await new Promise((resolve, reject) => {
+            return steem_keychain.requestTransfer(
+              username,
+              to,
+              amount,
+              memo,
+              currency,
+              response => {
+                if (response.success) {
+                  resolve(response);
+                } else {
+                  reject();
+                }
+              },
+              true
+            );
+          });
+          setIsSubmitting(false);
+          setTool();
+        } catch {
+          setIsSubmitting(false);
+        }
+      } else {
+        window.location.href = sign(
+          "transfer",
+          {
+            to,
+            from: username,
+            amount: `${amount} ${currency}`,
+            memo
+          },
+          process.env.REACT_APP_URL
+            ? `${process.env.REACT_APP_URL}/markets`
+            : "http://localhost:3000/markets"
+        );
+      }
+    }
+  };  
+
+  const handleWrapsSubmit = async k => {
+    k.preventDefault();
+    if (username) {
+      setIsSubmitting(true);
+
+      const memo = `hempwraps`;
+      const to = "hashkings";
+      const amount = seedTypes["t"].str;
+      const currency = "STEEM";
+
+      if (hasSteemKeychain()) {
+        const steem_keychain = window.steem_keychain;
+        try {
+          await new Promise((resolve, reject) => {
+            return steem_keychain.requestTransfer(
+              username,
+              to,
+              amount,
+              memo,
+              currency,
+              response => {
+                if (response.success) {
+                  resolve(response);
+                } else {
+                  reject();
+                }
+              },
+              true
+            );
+          });
+          setIsSubmitting(false);
+          setTool();
+        } catch {
+          setIsSubmitting(false);
+        }
+      } else {
+        window.location.href = sign(
+          "transfer",
+          {
+            to,
+            from: username,
+            amount: `${amount} ${currency}`,
+            memo
+          },
+          process.env.REACT_APP_URL
+            ? `${process.env.REACT_APP_URL}/markets`
+            : "http://localhost:3000/markets"
+        );
+      }
+    }
+  };  
 
   if (username) {
   return (
@@ -148,7 +466,8 @@ export default function TradingFloor() {
           <Tab className={classes.fontDark} label="Hashkings Signature Strains" {...a11yProps(0)} />
           <Tab className={classes.fontDark} label="Hybrid Strains" {...a11yProps(1)} disabled />
           <Tab className={classes.fontDark} label="Farm Plots" {...a11yProps(2)} />
-          <Tab className={classes.fontDark} label="Services" {...a11yProps(3)} />
+          <Tab className={classes.fontDark} label="Services" {...a11yProps(3)} disabled/>
+          <Tab className={classes.fontDark} label="Tools" {...a11yProps(4)} />
         </Tabs>
       </AppBar>
         <TabPanel value={value} index={0} dir={theme.direction}>
@@ -810,7 +1129,7 @@ export default function TradingFloor() {
         <CardMedia
           className={classes.mediaPlots}
           image="https://i.imgur.com/pNI9khY.png"
-          title="MExico"
+          title="Mexico"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" className={classes.font}>
@@ -877,6 +1196,64 @@ export default function TradingFloor() {
           Learn More
         </a>
         </Button>
+      </CardActions>
+    </Card>
+        </div>
+        </TabPanel>
+
+        <TabPanel value={value} index={4} dir={theme.direction}>
+        <div className={classes.root}>
+        <Card className={classes.cardDark}>
+      <CardActionArea disabled>
+        <CardMedia
+          className={classes.magicalMedia}
+          image="https://allhdwallpapers.com/wp-content/uploads/2018/12/beautiful-weed-plants.jpeg"
+          title="Farm Tools"
+        />
+        <CardContent>
+          <hr/>
+          <br/>
+          <Typography gutterBottom variant="h4" component="h2" className={classes.font}>
+           Farm Tools
+          </Typography>
+          <br/>
+          <Typography variant="body1" color="textSecondary" component="p" className={classes.font}>
+          Need some tool to craft? We have you covered from papers for joints to vac ovens for hash oil!  
+          </Typography>
+          <br/>
+          <Typography variant="body2" color="textSecondary" component="p" className={classes.font}>
+          <b>Choose below! Each item costs 5 STEEM</b>
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Grid container spacing={1}>
+          <Grid xs>
+      <Button size="large" color="error" onClick={handleSubmit}>
+          <font color="white">Purchase Papers</font>
+        </Button>
+        </Grid>
+        <Grid xs>
+        <Button size="large" color="error" onClick={handleBluntSubmit}>
+        <font color="white">Purchase Bluntwraps</font>
+        </Button>
+        </Grid>
+        <Grid xs>
+        <Button size="large" color="error" onClick={handleKiefSubmit}>
+        <font color="white">Purchase Kiefbox</font>
+        </Button>
+        </Grid>
+        <Grid xs>
+        <Button size="large" color="error" onClick={handleHempSubmit}>
+        <font color="white">Purchase Hempwraps</font>
+        </Button>
+        </Grid>
+        <Grid xs>
+        <Button size="large" color="error" onClick={handleVacSubmit}>
+        <font color="white">Purchase Vac Oven</font>
+        </Button>
+        </Grid>
+        </Grid>
       </CardActions>
     </Card>
         </div>

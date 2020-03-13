@@ -191,7 +191,7 @@ export const AcapulcoGold = () => {
             memo
           },
           process.env.REACT_APP_URL
-            ? `${process.env.REACT_APP_URL}/market/seedbank`
+            ? `${process.env.REACT_APP_URL}/markets`
             : "http://localhost:3000/market/seedbank"
         );
       }
