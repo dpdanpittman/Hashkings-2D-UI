@@ -4,7 +4,7 @@ const api = new steemconnect.Client({
   app: "loginking",
   baseURL: "https://steemconnect.com",
   callbackURL:
-    process.env.REACT_APP_SC_CALLBACK || "https://steem.hashkings.app:3000/callback",
+    process.env.REACT_APP_SC_CALLBACK || "https://steem.hashkings.app/callback",
   scope: ["custom_json", "login"]
 });
 
