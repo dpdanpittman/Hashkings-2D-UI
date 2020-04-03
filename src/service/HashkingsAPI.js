@@ -2,7 +2,7 @@ import axios from "axios";
 import { format as formatTimeAgo } from "timeago.js";
 
 export class HashkingsAPI {
-  baseUrl = "https://hashkings.herokuapp.com/"; // main api
+  baseUrl = "https://api.hashkings.app/"; // main api
   
   get(suffix) {
     return axios.get(this.baseUrl + suffix).then(res => res.data);
@@ -55,7 +55,7 @@ export class HashkingsAPI {
   getSteemAPI(method, params) {
     return axios
       .post(
-        "https://api.steemit.com",
+        "https://api.steemit.com/",
         JSON.stringify({
           id: 0,
           jsonrpc: "2.0",
