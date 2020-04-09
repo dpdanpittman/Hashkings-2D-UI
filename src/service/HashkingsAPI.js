@@ -537,17 +537,17 @@ export const pollenNames = {
 export const seedTypes = {
   r: {
     num: 5000,
-    str: "5",
+    str: "5.0-0",
     name: "Basic"
   },
   m: {
     num: 5000,
-    str: "5",
+    str: "5.000",
     name: "Premium"
   },
   t: {
     num: 5000,
-    str: "5",
+    str: "5.000",
     name: "Hand-Picked"
   },
   s: {
