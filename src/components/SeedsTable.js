@@ -19,7 +19,7 @@ function createData(name, total) {
 }
 
 const rows = [
-  createData('Seeds', 4),
+  createData('Seeds', 1),
   createData('Pollen', 6),
   createData('Buds', 10),
 ];

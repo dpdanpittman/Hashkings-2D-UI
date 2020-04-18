@@ -6,10 +6,27 @@ import Avatar from '@material-ui/core/Avatar';
 //import FaceIcon from '@material-ui/icons/Face';
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import { HashkingsAPI } from "./HashkingsAPI";
+import { HashkingsAPI } from "./service/HashkingsAPI";
 import api from './service/SteemConnectAPI';
+import Modal from '@material-ui/core/Modal';
+import Profile from './components/Profile.js';
 
 const access_token = localStorage.getItem("sc_token");
+
+/*function rand() {
+  return Math.round(Math.random() * 20) - 10;
+}*/
+
+function getModalStyle() {
+  const top = 50;
+  const left = 50;
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
 
 const handleClick = () => {
   window.location = '/login';
@@ -34,6 +51,15 @@ const useStyles = makeStyles(theme => ({
 font: {
   fontFamily: '"Jua", sans-serif',
 },
+paper: {
+  position: 'absolute',
+  width: 'auto',
+  maxHeight: 'auto',
+  backgroundColor: theme.palette.background.paper,
+  border: '2px solid #000',
+  boxShadow: theme.shadows[5],
+  padding: theme.spacing(2, 4, 3),
+},
 }));
 
 export const AppInlineProfile = () => {
@@ -41,6 +67,18 @@ export const AppInlineProfile = () => {
   const classes = useStyles();
   const {username} = useContext(StateContext);
   const [validatedTo, setValidatedTo] = useState();
+
+  // getModalStyle is not a pure function, we roll the style only on the first render
+  const [modalStyle] = React.useState(getModalStyle);
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     hashkingsApi.steemUserExists(username).then(username => {
@@ -144,7 +182,8 @@ const logOut = () => {
         </Avatar>}
         label= {username}
         color="primary"
-        onDelete={logOut}
+        //onDelete={logOut}
+        onClick={handleOpen}
         className={classes.font}
       />
         </Tooltip> 
@@ -155,6 +194,16 @@ const logOut = () => {
         className={classes.font}
       />
       </Tooltip>
+      <Modal
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+        open={open}
+        onClose={handleClose}
+      >
+        <div style={modalStyle} className={classes.paper}>
+          <Profile />
+        </div>
+      </Modal>
     </div>
   );
   }

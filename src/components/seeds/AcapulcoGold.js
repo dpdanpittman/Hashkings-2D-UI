@@ -192,7 +192,7 @@ export const AcapulcoGold = () => {
           },
           process.env.REACT_APP_URL
             ? `${process.env.REACT_APP_URL}/markets`
-            : "http://localhost:3000/market/seedbank"
+            : "https://steem.hashkings.app/markets"
         );
       }
     }

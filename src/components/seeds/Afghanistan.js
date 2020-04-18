@@ -156,8 +156,8 @@ export default function Afghanistan({
             memo
           },
           process.env.REACT_APP_URL
-            ? `${process.env.REACT_APP_URL}/market/farmplots`
-            : "http://localhost:3000/market/farmplots"
+            ? `${process.env.REACT_APP_URL}/markets`
+            : "https://steem.hashkings.app/markets"
         );
     }
   };
