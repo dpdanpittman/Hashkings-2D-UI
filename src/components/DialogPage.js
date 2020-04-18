@@ -39,11 +39,11 @@ export default function CustomizedDialogs() {
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogContent dividers>
         <Grid item xs>
-          <a href="https://www.patreon.com/hashkings" target="_blank">
+          <a href="https://steempeak.com/contestsupportfund/@hashkings/7-days-of-giveaways" target="_blank">
     <CardMedia
       className={classes.media}
-      image="https://i.imgur.com/MpuyDVD.png"
-      title="Click here to become a Patron"
+      image="https://i.imgur.com/T0toFhO.png"
+      title="Click here to learn about our giveaways"
     /></a>
     {/*<iframe width="560" 
     height="315" 
