@@ -13,6 +13,7 @@ import {  FarmTopbarIcon,
           TutorialIcon,
           FunditionIcon,
           PatreonIcon, 
+          BraveButton,
           LandIcon } from './Icons';
 import Tooltip from '@material-ui/core/Tooltip';
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
@@ -179,20 +180,20 @@ export default function DesktopTopbar(){
             <HtmlTooltip
               title={
                 <React.Fragment>
-                  <Typography color="error" className={classes.font}>Support us on Fundition</Typography>
+                  <Typography color="error" className={classes.font}>Dutch Passion Seeds</Typography>
                 </React.Fragment>
               }
               placement="top"
               TransitionComponent={Zoom}
               >
-            <a href="https://gaming.fundition.io/#!/@hashkings/vni1ql2j5" target="_default">    
+            <a href="https://www.dutch-passion.com?afmc=c5&utm_campaign=c5&utm_source=leaddyno&utm_medium=affiliate" target="_default">    
             <IconButton className="layout-menu-button">
             <FunditionIcon />
             </IconButton>
             </a>
             </HtmlTooltip>
             </Grid> 
-
+            
             <Grid item xs={1}>
             <HtmlTooltip
               title={
