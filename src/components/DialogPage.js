@@ -42,7 +42,7 @@ export default function CustomizedDialogs() {
           <a href="https://steempeak.com/contestsupportfund/@hashkings/7-days-of-giveaways" target="_blank">
     <CardMedia
       className={classes.media}
-      image="https://i.imgur.com/T0toFhO.png"
+      image="https://i.imgur.com/8mXk8ka.png"
       title="Click here to learn about our giveaways"
     /></a>
     {/*<iframe width="560" 
